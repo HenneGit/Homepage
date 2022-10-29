@@ -1,0 +1,107 @@
+
+#content-div {
+    margin-top: 20vh;
+    margin-bottom: 40vh;
+    display: flex;
+    justify-content: center;
+}
+
+.letter-box {
+    display: grid;
+    margin: 1rem;
+}
+
+.pixel {
+    margin: 1px;
+    opacity: 0;
+    transition: all 1s ease;
+    height: 5vh;
+    width: 5vh;
+
+}
+
+.pixel:hover {
+    background-color: #F49867;
+}
+
+.fade {
+    background-color: lightgreen;
+    opacity: 1;
+}
+
+.move {
+    transform: translateY(400px);
+    opacity: 0;
+}
+
+.enter {
+    background-color: firebrick;
+    cursor: pointer;
+}
+
+
+@-webkit-keyframes blink {
+    15% {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30% {
+        -webkit-transform: translateX(-5px);
+        transform: translateX(-5px);
+    }
+    50% {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65% {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80% {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+@keyframes blink {
+    15% {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30% {
+        -webkit-transform: translateX(-5px);
+        transform: translateX(-5px);
+    }
+    50% {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65% {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80% {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+.blink {
+    -webkit-animation: blink 2s ease;
+    animation: blink 2s ease;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+}
+
+

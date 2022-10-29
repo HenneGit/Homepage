@@ -1,0 +1,220 @@
+.games {
+    position: relative;
+    display: grid;
+    position: relative;
+    grid-template-columns: repeat(12, 1fr);
+    margin-top: 100px;
+
+}
+
+.games p {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 5rem;
+    line-height: 25px;
+    text-transform: capitalize;
+    margin: 0 1em;
+    cursor: pointer;
+}
+
+.games-div {
+    display: flex;
+    gap: 20rem;
+    align-items: center;
+    justify-content: center;
+    grid-row: 1;
+    grid-column: 1 / span 12;
+    z-index: 1;
+
+}
+
+.games-chess {
+
+
+}
+
+.games-mastermind {
+
+
+}
+
+
+.chess-svg {
+    grid-column: span 5/ 7;
+    grid-row: 1;
+}
+
+.draw-line {
+    stroke: #bc85ff;
+    stroke-width: 30;
+    stroke-miterlimit: 10;
+    stroke-dasharray: 120000;
+    stroke-dashoffset: 120000;
+    animation: draw 4s linear forwards;
+}
+
+.vanish {
+    stroke: #bc85ff;
+    stroke-width: 30;
+    stroke-miterlimit: 10;
+    stroke-dasharray: 100000;
+    stroke-dashoffset: 100000;
+    animation: vanish 2s reverse backwards;
+
+}
+
+
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes vanish {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+#panel {
+    display: grid;
+    grid-template-rows: 1fr 6fr 1fr;
+    /* position: relative; */
+}
+
+#y-axis {
+    display: grid;
+    width: 50px;
+    grid-template-rows: repeat(8, 1fr);
+    align-items: center;
+    justify-items: center;
+}
+
+img {
+    height: 90px;
+    width: 90px;
+}
+
+#x-axis {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-row: 2 / span 8;
+    align-items: center;
+    justify-items: center;
+}
+
+
+#board-div {
+    display: grid;
+    height: 800px;
+    width: 800px;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: repeat(8, 1fr);
+}
+
+
+.field {
+    display: grid;
+    height: 100px;
+    width: 100px;
+    justify-items: center;
+    align-items: center;
+}
+
+.empty {
+    height: 100px;
+    width: 100px;
+}
+
+.black {
+    background-color: palegreen;
+}
+
+.white {
+    background-color: antiquewhite;
+}
+
+.piece {
+    cursor: pointer;
+}
+
+.invisible {
+    display: none;
+}
+
+.hold {
+
+}
+
+.graveyard {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    width: 100px;
+    background-color: aquamarine;
+}
+
+#details {
+    width: 100px;
+    background-color: aqua;
+}
+
+.take {
+    background-color: crimson;
+}
+
+.legal {
+    background-color: aquamarine;
+}
+
+.hovered {
+    background-color: cornflowerblue;
+}
+
+.piece {
+    color: white;
+}
+
+#piece-picker-box {
+    display: grid;
+    border: 1px solid lightslategray;
+    background: white;
+    z-index: 2;
+    align-items: center;
+    justify-items: center;
+}
+
+#back-button {
+    height: 10px;
+    width: 10px;
+    background-color: red;
+    cursor: pointer;
+}
+
+#forward-button {
+    background-color: green;
+    cursor: pointer;
+    height: 10px;
+    width: 10px;
+}
+
+#start-button {
+    background-color: palegreen;
+    cursor: pointer;
+    height: 10px;
+    width: 10px;
+}
+
+#end-button {
+    background-color: greenyellow;
+    cursor: pointer;
+    height: 10px;
+    width: 10px;
+
+}
+
+#turn-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+}
