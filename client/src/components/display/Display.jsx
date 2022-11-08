@@ -2,7 +2,6 @@ import React, {Component, useEffect, useState} from 'react';
 import './display.css';
 
 
-
 export default class Display extends Component {
     constructor() {
         super();
@@ -11,16 +10,14 @@ export default class Display extends Component {
     componentDidMount() {
         init();
 
+
         /**
          * inits the page, collects active pixels and sets animation for appearing.
          * @returns {Promise<void>}
          */
         async function init() {
-            console.log("Hallo");
             let contentDiv = document.getElementById('content-div');
-
             await buildLetterGrid("hello", contentDiv);
-
             const pixels = contentDiv.querySelectorAll('.pixel-active');
 
             let array = [];
@@ -47,7 +44,7 @@ export default class Display extends Component {
          * starts the moving down animation on shuffled rows.
          * @returns {Promise<void>}
          */
-        async function moveDown() {
+        async function movePixels() {
             const rows = getShuffledRows();
             for (let row of rows) {
                 await startAnimationAndResolve(row);
@@ -61,7 +58,6 @@ export default class Display extends Component {
          * @returns {Promise<Promise<unknown>>}
          */
         async function startAnimationAndResolve(row) {
-
             return new Promise(resolve => {
                 setTimeout(function () {
                     playAnimation(row);
@@ -97,10 +93,7 @@ export default class Display extends Component {
             while (counter > 0) {
                 // Pick a random index
                 let index = Math.floor(Math.random() * counter);
-
-                // Decrease counter by 1
                 counter--;
-
                 // And swap the last element with it
                 let temp = array[counter];
                 array[counter] = array[index];
@@ -120,28 +113,22 @@ export default class Display extends Component {
 
 
             //add event to tooltip
-            pix.addEventListener('click', function () {
-                moveDown();
-                setTimeout(lazyLoadMain, 2000);
+            pix.addEventListener('click', async function () {
+                await movePixels();
+                let contentDiv = document.getElementById('content-div');
+                //reset pixels.
+                setTimeout(() => {
+                    removeChildren(contentDiv);
+                    init();
+                }, 500)
+
             });
+
             const timeOut = setTimeout(() => {
                 pix.classList.add('blink');
             }, 1);
 
             pix.classList.add('enter');
-        }
-
-        function lazyLoadMain() {
-            clearElement(document.getElementById('content-div'));
-            let script = document.createElement('script');
-            script.type = "module";
-            script.src = "/menubar/menubar.js";
-            document.querySelector('body').appendChild(script);
-            let head = document.querySelector('head');
-            let link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = '/menubar/menubar.css';
-            head.appendChild(link);
         }
 
 
@@ -208,12 +195,6 @@ export default class Display extends Component {
 
         }
 
-        function clearElement(element) {
-            while (element.firstChild) {
-                element.removeChild(element.firstChild);
-            }
-        }
-
         function cleanLetters() {
             let letters = document.querySelectorAll('.letter-box');
             let columnNo = ['c0', 'c1', 'c2', 'c3', 'c4'];
@@ -237,6 +218,12 @@ export default class Display extends Component {
                 letter.style.gridTemplateColumns = "repeat(" + columnCount + ", 1fr)";
             }
         }
+
+        const removeChildren = (parent) => {
+            while (parent.lastChild) {
+                parent.removeChild(parent.lastChild);
+            }
+        };
     }
 
     render() {
@@ -245,30 +232,3 @@ export default class Display extends Component {
         )
     }
 }
-
-
-
-
-
-
-
-
-
-// const [backendData, setBackend] = useState([{}]);
-//
-// useEffect(() => {
-//         fetch("/api").then(response => response.json()).then(data => setBackend(data))
-//     }, []
-// );
-// return (
-//     <div>
-//         {(typeof backendData.users === 'undefined') ? (
-//             <p>Loading...</p>
-//
-//         ): (backendData.users.map((user, i) => (
-//             <p key={i}>{user}</p>
-//
-//         )))}
-//
-//     </div>
-// )

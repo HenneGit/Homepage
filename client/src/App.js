@@ -2,6 +2,7 @@ import './App.css';
 import React,{Component} from 'react';
 import axios from 'axios';
 import {Navigation, Games, Header, Display} from "./components";
+import Chess from "./components/chess/Chess";
 
 
 export default class App extends Component {
@@ -16,10 +17,10 @@ export default class App extends Component {
                     <Navigation/>
                     <Display/>
                     <Header/>
-                </div>
-                <div>
                     <Games/>
+                    <Chess/>
                 </div>
+
             </div>
         );
     }
