@@ -52,16 +52,15 @@ img {
 
 #numeric-div {
     position: absolute;
-    margin-bottom: 6vh;
-    margin-right: 6vh;
-
+    margin-bottom: 6.5vh;
+    margin-right: 6.5vh;
     font-size: 1em;
 }
 
 #letter-div {
     position: absolute;
-    margin-top: 6vh;
-    margin-left: 6vh;
+    margin-top: 6.5vh;
+    margin-left: 6.5vh;
     font-size: 1em;
 }
 

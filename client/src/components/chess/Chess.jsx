@@ -55,7 +55,7 @@ export default class Chess extends Component {
         };
 
         const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
-        const flippedNumber = [8, 7, 6, 5, 4, 3, 2, 1];
+        const flippedNumbers = [8, 7, 6, 5, 4, 3, 2, 1];
 
         let board = null;
         const boardHistory = [];
@@ -76,9 +76,10 @@ export default class Chess extends Component {
             this.y = y;
         }
 
-        function Board(fields, graveyard) {
+        function Board(fields, graveyard, playerColor) {
             this.fields = fields;
             this.graveyard = graveyard;
+            this.playerColor = playerColor;
 
         }
 
@@ -105,53 +106,37 @@ export default class Chess extends Component {
                     fields.push(field);
                 }
             }
-            board = new Board(fields, graveyard);
-            createBoard(board);
+            board = new Board(fields, graveyard, "black");
+            createBoard(board, board.playerColor);
         }
 
         /**
          * create the board and add pieces to it.
          * @param currentBoard the board to create the field from.
          */
-        function createBoard(currentBoard) {
+        function createBoard(currentBoard, playerColor) {
             let contentDiv = document.getElementById('chess');
+            let isBlack = playerColor === "black";
             clearElement(contentDiv);
             let boardDiv = createElement('div', 'board-div');
             let blackOrWhite = -1;
 
             for (let field of currentBoard.fields) {
                 let domField = getDiv(field.id);
-                if (field.id.includes("a")) {
+                addLetterOrNumberGrid(field, domField, isBlack)
 
-                    let numberDiv = createElement("div", "numeric-div");
-                    let number = field.y;
-                    if (number % 2 === 0) {
-                        numberDiv.classList.add("white");
-                    } else {
-                        numberDiv.classList.add("black");
-                    }
-                    numberDiv.innerText = number;
-                    domField.appendChild(numberDiv);
-                }
-                if (field.id.includes("1")) {
-                    let letterDiv = createElement("div", "letter-div");
-                    letterDiv.classList.add("letter-div");
-                    let number = field.x;
-                    if (number % 2 === 0) {
-                        letterDiv.classList.add("white");
-                    } else {
-                        letterDiv.classList.add("black");
-                    }
-                    letterDiv.innerText = letters[field.x - 1];
-                    domField.appendChild(letterDiv);
-                }
 
                 let classType = blackOrWhite < 0 ? 'white' : 'black';
                 domField.classList.add(classType);
                 domField.classList.add('field');
-                domField.setAttribute('x', field.x);
                 domField.setAttribute('y', field.y);
-                domField.style.gridArea = flippedNumber[field.y - 1] + "/" + field.x;
+                domField.setAttribute('x', field.x);
+
+                if (isBlack) {
+                    domField.style.gridArea = field.y + "/" + flippedNumbers[field.x - 1];
+                } else {
+                    domField.style.gridArea = flippedNumbers[field.y - 1] + "/" + field.x;
+                }
                 if (field.piece !== null) {
                     let imgDiv = createImgFromField(field);
                     domField.appendChild(imgDiv);
@@ -167,72 +152,37 @@ export default class Chess extends Component {
 
             let panel = getDiv('panel');
             createPanel(panel);
-            contentDiv.append(panel, addFlipButton());
+            contentDiv.append(panel);
         }
 
-        function addFlipButton() {
-            let container = createElement('div', 'flip-button');
-            let img = createElement('img', 'flip-svg');
-            img.src = "flip.svg";
-            container.append(img);
-            container.addEventListener('click', flip);
-            return container;
-        }
-
-        function flip() {
-            let boardDiv = document.getElementById('board-div');
-            let domFields = document.querySelectorAll('.field');
-            for (let i = 1; i < boardDiv.childNodes.length; i++) {
-                boardDiv.insertBefore(boardDiv.childNodes[i], boardDiv.firstChild);
-            }
-            for (let domField of domFields) {
-                if (boardDiv.firstChild.id === 'a8') {
-                    domField.style.gridArea = flippedNumber[domField.getAttribute('y') - 1] + "/" + domField.getAttribute('x');
+        function addLetterOrNumberGrid(field, domField, isBlack) {
+            let letter = isBlack ? "h" : "a";
+            let moduloResult = isBlack ? 1 : 0;
+            let number = isBlack ? "8" : "1";
+            if (field.id.includes(letter)) {
+                let numberDiv = createElement("div", "numeric-div");
+                let number = field.y;
+                if (number % 2 === moduloResult) {
+                    numberDiv.classList.add("white");
                 } else {
-                    domField.style.gridArea = domField.getAttribute('y') + "/" + domField.getAttribute('x');
+                    numberDiv.classList.add("black");
                 }
+                numberDiv.innerText = number;
+                domField.appendChild(numberDiv);
             }
-            flipLetters();
-        }
-
-        function flipLetters() {
-            let letterDivs = document.querySelectorAll('.letter-div');
-            let eighthRankFields = getFieldsByRank("8");
-            let firstRankFields = getFieldsByRank("1");
-            let fields = hasLetterAxis(eighthRankFields) ? eighthRankFields : firstRankFields;
-            letterDivs.forEach(el => el.parentElement.removeChild(el));
-
-            for (let field of fields) {
-                for (let numericDiv of letterDivs) {
-                    if (field.id.includes(letters[numericDiv.innerText-1])) {
-                        field.appendChild(numericDiv);
-                    }
+            //add letters and number grid.
+            if (field.id.includes(number)) {
+                let letterDiv = createElement("div", "letter-div");
+                letterDiv.classList.add("letter-div");
+                let number = field.x;
+                if (number % 2 === moduloResult) {
+                    letterDiv.classList.add("white");
+                } else {
+                    letterDiv.classList.add("black");
                 }
+                letterDiv.innerText = letters[field.x - 1];
+                domField.appendChild(letterDiv);
             }
-        }
-
-        function hasLetterAxis(fields) {
-            let hasLetterDiv = false;
-            for (let field of fields) {
-                if (hasLetterDiv) {
-                    return hasLetterDiv;
-                }
-                hasLetterDiv = field.firstChild.classList.contains('letter-div');
-            }
-        }
-
-
-
-        function getFieldsByRank(rank) {
-            let domFields = document.querySelectorAll('.field');
-            let eighthRankFields = [];
-            for (let domField of domFields) {
-                if (domField.id.includes(rank)) {
-                    eighthRankFields.push(domField);
-                }
-            }
-            console.log(eighthRankFields);
-            return eighthRankFields;
 
         }
 
@@ -252,11 +202,9 @@ export default class Chess extends Component {
             let blackPieces = getPiecesFromGraveyard('black');
             let whitePieces = getPiecesFromGraveyard('white');
             if (blackPieces !== null || true) {
-
                 appendPiecesToGraveyard(blackPieces, blackGraveyard);
             }
             if (whitePieces !== null || true) {
-
                 appendPiecesToGraveyard(whitePieces, whiteGraveyard);
             }
 
@@ -269,19 +217,15 @@ export default class Chess extends Component {
             });
             sortablePieceArray.forEach(piece => {
                 let imgDiv = document.createElement('div');
-                imgDiv.appendChild(fetchPiece(piece.type));
+                let img = document.createElement('img');
+                img.src = "http://localhost:5000/" + piece.type + piece.color;
+                imgDiv.appendChild(img);
                 graveyard.appendChild(imgDiv);
             });
 
         }
 
-        function fetchPiece(type) {
-            return createElement('div');
-
-        }
-
         function createImgFromField(field) {
-
             let imgDiv = document.createElement('div');
             let img = document.createElement('img');
             img.src = "http://localhost:5000/" + field.piece.type + field.piece.color;
@@ -290,9 +234,7 @@ export default class Chess extends Component {
             imgDiv.draggable = true;
             imgDiv.addEventListener('dragstart', dragStart);
             imgDiv.addEventListener('dragend', dragEnd);
-
             imgDiv.appendChild(img);
-
             return imgDiv;
         }
 
@@ -386,7 +328,7 @@ export default class Chess extends Component {
             let interval = setInterval(function () {
                 if (pieceWasPicked === true) {
                     clearInterval(interval);
-                    createBoard(board);
+                    createBoard(board, board.playerColor);
                 }
             }, 10);
         }
@@ -451,7 +393,7 @@ export default class Chess extends Component {
             } else {
                 movedPiece.moveNumber += 1;
                 resolveDrop(oldFieldId, this.id);
-                createBoard(board);
+                createBoard(board, board.playerColor);
             }
         }
 
@@ -765,7 +707,7 @@ export default class Chess extends Component {
             board.graveyard.push(captureField.piece);
             captureField.piece = null;
             resolveDrop(currentField.id, captureMoveField.id);
-            createBoard(board);
+            createBoard(board, board.playerColor);
 
         }
 
@@ -783,7 +725,7 @@ export default class Chess extends Component {
             let moveTargetKing = getFieldByXY(kingField.x + 2, kingField.y);
 
             resolveDrop(kingField.id, moveTargetKing.id);
-            createBoard(board);
+            createBoard(board, board.playerColor);
 
         }
 
@@ -801,7 +743,7 @@ export default class Chess extends Component {
             let moveTargetKing = getFieldByXY(kingField.x - 2, kingField.y);
 
             resolveDrop(kingField.id, moveTargetKing.id);
-            createBoard(board);
+            createBoard(board, board.playerColor);
         }
 
         function getBishopMoves(field) {
