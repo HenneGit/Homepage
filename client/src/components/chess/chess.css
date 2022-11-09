@@ -13,6 +13,7 @@
 
 img {
     height: 8vh;
+    display: block;
 }
 
 #x-axis {
@@ -52,16 +53,16 @@ img {
 
 #numeric-div {
     position: absolute;
-    margin-bottom: 6.5vh;
+    margin-bottom: 6.4vh;
     margin-right: 6.5vh;
-    font-size: 1em;
+    font-size: 1.3vh;
 }
 
 #letter-div {
     position: absolute;
-    margin-top: 6.5vh;
+    margin-top: 6.4vh;
     margin-left: 6.5vh;
-    font-size: 1em;
+    font-size: 1.3vh;
 }
 
 .black {

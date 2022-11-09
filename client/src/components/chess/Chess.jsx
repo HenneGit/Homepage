@@ -54,6 +54,7 @@ export default class Chess extends Component {
             }
         };
 
+        const vectors = [[2, -1], [2, 1], [-1, 2], [1, 2], [-1, -2], [1, -2], [-2, 1], [-2, -1]];
         const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
         const flippedNumbers = [8, 7, 6, 5, 4, 3, 2, 1];
 
@@ -211,6 +212,7 @@ export default class Chess extends Component {
         }
 
         function appendPiecesToGraveyard(pieces, graveyard) {
+            console.log(graveyard);
             let sortablePieceArray = Array.from(pieces);
             sortablePieceArray.sort(function (a, b) {
                 return b.sort - a.sort;
@@ -557,7 +559,6 @@ export default class Chess extends Component {
          */
         function getKnightMoves(field) {
             let legalFields = [];
-            let vectors = [[2, -1], [2, 1], [-1, 2], [1, 2], [-1, -2], [1, -2], [-2, 1], [-2, -1]];
 
             for (let vector of vectors) {
                 let nextField = getFieldByXY(field.x + vector[0], field.y + vector[1]);
@@ -620,9 +621,7 @@ export default class Chess extends Component {
             let container = document.createElement('div');
             let contentDiv = document.getElementById('board-div');
             container.id = 'piece-picker-box';
-            let sideOfTheBoard = color === 'white' ? 1 : 9;
-            container.style.gridArea = sideOfTheBoard + "/" + dropField.x + "/" + 5;
-
+            container.style.gridArea = 1 + "/" + flippedNumbers[dropField.x-1] + "/" + 5;
             for (let [pieceType, piece] of pieceMap) {
                 if (piece.hasOwnProperty('type')) {
                     let newField = new Field(piece, dropField.id, dropField.x, dropField.y);
