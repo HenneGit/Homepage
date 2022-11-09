@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import './chess.css';
 
 export default class Chess extends Component {
     constructor() {
@@ -6,8 +7,6 @@ export default class Chess extends Component {
     }
 
     componentDidMount() {
-
-
         const positions = {
 
             "a1": new Piece('rook', 'white', 0, 3),
@@ -121,8 +120,32 @@ export default class Chess extends Component {
             let blackOrWhite = -1;
 
             for (let field of currentBoard.fields) {
-
                 let domField = getDiv(field.id);
+                if (field.id.includes("a")) {
+
+                    let numberDiv = createElement("div", "numeric-div");
+                    let number = field.y;
+                    if (number % 2 === 0) {
+                        numberDiv.classList.add("white");
+                    } else {
+                        numberDiv.classList.add("black");
+                    }
+                    numberDiv.innerText = number;
+                    domField.appendChild(numberDiv);
+                }
+                if (field.id.includes("1")) {
+                    let letterDiv = createElement("div", "letter-div");
+                    letterDiv.classList.add("letter-div");
+                    let number = field.x;
+                    if (number % 2 === 0) {
+                        letterDiv.classList.add("white");
+                    } else {
+                        letterDiv.classList.add("black");
+                    }
+                    letterDiv.innerText = letters[field.x - 1];
+                    domField.appendChild(letterDiv);
+                }
+
                 let classType = blackOrWhite < 0 ? 'white' : 'black';
                 domField.classList.add(classType);
                 domField.classList.add('field');
@@ -141,15 +164,8 @@ export default class Chess extends Component {
 
             }
             contentDiv.appendChild(boardDiv);
-            let xAxis = getDiv("x-axis");
-            let yAxis = getDiv('y-axis');
-            appendAxis(yAxis, true);
-            appendAxis(xAxis, false);
-            contentDiv.appendChild(yAxis);
-            contentDiv.appendChild(xAxis);
-            let panel = getDiv('panel');
-            flip();
 
+            let panel = getDiv('panel');
             createPanel(panel);
             contentDiv.append(panel, addFlipButton());
         }
@@ -162,6 +178,64 @@ export default class Chess extends Component {
             container.addEventListener('click', flip);
             return container;
         }
+
+        function flip() {
+            let boardDiv = document.getElementById('board-div');
+            let domFields = document.querySelectorAll('.field');
+            for (let i = 1; i < boardDiv.childNodes.length; i++) {
+                boardDiv.insertBefore(boardDiv.childNodes[i], boardDiv.firstChild);
+            }
+            for (let domField of domFields) {
+                if (boardDiv.firstChild.id === 'a8') {
+                    domField.style.gridArea = flippedNumber[domField.getAttribute('y') - 1] + "/" + domField.getAttribute('x');
+                } else {
+                    domField.style.gridArea = domField.getAttribute('y') + "/" + domField.getAttribute('x');
+                }
+            }
+            flipLetters();
+        }
+
+        function flipLetters() {
+            let letterDivs = document.querySelectorAll('.letter-div');
+            let eighthRankFields = getFieldsByRank("8");
+            let firstRankFields = getFieldsByRank("1");
+            let fields = hasLetterAxis(eighthRankFields) ? eighthRankFields : firstRankFields;
+            letterDivs.forEach(el => el.parentElement.removeChild(el));
+
+            for (let field of fields) {
+                for (let numericDiv of letterDivs) {
+                    if (field.id.includes(letters[numericDiv.innerText-1])) {
+                        field.appendChild(numericDiv);
+                    }
+                }
+            }
+        }
+
+        function hasLetterAxis(fields) {
+            let hasLetterDiv = false;
+            for (let field of fields) {
+                if (hasLetterDiv) {
+                    return hasLetterDiv;
+                }
+                hasLetterDiv = field.firstChild.classList.contains('letter-div');
+            }
+        }
+
+
+
+        function getFieldsByRank(rank) {
+            let domFields = document.querySelectorAll('.field');
+            let eighthRankFields = [];
+            for (let domField of domFields) {
+                if (domField.id.includes(rank)) {
+                    eighthRankFields.push(domField);
+                }
+            }
+            console.log(eighthRankFields);
+            return eighthRankFields;
+
+        }
+
 
         /**
          * create the panel where graveyard, moves and time is displayed.
@@ -241,48 +315,6 @@ export default class Chess extends Component {
             let div = document.createElement('div');
             div.id = id;
             return div;
-        }
-
-        /**
-         * append x(a - h) and y(1-8) axis
-         * @param axis
-         * @param hasLetters
-         */
-        function appendAxis(axis, hasLetters) {
-            let letterCount = 7;
-            for (let i = 0; i < 8; i++) {
-                let div = document.createElement('div');
-                hasLetters ? div.innerText = i + 1 : div.innerText = letters[letterCount];
-                axis.appendChild(div);
-                letterCount--;
-            }
-
-        }
-
-        /**
-         * mirror the board.
-         */
-        function flip() {
-            let boardDiv = document.getElementById('board-div');
-            let domFields = document.querySelectorAll('.field');
-            let xAxis = document.getElementById('x-axis');
-            let yAxis = document.getElementById('y-axis');
-            let elements = [boardDiv, xAxis, yAxis];
-            for (let element of elements) {
-                for (let i = 1; i < element.childNodes.length; i++) {
-                    element.insertBefore(element.childNodes[i], element.firstChild);
-                }
-            }
-            for (let domField of domFields) {
-                if (boardDiv.firstChild.id === 'a8') {
-
-                    domField.style.gridArea = flippedNumber[domField.getAttribute('y') - 1] + "/" + domField.getAttribute('x');
-                } else {
-
-                    domField.style.gridArea = domField.getAttribute('y') + "/" + domField.getAttribute('x');
-
-                }
-            }
         }
 
 

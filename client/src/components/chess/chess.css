@@ -1,7 +1,7 @@
-#content-div {
+#chess {
     display: grid;
-    height: 850px;
-    width: 850px;
+    max-width: 400px;
+
     grid-template-columns: 7fr 1fr 7fr;
     grid-template-rows: 7fr 1fr;
 }
@@ -9,20 +9,10 @@
 #panel {
     display: grid;
     grid-template-rows: 1fr 6fr 1fr;
-    /* position: relative; */
-}
-
-#y-axis {
-    display: grid;
-    width: 50px;
-    grid-template-rows: repeat(8, 1fr);
-    align-items: center;
-    justify-items: center;
 }
 
 img {
-    height: 90px;
-    width: 90px;
+    height: 8vh;
 }
 
 #x-axis {
@@ -36,32 +26,54 @@ img {
 
 #board-div {
     display: grid;
-    height: 800px;
-    width: 800px;
+    position: relative;
+    width: 100%;
+    height: 100%;
     grid-template-rows: repeat(8, 1fr);
     grid-template-columns: repeat(8, 1fr);
 }
 
+#board-div:after {
+    content: "";
+    display: block;
+}
 
 .field {
     display: grid;
-    height: 100px;
-    width: 100px;
+    width: 100%;
     justify-items: center;
     align-items: center;
 }
 
-.empty {
-    height: 100px;
-    width: 100px;
+.field:after {
+    content: "";
+    display: block;
+}
+
+#numeric-div {
+    position: absolute;
+    margin-bottom: 6vh;
+    margin-right: 6vh;
+
+    font-size: 1em;
+}
+
+#letter-div {
+    position: absolute;
+    margin-top: 6vh;
+    margin-left: 6vh;
+    font-size: 1em;
 }
 
 .black {
-    background-color: palegreen;
+    background-color: #b58863;
+    color: #f0d9b5;
 }
 
 .white {
-    background-color: antiquewhite;
+    background-color: #f0d9b5;
+    color: #b58863;
+
 }
 
 .piece {
