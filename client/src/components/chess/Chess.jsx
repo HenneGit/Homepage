@@ -10,31 +10,31 @@ export default class Chess extends Component {
     componentDidMount() {
         const positions = {
 
-            "a1": new Piece('rook', 'white', 0, 3),
-            "b1": new Piece('knight', 'white', 0, 1),
-            "c1": new Piece('bishop', 'white', 0, 2),
-            "d1": new Piece('queen', 'white', 0, 4),
-            "e1": new Piece('king', 'white', 0, 6),
-            "f1": new Piece('bishop', 'white', 0, 2),
-            "g1": new Piece('knight', 'white', 0, 1),
-            "h1": new Piece('rook', 'white', 0, 3),
-            "a8": new Piece('rook', 'black', 0, 3),
-            "b8": new Piece('knight', 'black', 0, 1),
-            "c8": new Piece('bishop', 'black', 0, 2),
-            "d8": new Piece('queen', 'black', 0, 4),
-            "e8": new Piece('king', 'black', 0, 6),
-            "f8": new Piece('bishop', 'black', 0, 2),
-            "g8": new Piece('knight', 'black', 0, 1),
-            "h8": new Piece('rook', 'black', 0, 3)
+            "a1": new Piece('rook', 'white', 0, 3, "R"),
+            "b1": new Piece('knight', 'white', 0, 1, "N"),
+            "c1": new Piece('bishop', 'white', 0, 2, "B"),
+            "d1": new Piece('queen', 'white', 0, 4, "Q"),
+            "e1": new Piece('king', 'white', 0, 6, "K"),
+            "f1": new Piece('bishop', 'white', 0, 2, "B"),
+            "g1": new Piece('knight', 'white', 0, 1, "N"),
+            "h1": new Piece('rook', 'white', 0, 3, "R"),
+            "a8": new Piece('rook', 'black', 0, 3, "r"),
+            "b8": new Piece('knight', 'black', 0, 1, "n"),
+            "c8": new Piece('bishop', 'black', 0, 2,"b"),
+            "d8": new Piece('queen', 'black', 0, 4,"q"),
+            "e8": new Piece('king', 'black', 0, 6, "k"),
+            "f8": new Piece('bishop', 'black', 0, 2, "b"),
+            "g8": new Piece('knight', 'black', 0, 1,"n"),
+            "h8": new Piece('rook', 'black', 0, 3,"r")
         };
 
 
         const piecePicker = function (color) {
             let piecePickerMap = new Map();
-            piecePickerMap.set('bishop', new Piece('bishop', color, 0));
-            piecePickerMap.set('knight', new Piece('knight', color, 0));
-            piecePickerMap.set('rook', new Piece('rook', color, 0));
-            piecePickerMap.set('queen', new Piece('queen', color, 0));
+            piecePickerMap.set('bishop', new Piece('bishop', color, 0, 2, color === "white" ? "B" : "b"));
+            piecePickerMap.set('knight', new Piece('knight', color, 0, 1, color === "white" ? "N" : "n"));
+            piecePickerMap.set('rook', new Piece('rook', color, 0, 3, color === "white" ? "R" : "r"));
+            piecePickerMap.set('queen', new Piece('queen', color, 0, 4, color === "white" ? "Q" : "q"));
             return piecePickerMap;
         };
 
@@ -64,11 +64,12 @@ export default class Chess extends Component {
         let moveTracker = [];
         let turnNumber = -1;
 
-        function Piece(type, color, moveNumber, sort) {
+        function Piece(type, color, moveNumber, sort, fenChar) {
             this.type = type;
             this.color = color;
             this.moveNumber = moveNumber;
             this.sort = sort;
+            this.fenChar = fenChar;
         }
 
         function Field(piece, id, x, y) {
@@ -85,6 +86,46 @@ export default class Chess extends Component {
 
         }
 
+
+        function generateFENString() {
+            let fields = board.fields;
+            let sortedFields = Array.from(fields);
+            sortedFields.sort((a,b) =>{
+                return a.x - b.x;
+            })
+            sortedFields.sort((a,b) =>{
+                return b.y - a.y;
+            })
+            let fenString = "";
+            let emptyFieldCounter = 0;
+            let counter = 0;
+            for (let field of sortedFields) {
+                if (counter === 8) {
+                    fenString += "/";
+                }
+                let piece = field.piece;
+                if (piece !== null) {
+                    if (emptyFieldCounter !== 0) {
+                        fenString += emptyFieldCounter;
+                        emptyFieldCounter = 0;
+                    }
+                    fenString += piece.fenChar;
+                } else {
+                    if (counter === 8 && emptyFieldCounter >= 0) {
+                        fenString += 8;
+                        emptyFieldCounter = 0;
+                    }
+                    emptyFieldCounter++;
+                }
+                if (counter === 8) {
+                    counter = 0;
+                }
+                counter++;
+            }
+            return fenString;
+        }
+
+
         newGame();
 
         /**
@@ -100,14 +141,14 @@ export default class Chess extends Component {
                     let piece = positions[letter + i] === undefined ? null : positions[letter + i];
                     if (i === 2 || i === 7) {
                         let color = i === 7 ? 'black' : 'white';
-                        piece = new Piece('pawn', color, 0, 0);
+                        piece = new Piece('pawn', color, 0, 0, color === "white" ? "P" : "p");
                     }
 
                     let field = new Field(piece, letter + i, j, i);
                     fields.push(field);
                 }
             }
-            board = new Board(fields, graveyard, "black");
+            board = new Board(fields, graveyard, "white");
             createBoard(board, board.playerColor);
         }
 
@@ -154,6 +195,7 @@ export default class Chess extends Component {
             let panel = getDiv('panel');
             createPanel(panel);
             contentDiv.append(panel);
+            console.log(generateFENString(currentBoard));
         }
 
         function addLetterOrNumberGrid(field, domField, isBlack) {
@@ -674,7 +716,7 @@ export default class Chess extends Component {
                         legalMoves.push(captureMoveField);
                         domField.removeEventListener('drop', dragDrop);
                         domField.addEventListener('drop', function () {
-                            executeEnpassant(enemyField, currentField, captureMoveField)
+                            executeEnPassant(enemyField, currentField, captureMoveField)
                         });
                     }
                 }
@@ -687,7 +729,7 @@ export default class Chess extends Component {
          * @param currentField the field the pawn is on
          * @param captureMoveField the en passant field just behind enemy pawn field.
          */
-        function executeEnpassant(enemyField, currentField, captureMoveField) {
+        function executeEnPassant(enemyField, currentField, captureMoveField) {
 
             let movedPiece = getField(currentField.id).piece;
             movedPiece.moveNumber += 1;
