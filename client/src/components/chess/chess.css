@@ -1,12 +1,3 @@
-#chess {
-    display: grid;
-    max-width: 400px;
-    grid-template-columns: 7fr 1fr 7fr;
-}
-
-#panel {
-    display: grid;
-}
 
 img {
     height: 8vh;
@@ -21,8 +12,6 @@ img {
 
 #board-div {
     display: grid;
-    width: 100%;
-    height: 100%;
     grid-template-rows: repeat(8, 1fr);
 }
 
@@ -51,18 +40,9 @@ img {
     font-size: 1.3vh;
 }
 
-.player-panel {
-    margin-top: 1vh;
-    margin-bottom: 1vh;
-    height: 5vh;
-    display: flex;
-    background-color: #F49867;
-}
-
 .player-graveyard-wrapper {
     display: flex;
     flex-direction: column;
-
 }
 .player-graveyard-wrapper p {
     margin-left: .5vw;
@@ -111,18 +91,100 @@ img {
 
 }
 .piece-graveyard {
-    display: grid;
-    position: relative;
-    grid-template-columns: repeat(8,1fr);
+    display: flex;
+    margin-right: .5vw;
 }
+
+.piece-graveyard img {
+    margin-right: -.5vw;
+}
+
 #details {
     width: 100px;
     background-color: aqua;
 }
 
+.chess-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+
+.chess-container {
+    display: grid;
+    grid-template-columns: 20% auto auto 30% ;
+    grid-template-rows: auto auto auto;
+    grid-column-gap: 1vw;
+    grid-row-gap: 1vh;
+    justify-items: start;
+
+}
+
+#panel {
+    display: grid;
+    grid-column: 3;
+    grid-row: 3;
+}
+
+#topPlayer {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+#chess {
+    grid-column: 2;
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: 7fr 1fr 7fr;
+}
+
+
+#bottomPlayer {
+    grid-row: 4;
+    grid-column: 2;
+}
+
+
+.player-panel {
+    height: 5vh;
+    display: flex;
+    background-color: #F49867;
+}
+
+
+#turns {
+    background-color: #031B34;
+    height: 40vh;
+    width: 15vw;
+}
+
+#buttons {
+
+}
+
+
 .take {
     background-color: crimson;
 }
+
+
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
 
 .legal {
     background-color: aquamarine;

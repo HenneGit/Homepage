@@ -219,7 +219,6 @@ export default class Chess extends Component {
                 let img = document.createElement('img');
                 img.src = "http://localhost:5000/" + piece.type + piece.color;
                 typeGraveyard.appendChild(img);
-
             });
 
         }
@@ -931,42 +930,51 @@ export default class Chess extends Component {
 
     render() {
         return (
-            <div>
-                <div id="topPlayer" className="player-panel">
-                    <div id="topAvatar" className="avatar">
-                        <img src={avatar}/>
-                    </div>
-                    <div className="player-graveyard-wrapper">
-                        <p cl>StockFish</p>
-                        <div id="topGraveyard" className="graveyard">
-                            <span id="top-pawn" className="piece-graveyard"></span>
-                            <span id="top-bishop" className="piece-graveyard"></span>
-                            <span id="top-knight" className="piece-graveyard"></span>
-                            <span id="top-rook" className="piece-graveyard"></span>
-                            <span id="top-queen" className="piece-graveyard"></span>
+            <div className="chess-wrapper">
+                <div className="chess-container">
+
+                    <div id="topPlayer" className="player-panel">
+                        <div id="topAvatar" className="avatar">
+                            <img src={avatar}/>
+                        </div>
+                        <div className="player-graveyard-wrapper">
+                            <p>StockFish</p>
+                            <div id="topGraveyard" className="graveyard">
+                                <span id="top-pawn" className="piece-graveyard"></span>
+                                <span id="top-bishop" className="piece-graveyard"></span>
+                                <span id="top-knight" className="piece-graveyard"></span>
+                                <span id="top-rook" className="piece-graveyard"></span>
+                                <span id="top-queen" className="piece-graveyard"></span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div id="chess">
-                </div>
-                <div id="bottomPlayer" className="player-panel">
-                    <div id="bottomAvatar" className="avatar">
-                        <img src={avatar}/>
+                    <div id="chess"></div>
+                    <div id="bottomPlayer" className="player-panel">
+                        <div id="bottomAvatar" className="avatar">
+                            <img src={avatar}/>
+                        </div>
+                        <div className="player-graveyard-wrapper">
+                            <p>StockFish</p>
+                            <div id="bottomGraveyard" className="graveyard">
+                                <span id="bottom-pawn" className="piece-graveyard"></span>
+                                <span id="bottom-bishop" className="piece-graveyard"></span>
+                                <span id="bottom-knight" className="piece-graveyard"></span>
+                                <span id="bottom-rook" className="piece-graveyard"></span>
+                                <span id="bottom-queen" className="piece-graveyard"></span>
+                            </div>
+                        </div>
                     </div>
-                    <div className="player-graveyard-wrapper">
-                        <p>StockFish</p>
-                        <div id="bottomGraveyard" className="graveyard">
-                            <span id="bottom-pawn" className="piece-graveyard"></span>
-                            <span id="bottom-bishop" className="piece-graveyard"></span>
-                            <span id="bottom-knight" className="piece-graveyard"></span>
-                            <span id="bottom-rook" className="piece-graveyard"></span>
-                            <span id="bottom-queen" className="piece-graveyard"></span>
+                    <div id="panel">
+                        <div id="turns-header"></div>
+                        <div id="turns"></div>
+                        <div id="buttons">
+                            <i id="backButton" className="arrow left"></i>
+                            <i id="forwardButton" className="arrow right"></i>
+                            <div id="newGame"></div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
         );
     }
 }
