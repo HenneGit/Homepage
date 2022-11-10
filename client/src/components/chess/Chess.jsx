@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import './chess.css';
+import avatar from '../../assets/avatar.png'
 
 export default class Chess extends Component {
     constructor() {
@@ -93,7 +94,6 @@ export default class Chess extends Component {
             turnNumber = -1;
             let fields = [];
             let graveyard = [];
-
             for (let i = 1; i < 9; i++) {
                 for (let j = 8; j > 0; j--) {
                     let letter = letters[j - 1];
@@ -189,40 +189,37 @@ export default class Chess extends Component {
 
 
         /**
-         * create the panel where graveyard, moves and time is displayed.
-         * @param panel
+         * create the panel where graveyard and moves are displayed.
+         * @param panel the panel div.
          */
         function createPanel(panel) {
-            let whiteGraveyard = getDiv('white-graveyard');
-            let blackGraveyard = getDiv('black-graveyard');
-            blackGraveyard.classList.add('graveyard');
-            whiteGraveyard.classList.add('graveyard');
-            panel.appendChild(blackGraveyard);
-
-            panel.appendChild(whiteGraveyard);
             let blackPieces = getPiecesFromGraveyard('black');
             let whitePieces = getPiecesFromGraveyard('white');
             if (blackPieces !== null || true) {
-                appendPiecesToGraveyard(blackPieces, blackGraveyard);
+                appendPiecesToGraveyard(blackPieces, "bottom");
             }
             if (whitePieces !== null || true) {
-                appendPiecesToGraveyard(whitePieces, whiteGraveyard);
+                appendPiecesToGraveyard(whitePieces, "top");
             }
 
         }
 
-        function appendPiecesToGraveyard(pieces, graveyard) {
-            console.log(graveyard);
+        function appendPiecesToGraveyard(pieces, sideOfBoard) {
             let sortablePieceArray = Array.from(pieces);
             sortablePieceArray.sort(function (a, b) {
                 return b.sort - a.sort;
             });
+            let graveyard = document.getElementById(sideOfBoard + "Graveyard");
+            let spans = graveyard.querySelectorAll("span");
+            spans.forEach(span => clearElement(span));
+
             sortablePieceArray.forEach(piece => {
-                let imgDiv = document.createElement('div');
+                let type = piece.type;
+                let typeGraveyard = document.getElementById(sideOfBoard + "-" + type);
                 let img = document.createElement('img');
                 img.src = "http://localhost:5000/" + piece.type + piece.color;
-                imgDiv.appendChild(img);
-                graveyard.appendChild(imgDiv);
+                typeGraveyard.appendChild(img);
+
             });
 
         }
@@ -242,9 +239,8 @@ export default class Chess extends Component {
 
         function getPiecesFromGraveyard(color) {
             let capturedPieces = board.graveyard;
-            if (capturedPieces !== null || true) {
+            if (capturedPieces !== null) {
                 capturedPieces = capturedPieces.filter(piece => piece.color === color);
-                console.log(capturedPieces);
                 return capturedPieces;
             }
             return null;
@@ -408,8 +404,6 @@ export default class Chess extends Component {
         function updateField(oldFieldId, newFieldId) {
             const boardCopy = jsonCopy(board);
             boardHistory.push(boardCopy);
-            console.log(boardHistory);
-            console.log(board);
             let newField = getField(newFieldId);
             let oldField = getField(oldFieldId);
             if (containsPiece(newField)) {
@@ -420,8 +414,6 @@ export default class Chess extends Component {
             let piece = getPiece(oldField);
             oldField.piece = null;
             newField.piece = piece;
-            console.log(board);
-
         }
 
 
@@ -621,7 +613,7 @@ export default class Chess extends Component {
             let container = document.createElement('div');
             let contentDiv = document.getElementById('board-div');
             container.id = 'piece-picker-box';
-            container.style.gridArea = 1 + "/" + flippedNumbers[dropField.x-1] + "/" + 5;
+            container.style.gridArea = 1 + "/" + flippedNumbers[dropField.x - 1] + "/" + 5;
             for (let [pieceType, piece] of pieceMap) {
                 if (piece.hasOwnProperty('type')) {
                     let newField = new Field(piece, dropField.id, dropField.x, dropField.y);
@@ -939,8 +931,42 @@ export default class Chess extends Component {
 
     render() {
         return (
-            <div className="header section__padding" id="chess">
+            <div>
+                <div id="topPlayer" className="player-panel">
+                    <div id="topAvatar" className="avatar">
+                        <img src={avatar}/>
+                    </div>
+                    <div className="player-graveyard-wrapper">
+                        <p cl>StockFish</p>
+                        <div id="topGraveyard" className="graveyard">
+                            <span id="top-pawn" className="piece-graveyard"></span>
+                            <span id="top-bishop" className="piece-graveyard"></span>
+                            <span id="top-knight" className="piece-graveyard"></span>
+                            <span id="top-rook" className="piece-graveyard"></span>
+                            <span id="top-queen" className="piece-graveyard"></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="chess">
+                </div>
+                <div id="bottomPlayer" className="player-panel">
+                    <div id="bottomAvatar" className="avatar">
+                        <img src={avatar}/>
+                    </div>
+                    <div className="player-graveyard-wrapper">
+                        <p>StockFish</p>
+                        <div id="bottomGraveyard" className="graveyard">
+                            <span id="bottom-pawn" className="piece-graveyard"></span>
+                            <span id="bottom-bishop" className="piece-graveyard"></span>
+                            <span id="bottom-knight" className="piece-graveyard"></span>
+                            <span id="bottom-rook" className="piece-graveyard"></span>
+                            <span id="bottom-queen" className="piece-graveyard"></span>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+
         );
     }
 }
