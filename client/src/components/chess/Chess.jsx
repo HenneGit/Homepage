@@ -101,6 +101,10 @@ export default class Chess extends Component {
             let counter = 0;
             for (let field of sortedFields) {
                 if (counter === 8) {
+                    if (emptyFieldCounter > 0) {
+                        fenString += emptyFieldCounter;
+                        emptyFieldCounter = 0;
+                    }
                     fenString += "/";
                 }
                 let piece = field.piece;
@@ -111,11 +115,7 @@ export default class Chess extends Component {
                     }
                     fenString += piece.fenChar;
                 } else {
-                    if (counter === 8 && emptyFieldCounter >= 0) {
-                        fenString += 8;
-                        emptyFieldCounter = 0;
-                    }
-                    emptyFieldCounter++;
+                     emptyFieldCounter++;
                 }
                 if (counter === 8) {
                     counter = 0;
