@@ -20,12 +20,12 @@ export default class Chess extends Component {
             "h1": new Piece('rook', 'white', 0, 3, "R"),
             "a8": new Piece('rook', 'black', 0, 3, "r"),
             "b8": new Piece('knight', 'black', 0, 1, "n"),
-            "c8": new Piece('bishop', 'black', 0, 2,"b"),
-            "d8": new Piece('queen', 'black', 0, 4,"q"),
+            "c8": new Piece('bishop', 'black', 0, 2, "b"),
+            "d8": new Piece('queen', 'black', 0, 4, "q"),
             "e8": new Piece('king', 'black', 0, 6, "k"),
             "f8": new Piece('bishop', 'black', 0, 2, "b"),
-            "g8": new Piece('knight', 'black', 0, 1,"n"),
-            "h8": new Piece('rook', 'black', 0, 3,"r")
+            "g8": new Piece('knight', 'black', 0, 1, "n"),
+            "h8": new Piece('rook', 'black', 0, 3, "r")
         };
 
 
@@ -63,6 +63,7 @@ export default class Chess extends Component {
         const boardHistory = [];
         let moveTracker = [];
         let turnNumber = -1;
+        let halfMoves = 0;
 
         function Piece(type, color, moveNumber, sort, fenChar) {
             this.type = type;
@@ -88,15 +89,26 @@ export default class Chess extends Component {
 
 
         function generateFENString() {
+            let fenString = "";
+            fenString = addBoardToFENString(fenString);
+            fenString = addTurnToFEN(fenString);
+            fenString = addCastleRights(fenString);
+            fenString = addEnPassantMoves(fenString);
+            fenString = addMoveCounter(fenString);
+            fenString = addHalfMoves(fenString);
+            return fenString;
+        }
+
+        function addBoardToFENString(fenString) {
             let fields = board.fields;
             let sortedFields = Array.from(fields);
-            sortedFields.sort((a,b) =>{
+            sortedFields.sort((a, b) => {
                 return a.x - b.x;
             })
-            sortedFields.sort((a,b) =>{
+            sortedFields.sort((a, b) => {
                 return b.y - a.y;
             })
-            let fenString = "";
+
             let emptyFieldCounter = 0;
             let counter = 0;
             for (let field of sortedFields) {
@@ -115,7 +127,7 @@ export default class Chess extends Component {
                     }
                     fenString += piece.fenChar;
                 } else {
-                     emptyFieldCounter++;
+                    emptyFieldCounter++;
                 }
                 if (counter === 8) {
                     counter = 0;
@@ -123,8 +135,102 @@ export default class Chess extends Component {
                 counter++;
             }
             return fenString;
+
         }
 
+        function addTurnToFEN(fenString) {
+            let turnNumber = boardHistory.length;
+            if (turnNumber % 2 === 0) {
+                fenString += " w";
+            } else {
+                fenString += " b";
+            }
+            fenString += " ";
+            return fenString;
+        }
+
+        function addCastleRights(fenString) {
+            let whiteQueenSide = true;
+            let whiteKingSide = true;
+            let blackQueenSide = true;
+            let blackKingSide = true;
+
+            for (let move of moveTracker) {
+                let oldField = move[0];
+                if (oldField === "a1") {
+                    whiteQueenSide = false;
+                }
+                if (oldField === "h1") {
+                    whiteKingSide = false;
+                }
+                if (oldField === "e1") {
+                    whiteQueenSide = false;
+                    whiteKingSide = false;
+                }
+                if (oldField === "e8") {
+                    blackQueenSide = false;
+                    blackKingSide = false;
+                }
+                if (oldField === "a8") {
+                    blackQueenSide = false;
+                }
+                if (oldField === "h8") {
+                    blackKingSide = false;
+                }
+            }
+            if (whiteKingSide) {
+                fenString += "K";
+            }
+            if (whiteQueenSide) {
+                fenString += "Q";
+            }
+            if (blackKingSide) {
+                fenString += "k";
+            }
+            if (blackQueenSide) {
+                fenString += "q";
+            }
+            if (!whiteQueenSide && !whiteKingSide && !blackQueenSide && !blackKingSide) {
+                fenString += "-";
+            }
+            return fenString;
+        }
+
+        function addEnPassantMoves(fenString) {
+            let lastMove = moveTracker[moveTracker.length - 1];
+            let enPassantPossible = false;
+            if (lastMove !== undefined) {
+                let oldField = lastMove[0];
+                let newField = lastMove[1];
+                if (getField(newField).piece.type === "pawn") {
+                    if ((oldField.includes("2") && newField.includes("4")) || oldField.includes("7") && newField.includes("5")) {
+                        let letterOfField = newField.charAt(0);
+                        let numberOfField = newField.charAt(1);
+                        if (numberOfField.includes("5")) {
+                            numberOfField++;
+                        } else {
+                            numberOfField--;
+                        }
+                        enPassantPossible = true;
+                        fenString += " " + letterOfField + numberOfField;
+                    }
+                }
+            }
+            if (!enPassantPossible) {
+                fenString += " -"
+            }
+            return fenString;
+        }
+
+        function addHalfMoves(fenString) {
+            fenString += " " + halfMoves;
+            return fenString;
+        }
+
+        function addMoveCounter(fenString) {
+            fenString += " " + boardHistory.length;
+            return fenString;
+        }
 
         newGame();
 
@@ -312,27 +418,22 @@ export default class Chess extends Component {
             let piece = currentField.piece;
             let color = getOppositeColor(currentField.piece.color);
             let legalFields = getMovesForPiece(currentField);
-            console.log(checkForCheck(color));
             if (checkForCheck(color)) {
                 legalFields = legalFields.filter(field => {
-                    updateField(currentField.id, field.id);
+                    updateField(currentField.id, field.id, false);
                     let resolvesCheck = checkForCheck(color);
                     const boardCopy = jsonCopy(boardHistory.pop());
                     board = boardCopy;
-                    console.log(board);
-                    console.log(boardHistory);
                     return !resolvesCheck;
                 })
 
             }
             //make every legal move and check if check is given
             legalFields = legalFields.filter(field => {
-                updateField(currentField.id, field.id);
+                updateField(currentField.id, field.id, false);
                 let createsCheck = checkForCheck(color);
                 const boardCopy = jsonCopy(boardHistory.pop());
                 board = boardCopy;
-                console.log(board);
-                console.log(boardHistory);
                 return !createsCheck;
             });
 
@@ -409,7 +510,7 @@ export default class Chess extends Component {
          * @param newFieldId field the piece moved to.
          */
         function resolveDrop(oldFieldId, newFieldId) {
-            updateField(oldFieldId, newFieldId);
+            updateField(oldFieldId, newFieldId, true);
             moveTracker.push([oldFieldId, newFieldId]);
             turnNumber += 1;
 
@@ -442,12 +543,16 @@ export default class Chess extends Component {
          * @param oldFieldId the old field to delete piece from.
          * @param newFieldId the new field to set the piece on.
          */
-        function updateField(oldFieldId, newFieldId) {
+        function updateField(oldFieldId, newFieldId, isRealMove) {
             const boardCopy = jsonCopy(board);
             boardHistory.push(boardCopy);
             let newField = getField(newFieldId);
             let oldField = getField(oldFieldId);
-            if (containsPiece(newField)) {
+            let fieldContainsPiece = containsPiece(newField);
+            if (fieldContainsPiece) {
+                if (isRealMove) {
+                    halfMoves = 0;
+                }
                 let enemyPiece = newField.piece;
                 board.graveyard.push(enemyPiece);
                 newField.piece = null;
@@ -455,6 +560,11 @@ export default class Chess extends Component {
             let piece = getPiece(oldField);
             oldField.piece = null;
             newField.piece = piece;
+            if ((piece.type === "pawn" || fieldContainsPiece) && isRealMove) {
+                halfMoves = 0;
+            } else if (isRealMove) {
+                halfMoves++;
+            }
         }
 
 
@@ -631,7 +741,6 @@ export default class Chess extends Component {
             let filteredMoves = legalMoves.filter(legalField => {
                 return color === 'black' ? legalField.y < field.y : legalField.y > field.y;
             });
-            console.log(filteredMoves);
 
             //let filterMoves = function (legalField) {};
             let fieldRight = getFieldByXY(field.x + 1, field.y);
@@ -805,14 +914,14 @@ export default class Chess extends Component {
             legalMoves.push(...getLegalMoves(currentField, 1, straight, true));
             legalMoves.push(...getLegalMoves(currentField, 1, diagonal, true));
             if (currentField.piece.moveNumber === 0) {
-                legalMoves.push(...checkForCastle(currentField));
+                legalMoves.push(...checkForCastle(currentField, true));
             }
 
             let withoutCheck = legalMoves.filter(field => !fieldHasCheck(field, color));
 
             //filter moves with covered enemy pieces on it.
             return withoutCheck.filter(field => {
-                updateField(currentField.id, field.id);
+                updateField(currentField.id, field.id, false);
                 let hasCheck = checkForCheck(color);
                 const boardCopy = jsonCopy(boardHistory.pop());
                 board = boardCopy;
@@ -826,7 +935,7 @@ export default class Chess extends Component {
          * @param kingField the field the king is on.
          * @returns {[]} legalMoves
          */
-        function checkForCastle(kingField) {
+        function checkForCastle(kingField, addEventListeners) {
 
 
             let legalMoves = [];
@@ -842,16 +951,20 @@ export default class Chess extends Component {
 
             if (!containsPiece(fieldRightX1) && !containsPiece(fieldRightX2) && rookRight.moveNumber === 0 && !fieldHasCheck(fieldRightX1, color)
                 && !fieldHasCheck(fieldRightX2, color)) {
-                document.getElementById(fieldRightX2.id).addEventListener('drop', function () {
-                    castleRight(kingField);
-                });
+                if (addEventListeners) {
+                    document.getElementById(fieldRightX2.id).addEventListener('drop', function () {
+                        castleRight(kingField);
+                    });
+                }
                 legalMoves.push(jsonCopy(fieldRightX2));
             }
             if (!containsPiece(fieldLeftX1) && !containsPiece(fieldLeftX2) && !containsPiece(fieldLeftX3) && rookLeft.moveNumber === 0
                 && !fieldHasCheck(fieldLeftX1, color) && !fieldHasCheck(fieldLeftX2, color) && !fieldHasCheck(fieldLeftX3, color)) {
-                document.getElementById(fieldLeftX2.id).addEventListener('drop', function () {
-                    castleLeft(kingField);
-                });
+                if (addEventListeners) {
+                    document.getElementById(fieldLeftX2.id).addEventListener('drop', function () {
+                        castleLeft(kingField);
+                    });
+                }
                 legalMoves.push(jsonCopy(fieldLeftX2));
             }
             return legalMoves;
