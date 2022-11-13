@@ -7,7 +7,25 @@ export default class Chess extends Component {
         super();
     }
 
+
     componentDidMount() {
+
+        const stockfish = new Worker("http://localhost:3000/stockfish.js");
+        stockfish.onmessage = async function onmessage(message) {
+            console.log(message);
+            if (message.data.includes("bestmove")) {
+                const messageArray = message.data.split(" ");
+                const move = messageArray[1];
+                const startField = move.substring(0, 2);
+                const endField = move.substring(2, 4);
+                console.log(startField);
+                console.log(endField);
+
+                updateField(startField, endField, true);
+
+            }
+        };
+
         const positions = {
 
             "a1": new Piece('rook', 'white', 0, 3, "R"),
@@ -262,7 +280,7 @@ export default class Chess extends Component {
          * create the board and add pieces to it.
          * @param currentBoard the board to create the field from.
          */
-        function createBoard(currentBoard, playerColor) {
+        async function createBoard(currentBoard, playerColor) {
             let contentDiv = document.getElementById('chess');
             let isBlack = playerColor === "black";
             clearElement(contentDiv);
@@ -301,8 +319,9 @@ export default class Chess extends Component {
             let panel = getDiv('panel');
             createPanel(panel);
             contentDiv.append(panel);
-            console.log(generateFENString(currentBoard));
+
         }
+
 
         function addLetterOrNumberGrid(field, domField, isBlack) {
             let letter = isBlack ? "h" : "a";
@@ -513,6 +532,11 @@ export default class Chess extends Component {
             updateField(oldFieldId, newFieldId, true);
             moveTracker.push([oldFieldId, newFieldId]);
             turnNumber += 1;
+            let fenString = generateFENString(board);
+            console.log(fenString);
+            stockfish.postMessage("ucinewgame");
+            stockfish.postMessage("position fen " + fenString);
+            stockfish.postMessage("go depth 5");
 
         }
 
@@ -532,7 +556,7 @@ export default class Chess extends Component {
 
             } else {
                 movedPiece.moveNumber += 1;
-                resolveDrop(oldFieldId, this.id);
+                await resolveDrop(oldFieldId, this.id);
                 createBoard(board, board.playerColor);
             }
         }
@@ -565,6 +589,8 @@ export default class Chess extends Component {
             } else if (isRealMove) {
                 halfMoves++;
             }
+            console.log(board)
+            console.log("move finished");
         }
 
 
