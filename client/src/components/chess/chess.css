@@ -22,7 +22,7 @@ img {
 
 .field {
     display: grid;
-    width: 100%;
+    min-width: 8vh;
     justify-items: center;
     align-items: center;
 }

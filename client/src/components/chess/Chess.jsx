@@ -18,11 +18,20 @@ export default class Chess extends Component {
                 const move = messageArray[1];
                 const startField = move.substring(0, 2);
                 const endField = move.substring(2, 4);
-                console.log(startField);
-                console.log(endField);
+                if ((startField === "e8" && endField === "g8") || startField === "e1" && endField === "g1") {
+                    console.log("castledRight")
+                    castleRight(getField(startField),true);
+                    return;
+                }
+                if ((startField === "e8" && endField === "c8") || startField === "e1" && endField === "c1") {
+                    console.log("castledLeft")
+                    castleLeft(getField(startField),true);
+                    return;
+                }
 
-                updateField(startField, endField, true);
-
+                await updateFieldPromise(startField, endField).then(() => {
+                    createBoard(board, board.playerColor);
+                });
             }
         };
 
@@ -272,32 +281,32 @@ export default class Chess extends Component {
                     fields.push(field);
                 }
             }
-            board = new Board(fields, graveyard, "white");
+            board = new Board(fields, graveyard, "black");
             createBoard(board, board.playerColor);
+            if (board.playerColor === "black") {
+                makeEngineMove();
+            }
         }
 
         /**
          * create the board and add pieces to it.
          * @param currentBoard the board to create the field from.
          */
-        async function createBoard(currentBoard, playerColor) {
+        function createBoard(currentBoard, playerColor) {
+            console.log("tic");
             let contentDiv = document.getElementById('chess');
             let isBlack = playerColor === "black";
             clearElement(contentDiv);
             let boardDiv = createElement('div', 'board-div');
             let blackOrWhite = -1;
-
             for (let field of currentBoard.fields) {
                 let domField = getDiv(field.id);
                 addLetterOrNumberGrid(field, domField, isBlack)
-
-
                 let classType = blackOrWhite < 0 ? 'white' : 'black';
                 domField.classList.add(classType);
                 domField.classList.add('field');
                 domField.setAttribute('y', field.y);
                 domField.setAttribute('x', field.x);
-
                 if (isBlack) {
                     domField.style.gridArea = field.y + "/" + flippedNumbers[field.x - 1];
                 } else {
@@ -312,7 +321,6 @@ export default class Chess extends Component {
                 if (field.x === 1) {
                     blackOrWhite = blackOrWhite * -1;
                 }
-
             }
             contentDiv.appendChild(boardDiv);
 
@@ -525,19 +533,25 @@ export default class Chess extends Component {
 
         /**
          * updates board after movement and test if a check is given.
-         * @param oldfieldId old field of moved piece.
+         * @param oldFieldId old field of moved piece.
          * @param newFieldId field the piece moved to.
          */
-        function resolveDrop(oldFieldId, newFieldId) {
-            updateField(oldFieldId, newFieldId, true);
+        async function resolveDrop(oldFieldId, newFieldId, isEngingCastling) {
             moveTracker.push([oldFieldId, newFieldId]);
             turnNumber += 1;
+            if (!isEngingCastling) {
+                await updateFieldPromise(oldFieldId, newFieldId, true).then(makeEngineMove);
+            } else {
+                await updateFieldPromise(oldFieldId, newFieldId, true);
+            }
+        }
+
+        function makeEngineMove() {
             let fenString = generateFENString(board);
             console.log(fenString);
             stockfish.postMessage("ucinewgame");
             stockfish.postMessage("position fen " + fenString);
-            stockfish.postMessage("go depth 5");
-
+            stockfish.postMessage("go depth 1");
         }
 
 
@@ -550,14 +564,16 @@ export default class Chess extends Component {
             let oldFieldId = draggedElement.parentElement.id;
             let oldField = getField(oldFieldId);
             let movedPiece = oldField.piece;
-            if (movedPiece.type === 'pawn' && (dropField.y === 1 || dropField.y === 8)) {
-                pieceWasPicked = false;
-                await createPiecePicker(dropField, oldField, movedPiece.color);
+            if (movedPiece !== null) {
+                console.log(movedPiece);
+                if (movedPiece.type === 'pawn' && (dropField.y === 1 || dropField.y === 8)) {
+                    pieceWasPicked = false;
+                    await createPiecePicker(dropField, oldField, movedPiece.color);
 
-            } else {
-                movedPiece.moveNumber += 1;
-                await resolveDrop(oldFieldId, this.id);
-                createBoard(board, board.playerColor);
+                } else {
+                    movedPiece.moveNumber += 1;
+                    resolveDrop(oldFieldId, this.id, false);
+                }
             }
         }
 
@@ -593,6 +609,18 @@ export default class Chess extends Component {
             console.log("move finished");
         }
 
+
+        function updateFieldPromise(oldFieldId, newFieldId) {
+            return new Promise((resolve) => {
+                updateField(oldFieldId, newFieldId, true);
+                setTimeout(
+                    () => {
+                        createBoard(board, board.playerColor);
+                        resolve();
+                    }, 200
+                );
+            })
+        }
 
         function jsonCopy(obj) {
             return JSON.parse(JSON.stringify(obj));
@@ -800,7 +828,7 @@ export default class Chess extends Component {
                     pieceBox.addEventListener('click', function () {
                         oldField.piece = pieceMap.get(this.getAttribute('piece'));
                         pieceWasPicked = true;
-                        resolveDrop(oldField.id, dropField.id);
+                        resolveDrop(oldField.id, dropField.id, false);
                     });
                     pieceBox.classList.add('piece-in-piece-picker');
                     container.appendChild(pieceBox);
@@ -864,7 +892,7 @@ export default class Chess extends Component {
          * @param currentField the field the pawn is on
          * @param captureMoveField the en passant field just behind enemy pawn field.
          */
-        function executeEnPassant(enemyField, currentField, captureMoveField) {
+        async function executeEnPassant(enemyField, currentField, captureMoveField) {
 
             let movedPiece = getField(currentField.id).piece;
             movedPiece.moveNumber += 1;
@@ -873,8 +901,7 @@ export default class Chess extends Component {
             currentField.piece = null;
             board.graveyard.push(captureField.piece);
             captureField.piece = null;
-            resolveDrop(currentField.id, captureMoveField.id);
-            createBoard(board, board.playerColor);
+            await resolveDrop(currentField.id, captureMoveField.id, false);
 
         }
 
@@ -882,17 +909,14 @@ export default class Chess extends Component {
          * castle on the right site of the board.
          * @param kingField the field the king is on.
          */
-        function castleRight(kingField) {
+        async function castleRight(kingField, isEngineCastling) {
             let rookField = getFieldByXY(kingField.x + 3, kingField.y);
             getField(kingField.id).piece.moveNumber += 1;
             let rookTargetField = getFieldByXY(kingField.x + 1, kingField.y);
-
             rookTargetField.piece = rookField.piece;
             rookField.piece = null;
             let moveTargetKing = getFieldByXY(kingField.x + 2, kingField.y);
-
-            resolveDrop(kingField.id, moveTargetKing.id);
-            createBoard(board, board.playerColor);
+            await resolveDrop(kingField.id, moveTargetKing.id, isEngineCastling);
 
         }
 
@@ -900,17 +924,14 @@ export default class Chess extends Component {
          * castle on the left side of the board.
          * @param kingField the field the king is on.
          */
-        function castleLeft(kingField) {
+        async function castleLeft(kingField, isEngineCastling) {
             let rookField = getFieldByXY(kingField.x - 4, kingField.y);
             getField(kingField.id).piece.moveNumber += 1;
             let rookTargetField = getFieldByXY(kingField.x - 1, kingField.y);
-
             rookTargetField.piece = rookField.piece;
             rookField.piece = null;
             let moveTargetKing = getFieldByXY(kingField.x - 2, kingField.y);
-
-            resolveDrop(kingField.id, moveTargetKing.id);
-            createBoard(board, board.playerColor);
+            await resolveDrop(kingField.id, moveTargetKing.id,isEngineCastling);
         }
 
         function getBishopMoves(field) {
@@ -940,7 +961,7 @@ export default class Chess extends Component {
             legalMoves.push(...getLegalMoves(currentField, 1, straight, true));
             legalMoves.push(...getLegalMoves(currentField, 1, diagonal, true));
             if (currentField.piece.moveNumber === 0) {
-                legalMoves.push(...checkForCastle(currentField, true));
+                legalMoves.push(...checkForCastle(currentField));
             }
 
             let withoutCheck = legalMoves.filter(field => !fieldHasCheck(field, color));
@@ -961,7 +982,7 @@ export default class Chess extends Component {
          * @param kingField the field the king is on.
          * @returns {[]} legalMoves
          */
-        function checkForCastle(kingField, addEventListeners) {
+        function checkForCastle(kingField) {
 
 
             let legalMoves = [];
@@ -977,20 +998,18 @@ export default class Chess extends Component {
 
             if (!containsPiece(fieldRightX1) && !containsPiece(fieldRightX2) && rookRight.moveNumber === 0 && !fieldHasCheck(fieldRightX1, color)
                 && !fieldHasCheck(fieldRightX2, color)) {
-                if (addEventListeners) {
-                    document.getElementById(fieldRightX2.id).addEventListener('drop', function () {
-                        castleRight(kingField);
-                    });
-                }
+                document.getElementById(fieldRightX2.id).removeEventListener("drop",dragDrop);
+                document.getElementById(fieldRightX2.id).addEventListener('drop', function () {
+                    castleRight(kingField, false);
+                });
                 legalMoves.push(jsonCopy(fieldRightX2));
             }
             if (!containsPiece(fieldLeftX1) && !containsPiece(fieldLeftX2) && !containsPiece(fieldLeftX3) && rookLeft.moveNumber === 0
                 && !fieldHasCheck(fieldLeftX1, color) && !fieldHasCheck(fieldLeftX2, color) && !fieldHasCheck(fieldLeftX3, color)) {
-                if (addEventListeners) {
-                    document.getElementById(fieldLeftX2.id).addEventListener('drop', function () {
-                        castleLeft(kingField);
-                    });
-                }
+                document.getElementById(fieldLeftX2.id).removeEventListener("drop",dragDrop);
+                document.getElementById(fieldLeftX2.id).addEventListener('drop', function () {
+                    castleLeft(kingField, false);
+                });
                 legalMoves.push(jsonCopy(fieldLeftX2));
             }
             return legalMoves;
