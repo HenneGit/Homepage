@@ -16,20 +16,35 @@ export default class Chess extends Component {
             if (message.data.includes("bestmove")) {
                 const messageArray = message.data.split(" ");
                 const move = messageArray[1];
-                const startField = move.substring(0, 2);
-                const endField = move.substring(2, 4);
-                if ((startField === "e8" && endField === "g8") || startField === "e1" && endField === "g1") {
-                    console.log("castledRight")
-                    castleRight(getField(startField),true);
+                console.log(move);
+                const startFieldId = move.substring(0, 2);
+                const endFieldId = move.substring(2, 4);
+                moveTracker.push([startFieldId, endFieldId]);
+                if ((startFieldId === "e8" && endFieldId === "g8") || startFieldId === "e1" && endFieldId === "g1") {
+                    castleRight(getField(startFieldId), true);
                     return;
                 }
-                if ((startField === "e8" && endField === "c8") || startField === "e1" && endField === "c1") {
-                    console.log("castledLeft")
-                    castleLeft(getField(startField),true);
+                if ((startFieldId === "e8" && endFieldId === "c8") || startFieldId === "e1" && endFieldId === "c1") {
+                    castleLeft(getField(startFieldId), true);
                     return;
+                }
+                let piece = getField(startFieldId).piece;
+                if (piece !== null && piece.type === "pawn") {
+                    if (startFieldId.includes("5") || startFieldId.includes("4")) {
+                        let endField = getField(endFieldId)
+                        if (endField.piece === null && endField.id.substring(0, 1) !== startFieldId.substring(0, 1)) {
+                            let enemyField = board.playerColor === "black" ? getFieldByXY(endField.x, endField.y - 1) : getFieldByXY(endField.x, endField.y + 1);
+                            console.log("enemyfield" + enemyField);
+                            if (enemyField.piece !== null && enemyField.piece.type === "pawn") {
+                                executeEnPassant(enemyField, getField(startFieldId), endField, true);
+                                return;
+                            }
+                        }
+                    }
                 }
 
-                await updateFieldPromise(startField, endField).then(() => {
+
+                await updateFieldPromise(startFieldId, endFieldId).then(() => {
                     createBoard(board, board.playerColor);
                 });
             }
@@ -281,7 +296,7 @@ export default class Chess extends Component {
                     fields.push(field);
                 }
             }
-            board = new Board(fields, graveyard, "black");
+            board = new Board(fields, graveyard, "white");
             createBoard(board, board.playerColor);
             if (board.playerColor === "black") {
                 makeEngineMove();
@@ -323,11 +338,25 @@ export default class Chess extends Component {
                 }
             }
             contentDiv.appendChild(boardDiv);
+            document.querySelectorAll(".last-move").forEach(el => el.classList.remove("last-move"));
 
+            if (moveTracker.length > 0) {
+                let lastMove = moveTracker[moveTracker.length - 1];
+                console.log(lastMove);
+                let lastField = document.getElementById(lastMove[0]);
+                lastField.classList.remove("white");
+                lastField.classList.remove("black");
+                lastField.classList.add("last-move");
+                let newField = document.getElementById(lastMove[1]);
+                newField.classList.remove("white");
+                newField.classList.remove("black");
+                newField.classList.add("last-move");
+            }
             let panel = getDiv('panel');
             createPanel(panel);
             contentDiv.append(panel);
-
+            checkForCheckMate("white");
+            checkForCheckMate("black");
         }
 
 
@@ -432,6 +461,31 @@ export default class Chess extends Component {
         }
 
 
+        function checkForCheckMate(color) {
+            let isCheckMate = true;
+            let oppositeColor = getOppositeColor(color);
+            let isCheck = checkForCheck(oppositeColor);
+            console.log(color + " " + isCheck);
+            if (isCheck) {
+                let allFieldsWithPieces = getAllFieldsWithPiecesByColor(color);
+                for (let field of allFieldsWithPieces) {
+                    let legalMoves = getMovesForPiece(field);
+                    for (let legalMove of legalMoves) {
+                        updateField(field.id, legalMove.id, false);
+                        let isStillInCheck = checkForCheck(oppositeColor);
+                        const boardCopy = jsonCopy(boardHistory.pop());
+                        board = boardCopy;
+                        if (!isStillInCheck) {
+                            isCheckMate = false;
+                        }
+                    }
+                }
+            }
+            if (isCheck && isCheckMate) {
+                alert("schachmatt")
+            }
+        }
+
         /**
          * start dragging a piece. Applies classes.
          */
@@ -442,9 +496,9 @@ export default class Chess extends Component {
             setTimeout(() => this.classList.add('invisible'), 0);
             let fieldId = this.parentElement.id;
             let currentField = getField(fieldId);
-            let piece = currentField.piece;
-            let color = getOppositeColor(currentField.piece.color);
+            let currentPieceColor = currentField.piece.color;
             let legalFields = getMovesForPiece(currentField);
+            let color = getOppositeColor(currentPieceColor);
             if (checkForCheck(color)) {
                 legalFields = legalFields.filter(field => {
                     updateField(currentField.id, field.id, false);
@@ -463,10 +517,16 @@ export default class Chess extends Component {
                 board = boardCopy;
                 return !createsCheck;
             });
-
+            if (legalFields.length === 0 && checkForCheck(color)) {
+                let kingFieldId = getKingField(currentPieceColor).id;
+                console.log(document.getElementById(kingFieldId));
+                document.getElementById(kingFieldId).classList.remove("white");
+                document.getElementById(kingFieldId).classList.remove("black");
+                document.getElementById(kingFieldId).classList.add("take");
+            }
             for (let field of legalFields) {
                 if (field !== undefined) {
-                    setUpLegalFields(field, piece);
+                    setUpLegalFields(field);
                 }
             }
 
@@ -476,7 +536,7 @@ export default class Chess extends Component {
          * applies listeners and classes to a field that is legal for the given piece.
          * @param legalField the field the piece is allowed to move on.
          */
-        function setUpLegalFields(legalField, piece) {
+        function setUpLegalFields(legalField) {
             let domField = document.getElementById(legalField.id);
             if (containsPiece(legalField)) {
                 domField.classList.add('take');
@@ -536,10 +596,10 @@ export default class Chess extends Component {
          * @param oldFieldId old field of moved piece.
          * @param newFieldId field the piece moved to.
          */
-        async function resolveDrop(oldFieldId, newFieldId, isEngingCastling) {
+        async function resolveDrop(oldFieldId, newFieldId, isEngineMove) {
             moveTracker.push([oldFieldId, newFieldId]);
             turnNumber += 1;
-            if (!isEngingCastling) {
+            if (!isEngineMove) {
                 await updateFieldPromise(oldFieldId, newFieldId, true).then(makeEngineMove);
             } else {
                 await updateFieldPromise(oldFieldId, newFieldId, true);
@@ -600,13 +660,11 @@ export default class Chess extends Component {
             let piece = getPiece(oldField);
             oldField.piece = null;
             newField.piece = piece;
-            if ((piece.type === "pawn" || fieldContainsPiece) && isRealMove) {
+            if (piece !== null && (piece.type === "pawn" || fieldContainsPiece) && isRealMove) {
                 halfMoves = 0;
             } else if (isRealMove) {
                 halfMoves++;
             }
-            console.log(board)
-            console.log("move finished");
         }
 
 
@@ -690,7 +748,7 @@ export default class Chess extends Component {
             //schließt felder mit eigenen Figuren aus. Deckung wird nicht erkannt.
             let allLegalMoves = getLegalMovesForAllPieces(enemyFields);
             for (let field of allLegalMoves) {
-                if (field === fieldToCheck) {
+                if (field.id === fieldToCheck.id) {
                     return true;
                 }
             }
@@ -705,14 +763,14 @@ export default class Chess extends Component {
          */
         function getLegalMovesForAllPieces(fields) {
             let allLegalMoves = [];
-            for (let enemyField of fields) {
-                if (enemyField.piece.type === 'king') {
+            for (let field of fields) {
+                if (field.piece.type === 'king') {
                     const {diagonal} = directions;
                     const {straight} = directions;
-                    allLegalMoves.push(...getLegalMoves(enemyField, 1, diagonal, true))
-                    allLegalMoves.push(...getLegalMoves(enemyField, 1, straight, true))
+                    allLegalMoves.push(...getLegalMoves(field, 1, diagonal, true))
+                    allLegalMoves.push(...getLegalMoves(field, 1, straight, true))
                 } else {
-                    allLegalMoves.push(...getMovesForPiece(enemyField));
+                    allLegalMoves.push(...getMovesForPiece(field));
                 }
             }
             return allLegalMoves;
@@ -879,7 +937,7 @@ export default class Chess extends Component {
                         legalMoves.push(captureMoveField);
                         domField.removeEventListener('drop', dragDrop);
                         domField.addEventListener('drop', function () {
-                            executeEnPassant(enemyField, currentField, captureMoveField)
+                            executeEnPassant(enemyField, currentField, captureMoveField, false)
                         });
                     }
                 }
@@ -892,16 +950,14 @@ export default class Chess extends Component {
          * @param currentField the field the pawn is on
          * @param captureMoveField the en passant field just behind enemy pawn field.
          */
-        async function executeEnPassant(enemyField, currentField, captureMoveField) {
-
+        async function executeEnPassant(enemyField, currentField, captureMoveField, isEngineMoving) {
             let movedPiece = getField(currentField.id).piece;
             movedPiece.moveNumber += 1;
-            captureMoveField.piece = movedPiece;
             let captureField = getField(enemyField.id);
-            currentField.piece = null;
+            document.getElementById(captureField.id).removeEventListener("drop", dragDrop);
             board.graveyard.push(captureField.piece);
             captureField.piece = null;
-            await resolveDrop(currentField.id, captureMoveField.id, false);
+            await resolveDrop(currentField.id, captureMoveField.id, isEngineMoving);
 
         }
 
@@ -931,7 +987,7 @@ export default class Chess extends Component {
             rookTargetField.piece = rookField.piece;
             rookField.piece = null;
             let moveTargetKing = getFieldByXY(kingField.x - 2, kingField.y);
-            await resolveDrop(kingField.id, moveTargetKing.id,isEngineCastling);
+            await resolveDrop(kingField.id, moveTargetKing.id, isEngineCastling);
         }
 
         function getBishopMoves(field) {
@@ -968,7 +1024,7 @@ export default class Chess extends Component {
 
             //filter moves with covered enemy pieces on it.
             return withoutCheck.filter(field => {
-                updateField(currentField.id, field.id, false);
+                updateField(currentField.id, field.id, true);
                 let hasCheck = checkForCheck(color);
                 const boardCopy = jsonCopy(boardHistory.pop());
                 board = boardCopy;
@@ -998,7 +1054,7 @@ export default class Chess extends Component {
 
             if (!containsPiece(fieldRightX1) && !containsPiece(fieldRightX2) && rookRight.moveNumber === 0 && !fieldHasCheck(fieldRightX1, color)
                 && !fieldHasCheck(fieldRightX2, color)) {
-                document.getElementById(fieldRightX2.id).removeEventListener("drop",dragDrop);
+                document.getElementById(fieldRightX2.id).removeEventListener("drop", dragDrop);
                 document.getElementById(fieldRightX2.id).addEventListener('drop', function () {
                     castleRight(kingField, false);
                 });
@@ -1006,7 +1062,7 @@ export default class Chess extends Component {
             }
             if (!containsPiece(fieldLeftX1) && !containsPiece(fieldLeftX2) && !containsPiece(fieldLeftX3) && rookLeft.moveNumber === 0
                 && !fieldHasCheck(fieldLeftX1, color) && !fieldHasCheck(fieldLeftX2, color) && !fieldHasCheck(fieldLeftX3, color)) {
-                document.getElementById(fieldLeftX2.id).removeEventListener("drop",dragDrop);
+                document.getElementById(fieldLeftX2.id).removeEventListener("drop", dragDrop);
                 document.getElementById(fieldLeftX2.id).addEventListener('drop', function () {
                     castleLeft(kingField, false);
                 });
@@ -1085,6 +1141,15 @@ export default class Chess extends Component {
             }
         }
 
+        function getKingField(color) {
+            for (let field of board.fields) {
+                if (field.piece !== null && field.piece.type === "king" && field.piece.color === color) {
+                    return field;
+                }
+            }
+            return null;
+        }
+
         /**
          * get piece from given field.
          * @param currentField
@@ -1092,7 +1157,6 @@ export default class Chess extends Component {
          */
         function getPiece(currentField) {
             for (let field of board.fields) {
-
                 if (field.id === currentField.id) {
                     return field.piece;
                 }

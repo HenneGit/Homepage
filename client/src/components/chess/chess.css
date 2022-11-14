@@ -32,6 +32,9 @@ img {
     display: block;
 }
 
+.last-move {
+    background-color: #AE67FA;
+}
 
 #numeric-div {
     position: absolute;
