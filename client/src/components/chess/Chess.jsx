@@ -19,6 +19,7 @@ export default class Chess extends Component {
                 console.log(move);
                 const startFieldId = move.substring(0, 2);
                 const endFieldId = move.substring(2, 4);
+                const queeningMove = move.substring(4, 5);
                 moveTracker.push([startFieldId, endFieldId]);
                 if ((startFieldId === "e8" && endFieldId === "g8") || startFieldId === "e1" && endFieldId === "g1") {
                     castleRight(getField(startFieldId), true);
@@ -43,9 +44,23 @@ export default class Chess extends Component {
                     }
                 }
 
+                let pieceMap = piecePicker(getOppositeColor(board.playerColor));
+                if (queeningMove !== "") {
+                    for (let [pieceType, newPiece] of pieceMap) {
+                        if (newPiece.fenChar === queeningMove) {
+                            let queeningField = getField(startFieldId);
+                            queeningField.piece = newPiece;
+                        }
+                    }
+                }
+
+
+
 
                 await updateFieldPromise(startFieldId, endFieldId).then(() => {
-                    createBoard(board, board.playerColor);
+                    setTimeout(() => {
+                        checkForCheckMate(board.playerColor);
+                    }, 30);
                 });
             }
         };
@@ -303,6 +318,19 @@ export default class Chess extends Component {
             }
         }
 
+        function createBoardPromise(oldFieldId, newFieldId) {
+            return new Promise((resolve) => {
+                updateField(oldFieldId, newFieldId, true);
+                setTimeout(
+                    () => {
+                        createBoard(board, board.playerColor);
+                        resolve();
+                    }, 200
+                );
+            })
+        }
+
+
         /**
          * create the board and add pieces to it.
          * @param currentBoard the board to create the field from.
@@ -355,9 +383,7 @@ export default class Chess extends Component {
             let panel = getDiv('panel');
             createPanel(panel);
             contentDiv.append(panel);
-            checkForCheckMate("white");
-            checkForCheckMate("black");
-        }
+            }
 
 
         function addLetterOrNumberGrid(field, domField, isBlack) {
