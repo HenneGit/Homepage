@@ -183,7 +183,8 @@ export default class Chess extends Component {
          */
         function createBoard(currentBoard) {
             console.log("tic");
-            console.log()
+            console.log(boardHistory);
+            console.log(currentBoard);
             let contentDiv = document.getElementById('chess');
             let isBlack = currentBoard.playerColor === "black";
             clearElement(contentDiv);
@@ -532,8 +533,10 @@ export default class Chess extends Component {
          * @param newFieldId the new field to set the piece on.
          */
         function updateField(oldFieldId, newFieldId, isRealMove) {
-            const boardCopy = jsonCopy(board);
-            boardHistory.push(boardCopy);
+            if (!isRealMove) {
+                const boardCopy = jsonCopy(board);
+                boardHistory.push(boardCopy);
+            }
             let newField = getField(newFieldId);
             let oldField = getField(oldFieldId);
             let fieldContainsPiece = containsPiece(newField);
@@ -552,6 +555,10 @@ export default class Chess extends Component {
                 halfMoves = 0;
             } else if (isRealMove) {
                 halfMoves++;
+            }
+            if (isRealMove) {
+                const boardCopy = jsonCopy(board);
+                boardHistory.push(boardCopy);
             }
         }
 
