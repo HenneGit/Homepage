@@ -16,17 +16,19 @@ export default class Chess extends Component {
             if (message.data.includes("bestmove")) {
                 const messageArray = message.data.split(" ");
                 const move = messageArray[1];
-                console.log(move);
                 const startFieldId = move.substring(0, 2);
                 const endFieldId = move.substring(2, 4);
                 const queeningMove = move.substring(4, 5);
-                moveTracker.push([startFieldId, endFieldId]);
+                board.moveTracker.push([startFieldId, endFieldId]);
+                turnNumber += 1;
                 if ((startFieldId === "e8" && endFieldId === "g8") || startFieldId === "e1" && endFieldId === "g1") {
                     castleRight(getField(startFieldId), true);
+
                     return;
                 }
                 if ((startFieldId === "e8" && endFieldId === "c8") || startFieldId === "e1" && endFieldId === "c1") {
                     castleLeft(getField(startFieldId), true);
+
                     return;
                 }
                 let piece = getField(startFieldId).piece;
@@ -35,7 +37,6 @@ export default class Chess extends Component {
                         let endField = getField(endFieldId)
                         if (endField.piece === null && endField.id.substring(0, 1) !== startFieldId.substring(0, 1)) {
                             let enemyField = board.playerColor === "black" ? getFieldByXY(endField.x, endField.y - 1) : getFieldByXY(endField.x, endField.y + 1);
-                            console.log("enemyfield" + enemyField);
                             if (enemyField.piece !== null && enemyField.piece.type === "pawn") {
                                 executeEnPassant(enemyField, getField(startFieldId), endField, true);
                                 return;
@@ -54,14 +55,12 @@ export default class Chess extends Component {
                     }
                 }
 
-
-
-
                 await updateFieldPromise(startFieldId, endFieldId).then(() => {
                     setTimeout(() => {
                         checkForCheckMate(board.playerColor);
                     }, 30);
                 });
+
             }
         };
 
@@ -118,8 +117,7 @@ export default class Chess extends Component {
 
         let board = null;
         const boardHistory = [];
-        let moveTracker = [];
-        let turnNumber = -1;
+        let turnNumber = 0;
         let halfMoves = 0;
 
         function Piece(type, color, moveNumber, sort, fenChar) {
@@ -137,165 +135,24 @@ export default class Chess extends Component {
             this.y = y;
         }
 
-        function Board(fields, graveyard, playerColor) {
+        function Board(fields, graveyard, playerColor, moveTracker) {
             this.fields = fields;
             this.graveyard = graveyard;
             this.playerColor = playerColor;
+            this.moveTracker = moveTracker;
 
         }
 
-
-        function generateFENString() {
-            let fenString = "";
-            fenString = addBoardToFENString(fenString);
-            fenString = addTurnToFEN(fenString);
-            fenString = addCastleRights(fenString);
-            fenString = addEnPassantMoves(fenString);
-            fenString = addMoveCounter(fenString);
-            fenString = addHalfMoves(fenString);
-            return fenString;
-        }
-
-        function addBoardToFENString(fenString) {
-            let fields = board.fields;
-            let sortedFields = Array.from(fields);
-            sortedFields.sort((a, b) => {
-                return a.x - b.x;
-            })
-            sortedFields.sort((a, b) => {
-                return b.y - a.y;
-            })
-
-            let emptyFieldCounter = 0;
-            let counter = 0;
-            for (let field of sortedFields) {
-                if (counter === 8) {
-                    if (emptyFieldCounter > 0) {
-                        fenString += emptyFieldCounter;
-                        emptyFieldCounter = 0;
-                    }
-                    fenString += "/";
-                }
-                let piece = field.piece;
-                if (piece !== null) {
-                    if (emptyFieldCounter !== 0) {
-                        fenString += emptyFieldCounter;
-                        emptyFieldCounter = 0;
-                    }
-                    fenString += piece.fenChar;
-                } else {
-                    emptyFieldCounter++;
-                }
-                if (counter === 8) {
-                    counter = 0;
-                }
-                counter++;
-            }
-            return fenString;
-
-        }
-
-        function addTurnToFEN(fenString) {
-            let turnNumber = boardHistory.length;
-            if (turnNumber % 2 === 0) {
-                fenString += " w";
-            } else {
-                fenString += " b";
-            }
-            fenString += " ";
-            return fenString;
-        }
-
-        function addCastleRights(fenString) {
-            let whiteQueenSide = true;
-            let whiteKingSide = true;
-            let blackQueenSide = true;
-            let blackKingSide = true;
-
-            for (let move of moveTracker) {
-                let oldField = move[0];
-                if (oldField === "a1") {
-                    whiteQueenSide = false;
-                }
-                if (oldField === "h1") {
-                    whiteKingSide = false;
-                }
-                if (oldField === "e1") {
-                    whiteQueenSide = false;
-                    whiteKingSide = false;
-                }
-                if (oldField === "e8") {
-                    blackQueenSide = false;
-                    blackKingSide = false;
-                }
-                if (oldField === "a8") {
-                    blackQueenSide = false;
-                }
-                if (oldField === "h8") {
-                    blackKingSide = false;
-                }
-            }
-            if (whiteKingSide) {
-                fenString += "K";
-            }
-            if (whiteQueenSide) {
-                fenString += "Q";
-            }
-            if (blackKingSide) {
-                fenString += "k";
-            }
-            if (blackQueenSide) {
-                fenString += "q";
-            }
-            if (!whiteQueenSide && !whiteKingSide && !blackQueenSide && !blackKingSide) {
-                fenString += "-";
-            }
-            return fenString;
-        }
-
-        function addEnPassantMoves(fenString) {
-            let lastMove = moveTracker[moveTracker.length - 1];
-            let enPassantPossible = false;
-            if (lastMove !== undefined) {
-                let oldField = lastMove[0];
-                let newField = lastMove[1];
-                if (getField(newField).piece.type === "pawn") {
-                    if ((oldField.includes("2") && newField.includes("4")) || oldField.includes("7") && newField.includes("5")) {
-                        let letterOfField = newField.charAt(0);
-                        let numberOfField = newField.charAt(1);
-                        if (numberOfField.includes("5")) {
-                            numberOfField++;
-                        } else {
-                            numberOfField--;
-                        }
-                        enPassantPossible = true;
-                        fenString += " " + letterOfField + numberOfField;
-                    }
-                }
-            }
-            if (!enPassantPossible) {
-                fenString += " -"
-            }
-            return fenString;
-        }
-
-        function addHalfMoves(fenString) {
-            fenString += " " + halfMoves;
-            return fenString;
-        }
-
-        function addMoveCounter(fenString) {
-            fenString += " " + boardHistory.length;
-            return fenString;
-        }
 
         newGame();
+        setUpBackButton();
+        setUpForwardButton();
 
         /**
          * init a new board with pieces in starting position.
          */
         function newGame() {
-            turnNumber = -1;
+            turnNumber = 0;
             let fields = [];
             let graveyard = [];
             for (let i = 1; i < 9; i++) {
@@ -311,34 +168,24 @@ export default class Chess extends Component {
                     fields.push(field);
                 }
             }
-            board = new Board(fields, graveyard, "white");
-            createBoard(board, board.playerColor);
+            board = new Board(fields, graveyard, "white", []);
+            createBoard(board);
             if (board.playerColor === "black") {
                 makeEngineMove();
             }
         }
 
-        function createBoardPromise(oldFieldId, newFieldId) {
-            return new Promise((resolve) => {
-                updateField(oldFieldId, newFieldId, true);
-                setTimeout(
-                    () => {
-                        createBoard(board, board.playerColor);
-                        resolve();
-                    }, 200
-                );
-            })
-        }
 
 
         /**
          * create the board and add pieces to it.
          * @param currentBoard the board to create the field from.
          */
-        function createBoard(currentBoard, playerColor) {
+        function createBoard(currentBoard) {
             console.log("tic");
+            console.log()
             let contentDiv = document.getElementById('chess');
-            let isBlack = playerColor === "black";
+            let isBlack = currentBoard.playerColor === "black";
             clearElement(contentDiv);
             let boardDiv = createElement('div', 'board-div');
             let blackOrWhite = -1;
@@ -367,10 +214,9 @@ export default class Chess extends Component {
             }
             contentDiv.appendChild(boardDiv);
             document.querySelectorAll(".last-move").forEach(el => el.classList.remove("last-move"));
-
+            let moveTracker = currentBoard.moveTracker;
             if (moveTracker.length > 0) {
                 let lastMove = moveTracker[moveTracker.length - 1];
-                console.log(lastMove);
                 let lastField = document.getElementById(lastMove[0]);
                 lastField.classList.remove("white");
                 lastField.classList.remove("black");
@@ -383,8 +229,26 @@ export default class Chess extends Component {
             let panel = getDiv('panel');
             createPanel(panel);
             contentDiv.append(panel);
-            }
+            setTurn(currentBoard)
+        }
 
+
+        function setTurn(currentBoard) {
+            let moveTracker = currentBoard.moveTracker;
+            if (moveTracker.length === 0) {
+                return;
+            }
+            let turns = document.getElementById("turns");
+            clearElement(turns);
+            let turnCounter = 1;
+            for (let move of moveTracker) {
+                let turn = createElement("li", "turn-" + turnCounter);
+                turn.style.color = "white";
+                turn.innerText = turnCounter + " " + move[0] + " - " + move[1];
+                turns.appendChild(turn);
+                turnCounter++;
+            }
+        }
 
         function addLetterOrNumberGrid(field, domField, isBlack) {
             let letter = isBlack ? "h" : "a";
@@ -454,16 +318,15 @@ export default class Chess extends Component {
         }
 
         function createImgFromField(field) {
-            let imgDiv = document.createElement('div');
+
             let img = document.createElement('img');
             img.src = "http://localhost:5000/" + field.piece.type + field.piece.color;
-            imgDiv.id = field.id + "-piece";
-            imgDiv.classList.add("piece");
-            imgDiv.draggable = true;
-            imgDiv.addEventListener('dragstart', dragStart);
-            imgDiv.addEventListener('dragend', dragEnd);
-            imgDiv.appendChild(img);
-            return imgDiv;
+            img.id = field.id + "-piece";
+            img.classList.add("piece");
+            img.draggable = true;
+            img.addEventListener('dragstart', dragStart);
+            img.addEventListener('dragend', dragEnd);
+            return img;
         }
 
         function getPiecesFromGraveyard(color) {
@@ -491,7 +354,6 @@ export default class Chess extends Component {
             let isCheckMate = true;
             let oppositeColor = getOppositeColor(color);
             let isCheck = checkForCheck(oppositeColor);
-            console.log(color + " " + isCheck);
             if (isCheck) {
                 let allFieldsWithPieces = getAllFieldsWithPiecesByColor(color);
                 for (let field of allFieldsWithPieces) {
@@ -515,7 +377,8 @@ export default class Chess extends Component {
         /**
          * start dragging a piece. Applies classes.
          */
-        function dragStart() {
+        function dragStart(event) {
+            event.dataTransfer.setDragImage(this, +25, +25);
             this.classList = 'hold';
             document.querySelectorAll('.dragged').forEach(el => el.classList.remove('dragged'));
             this.classList.add('dragged');
@@ -545,7 +408,6 @@ export default class Chess extends Component {
             });
             if (legalFields.length === 0 && checkForCheck(color)) {
                 let kingFieldId = getKingField(currentPieceColor).id;
-                console.log(document.getElementById(kingFieldId));
                 document.getElementById(kingFieldId).classList.remove("white");
                 document.getElementById(kingFieldId).classList.remove("black");
                 document.getElementById(kingFieldId).classList.add("take");
@@ -576,12 +438,12 @@ export default class Chess extends Component {
 
         }
 
-        function dragEnd() {
-
+        function dragEnd(event) {
+            event.preventDefault();
             let interval = setInterval(function () {
                 if (pieceWasPicked === true) {
                     clearInterval(interval);
-                    createBoard(board, board.playerColor);
+                    createBoard(board);
                 }
             }, 10);
         }
@@ -623,10 +485,11 @@ export default class Chess extends Component {
          * @param newFieldId field the piece moved to.
          */
         async function resolveDrop(oldFieldId, newFieldId, isEngineMove) {
-            moveTracker.push([oldFieldId, newFieldId]);
+            board.moveTracker.push([oldFieldId, newFieldId]);
             turnNumber += 1;
             if (!isEngineMove) {
                 await updateFieldPromise(oldFieldId, newFieldId, true).then(makeEngineMove);
+
             } else {
                 await updateFieldPromise(oldFieldId, newFieldId, true);
             }
@@ -634,10 +497,10 @@ export default class Chess extends Component {
 
         function makeEngineMove() {
             let fenString = generateFENString(board);
-            console.log(fenString);
             stockfish.postMessage("ucinewgame");
             stockfish.postMessage("position fen " + fenString);
             stockfish.postMessage("go depth 1");
+
         }
 
 
@@ -651,7 +514,6 @@ export default class Chess extends Component {
             let oldField = getField(oldFieldId);
             let movedPiece = oldField.piece;
             if (movedPiece !== null) {
-                console.log(movedPiece);
                 if (movedPiece.type === 'pawn' && (dropField.y === 1 || dropField.y === 8)) {
                     pieceWasPicked = false;
                     await createPiecePicker(dropField, oldField, movedPiece.color);
@@ -699,7 +561,7 @@ export default class Chess extends Component {
                 updateField(oldFieldId, newFieldId, true);
                 setTimeout(
                     () => {
-                        createBoard(board, board.playerColor);
+                        createBoard(board);
                         resolve();
                     }, 200
                 );
@@ -901,7 +763,7 @@ export default class Chess extends Component {
             let container = document.createElement('div');
             let contentDiv = document.getElementById('board-div');
             container.id = 'piece-picker-box';
-            container.style.gridArea = 1 + "/" + flippedNumbers[dropField.x - 1] + "/" + 5;
+            container.style.gridArea = 1 + "/" + dropField.x + "/" + 5;
             for (let [pieceType, piece] of pieceMap) {
                 if (piece.hasOwnProperty('type')) {
                     let newField = new Field(piece, dropField.id, dropField.x, dropField.y);
@@ -946,11 +808,11 @@ export default class Chess extends Component {
          * @param legalMoves current legal moves to add en passant field to.
          */
         function getEnPassant(enemyField, currentField, captureMoveField, legalMoves) {
+            let moveTracker = board.moveTracker;
             let lastMove = moveTracker[moveTracker.length - 1];
             if (enemyField !== undefined && lastMove !== undefined) {
                 let piece = enemyField.piece;
                 if (piece !== null) {
-
                     //let fieldRight = getFieldByXY(field.x + 1, field.y);
                     if (piece.type === 'pawn' && piece.moveNumber === 1 && piece.color !== currentField.piece.color
                         && lastMove[1] === enemyField.id && (enemyField.y === 4 || enemyField.y === 5)) {
@@ -969,6 +831,37 @@ export default class Chess extends Component {
                 }
             }
         }
+
+
+        function setUpForwardButton() {
+            let button = document.getElementById("forwardButton");
+            button.addEventListener("click", () => {
+                console.log("click");
+                console.log("turnNumber " + turnNumber);
+                console.log(boardHistory);
+                if (turnNumber < boardHistory.length - 1) {
+                    createBoard(boardHistory[turnNumber += 1]);
+                } else {
+                    createBoard(boardHistory[turnNumber]);
+                }
+            });
+
+        }
+
+        function setUpBackButton() {
+            let button = document.getElementById("backButton");
+            button.addEventListener("click", () => {
+                console.log("click");
+                console.log("turnNumber " + turnNumber);
+                console.log(boardHistory);
+                if (boardHistory.length > 0) {
+                    if (turnNumber >= 1) {
+                        createBoard(boardHistory[turnNumber -= 1]);
+                    }
+                }
+            });
+        }
+
 
         /**
          * execute en passant with a pawn.
@@ -1103,35 +996,6 @@ export default class Chess extends Component {
             return el;
         }
 
-        function createTurnButtons() {
-            let buttonDiv = createElement('div', 'turn-buttons');
-            let buttonBack = createElement('div', 'back-button');
-            buttonBack.addEventListener('click', function () {
-                createBoard(boardHistory[turnNumber -= 1])
-            });
-
-            let buttonForward = createElement('div', 'forward-button');
-            buttonForward.addEventListener('click', function () {
-                if (turnNumber <= boardHistory.length) {
-                    createBoard(boardHistory[turnNumber += 1]);
-                } else {
-                    createBoard(boardHistory[boardHistory.length - 1]);
-                }
-            });
-            let buttonStart = createElement('div', 'start-button');
-            buttonStart.addEventListener('click', function () {
-                createBoard(boardHistory[turnNumber = 0])
-            });
-            let buttonEnd = createElement('div', 'end-button');
-            buttonEnd.addEventListener('click', function () {
-                turnNumber = boardHistory.length;
-                createBoard(boardHistory[turnNumber])
-            });
-
-            buttonDiv.append(buttonStart, buttonBack, buttonForward, buttonEnd);
-            return buttonDiv;
-        }
-
 
         /**
          * decides which legal moves to return according to given peace.
@@ -1214,6 +1078,152 @@ export default class Chess extends Component {
 
         function containsPiece(field) {
             return field.piece !== null;
+        }
+
+
+        function generateFENString() {
+            let fenString = "";
+            fenString = addBoardToFENString(fenString);
+            fenString = addTurnToFEN(fenString);
+            fenString = addCastleRights(fenString);
+            fenString = addEnPassantMoves(fenString);
+            fenString = addMoveCounter(fenString);
+            fenString = addHalfMoves(fenString);
+            return fenString;
+        }
+
+        function addBoardToFENString(fenString) {
+            let fields = board.fields;
+            let sortedFields = Array.from(fields);
+            sortedFields.sort((a, b) => {
+                return a.x - b.x;
+            })
+            sortedFields.sort((a, b) => {
+                return b.y - a.y;
+            })
+
+            let emptyFieldCounter = 0;
+            let counter = 0;
+            for (let field of sortedFields) {
+                if (counter === 8) {
+                    if (emptyFieldCounter > 0) {
+                        fenString += emptyFieldCounter;
+                        emptyFieldCounter = 0;
+                    }
+                    fenString += "/";
+                }
+                let piece = field.piece;
+                if (piece !== null) {
+                    if (emptyFieldCounter !== 0) {
+                        fenString += emptyFieldCounter;
+                        emptyFieldCounter = 0;
+                    }
+                    fenString += piece.fenChar;
+                } else {
+                    emptyFieldCounter++;
+                }
+                if (counter === 8) {
+                    counter = 0;
+                }
+                counter++;
+            }
+            return fenString;
+
+        }
+
+        function addTurnToFEN(fenString) {
+            let turnNumber = boardHistory.length;
+            if (turnNumber % 2 === 0) {
+                fenString += " w";
+            } else {
+                fenString += " b";
+            }
+            fenString += " ";
+            return fenString;
+        }
+
+        function addCastleRights(fenString) {
+            let whiteQueenSide = true;
+            let whiteKingSide = true;
+            let blackQueenSide = true;
+            let blackKingSide = true;
+
+            for (let move of board.moveTracker) {
+                let oldField = move[0];
+                if (oldField === "a1") {
+                    whiteQueenSide = false;
+                }
+                if (oldField === "h1") {
+                    whiteKingSide = false;
+                }
+                if (oldField === "e1") {
+                    whiteQueenSide = false;
+                    whiteKingSide = false;
+                }
+                if (oldField === "e8") {
+                    blackQueenSide = false;
+                    blackKingSide = false;
+                }
+                if (oldField === "a8") {
+                    blackQueenSide = false;
+                }
+                if (oldField === "h8") {
+                    blackKingSide = false;
+                }
+            }
+            if (whiteKingSide) {
+                fenString += "K";
+            }
+            if (whiteQueenSide) {
+                fenString += "Q";
+            }
+            if (blackKingSide) {
+                fenString += "k";
+            }
+            if (blackQueenSide) {
+                fenString += "q";
+            }
+            if (!whiteQueenSide && !whiteKingSide && !blackQueenSide && !blackKingSide) {
+                fenString += "-";
+            }
+            return fenString;
+        }
+
+        function addEnPassantMoves(fenString) {
+            let moveTracker = board.moveTracker;
+            let lastMove = moveTracker[moveTracker.length - 1];
+            let enPassantPossible = false;
+            if (lastMove !== undefined) {
+                let oldField = lastMove[0];
+                let newField = lastMove[1];
+                if (getField(newField).piece.type === "pawn") {
+                    if ((oldField.includes("2") && newField.includes("4")) || oldField.includes("7") && newField.includes("5")) {
+                        let letterOfField = newField.charAt(0);
+                        let numberOfField = newField.charAt(1);
+                        if (numberOfField.includes("5")) {
+                            numberOfField++;
+                        } else {
+                            numberOfField--;
+                        }
+                        enPassantPossible = true;
+                        fenString += " " + letterOfField + numberOfField;
+                    }
+                }
+            }
+            if (!enPassantPossible) {
+                fenString += " -"
+            }
+            return fenString;
+        }
+
+        function addHalfMoves(fenString) {
+            fenString += " " + halfMoves;
+            return fenString;
+        }
+
+        function addMoveCounter(fenString) {
+            fenString += " " + boardHistory.length;
+            return fenString;
         }
 
     }
