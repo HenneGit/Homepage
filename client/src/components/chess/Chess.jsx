@@ -114,7 +114,8 @@ export default class Chess extends Component {
         const vectors = [[2, -1], [2, 1], [-1, 2], [1, 2], [-1, -2], [1, -2], [-2, 1], [-2, -1]];
         const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
         const flippedNumbers = [8, 7, 6, 5, 4, 3, 2, 1];
-
+        const black = "Black";
+        const white = "White";
         let board = null;
         const boardHistory = [];
         let turnNumber = 0;
@@ -144,15 +145,20 @@ export default class Chess extends Component {
         }
 
 
-        newGame();
         setUpBackButton();
         setUpForwardButton();
-
+        setResetButton();
+        setUpNewGamePanel();
         /**
          * init a new board with pieces in starting position.
          */
         function newGame() {
+            let playerColorLB = document.getElementById("playerColor");
+            let playerColor = playerColorLB.options[playerColorLB.selectedIndex].innerText.toLowerCase();
+            console.log(playerColor);
             turnNumber = 0;
+            board = null;
+            halfMoves = null;
             let fields = [];
             let graveyard = [];
             for (let i = 1; i < 9; i++) {
@@ -168,11 +174,29 @@ export default class Chess extends Component {
                     fields.push(field);
                 }
             }
-            board = new Board(fields, graveyard, "white", []);
+            board = new Board(fields, graveyard, playerColor, []);
             createBoard(board);
             if (board.playerColor === "black") {
                 makeEngineMove();
             }
+        }
+
+        function setUpNewGamePanel() {
+            let panel = document.getElementById("turns");
+            let difficulty = createElement("select", "difficulty");
+            difficulty.append(getOption("Easy"), getOption("Medium"), getOption("Hard"));
+            let playerColor = createElement("select", "playerColor");
+            playerColor.append(getOption("White"), getOption("Black"));
+            let startGameButton = createElement("div", "start-game-button");
+            startGameButton.addEventListener("click", newGame);
+            panel.append(difficulty, playerColor, startGameButton);
+
+        }
+
+        function getOption(optionText) {
+            let option = createElement("option");
+            option.innerText = optionText;
+            return option;
         }
 
 
@@ -842,12 +866,19 @@ export default class Chess extends Component {
         }
 
 
+        function setResetButton() {
+            let button = document.getElementById("resetButton");
+            button.addEventListener("click", () => {
+                turnNumber = boardHistory.length;
+                createBoard(board);
+            });
+
+
+        }
+
         function setUpForwardButton() {
             let button = document.getElementById("forwardButton");
             button.addEventListener("click", () => {
-                console.log("click");
-                console.log("turnNumber " + turnNumber);
-                console.log(boardHistory);
                 if (turnNumber < boardHistory.length - 1) {
                     createBoard(boardHistory[turnNumber += 1]);
                 } else {
@@ -860,9 +891,6 @@ export default class Chess extends Component {
         function setUpBackButton() {
             let button = document.getElementById("backButton");
             button.addEventListener("click", () => {
-                console.log("click");
-                console.log("turnNumber " + turnNumber);
-                console.log(boardHistory);
                 if (boardHistory.length > 0) {
                     if (turnNumber >= 1) {
                         createBoard(boardHistory[turnNumber -= 1]);
@@ -1277,10 +1305,19 @@ export default class Chess extends Component {
                         <div id="turns-header"></div>
                         <div id="turns"></div>
                         <div id="buttons">
-                            <i id="backButton" className="arrow left"></i>
-                            <i id="forwardButton" className="arrow right"></i>
-                            <div id="resetButton" className="reset-button"></div>
-                            <div id="newGame"></div>
+                            <div id="backButton">
+                                <i id="backButton" className="arrow left"></i>
+                            </div>
+                            <div id="forwardButton">
+                                <i id="forwardButton" className="arrow right"></i>
+                            </div>
+                            <div>
+                                <div id="resetButton" className="reset-button"></div>
+                            </div>
+                            <div>
+                                <div id="newGame"></div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
