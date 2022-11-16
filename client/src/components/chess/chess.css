@@ -172,6 +172,12 @@ img {
 
 }
 
+#new-game-wrapper {
+    display: flex;
+    flex-direction: column;
+
+}
+
 
 #bottomPlayer {
     grid-row: 4;
@@ -194,11 +200,14 @@ img {
 
 #buttons {
     display: flex;
+    justify-content: center;
 }
-
-
-.take {
-    background-color: crimson;
+.panel-button {
+    color: white;
+    background-color: #042c54;
+    width: 25%;
+    margin-left: 2px;
+    font-size: 3vh;
 }
 
 

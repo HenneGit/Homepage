@@ -1,6 +1,11 @@
 import React, {Component} from "react";
 import './chess.css';
 import avatar from '../../assets/avatar.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faBackwardStep} from '@fortawesome/free-solid-svg-icons'
+import {faForwardStep} from '@fortawesome/free-solid-svg-icons'
+import {faRepeat} from '@fortawesome/free-solid-svg-icons'
+import {faPlus} from '@fortawesome/free-solid-svg-icons'
 
 export default class Chess extends Component {
     constructor() {
@@ -114,10 +119,8 @@ export default class Chess extends Component {
         const vectors = [[2, -1], [2, 1], [-1, 2], [1, 2], [-1, -2], [1, -2], [-2, 1], [-2, -1]];
         const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
         const flippedNumbers = [8, 7, 6, 5, 4, 3, 2, 1];
-        const black = "Black";
-        const white = "White";
         let board = null;
-        const boardHistory = [];
+        let boardHistory = [];
         let turnNumber = 0;
         let halfMoves = 0;
 
@@ -155,10 +158,10 @@ export default class Chess extends Component {
         function newGame() {
             let playerColorLB = document.getElementById("playerColor");
             let playerColor = playerColorLB.options[playerColorLB.selectedIndex].innerText.toLowerCase();
-            console.log(playerColor);
             turnNumber = 0;
             board = null;
             halfMoves = null;
+            boardHistory = [];
             let fields = [];
             let graveyard = [];
             for (let i = 1; i < 9; i++) {
@@ -169,7 +172,6 @@ export default class Chess extends Component {
                         let color = i === 7 ? 'black' : 'white';
                         piece = new Piece('pawn', color, 0, 0, color === "white" ? "P" : "p");
                     }
-
                     let field = new Field(piece, letter + i, j, i);
                     fields.push(field);
                 }
@@ -183,13 +185,15 @@ export default class Chess extends Component {
 
         function setUpNewGamePanel() {
             let panel = document.getElementById("turns");
+            let wrapper = createElement("div", "new-game-wrapper");
             let difficulty = createElement("select", "difficulty");
             difficulty.append(getOption("Easy"), getOption("Medium"), getOption("Hard"));
             let playerColor = createElement("select", "playerColor");
             playerColor.append(getOption("White"), getOption("Black"));
             let startGameButton = createElement("div", "start-game-button");
             startGameButton.addEventListener("click", newGame);
-            panel.append(difficulty, playerColor, startGameButton);
+            wrapper.append(difficulty, playerColor, startGameButton);
+            panel.append(wrapper)
 
         }
 
@@ -227,8 +231,7 @@ export default class Chess extends Component {
                     domField.style.gridArea = flippedNumbers[field.y - 1] + "/" + field.x;
                 }
                 if (field.piece !== null) {
-                    let imgDiv = createImgFromField(field);
-                    domField.appendChild(imgDiv);
+                    domField.appendChild(createImgFromField(field));
                 }
                 boardDiv.appendChild(domField);
                 blackOrWhite = blackOrWhite * -1;
@@ -238,22 +241,24 @@ export default class Chess extends Component {
             }
             contentDiv.appendChild(boardDiv);
             document.querySelectorAll(".last-move").forEach(el => el.classList.remove("last-move"));
-            let moveTracker = currentBoard.moveTracker;
+            setUpLastMove(currentBoard.moveTracker);
+            contentDiv.append(createPanel());
+            setTurn(currentBoard)
+        }
+
+
+        function setUpLastMove(moveTracker) {
             if (moveTracker.length > 0) {
                 let lastMove = moveTracker[moveTracker.length - 1];
-                let lastField = document.getElementById(lastMove[0]);
-                lastField.classList.remove("white");
-                lastField.classList.remove("black");
-                lastField.classList.add("last-move");
-                let newField = document.getElementById(lastMove[1]);
-                newField.classList.remove("white");
-                newField.classList.remove("black");
-                newField.classList.add("last-move");
+                addLastMoveClasses(document.getElementById(lastMove[0]));
+                addLastMoveClasses(document.getElementById(lastMove[1]));
             }
-            let panel = getDiv('panel');
-            createPanel(panel);
-            contentDiv.append(panel);
-            setTurn(currentBoard)
+        }
+
+        function addLastMoveClasses(field) {
+            field.classList.remove("white");
+            field.classList.remove("black");
+            field.classList.add("last-move");
         }
 
 
@@ -310,7 +315,8 @@ export default class Chess extends Component {
          * create the panel where graveyard and moves are displayed.
          * @param panel the panel div.
          */
-        function createPanel(panel) {
+        function createPanel() {
+            let panel = getDiv('panel');
             let blackPieces = getPiecesFromGraveyard('black');
             let whitePieces = getPiecesFromGraveyard('white');
             if (blackPieces !== null || true) {
@@ -319,6 +325,7 @@ export default class Chess extends Component {
             if (whitePieces !== null || true) {
                 appendPiecesToGraveyard(whitePieces, "top");
             }
+            return panel;
 
         }
 
@@ -342,7 +349,6 @@ export default class Chess extends Component {
         }
 
         function createImgFromField(field) {
-
             let img = document.createElement('img');
             let color = field.piece.color;
             img.src = "http://localhost:5000/" + field.piece.type + color;
@@ -1305,18 +1311,10 @@ export default class Chess extends Component {
                         <div id="turns-header"></div>
                         <div id="turns"></div>
                         <div id="buttons">
-                            <div id="backButton">
-                                <i id="backButton" className="arrow left"></i>
-                            </div>
-                            <div id="forwardButton">
-                                <i id="forwardButton" className="arrow right"></i>
-                            </div>
-                            <div>
-                                <div id="resetButton" className="reset-button"></div>
-                            </div>
-                            <div>
-                                <div id="newGame"></div>
-                            </div>
+                                <FontAwesomeIcon id="backButton" className="panel-button" icon={faBackwardStep} />
+                                <FontAwesomeIcon  id="forwardButton" className="panel-button" icon={faForwardStep} />
+                                <FontAwesomeIcon id="resetButton" className="panel-button" icon={faRepeat} />
+                                <FontAwesomeIcon id="newGameButton" className="panel-button" icon={faPlus} />
 
                         </div>
                     </div>
