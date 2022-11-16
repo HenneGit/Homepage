@@ -176,7 +176,6 @@ export default class Chess extends Component {
         }
 
 
-
         /**
          * create the board and add pieces to it.
          * @param currentBoard the board to create the field from.
@@ -321,12 +320,15 @@ export default class Chess extends Component {
         function createImgFromField(field) {
 
             let img = document.createElement('img');
-            img.src = "http://localhost:5000/" + field.piece.type + field.piece.color;
+            let color = field.piece.color;
+            img.src = "http://localhost:5000/" + field.piece.type + color;
             img.id = field.id + "-piece";
             img.classList.add("piece");
-            img.draggable = true;
-            img.addEventListener('dragstart', dragStart);
-            img.addEventListener('dragend', dragEnd);
+            if (color === board.playerColor) {
+                img.draggable = true;
+                img.addEventListener('dragstart', dragStart);
+                img.addEventListener('dragend', dragEnd);
+            }
             return img;
         }
 
@@ -950,7 +952,7 @@ export default class Chess extends Component {
 
             //filter moves with covered enemy pieces on it.
             return withoutCheck.filter(field => {
-                updateField(currentField.id, field.id, true);
+                updateField(currentField.id, field.id, false);
                 let hasCheck = checkForCheck(color);
                 const boardCopy = jsonCopy(boardHistory.pop());
                 board = boardCopy;
@@ -965,35 +967,35 @@ export default class Chess extends Component {
          * @returns {[]} legalMoves
          */
         function checkForCastle(kingField) {
-
-
             let legalMoves = [];
             let color = getOppositeColor(kingField.piece.color);
-            let rookRight = getFieldByXY(kingField.x - 4, kingField.y).piece;
-            let rookLeft = getFieldByXY(kingField.x + 3, kingField.y).piece;
+            let rookLeft = getFieldByXY(kingField.x - 4, kingField.y).piece;
+            let rookRight = getFieldByXY(kingField.x + 3, kingField.y).piece;
 
             let fieldRightX1 = getFieldByXY(kingField.x + 1, kingField.y);
             let fieldRightX2 = getFieldByXY(kingField.x + 2, kingField.y);
             let fieldLeftX1 = getFieldByXY(kingField.x - 1, kingField.y);
             let fieldLeftX2 = getFieldByXY(kingField.x - 2, kingField.y);
             let fieldLeftX3 = getFieldByXY(kingField.x - 3, kingField.y);
+            if (!checkForCheck(getOppositeColor(board.playerColor))) {
+                if (!containsPiece(fieldRightX1) && !containsPiece(fieldRightX2) && rookRight !== null && rookRight.moveNumber === 0 && !fieldHasCheck(fieldRightX1, color)
+                    && !fieldHasCheck(fieldRightX2, color)) {
+                    document.getElementById(fieldRightX2.id).removeEventListener("drop", dragDrop);
+                    document.getElementById(fieldRightX2.id).addEventListener('drop', function () {
+                        castleRight(kingField, false);
+                    });
+                    legalMoves.push(jsonCopy(fieldRightX2));
+                }
+                if (!containsPiece(fieldLeftX1) && !containsPiece(fieldLeftX2) && !containsPiece(fieldLeftX3) && rookLeft !== null && rookLeft.moveNumber === 0
+                    && !fieldHasCheck(fieldLeftX1, color) && !fieldHasCheck(fieldLeftX2, color) && !fieldHasCheck(fieldLeftX3, color)) {
+                    document.getElementById(fieldLeftX2.id).removeEventListener("drop", dragDrop);
+                    document.getElementById(fieldLeftX2.id).addEventListener('drop', function () {
+                        castleLeft(kingField, false);
+                    });
+                    legalMoves.push(jsonCopy(fieldLeftX2));
+                }
+            }
 
-            if (!containsPiece(fieldRightX1) && !containsPiece(fieldRightX2) && rookRight.moveNumber === 0 && !fieldHasCheck(fieldRightX1, color)
-                && !fieldHasCheck(fieldRightX2, color)) {
-                document.getElementById(fieldRightX2.id).removeEventListener("drop", dragDrop);
-                document.getElementById(fieldRightX2.id).addEventListener('drop', function () {
-                    castleRight(kingField, false);
-                });
-                legalMoves.push(jsonCopy(fieldRightX2));
-            }
-            if (!containsPiece(fieldLeftX1) && !containsPiece(fieldLeftX2) && !containsPiece(fieldLeftX3) && rookLeft.moveNumber === 0
-                && !fieldHasCheck(fieldLeftX1, color) && !fieldHasCheck(fieldLeftX2, color) && !fieldHasCheck(fieldLeftX3, color)) {
-                document.getElementById(fieldLeftX2.id).removeEventListener("drop", dragDrop);
-                document.getElementById(fieldLeftX2.id).addEventListener('drop', function () {
-                    castleLeft(kingField, false);
-                });
-                legalMoves.push(jsonCopy(fieldLeftX2));
-            }
             return legalMoves;
         }
 
@@ -1277,6 +1279,7 @@ export default class Chess extends Component {
                         <div id="buttons">
                             <i id="backButton" className="arrow left"></i>
                             <i id="forwardButton" className="arrow right"></i>
+                            <div id="resetButton" className="reset-button"></div>
                             <div id="newGame"></div>
                         </div>
                     </div>
