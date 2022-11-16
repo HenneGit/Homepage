@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import './chess.css';
 import avatar from '../../assets/avatar.png'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faBackwardStep} from '@fortawesome/free-solid-svg-icons'
 import {faForwardStep} from '@fortawesome/free-solid-svg-icons'
 import {faRepeat} from '@fortawesome/free-solid-svg-icons'
@@ -147,11 +147,13 @@ export default class Chess extends Component {
 
         }
 
-
+        createNewBoard("white");
         setUpBackButton();
         setUpForwardButton();
         setResetButton();
         setUpNewGamePanel();
+        setUpNewGameButton();
+
         /**
          * init a new board with pieces in starting position.
          */
@@ -162,6 +164,14 @@ export default class Chess extends Component {
             board = null;
             halfMoves = null;
             boardHistory = [];
+            createNewBoard(playerColor)
+
+            if (board.playerColor === "black") {
+                makeEngineMove();
+            }
+        }
+
+        function createNewBoard(playerColor) {
             let fields = [];
             let graveyard = [];
             for (let i = 1; i < 9; i++) {
@@ -178,13 +188,11 @@ export default class Chess extends Component {
             }
             board = new Board(fields, graveyard, playerColor, []);
             createBoard(board);
-            if (board.playerColor === "black") {
-                makeEngineMove();
-            }
         }
 
         function setUpNewGamePanel() {
             let panel = document.getElementById("turns");
+            clearElement(panel);
             let wrapper = createElement("div", "new-game-wrapper");
             let difficulty = createElement("select", "difficulty");
             difficulty.append(getOption("Easy"), getOption("Medium"), getOption("Hard"));
@@ -882,6 +890,15 @@ export default class Chess extends Component {
 
         }
 
+        function setUpNewGameButton() {
+
+            let button = document.getElementById(("newGameButton"));
+            button.addEventListener("click", () => {
+                setUpNewGamePanel();
+                createNewBoard("white");
+            });
+        }
+
         function setUpForwardButton() {
             let button = document.getElementById("forwardButton");
             button.addEventListener("click", () => {
@@ -1311,10 +1328,10 @@ export default class Chess extends Component {
                         <div id="turns-header"></div>
                         <div id="turns"></div>
                         <div id="buttons">
-                                <FontAwesomeIcon id="backButton" className="panel-button" icon={faBackwardStep} />
-                                <FontAwesomeIcon  id="forwardButton" className="panel-button" icon={faForwardStep} />
-                                <FontAwesomeIcon id="resetButton" className="panel-button" icon={faRepeat} />
-                                <FontAwesomeIcon id="newGameButton" className="panel-button" icon={faPlus} />
+                            <FontAwesomeIcon id="backButton" className="panel-button" icon={faBackwardStep}/>
+                            <FontAwesomeIcon id="forwardButton" className="panel-button" icon={faForwardStep}/>
+                            <FontAwesomeIcon id="resetButton" className="panel-button" icon={faRepeat}/>
+                            <FontAwesomeIcon id="newGameButton" className="panel-button" icon={faPlus}/>
 
                         </div>
                     </div>
