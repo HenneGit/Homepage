@@ -212,6 +212,7 @@ export default class Chess extends Component {
             if (storedBoard !== null && storedHistory !== null) {
                 boardHistory = storedHistory;
                 board = storedBoard;
+                turnNumber = boardHistory.length - 1;
                 createBoard(storedBoard, false);
                 return;
             }
@@ -600,11 +601,23 @@ export default class Chess extends Component {
             }
         }
 
-        function makeEngineMove() {
+        function makeEngineMove(difficulty) {
             let fenString = generateFENString(board);
-            stockfish.postMessage("ucinewgame");
-            stockfish.postMessage("position fen " + fenString);
-            stockfish.postMessage("go depth 1");
+
+            stockfish.postMessage("uci\n");
+            stockfish.postMessage("setoption name Skill Level value 15\n");
+            stockfish.postMessage("setoption name Skill Level Maximum Error value 900\n");
+            stockfish.postMessage("setoption name Skill Level Probability value 10\n");
+            stockfish.postMessage("isready\n");
+            stockfish.postMessage("ucinewgame\n");
+            stockfish.postMessage("isready\n");
+            stockfish.postMessage("position fen " + fenString+ "\n");
+            // stockfish.postMessage("position startpos\n");
+            stockfish.postMessage("go movetime 1000\n");
+            setTimeout(() => {
+                stockfish.postMessage("stop\n");
+            }, 1000);
+
 
         }
 
@@ -874,7 +887,13 @@ export default class Chess extends Component {
             let container = document.createElement('div');
             let contentDiv = document.getElementById('board-div');
             container.id = 'piece-picker-box';
-            container.style.gridArea = 1 + "/" + dropField.x + "/" + 5;
+            let gridAreaX = null;
+            if (board.playerColor === "white") {
+                gridAreaX = dropField.x;
+            } else {
+                gridAreaX = flippedNumbers[dropField.x - 1];
+            }
+            container.style.gridArea = 1 + "/" + gridAreaX + "/" + 5;
             for (let [pieceType, piece] of pieceMap) {
                 if (piece.hasOwnProperty('type')) {
                     let newField = new Field(piece, dropField.id, dropField.x, dropField.y);
