@@ -944,7 +944,7 @@ export default class Chess extends Component {
             button.addEventListener("click", () => {
                 if (turnNumber < boardHistory.length - 1) {
                     createBoard(boardHistory[turnNumber += 1], true);
-                } else {
+                } else if (boardHistory.length > 0 && turnNumber <= boardHistory.length) {
                     createBoard(boardHistory[turnNumber], true);
                 }
             });
@@ -963,7 +963,7 @@ export default class Chess extends Component {
                         }
                         createBoard(boardHistory[turnNumber], true);
                     }
-                }else {
+                }else if (boardHistory.length >0) {
                     createBoard(boardHistory[0], true)
                 }
             });
