@@ -28,7 +28,6 @@ export default class Chess extends Component {
                 turnNumber += 1;
                 if ((startFieldId === "e8" && endFieldId === "g8") || startFieldId === "e1" && endFieldId === "g1") {
                     castleRight(getField(startFieldId), true);
-
                     return;
                 }
                 if ((startFieldId === "e8" && endFieldId === "c8") || startFieldId === "e1" && endFieldId === "c1") {
@@ -151,18 +150,17 @@ export default class Chess extends Component {
         setUpBackButton();
         setUpForwardButton();
         setResetButton();
-        setUpNewGamePanel();
         setUpNewGameButton();
 
         /**
          * init a new board with pieces in starting position.
          */
         async function newGame() {
+            localStorage.clear();
             let playerColorLB = document.getElementById("playerColor");
             let playerColor = null;
-
             if (playerColorLB !== null) {
-                playerColor=  playerColorLB.options[playerColorLB.selectedIndex].innerText.toLowerCase();
+                playerColor = playerColorLB.options[playerColorLB.selectedIndex].innerText.toLowerCase();
             } else {
                 playerColor = "white"
             }
@@ -171,7 +169,6 @@ export default class Chess extends Component {
             halfMoves = null;
             boardHistory = [];
             createNewBoard(playerColor, false)
-
             if (board.playerColor === "black") {
                 makeEngineMove();
             }
@@ -188,8 +185,8 @@ export default class Chess extends Component {
 
         async function returnToStartAnimation() {
             return new Promise((resolve) => {
-                let counter = boardHistory.length -1;
-                let interval = setInterval(()=>{
+                let counter = boardHistory.length - 1;
+                let interval = setInterval(() => {
                     console.log(counter);
                     let board = boardHistory[counter];
                     console.log(board);
@@ -200,8 +197,7 @@ export default class Chess extends Component {
                         clearInterval(interval);
                     }
                     counter--;
-               },100)
-
+                }, 100)
                 resolve();
             })
         }
@@ -210,6 +206,16 @@ export default class Chess extends Component {
         function createNewBoard(playerColor, isInitBoard) {
             let fields = [];
             let graveyard = [];
+            let storedBoard = getItemFromLocalStorage("board");
+            let storedHistory = getItemFromLocalStorage("history");
+
+            if (storedBoard !== null && storedHistory !== null) {
+                boardHistory = storedHistory;
+                board = storedBoard;
+                createBoard(storedBoard, false);
+                return;
+            }
+            setUpNewGamePanel();
             for (let i = 1; i < 9; i++) {
                 for (let j = 8; j > 0; j--) {
                     let letter = letters[j - 1];
@@ -248,11 +254,25 @@ export default class Chess extends Component {
             return option;
         }
 
+        function setLocalStorage(key, item) {
+            localStorage.setItem(key, JSON.stringify(item));
+        }
+
+        function getItemFromLocalStorage(key) {
+            let item = localStorage.getItem(key);
+            return JSON.parse(item);
+        }
+
+
         /**
          * create the board and add pieces to it.
          * @param currentBoard the board to create the field from.
          */
         function createBoard(currentBoard, isInitBoard) {
+            if (boardHistory.length > 0) {
+                setLocalStorage("board", board);
+                setLocalStorage("history", boardHistory);
+            }
             console.log("tic");
             console.log(boardHistory);
             console.log(currentBoard);
@@ -927,7 +947,7 @@ export default class Chess extends Component {
         function setResetButton() {
             let button = document.getElementById("resetButton");
             button.addEventListener("click", () => {
-                turnNumber = boardHistory.length -1;
+                turnNumber = boardHistory.length - 1;
                 createBoard(board, false);
             });
         }
@@ -963,7 +983,7 @@ export default class Chess extends Component {
                         }
                         createBoard(boardHistory[turnNumber], true);
                     }
-                }else if (boardHistory.length >0) {
+                } else if (boardHistory.length > 0) {
                     createBoard(boardHistory[0], true)
                 }
             });
