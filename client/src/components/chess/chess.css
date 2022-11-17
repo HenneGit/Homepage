@@ -10,6 +10,12 @@ img {
 }
 
 #turns {
+    background-color: #031B34;
+    height: 40vh;
+    width: 15vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     overflow: scroll;
     overflow-x: hidden;
 }
@@ -192,11 +198,6 @@ img {
 }
 
 
-#turns {
-    background-color: #031B34;
-    height: 40vh;
-    width: 15vw;
-}
 
 #buttons {
     display: flex;

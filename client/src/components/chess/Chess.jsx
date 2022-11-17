@@ -121,7 +121,7 @@ export default class Chess extends Component {
         const flippedNumbers = [8, 7, 6, 5, 4, 3, 2, 1];
         let board = null;
         let boardHistory = [];
-        let turnNumber = 0;
+        let turnNumber = -1;
         let halfMoves = 0;
 
         function Piece(type, color, moveNumber, sort, fenChar) {
@@ -147,7 +147,7 @@ export default class Chess extends Component {
 
         }
 
-        createNewBoard("white");
+        createNewBoard("white", true);
         setUpBackButton();
         setUpForwardButton();
         setResetButton();
@@ -157,21 +157,57 @@ export default class Chess extends Component {
         /**
          * init a new board with pieces in starting position.
          */
-        function newGame() {
+        async function newGame() {
             let playerColorLB = document.getElementById("playerColor");
-            let playerColor = playerColorLB.options[playerColorLB.selectedIndex].innerText.toLowerCase();
+            let playerColor = null;
+
+            if (playerColorLB !== null) {
+                playerColor=  playerColorLB.options[playerColorLB.selectedIndex].innerText.toLowerCase();
+            } else {
+                playerColor = "white"
+            }
             turnNumber = 0;
             board = null;
             halfMoves = null;
             boardHistory = [];
-            createNewBoard(playerColor)
+            createNewBoard(playerColor, false)
 
             if (board.playerColor === "black") {
                 makeEngineMove();
             }
         }
 
-        function createNewBoard(playerColor) {
+        async function awaitReturnToStartAnimation() {
+            if (boardHistory.length > 0) {
+                await returnToStartAnimation();
+            } else {
+                setUpNewGamePanel();
+            }
+        }
+
+
+        async function returnToStartAnimation() {
+            return new Promise((resolve) => {
+                let counter = boardHistory.length -1;
+                let interval = setInterval(()=>{
+                    console.log(counter);
+                    let board = boardHistory[counter];
+                    console.log(board);
+                    createBoard(board);
+                    if (counter === 0) {
+                        newGame();
+                        setUpNewGamePanel();
+                        clearInterval(interval);
+                    }
+                    counter--;
+               },100)
+
+                resolve();
+            })
+        }
+
+
+        function createNewBoard(playerColor, isInitBoard) {
             let fields = [];
             let graveyard = [];
             for (let i = 1; i < 9; i++) {
@@ -187,7 +223,7 @@ export default class Chess extends Component {
                 }
             }
             board = new Board(fields, graveyard, playerColor, []);
-            createBoard(board);
+            createBoard(board, isInitBoard);
         }
 
         function setUpNewGamePanel() {
@@ -199,6 +235,7 @@ export default class Chess extends Component {
             let playerColor = createElement("select", "playerColor");
             playerColor.append(getOption("White"), getOption("Black"));
             let startGameButton = createElement("div", "start-game-button");
+            startGameButton.innerText = "Start Game";
             startGameButton.addEventListener("click", newGame);
             wrapper.append(difficulty, playerColor, startGameButton);
             panel.append(wrapper)
@@ -211,12 +248,11 @@ export default class Chess extends Component {
             return option;
         }
 
-
         /**
          * create the board and add pieces to it.
          * @param currentBoard the board to create the field from.
          */
-        function createBoard(currentBoard) {
+        function createBoard(currentBoard, isInitBoard) {
             console.log("tic");
             console.log(boardHistory);
             console.log(currentBoard);
@@ -239,7 +275,10 @@ export default class Chess extends Component {
                     domField.style.gridArea = flippedNumbers[field.y - 1] + "/" + field.x;
                 }
                 if (field.piece !== null) {
-                    domField.appendChild(createImgFromField(field));
+                    if (isInitBoard && boardHistory.length > 0) {
+                        isInitBoard = currentBoard.moveTracker.length !== boardHistory[boardHistory.length - 1].moveTracker.length;
+                    }
+                    domField.appendChild(createImgFromField(field, isInitBoard));
                 }
                 boardDiv.appendChild(domField);
                 blackOrWhite = blackOrWhite * -1;
@@ -279,9 +318,14 @@ export default class Chess extends Component {
             clearElement(turns);
             let turnCounter = 1;
             for (let move of moveTracker) {
-                let turn = createElement("li", "turn-" + turnCounter);
+                let turn = createElement("a", "turn-" + turnCounter);
+                if (turnCounter % 2 === 0) {
+                    turn.classList.add("turn-even");
+                } else {
+                    turn.classList.add("turn-odd");
+                }
                 turn.style.color = "white";
-                turn.innerText = turnCounter + " " + move[0] + " - " + move[1];
+                turn.innerText = turnCounter + ". " + move[0] + " - " + move[1];
                 turns.appendChild(turn);
                 turnCounter++;
             }
@@ -356,13 +400,13 @@ export default class Chess extends Component {
 
         }
 
-        function createImgFromField(field) {
+        function createImgFromField(field, isInitBoard) {
             let img = document.createElement('img');
             let color = field.piece.color;
             img.src = "http://localhost:5000/" + field.piece.type + color;
             img.id = field.id + "-piece";
             img.classList.add("piece");
-            if (color === board.playerColor) {
+            if (color === board.playerColor && !isInitBoard) {
                 img.draggable = true;
                 img.addEventListener('dragstart', dragStart);
                 img.addEventListener('dragend', dragEnd);
@@ -484,7 +528,7 @@ export default class Chess extends Component {
             let interval = setInterval(function () {
                 if (pieceWasPicked === true) {
                     clearInterval(interval);
-                    createBoard(board);
+                    createBoard(board, false);
                 }
             }, 10);
         }
@@ -608,7 +652,7 @@ export default class Chess extends Component {
                 updateField(oldFieldId, newFieldId, true);
                 setTimeout(
                     () => {
-                        createBoard(board);
+                        createBoard(board, false);
                         resolve();
                     }, 200
                 );
@@ -815,7 +859,7 @@ export default class Chess extends Component {
                 if (piece.hasOwnProperty('type')) {
                     let newField = new Field(piece, dropField.id, dropField.x, dropField.y);
                     let pieceBox = document.createElement('div');
-                    let imgDiv = createImgFromField(newField, true);
+                    let imgDiv = createImgFromField(newField, false);
                     pieceBox.appendChild(imgDiv);
                     pieceBox.setAttribute('piece', pieceType);
                     pieceBox.addEventListener('click', function () {
@@ -883,19 +927,15 @@ export default class Chess extends Component {
         function setResetButton() {
             let button = document.getElementById("resetButton");
             button.addEventListener("click", () => {
-                turnNumber = boardHistory.length;
-                createBoard(board);
+                turnNumber = boardHistory.length -1;
+                createBoard(board, false);
             });
-
-
         }
 
         function setUpNewGameButton() {
-
             let button = document.getElementById(("newGameButton"));
             button.addEventListener("click", () => {
-                setUpNewGamePanel();
-                createNewBoard("white");
+                awaitReturnToStartAnimation();
             });
         }
 
@@ -903,9 +943,9 @@ export default class Chess extends Component {
             let button = document.getElementById("forwardButton");
             button.addEventListener("click", () => {
                 if (turnNumber < boardHistory.length - 1) {
-                    createBoard(boardHistory[turnNumber += 1]);
+                    createBoard(boardHistory[turnNumber += 1], true);
                 } else {
-                    createBoard(boardHistory[turnNumber]);
+                    createBoard(boardHistory[turnNumber], true);
                 }
             });
 
@@ -914,10 +954,17 @@ export default class Chess extends Component {
         function setUpBackButton() {
             let button = document.getElementById("backButton");
             button.addEventListener("click", () => {
-                if (boardHistory.length > 0) {
+                if (boardHistory.length > 2) {
                     if (turnNumber >= 1) {
-                        createBoard(boardHistory[turnNumber -= 1]);
+                        if (turnNumber === boardHistory.length) {
+                            turnNumber -= 2;
+                        } else {
+                            turnNumber -= 1;
+                        }
+                        createBoard(boardHistory[turnNumber], true);
                     }
+                }else {
+                    createBoard(boardHistory[0], true)
                 }
             });
         }
