@@ -2,9 +2,9 @@ import React, {Component} from "react";
 import './chess.css';
 import avatar from '../../assets/avatar.png'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faBackwardStep} from '@fortawesome/free-solid-svg-icons'
-import {faForwardStep} from '@fortawesome/free-solid-svg-icons'
-import {faRepeat} from '@fortawesome/free-solid-svg-icons'
+import {faChevronRight} from '@fortawesome/free-solid-svg-icons'
+import {faChevronLeft} from '@fortawesome/free-solid-svg-icons'
+import {faRotateLeft} from '@fortawesome/free-solid-svg-icons'
 import {faPlus} from '@fortawesome/free-solid-svg-icons'
 
 export default class Chess extends Component {
@@ -19,6 +19,9 @@ export default class Chess extends Component {
         stockfish.onmessage = async function onmessage(message) {
             console.log(message);
             if (message.data.includes("bestmove")) {
+                if (message.data.includes("none")) {
+                    return;
+                }
                 const messageArray = message.data.split(" ");
                 const move = messageArray[1];
                 const startFieldId = move.substring(0, 2);
@@ -60,9 +63,9 @@ export default class Chess extends Component {
                 }
 
                 await updateFieldPromise(startFieldId, endFieldId).then(() => {
-                    setTimeout(() => {
-                        checkForCheckMate(board.playerColor);
-                    }, 30);
+                    console.log("Schachmatt hier");
+                    checkForCheckMate(board.playerColor);
+                    piece.moveNumber += 1;
                 });
 
             }
@@ -118,6 +121,7 @@ export default class Chess extends Component {
         const vectors = [[2, -1], [2, 1], [-1, 2], [1, 2], [-1, -2], [1, -2], [-2, 1], [-2, -1]];
         const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
         const flippedNumbers = [8, 7, 6, 5, 4, 3, 2, 1];
+        const difficulty = ["I want to win", "Easy", "Medium", "Hard", "I want to loose"];
         let board = null;
         let boardHistory = [];
         let turnNumber = -1;
@@ -169,6 +173,7 @@ export default class Chess extends Component {
             halfMoves = null;
             boardHistory = [];
             createNewBoard(playerColor, false)
+            clearElement(document.getElementById("turns"));
             if (board.playerColor === "black") {
                 makeEngineMove();
             }
@@ -180,6 +185,32 @@ export default class Chess extends Component {
             } else {
                 setUpNewGamePanel();
             }
+        }
+
+        function appendNewGamePopUp() {
+            let wrapper = createElement("div", "new-game-balloon");
+            let buttonWrapper = createElement("div", "button-wrapper");
+            let buttonCancel = createElement("div", "button-cancel");
+            buttonCancel.classList.add("new-game-balloon-button");
+            buttonCancel.classList.add("chess-button");
+            buttonCancel.innerText = "Cancel";
+            buttonCancel.addEventListener("click", ()=>{
+                document.getElementById("buttons").removeChild(document.getElementById("new-game-balloon"));
+            })
+            let buttonConfirm = createElement("div", "button-confirm");
+            buttonConfirm.addEventListener("click", () =>{
+                document.getElementById("buttons").removeChild(document.getElementById("new-game-balloon"));
+                awaitReturnToStartAnimation();
+            });
+            buttonConfirm.innerText = "Yes";
+            buttonConfirm.classList.add("new-game-balloon-button");
+            buttonConfirm.classList.add("chess-button");
+            let text = createElement("div", "new-game-text");
+            text.innerText = "Start a new game?";
+            buttonWrapper.style.display = "flex";
+            buttonWrapper.append(buttonCancel, buttonConfirm);
+            wrapper.append(text, buttonWrapper);
+            document.getElementById("buttons").append(wrapper);
         }
 
 
@@ -237,14 +268,18 @@ export default class Chess extends Component {
             let panel = document.getElementById("turns");
             clearElement(panel);
             let wrapper = createElement("div", "new-game-wrapper");
-            let difficulty = createElement("select", "difficulty");
-            difficulty.append(getOption("Easy"), getOption("Medium"), getOption("Hard"));
+            let level = createElement("select", "difficulty");
+            for (let skillLevel of difficulty) {
+                level.append(getOption(skillLevel));
+            }
+            let input = createElement("input", "player-name");
             let playerColor = createElement("select", "playerColor");
             playerColor.append(getOption("White"), getOption("Black"));
             let startGameButton = createElement("div", "start-game-button");
+            startGameButton.classList.add("chess-button");
             startGameButton.innerText = "Start Game";
             startGameButton.addEventListener("click", newGame);
-            wrapper.append(difficulty, playerColor, startGameButton);
+            wrapper.append(level, playerColor,input, startGameButton);
             panel.append(wrapper)
 
         }
@@ -458,15 +493,14 @@ export default class Chess extends Component {
 
         function checkForCheckMate(color) {
             let isCheckMate = true;
-            let oppositeColor = getOppositeColor(color);
-            let isCheck = checkForCheck(oppositeColor);
+            let isCheck = checkForCheck(getOppositeColor(color));
             if (isCheck) {
                 let allFieldsWithPieces = getAllFieldsWithPiecesByColor(color);
                 for (let field of allFieldsWithPieces) {
                     let legalMoves = getMovesForPiece(field);
                     for (let legalMove of legalMoves) {
                         updateField(field.id, legalMove.id, false);
-                        let isStillInCheck = checkForCheck(oppositeColor);
+                        let isStillInCheck = checkForCheck(getOppositeColor(color));
                         const boardCopy = jsonCopy(boardHistory.pop());
                         board = boardCopy;
                         if (!isStillInCheck) {
@@ -476,7 +510,7 @@ export default class Chess extends Component {
                 }
             }
             if (isCheck && isCheckMate) {
-                alert("schachmatt")
+                alert(("Schach Matt"));
             }
         }
 
@@ -594,31 +628,47 @@ export default class Chess extends Component {
             board.moveTracker.push([oldFieldId, newFieldId]);
             turnNumber += 1;
             if (!isEngineMove) {
-                await updateFieldPromise(oldFieldId, newFieldId, true).then(makeEngineMove);
+                await updateFieldPromise(oldFieldId, newFieldId, true).then(() => {
+                    console.log("Schachmatt hieerr");
+                    checkForCheckMate(getOppositeColor(board.playerColor))
+                }).then(makeEngineMove);
 
             } else {
-                await updateFieldPromise(oldFieldId, newFieldId, true);
+                await updateFieldPromise(oldFieldId, newFieldId, true).then(() => {
+                    checkForCheckMate(board.playerColor);
+                });
             }
         }
 
-        function makeEngineMove(difficulty) {
-            let fenString = generateFENString(board);
+        function setUpEngine(difficulty) {
+            let skillLevel = 0;
+            switch (difficulty) {
+                case "I want to win":
+                    skillLevel = 0;
+                case "Easy":
+                    skillLevel = 5;
+                case "Medium":
+                    skillLevel = 10;
+                case "Hard":
+                    skillLevel = 15;
+                case "I want to loose":
+                    skillLevel = 20;
+            }
 
             stockfish.postMessage("uci\n");
-            stockfish.postMessage("setoption name Skill Level value 15\n");
-            stockfish.postMessage("setoption name Skill Level Maximum Error value 900\n");
-            stockfish.postMessage("setoption name Skill Level Probability value 10\n");
+            stockfish.postMessage("setoption name Skill Level value" + skillLevel +"\n");
             stockfish.postMessage("isready\n");
             stockfish.postMessage("ucinewgame\n");
             stockfish.postMessage("isready\n");
-            stockfish.postMessage("position fen " + fenString+ "\n");
-            // stockfish.postMessage("position startpos\n");
+        }
+
+        function makeEngineMove() {
+            let fenString = generateFENString(board);
+            stockfish.postMessage("position fen " + fenString + "\n");
             stockfish.postMessage("go movetime 1000\n");
             setTimeout(() => {
                 stockfish.postMessage("stop\n");
             }, 1000);
-
-
         }
 
 
@@ -683,13 +733,11 @@ export default class Chess extends Component {
         function updateFieldPromise(oldFieldId, newFieldId) {
             return new Promise((resolve) => {
                 updateField(oldFieldId, newFieldId, true);
-                setTimeout(
-                    () => {
-                        createBoard(board, false);
+                createBoard(board, false);
+                setTimeout(() => {
                         resolve();
-                    }, 200
-                );
-            })
+                    }, 200);
+            });
         }
 
         function jsonCopy(obj) {
@@ -973,9 +1021,7 @@ export default class Chess extends Component {
 
         function setUpNewGameButton() {
             let button = document.getElementById(("newGameButton"));
-            button.addEventListener("click", () => {
-                awaitReturnToStartAnimation();
-            });
+            button.addEventListener("click", appendNewGamePopUp);
         }
 
         function setUpForwardButton() {
@@ -984,7 +1030,7 @@ export default class Chess extends Component {
                 if (turnNumber < boardHistory.length - 1) {
                     createBoard(boardHistory[turnNumber += 1], true);
                 } else if (boardHistory.length > 0 && turnNumber <= boardHistory.length) {
-                    createBoard(boardHistory[turnNumber], true);
+                    createBoard(boardHistory[boardHistory.length-1], true);
                 }
             });
 
@@ -1411,12 +1457,11 @@ export default class Chess extends Component {
                         </div>
                     </div>
                     <div id="panel">
-                        <div id="turns-header"></div>
                         <div id="turns"></div>
                         <div id="buttons">
-                            <FontAwesomeIcon id="backButton" className="panel-button" icon={faBackwardStep}/>
-                            <FontAwesomeIcon id="forwardButton" className="panel-button" icon={faForwardStep}/>
-                            <FontAwesomeIcon id="resetButton" className="panel-button" icon={faRepeat}/>
+                            <FontAwesomeIcon id="backButton" className="panel-button" icon={faChevronLeft}/>
+                            <FontAwesomeIcon id="forwardButton" className="panel-button" icon={faChevronRight}/>
+                            <FontAwesomeIcon id="resetButton" className="panel-button" icon={faRotateLeft}/>
                             <FontAwesomeIcon id="newGameButton" className="panel-button" icon={faPlus}/>
 
                         </div>

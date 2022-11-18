@@ -5,14 +5,22 @@ img {
 }
 
 .avatar img{
-    height: 4vh;
-    display: block;
+    height: 5vh;
+}
+
+select {
+    background: #031B34;
+    color: #fff;
+    margin-top: 1vh;
+    text-align: center;
+    font-size: 2vh;
 }
 
 #turns {
     background-color: #031B34;
-    height: 40vh;
+    height: 60.5vh;
     width: 15vw;
+    font-size: 2vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -80,7 +88,7 @@ img {
     flex-direction: column;
 }
 .player-graveyard-wrapper p {
-    margin-left: .5vw;
+    margin-left: .2vw;
 }
 
 .graveyard img {
@@ -125,8 +133,32 @@ img {
 }
 .piece-graveyard {
     display: flex;
-    margin-right: .5vw;
+
 }
+
+#new-game-balloon {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    z-index: 500;
+    position: fixed;
+    border-radius: 0.2rem;
+    font-size: 1.5vh;
+    align-self: end;
+    padding: 5px 5px 5px 5px;
+    align-items: center;
+    transform: translateX(10vw) translateY(-4vh);
+
+}
+
+.new-game-balloon-button {
+    font-size: 1.5vh;
+    border-radius: 0.2rem;
+    margin-left: 5px;
+    padding: 2px 2px 2px 2px;
+
+}
+
 
 .piece-graveyard img {
     margin-right: -.5vw;
@@ -147,9 +179,9 @@ img {
     display: grid;
     grid-template-columns: 20% auto auto 30% ;
     grid-template-rows: auto auto auto;
-    grid-column-gap: 1vw;
-    grid-row-gap: 1vh;
-    justify-items: start;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    justify-items: stretch;
 
 }
 
@@ -172,10 +204,26 @@ img {
 }
 
 #start-game-button {
-    width: 6vw;
-    height: 3vh;
     background-color: #042c54;
 
+
+    font-size: 2vh;
+
+
+}
+
+.chess-button{
+    background-color: #042c54;
+    cursor: pointer;
+    text-align: center;
+    color: white;
+    padding-top: .5vh;
+    padding-bottom: .5vh;
+    margin-top: 1vh;
+}
+
+.chess-button:hover {
+    background-color: #92b3d2;
 }
 
 #new-game-wrapper {
@@ -194,23 +242,29 @@ img {
 .player-panel {
     height: 5vh;
     display: flex;
-    background-color: #F49867;
+    background-color: lightslategray;
 }
 
-
+p {
+    font-size: 2vh;
+}
 
 #buttons {
     display: flex;
-    justify-content: center;
+    column-gap: 2px;
+    align-self: end;
 }
 .panel-button {
     color: white;
     background-color: #042c54;
     width: 25%;
-    margin-left: 2px;
     font-size: 3vh;
+    cursor: pointer;
 }
 
+.panel-button:hover {
+    color: #AE67FA;
+}
 
 .arrow {
     border: solid black;
@@ -258,34 +312,6 @@ img {
     justify-items: center;
 }
 
-#back-button {
-    height: 10px;
-    width: 10px;
-    background-color: red;
-    cursor: pointer;
-}
-
-#forward-button {
-    background-color: green;
-    cursor: pointer;
-    height: 10px;
-    width: 10px;
-}
-
-#start-button {
-    background-color: palegreen;
-    cursor: pointer;
-    height: 10px;
-    width: 10px;
-}
-
-#end-button {
-    background-color: greenyellow;
-    cursor: pointer;
-    height: 10px;
-    width: 10px;
-
-}
 
 #turn-buttons {
     display: grid;
