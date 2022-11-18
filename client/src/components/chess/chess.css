@@ -116,6 +116,13 @@ select {
 
 }
 
+#chess-mate {
+    color: white;
+    font-size: 3vh;
+    margin-top: 2vh;
+
+}
+
 .piece {
     cursor: pointer;
 }

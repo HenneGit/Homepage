@@ -534,16 +534,24 @@ export default class Chess extends Component {
                 }
             }
             if (isCheck && isCheckMate) {
-                alert(("Schach Matt"));
+                addChessMate();
             }
         }
 
+
+        function addChessMate() {
+            let turns = document.getElementById("turns");
+            let span = createElement("span", "chess-mate");
+            span.innerText = "Chessmate";
+            turns.append(span);
+
+        }
         /**
          * start dragging a piece. Applies classes.
          */
         function dragStart(event) {
             event.dataTransfer.setDragImage(this, +25, +25);
-            this.classList = 'hold';
+            this.classList.add('hold');
             document.querySelectorAll('.dragged').forEach(el => el.classList.remove('dragged'));
             this.classList.add('dragged');
             setTimeout(() => this.classList.add('invisible'), 0);
@@ -653,7 +661,6 @@ export default class Chess extends Component {
             turnNumber += 1;
             if (!isEngineMove) {
                 await updateFieldPromise(oldFieldId, newFieldId, true).then(() => {
-                    console.log("Schachmatt hieerr");
                     checkForCheckMate(getOppositeColor(board.playerColor))
                 }).then(makeEngineMove);
 
@@ -757,8 +764,8 @@ export default class Chess extends Component {
         function updateFieldPromise(oldFieldId, newFieldId) {
             return new Promise((resolve) => {
                 updateField(oldFieldId, newFieldId, true);
-                createBoard(board, false);
                 setTimeout(() => {
+                    createBoard(board, false);
                     resolve();
                 }, 200);
             });
@@ -1447,7 +1454,6 @@ export default class Chess extends Component {
         return (
             <div className="chess-wrapper">
                 <div className="chess-container">
-
                     <div id="topPlayer" className="player-panel">
                         <div id="topAvatar" className="avatar">
                             <img src={avatar}/>
