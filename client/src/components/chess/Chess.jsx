@@ -142,19 +142,21 @@ export default class Chess extends Component {
             this.y = y;
         }
 
-        function Board(fields, graveyard, playerColor, moveTracker) {
+        function Board(fields, graveyard, playerColor, moveTracker, playerName) {
             this.fields = fields;
             this.graveyard = graveyard;
             this.playerColor = playerColor;
             this.moveTracker = moveTracker;
+            this.playerName = playerName;
 
         }
 
-        createNewBoard("white", true);
+        createNewBoard("white", true, "You");
         setUpBackButton();
         setUpForwardButton();
         setResetButton();
         setUpNewGameButton();
+        setUpNewGamePanel();
 
         /**
          * init a new board with pieces in starting position.
@@ -162,6 +164,10 @@ export default class Chess extends Component {
         async function newGame() {
             localStorage.clear();
             let playerColorLB = document.getElementById("playerColor");
+            let playerNameInput = document.getElementById("player-name-input").value;
+            console.log(playerNameInput)
+            let playerName = playerNameInput === undefined ? "You" : playerNameInput;
+            console.log(playerNameInput)
             let playerColor = null;
             if (playerColorLB !== null) {
                 playerColor = playerColorLB.options[playerColorLB.selectedIndex].innerText.toLowerCase();
@@ -172,7 +178,8 @@ export default class Chess extends Component {
             board = null;
             halfMoves = null;
             boardHistory = [];
-            createNewBoard(playerColor, false)
+
+            createNewBoard(playerColor, false, playerName);
             clearElement(document.getElementById("turns"));
             if (board.playerColor === "black") {
                 makeEngineMove();
@@ -194,11 +201,11 @@ export default class Chess extends Component {
             buttonCancel.classList.add("new-game-balloon-button");
             buttonCancel.classList.add("chess-button");
             buttonCancel.innerText = "Cancel";
-            buttonCancel.addEventListener("click", ()=>{
+            buttonCancel.addEventListener("click", () => {
                 document.getElementById("buttons").removeChild(document.getElementById("new-game-balloon"));
             })
             let buttonConfirm = createElement("div", "button-confirm");
-            buttonConfirm.addEventListener("click", () =>{
+            buttonConfirm.addEventListener("click", () => {
                 document.getElementById("buttons").removeChild(document.getElementById("new-game-balloon"));
                 awaitReturnToStartAnimation();
             });
@@ -217,14 +224,14 @@ export default class Chess extends Component {
         async function returnToStartAnimation() {
             return new Promise((resolve) => {
                 let counter = boardHistory.length - 1;
+                let playerName = board.playerName;
                 let interval = setInterval(() => {
-                    console.log(counter);
+
                     let board = boardHistory[counter];
-                    console.log(board);
                     createBoard(board);
                     if (counter === 0) {
-                        newGame();
-                        setUpNewGamePanel();
+                        setUpNewGamePanel(playerName);
+                        createNewBoard("white", true, playerName);
                         clearInterval(interval);
                     }
                     counter--;
@@ -234,7 +241,7 @@ export default class Chess extends Component {
         }
 
 
-        function createNewBoard(playerColor, isInitBoard) {
+        function createNewBoard(playerColor, isInitBoard, playerName) {
             let fields = [];
             let graveyard = [];
             let storedBoard = getItemFromLocalStorage("board");
@@ -247,7 +254,7 @@ export default class Chess extends Component {
                 createBoard(storedBoard, false);
                 return;
             }
-            setUpNewGamePanel();
+            setUpNewGamePanel(playerName);
             for (let i = 1; i < 9; i++) {
                 for (let j = 8; j > 0; j--) {
                     let letter = letters[j - 1];
@@ -260,11 +267,12 @@ export default class Chess extends Component {
                     fields.push(field);
                 }
             }
-            board = new Board(fields, graveyard, playerColor, []);
+            board = new Board(fields, graveyard, playerColor, [], playerName);
             createBoard(board, isInitBoard);
         }
 
-        function setUpNewGamePanel() {
+        function setUpNewGamePanel(playerName) {
+            localStorage.clear();
             let panel = document.getElementById("turns");
             clearElement(panel);
             let wrapper = createElement("div", "new-game-wrapper");
@@ -272,14 +280,23 @@ export default class Chess extends Component {
             for (let skillLevel of difficulty) {
                 level.append(getOption(skillLevel));
             }
-            let input = createElement("input", "player-name");
+            let input = createElement("input", "player-name-input");
+            if (playerName === undefined) {
+                input.placeholder = "Your name...";
+            } else {
+                input.value = playerName;
+            }
             let playerColor = createElement("select", "playerColor");
             playerColor.append(getOption("White"), getOption("Black"));
             let startGameButton = createElement("div", "start-game-button");
             startGameButton.classList.add("chess-button");
             startGameButton.innerText = "Start Game";
             startGameButton.addEventListener("click", newGame);
-            wrapper.append(level, playerColor,input, startGameButton);
+            startGameButton.classList.add("new-game-item");
+            level.classList.add("new-game-item");
+            input.classList.add("new-game-item");
+            playerColor.classList.add("new-game-item");
+            wrapper.append(level, playerColor, input, startGameButton);
             panel.append(wrapper)
 
         }
@@ -305,6 +322,7 @@ export default class Chess extends Component {
          * @param currentBoard the board to create the field from.
          */
         function createBoard(currentBoard, isInitBoard) {
+            document.getElementById("player-name").innerText = currentBoard.playerName;
             if (boardHistory.length > 0) {
                 setLocalStorage("board", board);
                 setLocalStorage("history", boardHistory);
@@ -345,7 +363,7 @@ export default class Chess extends Component {
             contentDiv.appendChild(boardDiv);
             document.querySelectorAll(".last-move").forEach(el => el.classList.remove("last-move"));
             setUpLastMove(currentBoard.moveTracker);
-            contentDiv.append(createPanel());
+            setUpGraveyard();
             setTurn(currentBoard)
         }
 
@@ -371,20 +389,28 @@ export default class Chess extends Component {
                 return;
             }
             let turns = document.getElementById("turns");
+            let table = createElement("table", "turn-table");
+
             clearElement(turns);
             let turnCounter = 1;
             for (let move of moveTracker) {
-                let turn = createElement("a", "turn-" + turnCounter);
+                let turnRow = createElement("tr", "turn-column");
+                let turn = createElement("td", "turn-" + turnCounter);
+                let startMove = createElement("td", "turn-" + turnCounter + "-start-move");
+                let endMove = createElement("td", "turn-" + turnCounter + "-end-move");
                 if (turnCounter % 2 === 0) {
-                    turn.classList.add("turn-even");
+                    turnRow.classList.add("turn-even");
                 } else {
-                    turn.classList.add("turn-odd");
+                    turnRow.classList.add("turn-odd");
                 }
-                turn.style.color = "white";
-                turn.innerText = turnCounter + ". " + move[0] + " - " + move[1];
-                turns.appendChild(turn);
+                turn.innerText = turnCounter + ".";
+                startMove.innerText = move[0];
+                endMove.innerText = move[1];
+                turnRow.append(turn, startMove, endMove);
+                table.append(turnRow);
                 turnCounter++;
             }
+            turns.appendChild(table);
         }
 
         function addLetterOrNumberGrid(field, domField, isBlack) {
@@ -423,18 +449,16 @@ export default class Chess extends Component {
          * create the panel where graveyard and moves are displayed.
          * @param panel the panel div.
          */
-        function createPanel() {
-            let panel = getDiv('panel');
+        function setUpGraveyard() {
             let blackPieces = getPiecesFromGraveyard('black');
             let whitePieces = getPiecesFromGraveyard('white');
-            if (blackPieces !== null || true) {
+            if (board.playerColor === "black") {
+                appendPiecesToGraveyard(blackPieces, "top");
+                appendPiecesToGraveyard(whitePieces, "bottom");
+            } else {
+                appendPiecesToGraveyard(whitePieces, "top");
                 appendPiecesToGraveyard(blackPieces, "bottom");
             }
-            if (whitePieces !== null || true) {
-                appendPiecesToGraveyard(whitePieces, "top");
-            }
-            return panel;
-
         }
 
         function appendPiecesToGraveyard(pieces, sideOfBoard) {
@@ -656,7 +680,7 @@ export default class Chess extends Component {
             }
 
             stockfish.postMessage("uci\n");
-            stockfish.postMessage("setoption name Skill Level value" + skillLevel +"\n");
+            stockfish.postMessage("setoption name Skill Level value" + skillLevel + "\n");
             stockfish.postMessage("isready\n");
             stockfish.postMessage("ucinewgame\n");
             stockfish.postMessage("isready\n");
@@ -735,8 +759,8 @@ export default class Chess extends Component {
                 updateField(oldFieldId, newFieldId, true);
                 createBoard(board, false);
                 setTimeout(() => {
-                        resolve();
-                    }, 200);
+                    resolve();
+                }, 200);
             });
         }
 
@@ -1030,7 +1054,7 @@ export default class Chess extends Component {
                 if (turnNumber < boardHistory.length - 1) {
                     createBoard(boardHistory[turnNumber += 1], true);
                 } else if (boardHistory.length > 0 && turnNumber <= boardHistory.length) {
-                    createBoard(boardHistory[boardHistory.length-1], true);
+                    createBoard(boardHistory[boardHistory.length - 1], true);
                 }
             });
 
@@ -1053,7 +1077,6 @@ export default class Chess extends Component {
                 }
             });
         }
-
 
         /**
          * execute en passant with a pawn.
@@ -1446,7 +1469,7 @@ export default class Chess extends Component {
                             <img src={avatar}/>
                         </div>
                         <div className="player-graveyard-wrapper">
-                            <p>StockFish</p>
+                            <p id="player-name"></p>
                             <div id="bottomGraveyard" className="graveyard">
                                 <span id="bottom-pawn" className="piece-graveyard"></span>
                                 <span id="bottom-bishop" className="piece-graveyard"></span>
@@ -1459,11 +1482,18 @@ export default class Chess extends Component {
                     <div id="panel">
                         <div id="turns"></div>
                         <div id="buttons">
-                            <FontAwesomeIcon id="backButton" className="panel-button" icon={faChevronLeft}/>
-                            <FontAwesomeIcon id="forwardButton" className="panel-button" icon={faChevronRight}/>
-                            <FontAwesomeIcon id="resetButton" className="panel-button" icon={faRotateLeft}/>
-                            <FontAwesomeIcon id="newGameButton" className="panel-button" icon={faPlus}/>
-
+                            <div class="tooltip tooltip--top panel-button" id="backButton"  data-tooltip="Show last move">
+                                <FontAwesomeIcon icon={faChevronLeft}/>
+                            </div>
+                            <div class="tooltip tooltip--top panel-button" id="forwardButton" data-tooltip="Move forward">
+                                <FontAwesomeIcon icon={faChevronRight}/>
+                            </div>
+                            <div className="tooltip tooltip--top panel-button" id="resetButton" data-tooltip="Reset board">
+                                <FontAwesomeIcon icon={faRotateLeft}/>
+                            </div>
+                            <div className="tooltip tooltip--top panel-button" id="newGameButton" data-tooltip="Start a new game">
+                                <FontAwesomeIcon icon={faPlus}/>
+                            </div>
                         </div>
                     </div>
                 </div>
