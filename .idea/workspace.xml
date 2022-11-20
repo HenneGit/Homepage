@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="chess svg implemented">
+      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/chess/chess.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/chess.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="module" />
+    </option>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Gnv9YV5vw9qTNHXb2pZelcFMi4" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/public/chess" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/public/chess" />
+      <recent name="$PROJECT_DIR$/client/public" />
+      <recent name="$PROJECT_DIR$/client/src/components/chess" />
+      <recent name="$PROJECT_DIR$/server" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/src/components/chess" />
+      <recent name="$PROJECT_DIR$/client/public" />
+      <recent name="$PROJECT_DIR$/client" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="server.js" type="NodeJSConfigurationType" nameIsGenerated="true" path-to-js-file="server/server.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="" />
+      <created>1667037012320</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1667037012320</updated>
+      <workItem from="1667037015713" duration="155000" />
+      <workItem from="1667037514359" duration="2560000" />
+      <workItem from="1667109066038" duration="5523000" />
+      <workItem from="1667114909823" duration="2708000" />
+      <workItem from="1667310944377" duration="630000" />
+      <workItem from="1667899962381" duration="5620000" />
+      <workItem from="1667908270177" duration="7750000" />
+      <workItem from="1667986708715" duration="2781000" />
+      <workItem from="1667992730176" duration="347000" />
+      <workItem from="1667994819872" duration="1680000" />
+      <workItem from="1667996822115" duration="565000" />
+      <workItem from="1667999658815" duration="2624000" />
+      <workItem from="1668002851224" duration="80000" />
+      <workItem from="1668003102248" duration="4062000" />
+      <workItem from="1668007808304" duration="398000" />
+      <workItem from="1668070137351" duration="8744000" />
+      <workItem from="1668082145841" duration="7199000" />
+      <workItem from="1668091762562" duration="3644000" />
+      <workItem from="1668095602294" duration="93000" />
+      <workItem from="1668152853281" duration="11001000" />
+      <workItem from="1668164071502" duration="2129000" />
+      <workItem from="1668169504014" duration="235000" />
+      <workItem from="1668176151537" duration="1646000" />
+      <workItem from="1668177855824" duration="2645000" />
+      <workItem from="1668181196308" duration="1319000" />
+      <workItem from="1668263128474" duration="2199000" />
+      <workItem from="1668326557305" duration="2663000" />
+      <workItem from="1668329388307" duration="20459000" />
+      <workItem from="1668421682082" duration="5366000" />
+      <workItem from="1668429891107" duration="11364000" />
+      <workItem from="1668488803466" duration="9616000" />
+      <workItem from="1668588965233" duration="9058000" />
+      <workItem from="1668608899927" duration="1194000" />
+      <workItem from="1668610584687" duration="174000" />
+      <workItem from="1668611534800" duration="7146000" />
+      <workItem from="1668688325247" duration="16686000" />
+      <workItem from="1668752827354" duration="8874000" />
+      <workItem from="1668763218059" duration="891000" />
+      <workItem from="1668764277441" duration="2996000" />
+      <workItem from="1668767467016" duration="1398000" />
+      <workItem from="1668769263787" duration="2244000" />
+      <workItem from="1668779361058" duration="5601000" />
+      <workItem from="1668949146675" duration="8369000" />
+    </task>
+    <task id="LOCAL-00001" summary="init after migration from gitlab.">
+      <created>1667042121002</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1667042121002</updated>
+    </task>
+    <task id="LOCAL-00002" summary="pixel animation reset.">
+      <created>1667900859788</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1667900859788</updated>
+    </task>
+    <task id="LOCAL-00003" summary="correct display of board according to player color.">
+      <created>1668005723870</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1668005723870</updated>
+    </task>
+    <task id="LOCAL-00004" summary="correct display of images. Scaling numbers and letters.">
+      <created>1668008161950</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1668008161950</updated>
+    </task>
+    <task id="LOCAL-00005" summary="player panel with graveyard started.">
+      <created>1668076580855</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1668076580855</updated>
+    </task>
+    <task id="LOCAL-00006" summary="grid for all elements.">
+      <created>1668087761034</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1668087761034</updated>
+    </task>
+    <task id="LOCAL-00007" summary="stockfish implementation started.">
+      <created>1668095683805</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1668095683805</updated>
+    </task>
+    <task id="LOCAL-00008" summary="basic FEN board representation complete.">
+      <created>1668153457795</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1668153457795</updated>
+    </task>
+    <task id="LOCAL-00009" summary="FEN board representation complete.">
+      <created>1668159817265</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1668159817265</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Stockfish working">
+      <created>1668336052040</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1668336052040</updated>
+    </task>
+    <task id="LOCAL-00011" summary="min width for fields, engine castling working.">
+      <created>1668349691129</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1668349691129</updated>
+    </task>
+    <task id="LOCAL-00012" summary="enpassant working in both directions, check mate alert, last move marker">
+      <created>1668437619117</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1668437619117</updated>
+    </task>
+    <task id="LOCAL-00013" summary="queening working.">
+      <created>1668439221091</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1668439221091</updated>
+    </task>
+    <task id="LOCAL-00014" summary="movetracker attached to board object.">
+      <created>1668593404100</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1668593404100</updated>
+    </task>
+    <task id="LOCAL-00015" summary="correct saving of board history.">
+      <created>1668594585110</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1668594585110</updated>
+    </task>
+    <task id="LOCAL-00016" summary="castling error removed.">
+      <created>1668597493043</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1668597493043</updated>
+    </task>
+    <task id="LOCAL-00017" summary="game setup started.">
+      <created>1668612942440</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1668612942450</updated>
+    </task>
+    <task id="LOCAL-00018" summary="fontawesome added. Game buttons with font awesome.">
+      <created>1668615909799</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1668615909799</updated>
+    </task>
+    <task id="LOCAL-00019" summary="new game button working. always create board.">
+      <created>1668616598119</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1668616598119</updated>
+    </task>
+    <task id="LOCAL-00020" summary="reset game animation and correct back and forward movement.">
+      <created>1668693630585</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1668693630585</updated>
+    </task>
+    <task id="LOCAL-00021" summary="reset game animation and correct back and forward movement.">
+      <created>1668693852484</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1668693852484</updated>
+    </task>
+    <task id="LOCAL-00022" summary="using local storage to save game.">
+      <created>1668695301917</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1668695301917</updated>
+    </task>
+    <task id="LOCAL-00023" summary="correct piece picker">
+      <created>1668701559557</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1668701559557</updated>
+    </task>
+    <task id="LOCAL-00024" summary="styling, new game dialog.">
+      <created>1668765514914</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1668765514914</updated>
+    </task>
+    <task id="LOCAL-00025" summary="tool tips for buttons.">
+      <created>1668782322963</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1668782322963</updated>
+    </task>
+    <task id="LOCAL-00026" summary="castling bug fixed. chess mate in turns panel.">
+      <created>1668783986900</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1668783986900</updated>
+    </task>
+    <task id="LOCAL-00027" summary="chess svg implemented">
+      <created>1668953506718</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1668953506718</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="correct display of board according to player color." />
+    <MESSAGE value="correct display of images. Scaling numbers and letters." />
+    <MESSAGE value="player panel with graveyard started." />
+    <MESSAGE value="grid for all elements." />
+    <MESSAGE value="stockfish implementation started." />
+    <MESSAGE value="basic FEN board representation complete." />
+    <MESSAGE value="FEN board representation complete." />
+    <MESSAGE value="Stockfish working" />
+    <MESSAGE value="bugs removed. castling for engine started." />
+    <MESSAGE value="min width for fields, engine castling working." />
+    <MESSAGE value="enpassant working in both directions, check mate alert, last move marker" />
+    <MESSAGE value="queening working." />
+    <MESSAGE value="movetracker attached to board object." />
+    <MESSAGE value="correct saving of board history." />
+    <MESSAGE value="castling error removed." />
+    <MESSAGE value="game setup started." />
+    <MESSAGE value="fontawesome added. Game buttons with font awesome." />
+    <MESSAGE value="new game button working. always create board." />
+    <MESSAGE value="reset game animation and correct back and forward movement." />
+    <MESSAGE value="using local storage to save game." />
+    <MESSAGE value="correct piece picker" />
+    <MESSAGE value="styling, new game dialog." />
+    <MESSAGE value="tool tips for buttons." />
+    <MESSAGE value="castling bug fixed. chess mate in turns panel." />
+    <MESSAGE value="chess svg implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="chess svg implemented" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/client/src/components/chess/Chess.jsx</url>
+          <line>666</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/client/src/components/chess/Chess.jsx</url>
+          <line>1597</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="NodeJSConfigurationType">
+        <watch expression="engine" language="JavaScript" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>

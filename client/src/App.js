@@ -14,9 +14,11 @@ export default class App extends Component {
         return (
             <div className="App">
                 <div className="gradient__bg">
+                    <Navigation/>
+                    <Display/>
+                    <Header/>
                     <Chess/>
                 </div>
-
             </div>
         );
     }

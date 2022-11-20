@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "stockfish": "^15.0.0"
+  }
+}

@@ -682,22 +682,24 @@ export default class Chess extends Component {
             }
         }
 
-        function setUpEngine(difficulty) {
+        function setUpEngine(skill) {
             let skillLevel = 0;
-            switch (difficulty) {
-                case "I want to win":
+            switch (skill) {
+                case difficulty[0]:
                     skillLevel = 0;
+                    stockfish.postMessage("setoption name Skill Level Maximum Error value 900\n");
+                    stockfish.postMessage("setoption name Skill Level Probability value 10\n");
                     break;
-                case "Easy":
+                case difficulty[1]:
                     skillLevel = 5;
                     break;
-                case "Medium":
+                case difficulty[2]:
                     skillLevel = 10;
                     break;
-                case "Hard":
+                case difficulty[3]:
                     skillLevel = 15;
                     break;
-                case "I want to loose":
+                case difficulty[5]:
                     skillLevel = 20;
                     break;
                 default:
@@ -1470,13 +1472,13 @@ export default class Chess extends Component {
 
     render() {
         return (
-                <div id="chess-container" className="chess-container">
-                    <div id="chess-svg-container">
-                        <svg id="chess-svg" transform="scale(-2,2)"
-                             viewBox="0 0 1200.000000 1019.000000">
-                            <g transform="translate(0.000000,1019.000000) scale(0.100000,-0.100000)"
-                            >
-                                <path fill="none" id="chess-svg-path"  d="M8347 6184 c-154 -24 -207 -71 -207 -184 1 -75 12 -121 69 -269 27
+            <div id="chess-container" className="chess-container">
+                <div id="chess-svg-container">
+                    <svg id="chess-svg" transform="scale(-2,2)"
+                         viewBox="0 0 1200.000000 1019.000000">
+                        <g transform="translate(0.000000,1019.000000) scale(0.100000,-0.100000)"
+                        >
+                            <path fill="none" id="chess-svg-path" d="M8347 6184 c-154 -24 -207 -71 -207 -184 1 -75 12 -121 69 -269 27
 -69 52 -139 55 -156 l6 -30 -122 0 c-98 0 -129 -4 -155 -18 -59 -31 -71 -95
 -28 -141 34 -37 65 -46 157 -46 79 0 81 -1 114 -35 32 -35 49 -84 42 -122 -2
 -12 -14 -19 -38 -21 -42 -4 -65 -24 -91 -75 -25 -48 -62 -70 -163 -97 -194
@@ -1574,62 +1576,62 @@ c218 -14 298 38 233 153 -29 53 -79 72 -164 63 l-65 -7 6 29 c4 16 9 38 12 49
 2 11 29 100 60 197 54 171 55 178 42 219 -18 57 -79 103 -155 119 -159 33
 -324 38 -477 14z m-19 -2691 c-16 -2 -40 -2 -55 0 -16 2 -3 4 27 4 30 0 43 -2
 28 -4z"/>
-                            </g>
-                        </svg>
+                        </g>
+                    </svg>
+                </div>
+                <div id="topPlayer" className="player-panel">
+                    <div id="topAvatar" className="avatar">
+                        <img src={avatar}/>
                     </div>
-                    <div id="topPlayer" className="player-panel">
-                        <div id="topAvatar" className="avatar">
-                            <img src={avatar}/>
-                        </div>
-                        <div className="player-graveyard-wrapper">
-                            <p>StockFish</p>
-                            <div id="topGraveyard" className="graveyard">
-                                <span id="top-pawn" className="piece-graveyard"></span>
-                                <span id="top-bishop" className="piece-graveyard"></span>
-                                <span id="top-knight" className="piece-graveyard"></span>
-                                <span id="top-rook" className="piece-graveyard"></span>
-                                <span id="top-queen" className="piece-graveyard"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="chess"></div>
-                    <div id="bottomPlayer" className="player-panel">
-                        <div id="bottomAvatar" className="avatar">
-                            <img src={avatar}/>
-                        </div>
-                        <div className="player-graveyard-wrapper">
-                            <p id="player-name"></p>
-                            <div id="bottomGraveyard" className="graveyard">
-                                <span id="bottom-pawn" className="piece-graveyard"></span>
-                                <span id="bottom-bishop" className="piece-graveyard"></span>
-                                <span id="bottom-knight" className="piece-graveyard"></span>
-                                <span id="bottom-rook" className="piece-graveyard"></span>
-                                <span id="bottom-queen" className="piece-graveyard"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="panel">
-                        <div id="turns"></div>
-                        <div id="buttons">
-                            <div class="tooltip tooltip--top panel-button" id="backButton"
-                                 data-tooltip="Show last move">
-                                <FontAwesomeIcon icon={faChevronLeft}/>
-                            </div>
-                            <div class="tooltip tooltip--top panel-button" id="forwardButton"
-                                 data-tooltip="Move forward">
-                                <FontAwesomeIcon icon={faChevronRight}/>
-                            </div>
-                            <div className="tooltip tooltip--top panel-button" id="resetButton"
-                                 data-tooltip="Reset board">
-                                <FontAwesomeIcon icon={faRotateLeft}/>
-                            </div>
-                            <div className="tooltip tooltip--top panel-button" id="newGameButton"
-                                 data-tooltip="Start a new game">
-                                <FontAwesomeIcon icon={faPlus}/>
-                            </div>
+                    <div className="player-graveyard-wrapper">
+                        <p>StockFish</p>
+                        <div id="topGraveyard" className="graveyard">
+                            <span id="top-pawn" className="piece-graveyard"></span>
+                            <span id="top-bishop" className="piece-graveyard"></span>
+                            <span id="top-knight" className="piece-graveyard"></span>
+                            <span id="top-rook" className="piece-graveyard"></span>
+                            <span id="top-queen" className="piece-graveyard"></span>
                         </div>
                     </div>
                 </div>
+                <div id="chess"></div>
+                <div id="bottomPlayer" className="player-panel">
+                    <div id="bottomAvatar" className="avatar">
+                        <img src={avatar}/>
+                    </div>
+                    <div className="player-graveyard-wrapper">
+                        <p id="player-name"></p>
+                        <div id="bottomGraveyard" className="graveyard">
+                            <span id="bottom-pawn" className="piece-graveyard"></span>
+                            <span id="bottom-bishop" className="piece-graveyard"></span>
+                            <span id="bottom-knight" className="piece-graveyard"></span>
+                            <span id="bottom-rook" className="piece-graveyard"></span>
+                            <span id="bottom-queen" className="piece-graveyard"></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="panel">
+                    <div id="turns"></div>
+                    <div id="buttons">
+                        <div class="tooltip tooltip--top panel-button" id="backButton"
+                             data-tooltip="Show last move" >
+                            <FontAwesomeIcon icon={faChevronLeft}/>
+                        </div>
+                        <div class="tooltip tooltip--top panel-button" id="forwardButton"
+                             data-tooltip="Move forward">
+                            <FontAwesomeIcon icon={faChevronRight}/>
+                        </div>
+                        <div className="tooltip tooltip--top panel-button" id="resetButton"
+                             data-tooltip="Reset board">
+                            <FontAwesomeIcon icon={faRotateLeft}/>
+                        </div>
+                        <div className="tooltip tooltip--top panel-button" id="newGameButton"
+                             data-tooltip="Start a new game">
+                            <FontAwesomeIcon icon={faPlus}/>
+                        </div>
+                    </div>
+                </div>
+            </div>
         )
     }
     ;

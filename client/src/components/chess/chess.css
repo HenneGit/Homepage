@@ -4,7 +4,7 @@ img {
     display: block;
 }
 
-.avatar img{
+.avatar img {
     height: 5vh;
 }
 
@@ -86,6 +86,7 @@ select {
     display: flex;
     flex-direction: column;
 }
+
 .player-graveyard-wrapper p {
     margin-left: .2vw;
 }
@@ -137,27 +138,14 @@ select {
     display: flex;
 
 }
+
 .piece-graveyard {
     display: flex;
 
 }
 
-#new-game-balloon {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    z-index: 500;
-    position: fixed;
-    border-radius: 0.2rem;
-    font-size: 1.5vh;
-    align-self: end;
-    padding: 5px 5px 5px 5px;
-    align-items: center;
-    transform: translateX(10vw) translateY(-4vh);
 
-}
-
-.take{
+.take {
     background-color: #dc5555;
 }
 
@@ -222,7 +210,6 @@ select {
 }
 
 
-
 .legal {
     background-color: teal;
 }
@@ -234,8 +221,9 @@ table {
     border-spacing: 0px;
 
 }
+
 td {
-   padding: 1px 1px 1px 1px;
+    padding: 1px 1px 1px 1px;
 }
 
 tr {
@@ -257,6 +245,7 @@ tr {
     padding: 2px 2px 2px 2px;
 
 }
+
 .new-game-item {
     height: 3vh;
     margin-top: 1vh;
@@ -317,7 +306,7 @@ tr {
 
 .chess-container {
     display: grid;
-    grid-template-columns: 20% auto auto 30% ;
+    grid-template-columns: 25% auto auto 25%;
     grid-template-rows: auto auto auto;
     grid-column-gap: 5px;
     grid-row-gap: 5px;
@@ -353,7 +342,7 @@ tr {
 
 }
 
-.chess-button{
+.chess-button {
     background-color: #042c54;
     cursor: pointer;
     text-align: center;
@@ -390,16 +379,50 @@ p {
     font-size: 2vh;
 }
 
-#buttons {
+#new-game-balloon {
+    grid-column: 3 / 5;
+    position: absolute;
     display: flex;
-    column-gap: 2px;
+    flex-direction: column;
+    background-color: white;
+    z-index: 5000;
+    border-radius: 0.2rem;
+    font-size: 1.5vh;
+    align-self: end;
+    padding: 5px 5px 5px 5px;
+    align-items: center;
+    transform: translateX(10vw) translateY(-4.5vh);
+}
+
+
+#buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     align-self: end;
     margin-top: .5vh;
+    grid-column-gap: 5px;
 }
+
+#backButton {
+    grid-column: 1 / 2;
+}
+
+#forwardButton {
+    grid-column: 2 / 3;
+}
+
+#resetButton {
+    grid-column: 3 / 4;
+}
+
+#newGameButton {
+    grid-column: 4 / 5;
+}
+
+
 .panel-button {
     color: white;
     background-color: #042c54;
-    width: 25%;
     font-size: 3vh;
     cursor: pointer;
     text-align: center;
