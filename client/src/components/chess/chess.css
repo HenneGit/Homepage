@@ -281,6 +281,39 @@ tr {
     justify-content: center;
 }
 
+#chess-svg-container {
+    grid-row: 3;
+    grid-column: 1;
+    z-index: 0;
+    transform: translateX(5vw) translateY(-4vh);
+    align-self: end;
+
+}
+
+#chess-svg {
+    height: 50vh;
+}
+
+
+.draw-line {
+    stroke: #bc85ff;
+    stroke-width: 30;
+    stroke-miterlimit: 10;
+    stroke-dasharray: 120000;
+    stroke-dashoffset: 120000;
+    animation: draw 4s linear forwards;
+}
+
+.vanish {
+    stroke: #bc85ff;
+    stroke-width: 30;
+    stroke-miterlimit: 10;
+    stroke-dasharray: 100000;
+    stroke-dashoffset: 100000;
+    animation: vanish 2s reverse backwards;
+
+}
+
 
 .chess-container {
     display: grid;
@@ -308,6 +341,7 @@ tr {
     grid-row: 3;
     display: grid;
     grid-template-columns: 7fr 1fr 7fr;
+    z-index: 500;
 }
 
 #start-game-button {
@@ -388,16 +422,6 @@ p {
     border: 3px solid #000;
     cursor: pointer;
 
-}
-
-.right {
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-}
-
-.left {
-    transform: rotate(135deg);
-    -webkit-transform: rotate(135deg);
 }
 
 

@@ -38,29 +38,7 @@
 }
 
 
-.chess-svg {
-    grid-column: span 5/ 7;
-    grid-row: 1;
-}
 
-.draw-line {
-    stroke: #bc85ff;
-    stroke-width: 30;
-    stroke-miterlimit: 10;
-    stroke-dasharray: 120000;
-    stroke-dashoffset: 120000;
-    animation: draw 4s linear forwards;
-}
-
-.vanish {
-    stroke: #bc85ff;
-    stroke-width: 30;
-    stroke-miterlimit: 10;
-    stroke-dasharray: 100000;
-    stroke-dashoffset: 100000;
-    animation: vanish 2s reverse backwards;
-
-}
 
 
 
