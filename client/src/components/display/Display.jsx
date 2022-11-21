@@ -58,6 +58,9 @@ export default class Display extends Component {
          * @returns {Promise<Promise<unknown>>}
          */
         async function startAnimationAndResolve(row) {
+            let blinkSquare = document.getElementsByClassName("blink");
+            Array.from(blinkSquare).forEach(el => el.classList.remove("blink"));
+
             return new Promise(resolve => {
                 setTimeout(function () {
                     playAnimation(row);
@@ -71,7 +74,6 @@ export default class Display extends Component {
          * @param row
          */
         function playAnimation(row) {
-
             let i = 0;
             const timer = setInterval(function () {
                 document.getElementById(row[i]).classList.add('move');
@@ -124,7 +126,7 @@ export default class Display extends Component {
 
             });
 
-            const timeOut = setTimeout(() => {
+            setTimeout(() => {
                 pix.classList.add('blink');
             }, 1);
 

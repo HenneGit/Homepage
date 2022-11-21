@@ -158,16 +158,13 @@ select {
 .tooltip::before {
     content: attr(data-tooltip);
     position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translate(-50%);
-    margin-bottom: 2vh;
     color: black;
-    width: 40px;
+    width: 60px;
     background: ghostwhite;
     border-radius: 5px;
     padding: 5px;
     font-size: 1vh;
+    z-index: 9000;
 
 }
 
@@ -334,12 +331,10 @@ tr {
 }
 
 #start-game-button {
-    background-color: #042c54;
-
-
     font-size: 2vh;
-
-
+}
+#start-game-button:hover {
+    background-color: #AE67FA;
 }
 
 .chess-button {
@@ -399,7 +394,7 @@ p {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     align-self: end;
-    margin-top: .5vh;
+    margin-top: .2vh;
     grid-column-gap: 5px;
 }
 
@@ -457,15 +452,8 @@ p {
 #piece-picker-box {
     display: grid;
     border: 1px solid lightslategray;
-    background: white;
+    background: #b58863;
     z-index: 2;
     align-items: center;
     justify-items: center;
-}
-
-
-#turn-buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-
 }

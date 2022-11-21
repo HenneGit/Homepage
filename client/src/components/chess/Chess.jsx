@@ -193,10 +193,11 @@ export default class Chess extends Component {
         }
 
         async function awaitReturnToStartAnimation() {
+            let playerName = board.playerName;
             if (boardHistory.length > 0) {
                 await returnToStartAnimation();
             } else {
-                setUpNewGamePanel();
+                createNewBoard("white",true, playerName);
             }
         }
 
@@ -236,7 +237,8 @@ export default class Chess extends Component {
                     let board = boardHistory[counter];
                     createBoard(board);
                     if (counter === 0) {
-                        setUpNewGamePanel(playerName);
+                        console.log("hallo");
+                        localStorage.clear();
                         createNewBoard("white", true, playerName);
                         clearInterval(interval);
                     }
@@ -257,12 +259,14 @@ export default class Chess extends Component {
             let storedHistory = getItemFromLocalStorage("history");
 
             if (storedBoard !== null && storedHistory !== null) {
+                document.getElementById("chess-svg").classList.add("draw-line");
                 boardHistory = storedHistory;
                 board = storedBoard;
                 turnNumber = boardHistory.length - 1;
                 createBoard(storedBoard, false);
                 return;
             }
+            board = null;
             setUpNewGamePanel(playerName);
             for (let i = 1; i < 9; i++) {
                 for (let j = 8; j > 0; j--) {
@@ -281,7 +285,9 @@ export default class Chess extends Component {
         }
 
         function setUpNewGamePanel(playerName) {
-            localStorage.clear();
+            if (board !== null) {
+                return;
+            }
             let panel = document.getElementById("turns");
             clearElement(panel);
             let wrapper = createElement("div", "new-game-wrapper");
@@ -332,6 +338,7 @@ export default class Chess extends Component {
          */
         function createBoard(currentBoard, isInitBoard) {
             let playerName = currentBoard.playerName === undefined ? "You" : currentBoard.playerName;
+            document.getElementById("turns").scrollTo(0, document.getElementById("turns").scrollHeight);
             document.getElementById("player-name").innerText = playerName;
             if (boardHistory.length > 0) {
                 setLocalStorage("board", board);
@@ -496,7 +503,7 @@ export default class Chess extends Component {
             img.src = "http://localhost:3000/chess/" + field.piece.type + color + ".svg";
             img.id = field.id + "-piece";
             img.classList.add("piece");
-            if (color === board.playerColor && !isInitBoard) {
+            if (board !== null && color === board.playerColor && !isInitBoard) {
                 img.draggable = true;
                 img.addEventListener('dragstart', dragStart);
                 img.addEventListener('dragend', dragEnd);
@@ -554,6 +561,7 @@ export default class Chess extends Component {
             let span = createElement("span", "chess-mate");
             span.innerText = "Chessmate";
             turns.append(span);
+            document.getElementById("turns").scrollTo(0, document.getElementById("turns").scrollHeight);
 
         }
 

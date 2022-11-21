@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="new game balloon fixed.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="new pictures, better display of chess.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/chess/chess.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/chess.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/display/display.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/display/display.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/header/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/navigation/Navigation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/navigation/Navigation.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/display/Display.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/display/Display.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +128,7 @@
       <workItem from="1668769263787" duration="2244000" />
       <workItem from="1668779361058" duration="5601000" />
       <workItem from="1668949146675" duration="8419000" />
-      <workItem from="1669021955088" duration="3168000" />
+      <workItem from="1669021955088" duration="6611000" />
     </task>
     <task id="LOCAL-00001" summary="init after migration from gitlab.">
       <created>1667042121002</created>
@@ -328,7 +326,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668957620777</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="new pictures, better display of chess.">
+      <created>1669025412198</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1669025412198</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,7 +351,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="correct display of images. Scaling numbers and letters." />
     <MESSAGE value="player panel with graveyard started." />
     <MESSAGE value="grid for all elements." />
     <MESSAGE value="stockfish implementation started." />
@@ -371,19 +375,20 @@
     <MESSAGE value="castling bug fixed. chess mate in turns panel." />
     <MESSAGE value="chess svg implemented" />
     <MESSAGE value="new game balloon fixed." />
-    <option name="LAST_COMMIT_MESSAGE" value="new game balloon fixed." />
+    <MESSAGE value="new pictures, better display of chess." />
+    <option name="LAST_COMMIT_MESSAGE" value="new pictures, better display of chess." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/components/chess/Chess.jsx</url>
-          <line>666</line>
+          <line>674</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/components/chess/Chess.jsx</url>
-          <line>1597</line>
+          <line>1605</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
