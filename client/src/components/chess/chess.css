@@ -306,7 +306,7 @@ tr {
 
 .chess-container {
     display: grid;
-    grid-template-columns: 25% auto auto 25%;
+    grid-template-columns: 25% repeat(8, 1fr) auto 25%;
     grid-template-rows: auto auto auto;
     grid-column-gap: 5px;
     grid-row-gap: 5px;

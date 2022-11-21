@@ -25,7 +25,7 @@
 }
 
 .fade {
-    background-color: lightgreen;
+    background-color: var(--color-bright);
     opacity: 1;
 }
 

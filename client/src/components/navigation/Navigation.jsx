@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {RiMenu3Line, RiCloseLine} from 'react-icons/ri';
-import logo from '../../assets/logo_small.jpg'
+import logo from '../../assets/avatar_rund.png'
 import './navigation.css'
 
 const Menu = () => (

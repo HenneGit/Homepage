@@ -1,6 +1,6 @@
 import React from 'react';
 import './header.css';
-import bender from '../../assets/bender.jpeg'
+import bewerbung from '../../assets/bewerbung_gross.jpg'
 import git from '../../assets/gitlab.png'
 
 function Header() {
@@ -22,7 +22,7 @@ function Header() {
                 </div>
             </div>
             <div className="header-image">
-                <img src={bender} alt="bender"/>
+                <img src={bewerbung} alt="bender"/>
             </div>
         </div>
     );
