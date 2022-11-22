@@ -4,17 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="some errors in chess removed. display falling down animation fixed.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="better positioning of board. use fa icon instead of pieces.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/chess/chess.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/chess.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/games/Games.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/games/games.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/AboutMe.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/header/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/navigation/Navigation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/navigation/Navigation.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +132,7 @@
       <workItem from="1669030015791" duration="1225000" />
       <workItem from="1669110433162" duration="5378000" />
       <workItem from="1669120324544" duration="1138000" />
-      <workItem from="1669121848333" duration="1271000" />
+      <workItem from="1669121848333" duration="5324000" />
     </task>
     <task id="LOCAL-00001" summary="init after migration from gitlab.">
       <created>1667042121002</created>
@@ -350,7 +344,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669028647893</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="better positioning of board. use fa icon instead of pieces.">
+      <created>1669123432483</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1669123432483</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -368,7 +369,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="grid for all elements." />
     <MESSAGE value="stockfish implementation started." />
     <MESSAGE value="basic FEN board representation complete." />
     <MESSAGE value="FEN board representation complete." />
@@ -393,19 +393,20 @@
     <MESSAGE value="new game balloon fixed." />
     <MESSAGE value="new pictures, better display of chess." />
     <MESSAGE value="some errors in chess removed. display falling down animation fixed." />
-    <option name="LAST_COMMIT_MESSAGE" value="some errors in chess removed. display falling down animation fixed." />
+    <MESSAGE value="better positioning of board. use fa icon instead of pieces." />
+    <option name="LAST_COMMIT_MESSAGE" value="better positioning of board. use fa icon instead of pieces." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/components/chess/Chess.jsx</url>
-          <line>683</line>
+          <line>685</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/components/chess/Chess.jsx</url>
-          <line>1632</line>
+          <line>1634</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

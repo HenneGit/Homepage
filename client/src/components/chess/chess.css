@@ -9,10 +9,12 @@ img {
 }
 
 select {
-    background: #031B34;
+    background: var(--color-bg);
     color: #fff;
     text-align: center;
     font-size: 2vh;
+    border: 1px solid var(--color-grey);
+
 }
 
 #turns {
@@ -20,8 +22,9 @@ select {
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow: scroll;
     width: 20vw;
+    max-height: 60vh;
+    overflow: auto;
     overflow-x: hidden;
 }
 
@@ -44,7 +47,7 @@ select {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #b30000;
+    background: var(--color-bg_light);
 }
 
 #board-div {
@@ -71,7 +74,7 @@ select {
 }
 
 .last-move {
-    background-color: #AE67FA;
+    background-color:  var(--color-bg_light);
 }
 
 #numeric-div {
@@ -244,7 +247,7 @@ tr {
 }
 
 .turn-even {
-    background-color: #173d62;
+    background-color: #585160;
 }
 
 .new-game-balloon-button {
@@ -294,7 +297,7 @@ tr {
 
 
 .draw-line {
-    stroke: #bc85ff;
+    stroke: var(--color-grey);
     stroke-width: 30;
     stroke-miterlimit: 10;
     stroke-dasharray: 120000;
@@ -303,7 +306,7 @@ tr {
 }
 
 .vanish {
-    stroke: #bc85ff;
+    stroke: var(--color-grey);
     stroke-width: 30;
     stroke-miterlimit: 10;
     stroke-dasharray: 100000;
@@ -330,6 +333,8 @@ tr {
 }
 
 #topPlayer {
+    color: var(--color-text);
+
     grid-column: 2;
     grid-row: 2;
 }
@@ -346,21 +351,31 @@ tr {
     font-size: 2vh;
 }
 #start-game-button:hover {
-    background-color: #AE67FA;
+    background-color: var(--color-bg_light);
 }
 
 .chess-button {
-    background-color: #042c54;
+    background-color: var(--color-bg);
     cursor: pointer;
     text-align: center;
-    color: white;
-    padding-top: .5vh;
-    padding-bottom: .5vh;
+    color: var(--color-text);
+
+
     margin-top: 1vh;
+    border: 1px solid var(--color-grey);
+}
+
+input {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    box-shadow: none;
+    border: 1px solid var(--color-grey);
+    padding: 5px;
+
 }
 
 .chess-button:hover {
-    background-color: #92b3d2;
+    background-color: var(--color-bg_light);
 }
 
 #new-game-wrapper {
@@ -371,6 +386,7 @@ tr {
 
 
 #bottomPlayer {
+    color: var(--color-text);
     grid-row: 4;
     grid-column: 2;
 }
@@ -434,7 +450,7 @@ p {
 }
 
 .panel-button:hover {
-    color: #AE67FA;
+    color: var(--color-bg_light);
 }
 
 .arrow {

@@ -173,12 +173,13 @@ export default class Chess extends Component {
             document.getElementById("chess-svg").classList.add("draw-line");
 
             localStorage.clear();
+            board = null;
             let playerColorLB = document.getElementById("playerColor");
             let playerNameInput = document.getElementById("player-name-input").value;
             console.log(playerNameInput)
             let playerName = playerNameInput === undefined ? "You" : playerNameInput;
             console.log(playerNameInput)
-            let playerColor = null;
+            let playerColor;
             if (playerColorLB !== null) {
                 playerColor = playerColorLB.options[playerColorLB.selectedIndex].innerText.toLowerCase();
             } else {
@@ -273,6 +274,7 @@ export default class Chess extends Component {
                 return;
             }
             board = null;
+            boardHistory = [];
             setUpNewGamePanel(playerName);
             for (let i = 1; i < 9; i++) {
                 for (let j = 8; j > 0; j--) {
@@ -419,7 +421,7 @@ export default class Chess extends Component {
             for (let move of moveTracker) {
                 let turnRow = createElement("tr", "turn-column");
                 let turn = createElement("td", "turn-" + turnCounter);
-                let startMove = createElement("td", "turn-" + turnCounter + "-start-move");
+                let startMove = createElement("td", "turn-" + turnCounter+ "-start-move");
                 let endMove = createElement("td", "turn-" + turnCounter + "-end-move");
                 if (turnCounter % 2 === 0) {
                     turnRow.classList.add("turn-even");
@@ -516,7 +518,7 @@ export default class Chess extends Component {
                 pieceDiv.addEventListener('dragstart', dragStart);
                 pieceDiv.addEventListener('dragend', dragEnd);
             }
-            return pieceDiv;
+            return createElement("div","sd");
         }
 
 
@@ -1649,11 +1651,11 @@ c218 -14 298 38 233 153 -29 53 -79 72 -164 63 l-65 -7 6 29 c4 16 9 38 12 49
                     <div id="turns"></div>
                     <div id="buttons">
                         <div className="tooltip tooltip--top panel-button" id="backButton"
-                             data-tooltip="Show last move">
+                             data-tooltip="Last move">
                             <FontAwesomeIcon icon={faChevronLeft}/>
                         </div>
                         <div className="tooltip tooltip--top panel-button" id="forwardButton"
-                             data-tooltip="Move forward">
+                             data-tooltip="Next move">
                             <FontAwesomeIcon icon={faChevronRight}/>
                         </div>
                         <div className="tooltip tooltip--top panel-button" id="resetButton"
@@ -1661,7 +1663,7 @@ c218 -14 298 38 233 153 -29 53 -79 72 -164 63 l-65 -7 6 29 c4 16 9 38 12 49
                             <FontAwesomeIcon icon={faRotateLeft}/>
                         </div>
                         <div className="tooltip tooltip--top panel-button" id="newGameButton"
-                             data-tooltip="Start a new game">
+                             data-tooltip="New game">
                             <FontAwesomeIcon icon={faPlus}/>
                         </div>
                     </div>
