@@ -6,8 +6,8 @@ import './navigation.css'
 const Menu = () => (
     <>
         <p><a href="#home">Home</a></p>
-        <p><a href="#what">About Me</a></p>
-        <p><a href="#games">Games</a></p>
+        <p><a href="#aboutMe">About Me</a></p>
+        <p><a href="#chess">Chess</a></p>
         <p><a href="#features">Contact</a></p>
     </>
 )

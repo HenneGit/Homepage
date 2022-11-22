@@ -6,6 +6,12 @@ import {faChevronRight} from '@fortawesome/free-solid-svg-icons'
 import {faChevronLeft} from '@fortawesome/free-solid-svg-icons'
 import {faRotateLeft} from '@fortawesome/free-solid-svg-icons'
 import {faPlus} from '@fortawesome/free-solid-svg-icons'
+import {faChessBishop} from '@fortawesome/free-solid-svg-icons'
+import {faChessPawn} from '@fortawesome/free-solid-svg-icons'
+import {faChessRook} from '@fortawesome/free-solid-svg-icons'
+import {faChessKing} from '@fortawesome/free-solid-svg-icons'
+import {faChessQueen} from '@fortawesome/free-solid-svg-icons'
+import {faChessKnight} from '@fortawesome/free-solid-svg-icons'
 
 
 export default class Chess extends Component {
@@ -197,7 +203,7 @@ export default class Chess extends Component {
             if (boardHistory.length > 0) {
                 await returnToStartAnimation();
             } else {
-                createNewBoard("white",true, playerName);
+                createNewBoard("white", true, playerName);
             }
         }
 
@@ -369,7 +375,7 @@ export default class Chess extends Component {
                     if (isInitBoard && boardHistory.length > 0) {
                         isInitBoard = currentBoard.moveTracker.length !== boardHistory[boardHistory.length - 1].moveTracker.length;
                     }
-                    domField.appendChild(createImgFromField(field, isInitBoard));
+                    domField.appendChild(getChessPiece(field.piece, isInitBoard));
                 }
                 boardDiv.appendChild(domField);
                 blackOrWhite = blackOrWhite * -1;
@@ -488,28 +494,31 @@ export default class Chess extends Component {
             spans.forEach(span => clearElement(span));
 
             sortablePieceArray.forEach(piece => {
-                let type = piece.type;
-                let typeGraveyard = document.getElementById(sideOfBoard + "-" + type);
-                let img = document.createElement('img');
-                img.src = "http://localhost:3000/chess/" + piece.type + piece.color + ".svg";
-                typeGraveyard.appendChild(img);
+                let typeGraveyard = document.getElementById(sideOfBoard + "-" + piece.type);
+                let pieceDiv = getChessPiece(piece, true);
+                pieceDiv.classList.remove("piece");
+                pieceDiv.classList.add("graveyard-piece");
+                typeGraveyard.appendChild(pieceDiv);
             });
 
         }
 
-        function createImgFromField(field, isInitBoard) {
-            let img = document.createElement('img');
-            let color = field.piece.color;
-            img.src = "http://localhost:3000/chess/" + field.piece.type + color + ".svg";
-            img.id = field.id + "-piece";
-            img.classList.add("piece");
+        function getChessPiece(piece, isInitBoard) {
+            let color = piece.color;
+            let type = piece.type
+            let pieceDiv = document.getElementById(type).cloneNode(true);
+            pieceDiv.id = color + type;
+            pieceDiv.classList.add("piece-" + color);
+            pieceDiv.classList.remove("invisible");
+            pieceDiv.classList.add("piece");
             if (board !== null && color === board.playerColor && !isInitBoard) {
-                img.draggable = true;
-                img.addEventListener('dragstart', dragStart);
-                img.addEventListener('dragend', dragEnd);
+                pieceDiv.draggable = true;
+                pieceDiv.addEventListener('dragstart', dragStart);
+                pieceDiv.addEventListener('dragend', dragEnd);
             }
-            return img;
+            return pieceDiv;
         }
+
 
         function getPiecesFromGraveyard(color) {
             let capturedPieces = board.graveyard;
@@ -551,15 +560,15 @@ export default class Chess extends Component {
                 }
             }
             if (isCheck && isCheckMate) {
-                addChessMate();
+                addCheckMate();
             }
         }
 
 
-        function addChessMate() {
+        function addCheckMate() {
             let turns = document.getElementById("turns");
-            let span = createElement("span", "chess-mate");
-            span.innerText = "Chessmate";
+            let span = createElement("span", "check-mate");
+            span.innerText = "Checkmate";
             turns.append(span);
             document.getElementById("turns").scrollTo(0, document.getElementById("turns").scrollHeight);
 
@@ -1005,7 +1014,7 @@ export default class Chess extends Component {
                 if (piece.hasOwnProperty('type')) {
                     let newField = new Field(piece, dropField.id, dropField.x, dropField.y);
                     let pieceBox = document.createElement('div');
-                    let imgDiv = createImgFromField(newField, false);
+                    let imgDiv = getChessPiece(piece, false);
                     pieceBox.appendChild(imgDiv);
                     pieceBox.setAttribute('piece', pieceType);
                     pieceBox.addEventListener('click', function () {
@@ -1603,6 +1612,24 @@ c218 -14 298 38 233 153 -29 53 -79 72 -164 63 l-65 -7 6 29 c4 16 9 38 12 49
                     </div>
                 </div>
                 <div id="chess"></div>
+                <div id="rook" className="invisible">
+                    <FontAwesomeIcon icon={faChessRook}/>
+                </div>
+                <div id="bishop" className="invisible">
+                    <FontAwesomeIcon icon={faChessBishop}/>
+                </div>
+                <div id="knight" className="invisible">
+                    <FontAwesomeIcon icon={faChessKnight}/>
+                </div>
+                <div id="pawn" className="invisible">
+                    <FontAwesomeIcon icon={faChessPawn}/>
+                </div>
+                <div id="queen" className="invisible">
+                    <FontAwesomeIcon icon={faChessQueen}/>
+                </div>
+                <div id="king" className="invisible">
+                    <FontAwesomeIcon icon={faChessKing}/>
+                </div>
                 <div id="bottomPlayer" className="player-panel">
                     <div id="bottomAvatar" className="avatar">
                         <img src={avatar}/>
@@ -1621,11 +1648,11 @@ c218 -14 298 38 233 153 -29 53 -79 72 -164 63 l-65 -7 6 29 c4 16 9 38 12 49
                 <div id="panel">
                     <div id="turns"></div>
                     <div id="buttons">
-                        <div class="tooltip tooltip--top panel-button" id="backButton"
-                             data-tooltip="Show last move" >
+                        <div className="tooltip tooltip--top panel-button" id="backButton"
+                             data-tooltip="Show last move">
                             <FontAwesomeIcon icon={faChevronLeft}/>
                         </div>
-                        <div class="tooltip tooltip--top panel-button" id="forwardButton"
+                        <div className="tooltip tooltip--top panel-button" id="forwardButton"
                              data-tooltip="Move forward">
                             <FontAwesomeIcon icon={faChevronRight}/>
                         </div>

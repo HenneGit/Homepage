@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="new pictures, better display of chess.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="some errors in chess removed. display falling down animation fixed.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/chess/chess.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/chess.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/display/Display.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/display/Display.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/games/Games.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/games/games.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/AboutMe.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/header/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/navigation/Navigation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/navigation/Navigation.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +134,11 @@
       <workItem from="1668769263787" duration="2244000" />
       <workItem from="1668779361058" duration="5601000" />
       <workItem from="1668949146675" duration="8419000" />
-      <workItem from="1669021955088" duration="6611000" />
+      <workItem from="1669021955088" duration="7345000" />
+      <workItem from="1669030015791" duration="1225000" />
+      <workItem from="1669110433162" duration="5378000" />
+      <workItem from="1669120324544" duration="1138000" />
+      <workItem from="1669121848333" duration="1271000" />
     </task>
     <task id="LOCAL-00001" summary="init after migration from gitlab.">
       <created>1667042121002</created>
@@ -333,7 +343,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669025412198</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="some errors in chess removed. display falling down animation fixed.">
+      <created>1669028647893</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1669028647893</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -351,7 +368,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="player panel with graveyard started." />
     <MESSAGE value="grid for all elements." />
     <MESSAGE value="stockfish implementation started." />
     <MESSAGE value="basic FEN board representation complete." />
@@ -376,19 +392,20 @@
     <MESSAGE value="chess svg implemented" />
     <MESSAGE value="new game balloon fixed." />
     <MESSAGE value="new pictures, better display of chess." />
-    <option name="LAST_COMMIT_MESSAGE" value="new pictures, better display of chess." />
+    <MESSAGE value="some errors in chess removed. display falling down animation fixed." />
+    <option name="LAST_COMMIT_MESSAGE" value="some errors in chess removed. display falling down animation fixed." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/components/chess/Chess.jsx</url>
-          <line>674</line>
+          <line>683</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/components/chess/Chess.jsx</url>
-          <line>1605</line>
+          <line>1632</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

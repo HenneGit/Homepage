@@ -1,9 +1,8 @@
 import React from 'react';
-import './header.css';
+import './aboutMe.css';
 import bewerbung from '../../assets/bewerbung_gross.jpg'
-import git from '../../assets/gitlab.png'
 
-function Header() {
+function AboutMe() {
     return (
         <div className="header section__padding" id="home">
             <div className="header-content">
@@ -11,21 +10,12 @@ function Header() {
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                     aliquip ex ea commodo consequat. </p>
-
-                <div className="header-content-input">
-                    <input type="email" placeholder="Your Email"/>
-                    <button type="button">Get Started</button>
-                </div>
-                <div className="header-content-git">
-                    <img src={git}/>
-                    <p>Futurama, you can't proove it wont happen!</p>
-                </div>
             </div>
             <div className="header-image">
-                <img src={bewerbung} alt="bender"/>
+                <img src={bewerbung}/>
             </div>
         </div>
     );
 }
 
-export default Header
+export default AboutMe

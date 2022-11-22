@@ -16,14 +16,12 @@ select {
 }
 
 #turns {
-    background-color: #031B34;
-    height: 60.5vh;
-    width: 15vw;
     font-size: 2vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: scroll;
+    width: 20vw;
     overflow-x: hidden;
 }
 
@@ -62,6 +60,7 @@ select {
 .field {
     display: grid;
     min-width: 8vh;
+    min-height:  8vh;
     justify-items: center;
     align-items: center;
 }
@@ -89,10 +88,6 @@ select {
 
 .player-graveyard-wrapper p {
     margin-left: .2vw;
-}
-
-.graveyard img {
-    height: 2vh;
 }
 
 .avatar {
@@ -127,6 +122,22 @@ select {
 .piece {
     cursor: pointer;
 }
+.piece-white {
+    color: white;
+}
+
+.piece-black {
+    color: black;
+}
+
+
+.piece svg {
+    height: 7vh;
+}
+
+.graveyard-piece svg {
+    height: 2vh;
+}
 
 .invisible {
     display: none;
@@ -135,6 +146,7 @@ select {
 
 .graveyard {
     margin-top: .5vh;
+    margin-left: .2vh;
     display: flex;
 
 }
@@ -302,12 +314,12 @@ tr {
 
 
 .chess-container {
+    margin-top: 20vh;
     display: grid;
-    grid-template-columns: 25% repeat(8, 1fr) auto 25%;
+    grid-template-columns: 25vw auto auto 30vw;
     grid-template-rows: auto auto auto;
     grid-column-gap: 5px;
     grid-row-gap: 5px;
-    justify-items: stretch;
 
 }
 
@@ -367,7 +379,6 @@ tr {
 .player-panel {
     height: 5vh;
     display: flex;
-    background-color: lightslategray;
 }
 
 p {
@@ -417,7 +428,6 @@ p {
 
 .panel-button {
     color: white;
-    background-color: #042c54;
     font-size: 3vh;
     cursor: pointer;
     text-align: center;
@@ -448,6 +458,9 @@ p {
     cursor: pointer;
 }
 
+.invisible {
+    display: none;
+}
 
 #piece-picker-box {
     display: grid;

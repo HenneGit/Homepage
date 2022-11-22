@@ -1,8 +1,6 @@
 import './App.css';
 import React,{Component} from 'react';
-import axios from 'axios';
-import {Navigation, Games, Header, Display} from "./components";
-import Chess from "./components/chess/Chess";
+import {Navigation, AboutMe, Display, Chess} from "./components";
 
 
 export default class App extends Component {
@@ -14,9 +12,9 @@ export default class App extends Component {
         return (
             <div className="App">
                 <div className="gradient__bg">
-                    <Navigation/>
-                    <Display/>
-                    <Header/>
+                    {/*<Navigation/>*/}
+                    {/*<Display/>*/}
+                    {/*<AboutMe/>*/}
                     <Chess/>
                 </div>
             </div>
