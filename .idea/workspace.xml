@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="better positioning of board. use fa icon instead of pieces.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="better design of chess.">
+      <change afterPath="$PROJECT_DIR$/client/src/components/contact/Contact.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/contact/contact.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/chess/chess.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/chess.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/navigation/navigation.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/navigation/navigation.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -132,7 +137,7 @@
       <workItem from="1669030015791" duration="1225000" />
       <workItem from="1669110433162" duration="5378000" />
       <workItem from="1669120324544" duration="1138000" />
-      <workItem from="1669121848333" duration="5324000" />
+      <workItem from="1669121848333" duration="8429000" />
     </task>
     <task id="LOCAL-00001" summary="init after migration from gitlab.">
       <created>1667042121002</created>
@@ -351,7 +356,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669123432483</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="better design of chess.">
+      <created>1669127265080</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1669127265080</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -369,7 +381,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="stockfish implementation started." />
     <MESSAGE value="basic FEN board representation complete." />
     <MESSAGE value="FEN board representation complete." />
     <MESSAGE value="Stockfish working" />
@@ -394,7 +405,8 @@
     <MESSAGE value="new pictures, better display of chess." />
     <MESSAGE value="some errors in chess removed. display falling down animation fixed." />
     <MESSAGE value="better positioning of board. use fa icon instead of pieces." />
-    <option name="LAST_COMMIT_MESSAGE" value="better positioning of board. use fa icon instead of pieces." />
+    <MESSAGE value="better design of chess." />
+    <option name="LAST_COMMIT_MESSAGE" value="better design of chess." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

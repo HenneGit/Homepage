@@ -79,7 +79,7 @@ select {
 
 #numeric-div {
     position: absolute;
-    margin-bottom: 6.4vh;
+    margin-bottom: 6.1vh;
     margin-right: 6.5vh;
     font-size: 1.3vh;
 }
@@ -99,7 +99,7 @@ select {
 
 #letter-div {
     position: absolute;
-    margin-top: 6.4vh;
+    margin-top: 6.1vh;
     margin-left: 6.5vh;
     font-size: 1.3vh;
 }
@@ -323,6 +323,8 @@ tr {
     grid-template-rows: auto auto auto;
     grid-column-gap: 5px;
     grid-row-gap: 5px;
+    font-family: var(--font-family);
+
 
 }
 

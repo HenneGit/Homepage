@@ -518,7 +518,7 @@ export default class Chess extends Component {
                 pieceDiv.addEventListener('dragstart', dragStart);
                 pieceDiv.addEventListener('dragend', dragEnd);
             }
-            return createElement("div","sd");
+            return pieceDiv;
         }
 
 

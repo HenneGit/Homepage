@@ -27,6 +27,7 @@
     flex-direction: row;
 }
 
+
 .navigation-sign {
     display: flex;
     justify-content: flex-end;
@@ -36,7 +37,7 @@
 .navigation-links-container p,
 .navigation-sign p,
 .navigation-menu-container p {
-    color: #000000;
+    color: var(--color-text);
     font-family: var(--font-family);
     font-weight: 500;
     font-size: 2em;
@@ -52,6 +53,12 @@
     position: relative;
 
 }
+
+p:hover {
+    color: var(--color-bright);
+
+}
+
 
 .navigation-menu svg {
     cursor: pointer;
