@@ -1,6 +1,6 @@
 .header {
     display: flex;
-    background-color: #1b1126;
+    background-color: var(--color-bg2);
 }
 
 .header-content {
@@ -42,9 +42,6 @@
     flex: 2;
     width: 100%;
     min-height: 50px;
-    background: var(--color-footer);
-    border: 2px solid var(--color-footer);
-    padding: 0 1rem;
     outline: none;
     color: aliceblue;
     border-radius: 5px 0px 0px 5px;
