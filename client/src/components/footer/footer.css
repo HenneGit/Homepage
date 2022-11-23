@@ -1,0 +1,12 @@
+footer {
+    display: flex;
+    flex-direction: column;
+    color: var(--color-grey);
+    font-family: var(--font-family);
+    font-size: 1em;
+    background-color: var(--color-bg2);
+    height: 5vh;
+    justify-content: center;
+    align-items: center;
+
+}

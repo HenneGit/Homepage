@@ -169,9 +169,6 @@ export default class Chess extends Component {
          * init a new board with pieces in starting position.
          */
         async function newGame() {
-            document.getElementById("chess-svg").classList.remove("vanish");
-            document.getElementById("chess-svg").classList.add("draw-line");
-
             localStorage.clear();
             board = null;
             let playerColorLB = document.getElementById("playerColor");
@@ -251,9 +248,6 @@ export default class Chess extends Component {
                     }
                     counter--;
                 }, 100)
-                document.getElementById("chess-svg").classList.remove("draw-line");
-                document.getElementById("chess-svg").classList.add("vanish");
-
                 resolve();
             })
         }
@@ -266,7 +260,6 @@ export default class Chess extends Component {
             let storedHistory = getItemFromLocalStorage("history");
 
             if (storedBoard !== null && storedHistory !== null) {
-                document.getElementById("chess-svg").classList.add("draw-line");
                 boardHistory = storedHistory;
                 board = storedBoard;
                 turnNumber = boardHistory.length - 1;

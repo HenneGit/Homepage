@@ -47,7 +47,7 @@ export default class Contact extends Component {
 
     render() {
         return (
-            <div id="form-container">
+            <div id="contact">
                 <div>
                     <h1>Contact</h1>
                     <form id="contact-form">

@@ -4,14 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="contact form started.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="contact form finished and working">
+      <change afterPath="$PROJECT_DIR$/client/src/components/footer/Footer.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/footer/footer.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/AboutMe.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/AboutMe.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/contact/Contact.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/contact/Contact.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/contact/contact.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/contact/contact.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/navigation/Navigation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/navigation/Navigation.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/navigation/navigation.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/navigation/navigation.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -138,7 +145,10 @@
       <workItem from="1669120324544" duration="1138000" />
       <workItem from="1669121848333" duration="8646000" />
       <workItem from="1669204864503" duration="5218000" />
-      <workItem from="1669210212465" duration="131000" />
+      <workItem from="1669210212465" duration="544000" />
+      <workItem from="1669211259264" duration="106000" />
+      <workItem from="1669213164119" duration="4248000" />
+      <workItem from="1669217788333" duration="204000" />
     </task>
     <task id="LOCAL-00001" summary="init after migration from gitlab.">
       <created>1667042121002</created>
@@ -371,7 +381,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669130448897</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="contact form finished and working">
+      <created>1669210500890</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1669210500890</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -389,7 +406,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="FEN board representation complete." />
     <MESSAGE value="Stockfish working" />
     <MESSAGE value="bugs removed. castling for engine started." />
     <MESSAGE value="min width for fields, engine castling working." />
@@ -414,7 +430,8 @@
     <MESSAGE value="better positioning of board. use fa icon instead of pieces." />
     <MESSAGE value="better design of chess." />
     <MESSAGE value="contact form started." />
-    <option name="LAST_COMMIT_MESSAGE" value="contact form started." />
+    <MESSAGE value="contact form finished and working" />
+    <option name="LAST_COMMIT_MESSAGE" value="contact form finished and working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

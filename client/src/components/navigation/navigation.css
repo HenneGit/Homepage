@@ -3,6 +3,9 @@
     justify-content: space-between;
     align-items: center;
     padding: 2rem 6rem;
+    position: sticky;
+
+
 }
 
 .navigation-links {
@@ -70,7 +73,7 @@ p:hover {
     align-items: flex-end;
     text-align: end;
     flex-direction: column;
-    background-color: var(--color-footer);
+    background-color: var(--color-bg_light);
     padding: 2rem;
     position: absolute;
     right: 0;
@@ -78,6 +81,7 @@ p:hover {
     min-width: 210px;
     border-radius: 5px;
     box-shadow: 0 0 5 rgba(0, 0, 0, 0.2);
+
 }
 
 .navigation-menu-container p {

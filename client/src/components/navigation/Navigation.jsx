@@ -8,7 +8,7 @@ const Menu = () => (
         <p><a href="#home">Home</a></p>
         <p><a href="#aboutMe">About Me</a></p>
         <p><a href="#chess">Chess</a></p>
-        <p><a href="#features">Contact</a></p>
+        <p><a href="#contact">Contact</a></p>
     </>
 )
 
