@@ -4,20 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="aboutme updated.">
-      <change afterPath="$PROJECT_DIR$/client/src/components/cv/Cv.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/cv/cv.css" afterDir="false" />
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="animated skill bars.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/chess/chess.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/chess.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/display/Display.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/display/Display.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/navigation/Navigation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/navigation/Navigation.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/navigation/navigation.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/navigation/navigation.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/json/letters.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/letters.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/cv/Cv.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/cv/Cv.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/cv/cv.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/cv/cv.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +137,7 @@
       <workItem from="1669211259264" duration="106000" />
       <workItem from="1669213164119" duration="4248000" />
       <workItem from="1669217788333" duration="1480000" />
-      <workItem from="1669277026296" duration="8185000" />
+      <workItem from="1669277026296" duration="12108000" />
     </task>
     <task id="LOCAL-00001" summary="init after migration from gitlab.">
       <created>1667042121002</created>
@@ -394,7 +384,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669218189577</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="animated skill bars.">
+      <created>1669285928185</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1669285928185</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -412,7 +409,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="bugs removed. castling for engine started." />
     <MESSAGE value="min width for fields, engine castling working." />
     <MESSAGE value="enpassant working in both directions, check mate alert, last move marker" />
     <MESSAGE value="queening working." />
@@ -437,7 +433,8 @@
     <MESSAGE value="contact form started." />
     <MESSAGE value="contact form finished and working" />
     <MESSAGE value="aboutme updated." />
-    <option name="LAST_COMMIT_MESSAGE" value="aboutme updated." />
+    <MESSAGE value="animated skill bars." />
+    <option name="LAST_COMMIT_MESSAGE" value="animated skill bars." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
