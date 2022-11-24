@@ -161,7 +161,7 @@ select {
 
 
 .take {
-    background-color: #dc5555;
+    background-color: var(--color-red);
 }
 
 .tooltip {
@@ -223,7 +223,7 @@ select {
 
 
 .legal {
-    background-color: teal;
+    background-color: var(--color-green);
 }
 
 table {
@@ -272,10 +272,6 @@ tr {
     margin-right: -.5vw;
 }
 
-#details {
-    width: 100px;
-    background-color: aqua;
-}
 
 .chess-wrapper {
     display: flex;
@@ -373,7 +369,7 @@ input {
     box-shadow: none;
     border: 1px solid var(--color-grey);
     padding: 5px;
-
+    font-size: 1vh;
 }
 
 .chess-button:hover {
@@ -399,8 +395,9 @@ input {
     display: flex;
 }
 
-p {
+.player-name {
     font-size: 2vh;
+    margin-left: 5px;
 }
 
 #new-game-balloon {
@@ -452,7 +449,7 @@ p {
 }
 
 .panel-button:hover {
-    color: var(--color-bg_light);
+    color: var(--color-bright);
 }
 
 .arrow {
@@ -472,7 +469,7 @@ p {
 
 
 .hovered {
-    background-color: cornflowerblue;
+    background-color: var(--color-orange);
     cursor: pointer;
 }
 

@@ -1490,7 +1490,7 @@ export default class Chess extends Component {
                         <img src={avatar}/>
                     </div>
                     <div className="player-graveyard-wrapper">
-                        <p>StockFish</p>
+                        <div className="player-name">StockFish</div>
                         <div id="topGraveyard" className="graveyard">
                             <span id="top-pawn" className="piece-graveyard"></span>
                             <span id="top-bishop" className="piece-graveyard"></span>
@@ -1524,7 +1524,7 @@ export default class Chess extends Component {
                         <img src={avatar}/>
                     </div>
                     <div className="player-graveyard-wrapper">
-                        <p id="player-name"></p>
+                        <div id="player-name" className="player-name"></div>
                         <div id="bottomGraveyard" className="graveyard">
                             <span id="bottom-pawn" className="piece-graveyard"></span>
                             <span id="bottom-bishop" className="piece-graveyard"></span>

@@ -7,7 +7,7 @@ const Menu = () => (
     <>
         <p><a href="#home">Home</a></p>
         <p><a href="#aboutMe">About Me</a></p>
-        <p><a href="#chess">Chess</a></p>
+        <p><a href="#chess-container">Chess</a></p>
         <p><a href="#contact">Contact</a></p>
     </>
 )
@@ -42,4 +42,4 @@ function Navigation() {
     );
 }
 
-export default Navigation
+export default Navigation;

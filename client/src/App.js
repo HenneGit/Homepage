@@ -1,6 +1,6 @@
 import './App.css';
 import React,{Component} from 'react';
-import {Navigation, AboutMe, Display, Chess, Contact, Footer} from "./components";
+import {Navigation, AboutMe, Display, Chess, Contact, Footer, Cv} from "./components";
 
 
 export default class App extends Component {
@@ -15,6 +15,7 @@ export default class App extends Component {
                     <Navigation/>
                     <Display/>
                     <AboutMe/>
+                    <Cv/>
                     <Chess/>
                     <Contact/>
                     <Footer/>

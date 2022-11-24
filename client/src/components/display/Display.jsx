@@ -179,7 +179,7 @@ export default class Display extends Component {
         }
 
         async function initLetters(word) {
-            let letters = await fetch("http://localhost:3000/letters",).then(resp => resp.json());
+            let letters = await fetch("http://localhost:3000/letters.json",).then(resp => resp.json());
             let chars = Array.from(word);
             let l = 0;
             for (let char of chars) {
