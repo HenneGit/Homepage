@@ -4,10 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="animated skill bars.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="cv making progress.">
+      <change afterPath="$PROJECT_DIR$/client/src/assets/chess/chess.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/cv/Cv.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/cv/Cv.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/cv/cv.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/cv/cv.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/chess/bishop_black.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/chess/bishop_white.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/chess/king_black.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/chess/king_white.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/chess/knight_black.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/chess/knight_white.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/chess/pawn_black.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/chess/pawn_white.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/chess/queen_black.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/chess/queen_white.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/chess/rook_black.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/chess/rook_white.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/chess/chess.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/chess.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +63,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/public/chess" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/src/assets/chess" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -60,6 +73,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/src/assets/chess" />
       <recent name="$PROJECT_DIR$/client/public/chess" />
       <recent name="$PROJECT_DIR$/client/public" />
       <recent name="$PROJECT_DIR$/client/src/components/chess" />
@@ -137,7 +151,9 @@
       <workItem from="1669211259264" duration="106000" />
       <workItem from="1669213164119" duration="4248000" />
       <workItem from="1669217788333" duration="1480000" />
-      <workItem from="1669277026296" duration="12108000" />
+      <workItem from="1669277026296" duration="12887000" />
+      <workItem from="1669389711013" duration="3062000" />
+      <workItem from="1669392888424" duration="1338000" />
     </task>
     <task id="LOCAL-00001" summary="init after migration from gitlab.">
       <created>1667042121002</created>
@@ -391,7 +407,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669285928185</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="cv making progress.">
+      <created>1669290152595</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1669290152595</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -409,7 +432,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="min width for fields, engine castling working." />
     <MESSAGE value="enpassant working in both directions, check mate alert, last move marker" />
     <MESSAGE value="queening working." />
     <MESSAGE value="movetracker attached to board object." />
@@ -434,7 +456,8 @@
     <MESSAGE value="contact form finished and working" />
     <MESSAGE value="aboutme updated." />
     <MESSAGE value="animated skill bars." />
-    <option name="LAST_COMMIT_MESSAGE" value="animated skill bars." />
+    <MESSAGE value="cv making progress." />
+    <option name="LAST_COMMIT_MESSAGE" value="cv making progress." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -446,7 +469,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/components/chess/Chess.jsx</url>
-          <line>1528</line>
+          <line>1529</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
