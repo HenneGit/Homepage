@@ -58,7 +58,9 @@ export default class Cv extends Component {
         return (<section id="cv">
                 <div id="cv-container">
                     <div id="skills">
-                        <h1>Skills</h1>
+                        <div className="header-background skills-background">
+                            <h1>Skills</h1>
+                        </div>
                         <div className="skill-container">
                         <svg id="svg" viewBox="0 0 100 100" grid-row="1" grid-column="1">
                             <circle cx="50" cy="50" r="45" fill="#FDB900"/>
@@ -100,7 +102,9 @@ export default class Cv extends Component {
                         </div>
                     </div>
                     <div id="work">
-                        <h1>Work</h1>
+                        <div className="header-background work-background">
+                            <h1>Work</h1>
+                        </div>
                         <div className="container">
                             <ul>
                                 <li><span></span>
@@ -123,8 +127,10 @@ export default class Cv extends Component {
                         </div>
 
                     </div>
-                    <div id="skills">
-                        <h1>Education</h1>
+                    <div id="education">
+                        <div className="header-background education-background">
+                            <h1>Education</h1>
+                        </div>
                         <div className="container">
                             <ul>
                                 <li><span></span>

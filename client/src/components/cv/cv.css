@@ -19,6 +19,25 @@
     background-color: var(--color-bg2-shade);
 }
 
+.header-background {
+    border-bottom: 150px solid var(--color-orange);
+    height: 0;
+    width: 100%;
+}
+
+.education-background {
+    clip-path: polygon(0 0, 100% 0,100% 100%, 0 70%);
+}
+
+.work-background {
+    clip-path: polygon(0 0, 100% 0,100% 70%, 0 70%);
+}
+
+.skills-background {
+    clip-path: polygon(0 0, 100% 0,100% 70%, 0% 100%);
+}
+
+
 #cv-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -42,6 +61,7 @@
     font-size: 2vh;
 
 }
+
 .container ul:before {
     content: "";
     width: 1px;
@@ -49,6 +69,7 @@
     position: absolute;
     border-left: 2px dashed var(--color-text);
 }
+
 .container ul li {
     position: relative;
     margin-left: 30px;
@@ -59,9 +80,11 @@
     width: 15vw;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.08);
 }
+
 .container ul li:not(:first-child) {
     margin-top: 60px;
 }
+
 .container ul li > span {
     width: 2px;
     height: 100%;
@@ -70,6 +93,7 @@
     top: 0;
     position: absolute;
 }
+
 .container ul li > span:before, .container ul li > span:after {
     content: "";
     width: 8px;
@@ -81,34 +105,43 @@
     left: -5px;
     top: 0;
 }
+
 .container ul li span:after {
     top: 100%;
 }
+
 .container ul li > div {
     margin-left: 10px;
 }
+
 .container div .title, .container div .type {
     font-weight: 600;
     font-size: 1vh;
 }
+
 .container div .info {
     font-weight: 300;
 }
+
 .container div > div {
     margin-top: 5px;
 }
+
 .container span.number {
     height: 100%;
 }
+
 .container span.number span {
     position: absolute;
     font-size: 1vh;
     left: -50px;
     font-weight: bold;
 }
+
 .container span.number span:first-child {
     top: 0;
 }
+
 .container span.number span:last-child {
     top: 100%;
 }
