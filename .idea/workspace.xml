@@ -4,23 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="cv making progress.">
-      <change afterPath="$PROJECT_DIR$/client/src/assets/chess/chess.jpg" afterDir="false" />
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="background image for chess. Yet again chess grid improvements.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/chess/bishop_black.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/chess/bishop_white.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/chess/king_black.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/chess/king_white.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/chess/knight_black.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/chess/knight_white.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/chess/pawn_black.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/chess/pawn_white.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/chess/queen_black.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/chess/queen_white.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/chess/rook_black.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/chess/rook_white.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/chess/chess.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/chess.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/display/Display.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/display/Display.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/display/display.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/display/display.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/assets/chess/bishopblack.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/assets/chess/bishopwhite.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/assets/chess/iconP260-01.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/assets/chess/iconP260-02.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/assets/chess/iconP260-03.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/assets/chess/iconP260-04.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/assets/chess/iconP260-05.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/assets/chess/iconP260-06.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/assets/chess/iconP260-07.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/assets/chess/iconP260-08.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/assets/chess/kingblack.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/assets/chess/kingwhite.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/assets/chess/knightblack.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/assets/chess/knightwhite.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/assets/chess/pawnblack.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/assets/chess/pawnwhite.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/assets/chess/queenblack.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/assets/chess/queenwhite.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/assets/chess/rookblack.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/assets/chess/rookwhite.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/server.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +168,16 @@
       <workItem from="1669217788333" duration="1480000" />
       <workItem from="1669277026296" duration="12887000" />
       <workItem from="1669389711013" duration="3062000" />
-      <workItem from="1669392888424" duration="1338000" />
+      <workItem from="1669392888424" duration="1854000" />
+      <workItem from="1669633496898" duration="1245000" />
+      <workItem from="1670485587109" duration="624000" />
+      <workItem from="1670490475922" duration="608000" />
+      <workItem from="1670609074090" duration="184000" />
+      <workItem from="1670619125626" duration="708000" />
+      <workItem from="1670698286491" duration="1392000" />
+      <workItem from="1671180387585" duration="55000" />
+      <workItem from="1671199247736" duration="1368000" />
+      <workItem from="1671201729543" duration="1309000" />
     </task>
     <task id="LOCAL-00001" summary="init after migration from gitlab.">
       <created>1667042121002</created>
@@ -414,7 +438,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669290152595</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="background image for chess. Yet again chess grid improvements.">
+      <created>1669394380993</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1669394380993</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -432,7 +463,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="enpassant working in both directions, check mate alert, last move marker" />
     <MESSAGE value="queening working." />
     <MESSAGE value="movetracker attached to board object." />
     <MESSAGE value="correct saving of board history." />
@@ -457,7 +487,8 @@
     <MESSAGE value="aboutme updated." />
     <MESSAGE value="animated skill bars." />
     <MESSAGE value="cv making progress." />
-    <option name="LAST_COMMIT_MESSAGE" value="cv making progress." />
+    <MESSAGE value="background image for chess. Yet again chess grid improvements." />
+    <option name="LAST_COMMIT_MESSAGE" value="background image for chess. Yet again chess grid improvements." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -469,7 +500,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/components/chess/Chess.jsx</url>
-          <line>1529</line>
+          <line>1530</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

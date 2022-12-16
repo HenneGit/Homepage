@@ -1485,6 +1485,7 @@ export default class Chess extends Component {
     render() {
         return (
             <section id="chess-section">
+                <div id="chess-wrapper">
                 <div id="chess-container" className="chess-container">
                     <div id="topPlayer" className="player-panel">
                         <div id="topAvatar" className="avatar">
@@ -1556,6 +1557,7 @@ export default class Chess extends Component {
                             </div>
                         </div>
                     </div>
+                </div>
                 </div>
             </section>
         )

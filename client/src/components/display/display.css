@@ -1,10 +1,30 @@
 
-#content-div {
-    margin-top: 20vh;
-    margin-bottom: 40vh;
+#display-div {
     display: flex;
-    justify-content: center;
+
 }
+
+#display-wrapper {
+    margin-top: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#arrow-down {
+    margin-top: 30vh;
+    margin-bottom: 10vh;
+    font-size: 4rem;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 30vh;
+
+}
+
+#arrow-down:hover {
+    color: var(--color-bright);
+}
+
 
 .letter-box {
     display: grid;

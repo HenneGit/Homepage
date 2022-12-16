@@ -248,6 +248,7 @@ tr {
 
 .turn-even {
     background-color: #585160;
+    opacity: 0.5;
 }
 
 .new-game-balloon-button {
@@ -299,8 +300,10 @@ tr {
 
 
 .chess-container {
+    width: 50%;
     display: grid;
-    grid-template-columns: 25vw auto auto 30vw;
+    justify-items: start;
+    grid-template-columns: auto auto;
     grid-template-rows: auto 64vh auto;
     grid-column-gap: 5px;
     grid-row-gap: 5px;
@@ -309,7 +312,12 @@ tr {
 
 }
 
+#chess-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 
+}
 
 #chess-section {
     display: flex;
@@ -331,14 +339,14 @@ tr {
     height: 100vh;
     width: 100%;
     z-index: 0;
-    background-color: rgb(0, 0, 0);
-    opacity: 0.7;
+    background-color: black;
+    opacity: 0.3;
 
 }
 
 #panel {
     display: grid;
-    grid-column: 3;
+    grid-column: 2;
     grid-row: 2;
     z-index: 5;
 }
@@ -346,13 +354,13 @@ tr {
 #topPlayer {
     color: var(--color-text);
     align-self: end;
-    grid-column: 2;
+    grid-column: 1;
     grid-row: 1;
     z-index: 5;
 }
 
 #chess {
-    grid-column: 2;
+    grid-column: 1;
     grid-row: 2;
     z-index: 500;
 }
@@ -398,10 +406,17 @@ input {
 #bottomPlayer {
     color: var(--color-text);
     grid-row: 3;
-    grid-column: 2;
+    grid-column: 1;
     z-index: 5;
-}
 
+}
+#bottomPlayer:after {
+    content: "";
+    display: block;
+    position: absolute;
+    background: white;
+    opacity: .5;
+}
 
 .player-panel {
     height: 5vh;

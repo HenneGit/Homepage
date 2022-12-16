@@ -1,5 +1,7 @@
 import React, {Component, useEffect, useState} from 'react';
 import './display.css';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faChevronDown} from "@fortawesome/free-solid-svg-icons";
 
 
 export default class Display extends Component {
@@ -8,6 +10,9 @@ export default class Display extends Component {
     }
 
     componentDidMount() {
+        document.getElementById("arrow-down").addEventListener('click', function () {
+            document.getElementById('aboutMe').scrollIntoView();
+        });
         init();
 
 
@@ -16,7 +21,7 @@ export default class Display extends Component {
          * @returns {Promise<void>}
          */
         async function init() {
-            let contentDiv = document.getElementById('content-div');
+            let contentDiv = document.getElementById('display-div');
             await buildLetterGrid("hello", contentDiv);
             const pixels = contentDiv.querySelectorAll('.pixel-active');
 
@@ -26,9 +31,7 @@ export default class Display extends Component {
                 array.push(el.id);
             }
             shuffle(array);
-
             let timer = setInterval(function () {
-
                 const pix = document.getElementById(array[i]);
                 pix.classList.add('fade');
                 i++;
@@ -117,7 +120,7 @@ export default class Display extends Component {
             //add event to tooltip
             pix.addEventListener('click', async function () {
                 await movePixels();
-                let contentDiv = document.getElementById('content-div');
+                let contentDiv = document.getElementById('display-div');
                 //reset pixels.
                 setTimeout(() => {
                     removeChildren(contentDiv);
@@ -178,6 +181,11 @@ export default class Display extends Component {
             await initLetters(word);
         }
 
+        /**
+         * create the display from given word.
+         * @param word the word to display.
+         * @returns {Promise<void>}
+         */
         async function initLetters(word) {
             let letters = await fetch("http://localhost:3000/letters.json",).then(resp => resp.json());
             let chars = Array.from(word);
@@ -193,13 +201,14 @@ export default class Display extends Component {
                 l++;
             }
             cleanLetters();
-
-
         }
 
+        /**
+         * remove pixel columns without active pixels.
+         */
         function cleanLetters() {
             let letters = document.querySelectorAll('.letter-box');
-            let columnNo = ['c0', 'c1', 'c2', 'c3', 'c4'];
+            let columnNumber = ['c0', 'c1', 'c2', 'c3', 'c4'];
 
             for (let letter of letters) {
                 let inactive = Array.from(letter.children).filter(pixel => {
@@ -207,7 +216,7 @@ export default class Display extends Component {
                 });
 
                 let pixelToRemove = [];
-                columnNo.forEach(no => pixelToRemove.push(inactive.filter(pixel => {
+                columnNumber.forEach(no => pixelToRemove.push(inactive.filter(pixel => {
                     return pixel.id.includes(no);
                 })));
                 let columnCount = 5;
@@ -221,6 +230,10 @@ export default class Display extends Component {
             }
         }
 
+        /**
+         * remove all children from an element.
+         * @param parent
+         */
         const removeChildren = (parent) => {
             while (parent.lastChild) {
                 parent.removeChild(parent.lastChild);
@@ -230,7 +243,12 @@ export default class Display extends Component {
 
     render() {
         return (
-            <div id='content-div'></div>
+            <div id="display-wrapper">
+                <div id='display-div'></div>
+                <div id='arrow-down'>
+                    <FontAwesomeIcon icon={faChevronDown}/>
+                </div>
+            </div>
         )
     }
 }
