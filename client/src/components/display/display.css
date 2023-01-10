@@ -50,7 +50,7 @@
 }
 
 .move {
-    transform: translateY(400px);
+    transform: translateY(700px);
     opacity: 0;
 }
 

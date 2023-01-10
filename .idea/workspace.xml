@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="funny shapes for headlines.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="comments and some minor css fixes.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/AboutMe.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/AboutMe.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/contact/contact.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/contact/contact.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/cv/cv.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/cv/cv.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/chess/chess.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/chess.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/display/display.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/display/display.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,6 +71,7 @@
       <recent name="$PROJECT_DIR$/server" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/src/assets" />
       <recent name="$PROJECT_DIR$/client/public" />
       <recent name="$PROJECT_DIR$/client/src/components/chess" />
       <recent name="$PROJECT_DIR$/client" />
@@ -155,7 +157,10 @@
       <workItem from="1671201729543" duration="3481000" />
       <workItem from="1671205406948" duration="320000" />
       <workItem from="1672062006922" duration="3562000" />
-      <workItem from="1673346729699" duration="298000" />
+      <workItem from="1673346729699" duration="1048000" />
+      <workItem from="1673348360366" duration="1328000" />
+      <workItem from="1673354493208" duration="2680000" />
+      <workItem from="1673360818003" duration="6696000" />
     </task>
     <task id="LOCAL-00001" summary="init after migration from gitlab.">
       <created>1667042121002</created>
@@ -437,7 +442,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671205633780</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="comments and some minor css fixes.">
+      <created>1673347085670</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1673347085670</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -455,7 +467,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="correct saving of board history." />
     <MESSAGE value="castling error removed." />
     <MESSAGE value="game setup started." />
     <MESSAGE value="fontawesome added. Game buttons with font awesome." />
@@ -480,7 +491,8 @@
     <MESSAGE value="background image for chess. Yet again chess grid improvements." />
     <MESSAGE value="server removed. better displaying of chess. down arrow after display." />
     <MESSAGE value="funny shapes for headlines." />
-    <option name="LAST_COMMIT_MESSAGE" value="funny shapes for headlines." />
+    <MESSAGE value="comments and some minor css fixes." />
+    <option name="LAST_COMMIT_MESSAGE" value="comments and some minor css fixes." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

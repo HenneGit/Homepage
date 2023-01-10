@@ -1,38 +1,87 @@
 .about-me-container {
     display: grid;
-    grid-template-columns: 50% auto;
-    grid-template-rows: 20% 70% auto;
+    grid-template-rows: auto auto auto;
     color: var(--color-text);
     font-family: var(--font-family);
-    justify-content: space-evenly;
-    height: 60vh;
+    justify-content: center;
+    height: 100vh;
+    background-color: white;
+}
+
+.about-me-content-wrapper {
+    display: flex;
+    flex-direction: row;
+    grid-column: 1;
+    align-items: self-start;
+    gap: 2rem;
+    margin: 2rem 2rem 0 2rem;
+}
+
+
+.about-me-image {
+    display: flex;
+    flex-direction: row;
+}
+
+.text-block {
+    font-size: 1vw;
+    width: 100%;
+    color: white;
+    justify-self: right;
+    background-color: black;
+    padding: 3rem;
+    z-index: 100;
+}
+#my-picture {
+    position: absolute;
+    height: 25vw;
+}
+
+
+.thats-me {
+    position: relative;
+    grid-row: 2;
+    background: #d5d5d5;
+    transform: translateY(0px);
+    transition: transform 0.25s ease-in;
+    overflow: hidden;
+}
+
+
+.thats-me-transition{
+    transform: translateY(-700px);
+    transition: transform 0.25s ease-in;
+
+}
+
+
+.box-shadow {
+    box-shadow: black 0px 7px 14px;
 }
 
 .headline {
     margin-top: 3vh;
-    font-size: 5vh;
-    color: var(--color-bright);
+    font-size: 7rem;
+    color: var(--color-text);
+    margin-left: 3rem;
     grid-column: 1 / 2;
     grid-row: 1;
 }
 
 .about-me-content {
-    grid-column: 1;
+    padding: 5rem;
     grid-row: 2;
 }
 
-.about-me-image {
 
-    grid-column: 2;
-    grid-row: 2 / 3;
-}
 
 img {
-  height: 20vw;
+    height: 20vw;
+    overflow: hidden;
 }
 
 .icons {
-  display: flex;
+    display: flex;
     grid-row: 3;
     grid-column: 1;
 
