@@ -3,7 +3,6 @@
     margin-bottom: 20vh;
     display: flex;
     justify-items: center;
-    background-image: linear-gradient(var(--color-bg2), var(--color-bg2-shade), var(--color-bg2));
     justify-content: center;
     color: var(--color-text);
     height: 80vh;

@@ -2,7 +2,6 @@
     display: grid;
     grid-template-columns: 50% auto;
     grid-template-rows: 20% 70% auto;
-    background-image: linear-gradient(var(--color-bg2), var(--color-bg2-shade), var(--color-bg2));
     color: var(--color-text);
     font-family: var(--font-family);
     justify-content: space-evenly;

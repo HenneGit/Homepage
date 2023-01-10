@@ -2,12 +2,8 @@
 
 :root {
     --font-family: 'Roboto', sans-serif;
-
-    --gradient-text: linear-gradient(89.97deg, #ffc155 1.84%, #F49867 102.67%);
-    --gradient-bar: linear-gradient(103.22deg, #AE67FA -13.86%, #F49867 99.55%);
-
-    --color-bg: #4f4857;
-    --color-bg2: #1b1126;
+    --color-bg: white;
+    --color-bg2: white;
     --color-bg2-shade: #292231;
     --color-bg_light: #af9f9f;
     --color-grey: #7C7484;

@@ -173,9 +173,7 @@ export default class Chess extends Component {
             board = null;
             let playerColorLB = document.getElementById("playerColor");
             let playerNameInput = document.getElementById("player-name-input").value;
-            console.log(playerNameInput)
             let playerName = playerNameInput === undefined ? "You" : playerNameInput;
-            console.log(playerNameInput)
             let playerColor;
             if (playerColorLB !== null) {
                 playerColor = playerColorLB.options[playerColorLB.selectedIndex].innerText.toLowerCase();
@@ -196,6 +194,9 @@ export default class Chess extends Component {
             }
         }
 
+        /**
+         * waits for the return to start animation to be done.
+         */
         async function awaitReturnToStartAnimation() {
             let playerName = board.playerName;
             if (boardHistory.length > 0) {
@@ -205,6 +206,9 @@ export default class Chess extends Component {
             }
         }
 
+        /**
+         * creates a small popup over the new game button to confirm that a new game will be started.
+         */
         function appendNewGamePopUp() {
             let wrapper = createElement("div", "new-game-balloon");
             let buttonWrapper = createElement("div", "button-wrapper");
@@ -231,7 +235,10 @@ export default class Chess extends Component {
             document.getElementById("buttons").append(wrapper);
         }
 
-
+        /**
+         * gets all moves from history and plays an animation moving all pieces backwards to starting position.
+         * @returns {Promise<unknown>} the promise to wait for.
+         */
         async function returnToStartAnimation() {
             return new Promise((resolve) => {
                 let counter = boardHistory.length - 1;
@@ -241,7 +248,6 @@ export default class Chess extends Component {
                     let board = boardHistory[counter];
                     createBoard(board);
                     if (counter === 0) {
-                        console.log("hallo");
                         localStorage.clear();
                         createNewBoard("white", true, playerName);
                         clearInterval(interval);
@@ -252,7 +258,12 @@ export default class Chess extends Component {
             })
         }
 
-
+        /**
+         * create a new board an reset all moves.
+         * @param playerColor the color of curent player.
+         * @param isInitBoard if its a fresh board to be created from scratch.
+         * @param playerName name of the player.
+         */
         function createNewBoard(playerColor, isInitBoard, playerName) {
             let fields = [];
             let graveyard = [];
@@ -285,6 +296,10 @@ export default class Chess extends Component {
             createBoard(board, isInitBoard);
         }
 
+        /**
+         * setup the new game panel with game settings.
+         * @param playerName the player name to add to the player name input box.
+         */
         function setUpNewGamePanel(playerName) {
             if (board !== null) {
                 return;
@@ -317,25 +332,47 @@ export default class Chess extends Component {
 
         }
 
+        /**
+         * creates an option element with given text.
+         * @param optionText the text for the option.
+         * @returns {*} the created option element.
+         */
         function getOption(optionText) {
             let option = createElement("option");
             option.innerText = optionText;
             return option;
         }
 
+        /**
+         * set a json string to local storage.
+         * @param key the key for the item.
+         * @param item the item to store in localstorage.
+         */
         function setLocalStorage(key, item) {
             localStorage.setItem(key, JSON.stringify(item));
         }
 
+        /**
+         * get an item from local storage.
+         * @param key the key to find the item for.
+         * @returns {any} the found item.
+         */
         function getItemFromLocalStorage(key) {
+            if (key === null || key === undefined) {
+                return null;
+            }
             let item = localStorage.getItem(key);
-            return JSON.parse(item);
+            if (item !== null) {
+                return JSON.parse(item);
+            }
+            return null;
         }
 
 
         /**
          * create the board and add pieces to it.
          * @param currentBoard the board to create the field from.
+         * @param isInitBoard
          */
         function createBoard(currentBoard, isInitBoard) {
             let playerName = currentBoard.playerName === undefined ? "You" : currentBoard.playerName;
@@ -385,7 +422,10 @@ export default class Chess extends Component {
             setTurn(currentBoard)
         }
 
-
+        /**
+         * mark the field of the last move made.
+         * @param moveTracker the movetracker containing the last move.
+         */
         function setUpLastMove(moveTracker) {
             if (moveTracker.length > 0) {
                 let lastMove = moveTracker[moveTracker.length - 1];
@@ -394,13 +434,20 @@ export default class Chess extends Component {
             }
         }
 
+        /**
+         * add last move css classes.
+         * @param field the field to add the classes for.
+         */
         function addLastMoveClasses(field) {
             field.classList.remove("white");
             field.classList.remove("black");
             field.classList.add("last-move");
         }
 
-
+        /**
+         * create the turns panel and set all made move in it.
+         * @param currentBoard the
+         */
         function setTurn(currentBoard) {
             let moveTracker = currentBoard.moveTracker;
             if (moveTracker.length === 0) {
@@ -514,7 +561,11 @@ export default class Chess extends Component {
             return pieceDiv;
         }
 
-
+        /**
+         * get all pieces from graveyard
+         * @param color
+         * @returns {null|*}
+         */
         function getPiecesFromGraveyard(color) {
             let capturedPieces = board.graveyard;
             if (capturedPieces !== null) {
@@ -535,7 +586,10 @@ export default class Chess extends Component {
             return div;
         }
 
-
+        /**
+         * check if a player is check mate.
+         * @param color the color to check for.
+         */
         function checkForCheckMate(color) {
             let isCheckMate = true;
             let isCheck = checkForCheck(getOppositeColor(color));
@@ -559,18 +613,19 @@ export default class Chess extends Component {
             }
         }
 
-
+        /**
+         * add check mate to turns panel.
+         */
         function addCheckMate() {
             let turns = document.getElementById("turns");
             let span = createElement("span", "check-mate");
             span.innerText = "Checkmate";
             turns.append(span);
             document.getElementById("turns").scrollTo(0, document.getElementById("turns").scrollHeight);
-
         }
 
         /**
-         * start dragging a piece. Applies classes.
+         * start dragging a piece. Applies class for legal moves.
          */
         function dragStart(event) {
             event.dataTransfer.setDragImage(this, +25, +25);
@@ -597,8 +652,7 @@ export default class Chess extends Component {
             legalFields = legalFields.filter(field => {
                 updateField(currentField.id, field.id, false);
                 let createsCheck = checkForCheck(color);
-                const boardCopy = jsonCopy(boardHistory.pop());
-                board = boardCopy;
+                board = jsonCopy(boardHistory.pop());
                 return !createsCheck;
             });
             if (legalFields.length === 0 && checkForCheck(color)) {
@@ -612,7 +666,6 @@ export default class Chess extends Component {
                     setUpLegalFields(field);
                 }
             }
-
         }
 
         /**
@@ -1244,6 +1297,12 @@ export default class Chess extends Component {
             return legalMoves;
         }
 
+        /**
+         * create an element and add an id to it.
+         * @param type the type of the element.
+         * @param id the id of the element.
+         * @returns {*} the created element.
+         */
         function createElement(type, id) {
             let el = document.createElement(type);
             el.id = id;
@@ -1285,6 +1344,11 @@ export default class Chess extends Component {
             }
         }
 
+        /**
+         * find the field for a given color that currently contains the king.
+         * @param color the color to find the king for.
+         * @returns {null|any} the field the king is currently on.
+         */
         function getKingField(color) {
             for (let field of board.fields) {
                 if (field.piece !== null && field.piece.type === "king" && field.piece.color === color) {
@@ -1307,6 +1371,11 @@ export default class Chess extends Component {
             }
         }
 
+        /**
+         * simply returns the opposite of given color.
+         * @param color the given color to return the opposite from.
+         * @returns {string} the color.
+         */
         function getOppositeColor(color) {
             return color === 'white' ? 'black' : 'white';
         }
@@ -1324,17 +1393,29 @@ export default class Chess extends Component {
             }
         }
 
+        /**
+         * clear all child elements of a given element.
+         * @param element the element to remove all children from.
+         */
         function clearElement(element) {
             while (element.firstChild) {
                 element.removeChild(element.firstChild);
             }
         }
 
+        /**
+         * returns true if a field contains a piece.
+         * @param field the field to check.
+         * @returns {boolean} true if the field contains a piece.
+         */
         function containsPiece(field) {
             return field.piece !== null;
         }
 
-
+        /**
+         * generate the FEN String to send to stockfish.
+         * @returns {*|string} the finished fen string.
+         */
         function generateFENString() {
             let fenString = "";
             fenString = addBoardToFENString(fenString);
@@ -1346,6 +1427,14 @@ export default class Chess extends Component {
             return fenString;
         }
 
+        /**
+         * add the current board to fen string. A black piece is represented by lower case letters whereas a white piece
+         * is represented by upper case letters (e.g. white queen 'Q', black pawn 'p'.
+         * If there empty fields they are counted till a piece is found. Thus 5 empty fields are noted
+         * as a five.
+         * @param fenString the fen string.
+         * @returns {*} the fen string with added board.
+         */
         function addBoardToFENString(fenString) {
             let fields = board.fields;
             let sortedFields = Array.from(fields);
@@ -1385,6 +1474,11 @@ export default class Chess extends Component {
 
         }
 
+        /**
+         * add letter indicating which player is to move.
+         * @param fenString the fen string to update.
+         * @returns {*} the updated fen string.
+         */
         function addTurnToFEN(fenString) {
             let turnNumber = boardHistory.length;
             if (turnNumber % 2 === 0) {
@@ -1396,6 +1490,12 @@ export default class Chess extends Component {
             return fenString;
         }
 
+        /**
+         * add castling rights for both players. Upper case letters indicate castling rights for white. 'K' stands for
+         * king site castling and 'Q' for queen site castling. Same is true for black but in lower case lettes.
+         * @param fenString the fen string to update.
+         * @returns {*} the updated fen string.
+         */
         function addCastleRights(fenString) {
             let whiteQueenSide = true;
             let whiteKingSide = true;
@@ -1443,6 +1543,11 @@ export default class Chess extends Component {
             return fenString;
         }
 
+        /**
+         * add possible enPassant move to fen string.
+         * @param fenString the fen string to build.
+         * @returns {*} fen string with added en passant move.
+         */
         function addEnPassantMoves(fenString) {
             let moveTracker = board.moveTracker;
             let lastMove = moveTracker[moveTracker.length - 1];
@@ -1470,11 +1575,21 @@ export default class Chess extends Component {
             return fenString;
         }
 
+        /**
+         * add half moves to fen string. half moves are all moves that don't take a piece or move a pawn.
+         * @param fenString the fen string to add half moves to.
+         * @returns {*} the updated fen string.
+         */
         function addHalfMoves(fenString) {
             fenString += " " + halfMoves;
             return fenString;
         }
 
+        /**
+         * add move counter to fen string indicating the current number of played turns.
+         * @param fenString the fen string to add move counter to.
+         * @returns {*} the updated fen string.
+         */
         function addMoveCounter(fenString) {
             fenString += " " + boardHistory.length;
             return fenString;
