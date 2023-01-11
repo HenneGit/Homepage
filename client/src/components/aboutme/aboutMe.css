@@ -1,22 +1,22 @@
 .about-me-container {
     display: grid;
     grid-template-rows: auto auto auto;
+    grid-row-gap: 3rem;
     color: var(--color-text);
     font-family: var(--font-family);
-    justify-content: center;
+    background-color: #b3cb05;
     height: 100vh;
-    background-color: white;
 }
 
 .about-me-content-wrapper {
     display: flex;
     flex-direction: row;
-    grid-column: 1;
-    align-items: self-start;
+    grid-row: 2;
     gap: 2rem;
-    margin: 2rem 2rem 0 2rem;
-}
+    margin-left: 1vw;
+    margin-right: 1vw;
 
+}
 
 .about-me-image {
     display: flex;
@@ -25,55 +25,79 @@
 
 .text-block {
     font-size: 1vw;
-    width: 100%;
     color: white;
-    justify-self: right;
     background-color: black;
     padding: 3rem;
-    z-index: 100;
-}
-#my-picture {
-    position: absolute;
-    height: 25vw;
 }
 
+
+#my-picture {
+    position: absolute;
+    height: 45vh;
+
+}
 
 .thats-me {
     position: relative;
     grid-row: 2;
     background: #d5d5d5;
-    transform: translateY(0px);
+    transform: translatex(0px);
     transition: transform 0.25s ease-in;
-    overflow: hidden;
 }
 
 
-.thats-me-transition{
-    transform: translateY(-700px);
+.thats-me-transition {
+    transform: translatex(35vw);
     transition: transform 0.25s ease-in;
 
 }
-
 
 .box-shadow {
     box-shadow: black 0px 7px 14px;
 }
 
-.headline {
-    margin-top: 3vh;
-    font-size: 7rem;
-    color: var(--color-text);
-    margin-left: 3rem;
-    grid-column: 1 / 2;
+
+.picture-and-headline {
+    display: flex;
+    flex-direction: row;
     grid-row: 1;
+    justify-content: space-between;
+    margin-left: 1vw;
+    margin-top: 1vw;
+}
+
+.headline-wrapper {
+    display: flex;
+    flex-direction: column;
+    transform: translateX(15vw);
+}
+
+
+.headline {
+    font-size: 8vw;
+    font-weight: bolder;
+    color: white;
+}
+
+.me {
+    font-size: 8vw;
+    transform: translateY(-5vh);
+    color: white;
+    font-weight: lighter;
+}
+
+.quote {
+    font-weight: lighter;
+    color: white;
+    font-size: 1vw;
+    font-style: oblique;
+    width: 50%;
 }
 
 .about-me-content {
     padding: 5rem;
     grid-row: 2;
 }
-
-
 
 img {
     height: 20vw;
@@ -84,9 +108,10 @@ img {
     display: flex;
     grid-row: 3;
     grid-column: 1;
+    margin-left: 1vw;
+
 
 }
-
 
 .icon {
     border: 1px var(--color-text);
