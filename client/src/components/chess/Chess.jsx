@@ -382,9 +382,6 @@ export default class Chess extends Component {
                 setLocalStorage("board", board);
                 setLocalStorage("history", boardHistory);
             }
-            console.log("tic");
-            console.log(boardHistory);
-            console.log(currentBoard);
             let contentDiv = document.getElementById('chess');
             let isBlack = currentBoard.playerColor === "black";
             clearElement(contentDiv);
@@ -407,7 +404,7 @@ export default class Chess extends Component {
                     if (isInitBoard && boardHistory.length > 0) {
                         isInitBoard = currentBoard.moveTracker.length !== boardHistory[boardHistory.length - 1].moveTracker.length;
                     }
-                    domField.appendChild(getChessPiece(field.piece, isInitBoard));
+                    domField.appendChild(cloneChessPiece(field.piece, isInitBoard));
                 }
                 boardDiv.appendChild(domField);
                 blackOrWhite = blackOrWhite * -1;
@@ -478,6 +475,12 @@ export default class Chess extends Component {
             turns.appendChild(table);
         }
 
+        /**
+         * add the numbers and letters on y and y axis.
+         * @param field the field to add the number or letter to.
+         * @param domField the domfield to attach the number/letter to.
+         * @param isBlack if the human player is playing black pieces or not.
+         */
         function addLetterOrNumberGrid(field, domField, isBlack) {
             let letter = isBlack ? "h" : "a";
             let moduloResult = isBlack ? 1 : 0;
@@ -526,6 +529,11 @@ export default class Chess extends Component {
             }
         }
 
+        /**
+         * append captured pieces to the graveyard.
+         * @param pieces the pieces to append.
+         * @param sideOfBoard if top or bottom player.
+         */
         function appendPiecesToGraveyard(pieces, sideOfBoard) {
             let sortablePieceArray = Array.from(pieces);
             sortablePieceArray.sort(function (a, b) {
@@ -537,7 +545,7 @@ export default class Chess extends Component {
 
             sortablePieceArray.forEach(piece => {
                 let typeGraveyard = document.getElementById(sideOfBoard + "-" + piece.type);
-                let pieceDiv = getChessPiece(piece, true);
+                let pieceDiv = cloneChessPiece(piece, true);
                 pieceDiv.classList.remove("piece");
                 pieceDiv.classList.add("graveyard-piece");
                 typeGraveyard.appendChild(pieceDiv);
@@ -545,7 +553,13 @@ export default class Chess extends Component {
 
         }
 
-        function getChessPiece(piece, isInitBoard) {
+        /**
+         * 
+         * @param piece
+         * @param isInitBoard
+         * @returns {Node}
+         */
+        function cloneChessPiece(piece, isInitBoard) {
             let color = piece.color;
             let type = piece.type
             let pieceDiv = document.getElementById(type).cloneNode(true);
@@ -1062,7 +1076,7 @@ export default class Chess extends Component {
                 if (piece.hasOwnProperty('type')) {
                     let newField = new Field(piece, dropField.id, dropField.x, dropField.y);
                     let pieceBox = document.createElement('div');
-                    let imgDiv = getChessPiece(piece, false);
+                    let imgDiv = cloneChessPiece(piece, false);
                     pieceBox.appendChild(imgDiv);
                     pieceBox.setAttribute('piece', pieceType);
                     pieceBox.addEventListener('click', function () {

@@ -1,8 +1,5 @@
 
-img {
-    height: 8vh;
-    display: block;
-}
+
 
 .avatar img {
     height: 5vh;
@@ -421,11 +418,13 @@ input {
 .player-panel {
     height: 5vh;
     display: flex;
+
 }
 
 .player-name {
     font-size: 2vh;
     margin-left: 5px;
+    color: white;
 }
 
 #new-game-balloon {

@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="about me section with more appealing design. Needs browser optimization.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/AboutMe.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/AboutMe.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/chess/chess.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/chess.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/cv/Cv.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/cv/Cv.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/cv/cv.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/cv/cv.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +163,12 @@
       <workItem from="1673427750940" duration="10536000" />
       <workItem from="1673448515734" duration="234000" />
       <workItem from="1673448962138" duration="193000" />
-      <workItem from="1673449315222" duration="984000" />
+      <workItem from="1673449315222" duration="3536000" />
+      <workItem from="1673603032206" duration="18000" />
+      <workItem from="1673614444238" duration="599000" />
+      <workItem from="1673618490341" duration="7000" />
+      <workItem from="1673618776705" duration="17000" />
+      <workItem from="1673629239971" duration="1651000" />
     </task>
     <task id="LOCAL-00001" summary="init after migration from gitlab.">
       <created>1667042121002</created>
@@ -456,7 +464,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673367605186</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="about me section with more appealing design. Needs browser optimization.">
+      <created>1673450422682</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1673450422682</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -506,12 +521,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/components/chess/Chess.jsx</url>
-          <line>738</line>
+          <line>741</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/components/chess/Chess.jsx</url>
-          <line>1645</line>
+          <line>1648</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">

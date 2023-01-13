@@ -23,6 +23,10 @@
     flex-direction: row;
 }
 
+.about-me-image img {
+    height: 25vw;
+}
+
 .text-block {
     font-size: 1vw;
     color: white;
@@ -33,8 +37,6 @@
 
 #my-picture {
     position: absolute;
-    height: 45vh;
-
 }
 
 .thats-me {
