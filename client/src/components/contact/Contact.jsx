@@ -59,7 +59,7 @@ export default class Contact extends Component {
                                name="user_email"/>
                         <label htmlFor="message">Message</label>
                         <textarea className="form-control" rows="5" id="message" name="message"/>
-                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <button type="submit" >Submit</button>
                     </form>
                 </div>
             </div>

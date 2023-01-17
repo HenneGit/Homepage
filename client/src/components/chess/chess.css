@@ -1,12 +1,10 @@
 
-
-
 .avatar img {
     height: 5vh;
 }
 
 select {
-    background: var(--color-bg);
+    background: var(--color-grey);
     color: #fff;
     text-align: center;
     font-size: 2vh;
@@ -248,22 +246,12 @@ tr {
     opacity: 0.5;
 }
 
-.new-game-balloon-button {
-    font-size: 1.5vh;
-    border-radius: 0.2rem;
-    margin-left: 5px;
-    padding: 2px 2px 2px 2px;
-
-}
-
 .new-game-item {
     height: 3vh;
     margin-top: 1vh;
     margin-right: 1vw;
     margin-left: 1vw;
     width: 12vw;
-
-
 }
 
 .piece-graveyard img {
@@ -362,23 +350,6 @@ tr {
     z-index: 500;
 }
 
-#start-game-button {
-    font-size: 2vh;
-}
-#start-game-button:hover {
-    background-color: var(--color-bg_light);
-}
-
-.chess-button {
-    background-color: var(--color-bg);
-    cursor: pointer;
-    text-align: center;
-    color: var(--color-text);
-
-
-    margin-top: 1vh;
-    border: 1px solid var(--color-grey);
-}
 
 input {
     background-color: var(--color-bg);
@@ -389,9 +360,6 @@ input {
     font-size: 1vh;
 }
 
-.chess-button:hover {
-    background-color: var(--color-bg_light);
-}
 
 #new-game-wrapper {
     display: flex;
@@ -465,6 +433,18 @@ input {
 
 #newGameButton {
     grid-column: 4 / 5;
+}
+
+#button-wrapper {
+    display: flex;
+    gap: 10px;
+}
+
+#button-wrapper button {
+    font-size: 20px;
+    width: 120px;
+    height: 50px;
+
 }
 
 

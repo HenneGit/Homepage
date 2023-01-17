@@ -48,18 +48,6 @@ circle {
 
 
 
-.education-background {
-    clip-path: polygon(0 0, 100% 0,100% 100%, 0 60%);
-
-}
-
-.work-background {
-    clip-path: polygon(0 0, 100% 0,100% 70%, 0 70%);
-}
-
-.skills-background {
-    clip-path: polygon(0 0, 100% 0,100% 70%, 0% 100%);
-}
 
 #cv-container {
     display: grid;

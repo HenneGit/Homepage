@@ -212,24 +212,19 @@ export default class Chess extends Component {
         function appendNewGamePopUp() {
             let wrapper = createElement("div", "new-game-balloon");
             let buttonWrapper = createElement("div", "button-wrapper");
-            let buttonCancel = createElement("div", "button-cancel");
-            buttonCancel.classList.add("new-game-balloon-button");
-            buttonCancel.classList.add("chess-button");
+            let buttonCancel = createElement("button", "button-cancel");
             buttonCancel.innerText = "Cancel";
             buttonCancel.addEventListener("click", () => {
                 document.getElementById("buttons").removeChild(document.getElementById("new-game-balloon"));
             })
-            let buttonConfirm = createElement("div", "button-confirm");
+            let buttonConfirm = createElement("button", "button-confirm");
             buttonConfirm.addEventListener("click", () => {
                 document.getElementById("buttons").removeChild(document.getElementById("new-game-balloon"));
                 awaitReturnToStartAnimation();
             });
             buttonConfirm.innerText = "Yes";
-            buttonConfirm.classList.add("new-game-balloon-button");
-            buttonConfirm.classList.add("chess-button");
             let text = createElement("div", "new-game-text");
             text.innerText = "Start a new game?";
-            buttonWrapper.style.display = "flex";
             buttonWrapper.append(buttonCancel, buttonConfirm);
             wrapper.append(text, buttonWrapper);
             document.getElementById("buttons").append(wrapper);
@@ -320,7 +315,6 @@ export default class Chess extends Component {
             let playerColor = createElement("select", "playerColor");
             playerColor.append(getOption("White"), getOption("Black"));
             let startGameButton = createElement("button", "start-game-button");
-            startGameButton.classList.add("chess-button");
             startGameButton.innerText = "Start Game";
             startGameButton.addEventListener("click", newGame);
             startGameButton.classList.add("new-game-item");

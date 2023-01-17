@@ -15,7 +15,7 @@
     margin-top: 30vh;
     margin-bottom: 10vh;
     font-size: 4rem;
-    color: white;
+    color: var(--color-orange);
     cursor: pointer;
     margin-bottom: 30vh;
 

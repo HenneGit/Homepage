@@ -6,11 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="about me section with more appealing design. Needs browser optimization.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/chess/chess.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/chess.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/cv/Cv.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/cv/Cv.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/contact/Contact.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/contact/Contact.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/contact/contact.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/contact/contact.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/cv/cv.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/cv/cv.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/display/display.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/display/display.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/navigation/Navigation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/navigation/Navigation.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/navigation/navigation.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/navigation/navigation.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,6 +174,8 @@
       <workItem from="1673618490341" duration="7000" />
       <workItem from="1673618776705" duration="17000" />
       <workItem from="1673629239971" duration="1651000" />
+      <workItem from="1673859818116" duration="12000" />
+      <workItem from="1673949905995" duration="2415000" />
     </task>
     <task id="LOCAL-00001" summary="init after migration from gitlab.">
       <created>1667042121002</created>
@@ -521,12 +528,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/components/chess/Chess.jsx</url>
-          <line>741</line>
+          <line>735</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/components/chess/Chess.jsx</url>
-          <line>1648</line>
+          <line>1642</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
