@@ -23,6 +23,13 @@ export default class Contact extends Component {
             // generate a five digit number for the contact_number variable
             this.contact_number.value = Math.random() * 100000 | 0;
             // these IDs from the previous steps
+            let message = document.getElementById("message").value;
+
+            if (message === "" || message === undefined || message === null) {
+                alert("If you want to sent me an email please make sure there is a message :).")
+                return;
+            }
+
             emailjs.sendForm('service_nutnlxd', 'template_wb0h6td', this)
                 .then(function () {
                     saySomething("Thank you for your message :).");
@@ -32,7 +39,7 @@ export default class Contact extends Component {
         }
 
         function saySomething(stringMessage) {
-            let formContainer = document.getElementById("form-container");
+            let formContainer = document.getElementById("contact");
             while (formContainer.firstChild) {
                 formContainer.removeChild(formContainer.firstChild);
             }
@@ -59,7 +66,7 @@ export default class Contact extends Component {
                                name="user_email"/>
                         <label htmlFor="message">Message</label>
                         <textarea className="form-control" rows="5" id="message" name="message"/>
-                        <button type="submit" >Submit</button>
+                        <button type="submit">Submit</button>
                     </form>
                 </div>
             </div>
