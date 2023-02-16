@@ -1,7 +1,6 @@
 .about-me-container {
-    display: grid;
-    grid-template-rows: auto auto auto;
-    grid-row-gap: 3rem;
+    display: flex;
+    justify-content: center;
     color: var(--color-text);
     font-family: var(--font-family);
     background-color: #b3cb05;
@@ -10,28 +9,32 @@
 
 .about-me-content-wrapper {
     display: flex;
-    flex-direction: row;
-    grid-row: 2;
-    gap: 2rem;
+    flex-direction: column;
+    align-items: center;
     margin-left: 1vw;
     margin-right: 1vw;
+    justify-content: center;
+    width: 50%;
 
 }
 
 .about-me-image {
     display: flex;
     flex-direction: row;
+    z-index: 0;
 }
 
 .about-me-image img {
-    height: 25vw;
+    width: 30vw;
 }
 
 .text-block {
-    font-size: 1vw;
+    font-size: .7vw;
     color: white;
     background-color: black;
     padding: 3rem;
+    z-index: 5;
+    width: 30vw;
 }
 
 
@@ -49,7 +52,7 @@
 
 
 .thats-me-transition {
-    transform: translatex(35vw);
+    transform: translatex(30vw);
     transition: transform 0.25s ease-in;
 
 }
@@ -59,21 +62,17 @@
 }
 
 
-.picture-and-headline {
+.picture {
     display: flex;
-    flex-direction: row;
-    grid-row: 1;
-    justify-content: space-between;
+    flex-direction: column;
     margin-left: 1vw;
     margin-top: 1vw;
 }
 
 .headline-wrapper {
     display: flex;
-    flex-direction: column;
-    transform: translateX(15vw);
+    flex-direction: row;
 }
-
 
 .headline {
     font-size: 8vw;
@@ -83,36 +82,17 @@
 
 .me {
     font-size: 8vw;
-    transform: translateY(-5vh);
     color: white;
     font-weight: lighter;
-}
-
-.quote {
-    font-weight: lighter;
-    color: white;
-    font-size: 1vw;
-    font-style: oblique;
-    width: 50%;
 }
 
 .about-me-content {
     padding: 5rem;
-    grid-row: 2;
 }
 
-img {
-    height: 20vw;
-    overflow: hidden;
-}
 
 .icons {
-    display: flex;
-    grid-row: 3;
-    grid-column: 1;
     margin-left: 1vw;
-
-
 }
 
 .icon {

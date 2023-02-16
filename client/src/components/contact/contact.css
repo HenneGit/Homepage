@@ -1,11 +1,8 @@
 #contact {
-    margin-top: 20vh;
-    margin-bottom: 20vh;
     display: flex;
     justify-items: center;
     justify-content: center;
     color: var(--color-text);
-    height: 80vh;
     font-family: var(--font-family);
 }
 
@@ -34,6 +31,5 @@ button {
     margin-top: 1vh;
     width: 10vw;
     height: 4vh;
-
 }
 

@@ -46,10 +46,7 @@ export default class Contact extends Component {
             let thankYou = document.createElement("h2");
             thankYou.innerText = stringMessage;
             formContainer.append(thankYou);
-
         }
-
-
     }
 
     render() {

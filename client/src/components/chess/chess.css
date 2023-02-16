@@ -58,7 +58,7 @@ select {
 .field {
     display: grid;
     min-width: 8vh;
-    min-height:  8vh;
+    min-height: 8vh;
     justify-items: center;
     align-items: center;
 }
@@ -69,7 +69,7 @@ select {
 }
 
 .last-move {
-    background-color:  var(--color-bg_light);
+    background-color: var(--color-bg_light);
 }
 
 #numeric-div {
@@ -120,6 +120,7 @@ select {
 .piece {
     cursor: pointer;
 }
+
 .piece-white {
     color: white;
 }
@@ -217,6 +218,29 @@ select {
 }
 
 
+dialog {
+    text-align: center;
+    height: 15vh;
+    margin: auto;
+    border: white;
+}
+
+dialog p {
+    margin-top: 1em;
+    font-size: 4em;
+}
+
+dialog button {
+    margin-left: 2em;
+    margin-right: 2em;
+    font-size: 2em;
+}
+
+.modal::backdrop {
+    background: gray;
+    opacity: .5;
+}
+
 .legal {
     background-color: var(--color-green);
 }
@@ -308,15 +332,13 @@ tr {
 #chess-section {
     display: flex;
     justify-items: center;
-    background-image: url("http://localhost:3000/chess.jpg");
+    background-image: url("http://localhost:3000/chess_blur.jpg");
     z-index: -2;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     height: 100vh;
-
-
 }
 
 #chess-section:before {
@@ -356,7 +378,6 @@ input {
     background-color: var(--color-bg);
     color: var(--color-text);
     box-shadow: none;
-    border: 1px solid var(--color-grey);
     padding: 5px;
     font-size: 1vh;
 }
@@ -376,6 +397,7 @@ input {
     z-index: 5;
 
 }
+
 #bottomPlayer:after {
     content: "";
     display: block;
@@ -446,6 +468,12 @@ input {
     width: 120px;
     height: 50px;
 
+}
+
+.close-button {
+    border: 0;
+    cursor: pointer;
+    font-weight: 700;
 }
 
 
