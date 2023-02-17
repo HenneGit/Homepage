@@ -1,15 +1,13 @@
 .about-me-container {
     display: flex;
     justify-content: center;
-    color: var(--color-text);
+    color: black;
     font-family: var(--font-family);
-    background-color: #b3cb05;
-    height: 100vh;
 }
 
 .about-me-content-wrapper {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     margin-left: 1vw;
     margin-right: 1vw;
@@ -30,8 +28,6 @@
 
 .text-block {
     font-size: .7vw;
-    color: white;
-    background-color: black;
     padding: 3rem;
     z-index: 5;
     width: 30vw;
@@ -55,10 +51,6 @@
     transform: translatex(30vw);
     transition: transform 0.25s ease-in;
 
-}
-
-.box-shadow {
-    box-shadow: black 0px 7px 14px;
 }
 
 

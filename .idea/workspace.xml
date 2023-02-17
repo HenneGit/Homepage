@@ -4,16 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="contact error removed and making sure that no empty email is sent.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="dialog for checkmate. Several css improvements.">
+      <change afterPath="$PROJECT_DIR$/client/src/components/chess/js/dom_operations.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/chess/js/drag_drop.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/chess/js/fenGenerator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/chess/js/game.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/chess/js/moves.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/chess/js/utilities.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/AboutMe.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/AboutMe.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/chess/chess.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/chess.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/contact/Contact.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/contact/Contact.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/contact/contact.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/contact/contact.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +181,9 @@
       <workItem from="1674037954058" duration="2250000" />
       <workItem from="1676551874081" duration="2737000" />
       <workItem from="1676558886654" duration="1128000" />
-      <workItem from="1676560197526" duration="1072000" />
+      <workItem from="1676560197526" duration="1520000" />
+      <workItem from="1676635297183" duration="597000" />
+      <workItem from="1676641968149" duration="9960000" />
     </task>
     <task id="LOCAL-00001" summary="init after migration from gitlab.">
       <created>1667042121002</created>
@@ -495,7 +500,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674033913165</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="dialog for checkmate. Several css improvements.">
+      <created>1676561602704</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1676561602704</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -513,7 +525,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="reset game animation and correct back and forward movement." />
     <MESSAGE value="using local storage to save game." />
     <MESSAGE value="correct piece picker" />
     <MESSAGE value="styling, new game dialog." />
@@ -538,19 +549,15 @@
     <MESSAGE value="about me section with more appealing design. Needs browser optimization." />
     <MESSAGE value="cleanup and new hover effect for links and buttons." />
     <MESSAGE value="contact error removed and making sure that no empty email is sent." />
-    <option name="LAST_COMMIT_MESSAGE" value="contact error removed and making sure that no empty email is sent." />
+    <MESSAGE value="dialog for checkmate. Several css improvements." />
+    <option name="LAST_COMMIT_MESSAGE" value="dialog for checkmate. Several css improvements." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/components/chess/Chess.jsx</url>
-          <line>742</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/client/src/components/chess/Chess.jsx</url>
-          <line>1651</line>
+          <line>64</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">

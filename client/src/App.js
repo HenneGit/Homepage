@@ -11,8 +11,9 @@ export default class App extends Component {
     render(){
         return (
             <div className="App">
-                <div className="gradient__bg">
+                <div>
                     <Navigation/>
+                    <Display/>
                     <AboutMe/>
                     <Chess/>
                     <Contact/>
