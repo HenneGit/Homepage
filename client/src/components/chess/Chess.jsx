@@ -25,7 +25,6 @@ export default class Chess extends Component {
 
         const stockfish = new Worker("http://localhost:3000/stockfish.js");
         stockfish.onmessage = async function onmessage(message) {
-            console.log(message);
             if (message.data.includes("bestmove")) {
                 if (message.data.includes("none")) {
                     return;
@@ -43,7 +42,6 @@ export default class Chess extends Component {
                 }
                 if ((startFieldId === "e8" && endFieldId === "c8") || startFieldId === "e1" && endFieldId === "c1") {
                     castleLeft(getField(startFieldId), true);
-
                     return;
                 }
                 let piece = getField(startFieldId).piece;
@@ -71,8 +69,7 @@ export default class Chess extends Component {
                 }
 
                 await updateFieldPromise(startFieldId, endFieldId).then(() => {
-                    console.log("Schachmatt hier");
-                    checkForCheckMate(board.playerColor);
+                    checkForCheckMateOrDraw(board.playerColor);
                     piece.moveNumber += 1;
                 });
 
@@ -604,7 +601,7 @@ export default class Chess extends Component {
          * check if a player is check mate.
          * @param color the color to check for.
          */
-        function checkForCheckMate(color) {
+        function checkForCheckMateOrDraw(color) {
             let isCheckMate = true;
             let isCheck = checkForCheck(getOppositeColor(color));
             if (isCheck) {
@@ -623,16 +620,24 @@ export default class Chess extends Component {
                 }
             }
             if (isCheck && isCheckMate) {
-                addCheckMate();
+                addGameResult("Checkmate");
+                return;
+            }
+            let allLegalMoves = getLegalMovesForAllPiecesByColor(getAllFieldsWithPiecesByColor(color), false);
+            let kingMoves = getKingMoves(getKingField(color), false);
+            if (allLegalMoves.length === 0 && kingMoves.length === 0) {
+                addGameResult("Draw");
             }
         }
 
         /**
          * add check mate to turns panel.
          */
-        function addCheckMate() {
+        function addGameResult(gameResult) {
             const modal = document.querySelector("#modal");
             const closeModal = document.querySelector(".close-button");
+            const paragraph = document.getElementById("result-box");
+            paragraph.innerText = gameResult;
             modal.showModal();
             closeModal.addEventListener("click", () => {
                 modal.close();
@@ -752,12 +757,12 @@ export default class Chess extends Component {
             turnNumber += 1;
             if (!isEngineMove) {
                 await updateFieldPromise(oldFieldId, newFieldId, true).then(() => {
-                    checkForCheckMate(getOppositeColor(board.playerColor))
+                    checkForCheckMateOrDraw(getOppositeColor(board.playerColor))
                 }).then(makeEngineMove);
 
             } else {
                 await updateFieldPromise(oldFieldId, newFieldId, true).then(() => {
-                    checkForCheckMate(board.playerColor);
+                    checkForCheckMateOrDraw(board.playerColor);
                 });
             }
         }
@@ -772,9 +777,13 @@ export default class Chess extends Component {
                     break;
                 case difficulty[1]:
                     skillLevel = 5;
+                    stockfish.postMessage("setoption name Skill Level Maximum Error value 500\n");
+                    stockfish.postMessage("setoption name Skill Level Probability value 3\n");
                     break;
                 case difficulty[2]:
                     skillLevel = 10;
+                    stockfish.postMessage("setoption name Skill Level Maximum Error value 100\n");
+                    stockfish.postMessage("setoption name Skill Level Probability value 1\n");
                     break;
                 case difficulty[3]:
                     skillLevel = 15;
@@ -936,8 +945,7 @@ export default class Chess extends Component {
          */
         function fieldHasCheck(fieldToCheck, color) {
             let enemyFields = getAllFieldsWithPiecesByColor(color);
-            //schließt felder mit eigenen Figuren aus. Deckung wird nicht erkannt.
-            let allLegalMoves = getLegalMovesForAllPieces(enemyFields);
+            let allLegalMoves = getLegalMovesForAllPiecesByColor(enemyFields, true);
             for (let field of allLegalMoves) {
                 if (field.id === fieldToCheck.id) {
                     return true;
@@ -947,21 +955,21 @@ export default class Chess extends Component {
         }
 
         /**
-         * get all legal moves for all pieces currently on board.
+         * get all legal moves for all pieces on given fields.
          * @param fields fields with piece
          /**s.
          * @returns {[]} all legal moves for all pieces currently on board.
          */
-        function getLegalMovesForAllPieces(fields) {
+        function getLegalMovesForAllPiecesByColor(fields, includeKing) {
             let allLegalMoves = [];
             for (let field of fields) {
-                if (field.piece.type === 'king') {
+                if (field.piece.type !== 'king') {
+                    allLegalMoves.push(...getMovesForPiece(field));
+                } else if (field.piece.type === 'king' && includeKing) {
                     const {diagonal} = directions;
                     const {straight} = directions;
                     allLegalMoves.push(...getLegalMoves(field, 1, diagonal, true))
                     allLegalMoves.push(...getLegalMoves(field, 1, straight, true))
-                } else {
-                    allLegalMoves.push(...getMovesForPiece(field));
                 }
             }
             return allLegalMoves;
@@ -975,7 +983,7 @@ export default class Chess extends Component {
         function checkForCheck(color) {
             let allFieldsWithColor = getAllFieldsWithPiecesByColor(color);
             allFieldsWithColor.filter(field => field.piece.type !== 'king');
-            let legalMoves = getLegalMovesForAllPieces(allFieldsWithColor);
+            let legalMoves = getLegalMovesForAllPiecesByColor(allFieldsWithColor, true);
             let containsKing = legalMoves.filter(field => {
                 if (containsPiece(field)) {
                     return field.piece.type === 'king';
@@ -1250,15 +1258,16 @@ export default class Chess extends Component {
             return legalMoves;
         }
 
-        function getKingMoves(currentField) {
+        function getKingMoves(currentField, isRealMove) {
             const {straight} = directions;
             const {diagonal} = directions;
-            let color = currentField.piece.color === 'white' ? "black" : "white";
+            let color = getOppositeColor(currentField.piece.color);
             let legalMoves = [];
             legalMoves.push(...getLegalMoves(currentField, 1, straight, true));
             legalMoves.push(...getLegalMoves(currentField, 1, diagonal, true));
-            if (currentField.piece.moveNumber === 0) {
-                legalMoves.push(...checkForCastle(currentField));
+            let kingFieldStartPosition = color === "white" ? "e8" : "e1";
+            if (currentField.piece.moveNumber === 0 && currentField.id === kingFieldStartPosition) {
+                legalMoves.push(...checkForCastle(currentField, isRealMove));
             }
 
             let withoutCheck = legalMoves.filter(field => !fieldHasCheck(field, color));
@@ -1279,7 +1288,7 @@ export default class Chess extends Component {
          * @param kingField the field the king is on.
          * @returns {[]} legalMoves
          */
-        function checkForCastle(kingField) {
+        function checkForCastle(kingField, isRealMove) {
             let legalMoves = [];
             let color = getOppositeColor(kingField.piece.color);
             let rookLeft = getFieldByXY(kingField.x - 4, kingField.y).piece;
@@ -1294,17 +1303,21 @@ export default class Chess extends Component {
                 if (!containsPiece(fieldRightX1) && !containsPiece(fieldRightX2) && rookRight !== null && rookRight.moveNumber === 0 && !fieldHasCheck(fieldRightX1, color)
                     && !fieldHasCheck(fieldRightX2, color)) {
                     document.getElementById(fieldRightX2.id).removeEventListener("drop", dragDrop);
-                    document.getElementById(fieldRightX2.id).addEventListener('drop', function () {
-                        castleRight(kingField, false);
-                    });
+                    if (isRealMove) {
+                        document.getElementById(fieldRightX2.id).addEventListener('drop', function () {
+                            castleRight(kingField, false);
+                        });
+                    }
                     legalMoves.push(jsonCopy(fieldRightX2));
                 }
                 if (!containsPiece(fieldLeftX1) && !containsPiece(fieldLeftX2) && !containsPiece(fieldLeftX3) && rookLeft !== null && rookLeft.moveNumber === 0
                     && !fieldHasCheck(fieldLeftX1, color) && !fieldHasCheck(fieldLeftX2, color) && !fieldHasCheck(fieldLeftX3, color)) {
                     document.getElementById(fieldLeftX2.id).removeEventListener("drop", dragDrop);
-                    document.getElementById(fieldLeftX2.id).addEventListener('drop', function () {
-                        castleLeft(kingField, false);
-                    });
+                    if (isRealMove) {
+                        document.getElementById(fieldLeftX2.id).addEventListener('drop', function () {
+                            castleLeft(kingField, false);
+                        });
+                    }
                     legalMoves.push(jsonCopy(fieldLeftX2));
                 }
             }
@@ -1341,7 +1354,7 @@ export default class Chess extends Component {
                 case 'queen':
                     return getQueenMoves(field);
                 case 'king':
-                    return getKingMoves(field);
+                    return getKingMoves(field, true);
                 case 'knight':
                     return getKnightMoves(field);
             }
@@ -1692,7 +1705,7 @@ export default class Chess extends Component {
                     </div>
                 </div>
                 <dialog className="modal" id="modal">
-                    <p>Checkmate</p>
+                    <p id="result-box"></p>
                     <button className="button close-button">Close</button>
                 </dialog>
             </section>
