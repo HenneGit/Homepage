@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="contact error removed and making sure that no empty email is sent.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="add &quot;draw&quot; as game result.">
+      <change afterPath="$PROJECT_DIR$/client/src/components/chess/js/fen_string_generator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/chess/js/util.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" afterDir="false" />
     </list>
@@ -22,6 +24,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -489,7 +492,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674033913165</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="add &quot;draw&quot; as game result.">
+      <created>1676722290556</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1676722290556</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -507,7 +517,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="reset game animation and correct back and forward movement." />
     <MESSAGE value="using local storage to save game." />
     <MESSAGE value="correct piece picker" />
     <MESSAGE value="styling, new game dialog." />
@@ -532,19 +541,20 @@
     <MESSAGE value="about me section with more appealing design. Needs browser optimization." />
     <MESSAGE value="cleanup and new hover effect for links and buttons." />
     <MESSAGE value="contact error removed and making sure that no empty email is sent." />
-    <option name="LAST_COMMIT_MESSAGE" value="contact error removed and making sure that no empty email is sent." />
+    <MESSAGE value="add &quot;draw&quot; as game result." />
+    <option name="LAST_COMMIT_MESSAGE" value="add &quot;draw&quot; as game result." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/components/chess/Chess.jsx</url>
-          <line>751</line>
+          <line>704</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/components/chess/Chess.jsx</url>
-          <line>1668</line>
+          <line>1333</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
