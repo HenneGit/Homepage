@@ -220,14 +220,16 @@ select {
 
 dialog {
     text-align: center;
-    height: 15vh;
+    height: 200px;
     margin: auto;
     border: white;
+
 }
 
 dialog p {
-    margin-top: 1em;
+    padding: .5em .5em .3em .5em;
     font-size: 4em;
+    font-family: var(--font-family);
 }
 
 dialog button {

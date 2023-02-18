@@ -236,7 +236,7 @@ export default class Chess extends Component {
             let buttonConfirm = createElement("button", "button-confirm");
             buttonConfirm.addEventListener("click", () => {
                 document.getElementById("buttons").removeChild(document.getElementById("new-game-balloon"));
-                awaitReturnToStartAnimation();
+                addGameResult("Draw!");
             });
             buttonConfirm.innerText = "Yes";
             let text = createElement("div", "new-game-text");
@@ -479,7 +479,6 @@ export default class Chess extends Component {
 
         /**
          * create the panel where graveyard and moves are displayed.
-         * @param panel the panel div.
          */
         function setUpGraveyard() {
             let blackPieces = getPiecesFromGraveyard('black');
@@ -518,10 +517,10 @@ export default class Chess extends Component {
         }
 
         /**
-         *
-         * @param piece
-         * @param isInitBoard
-         * @returns {Node}
+         * clone a chess piece for appending in graveyard.
+         * @param piece the piece to clone
+         * @param isInitBoard if the board is in it initial setting.
+         * @returns {Node} the cloned dom node.
          */
         function cloneChessPiece(piece, isInitBoard) {
             let color = piece.color;
@@ -1099,11 +1098,17 @@ export default class Chess extends Component {
             });
         }
 
+        /**
+         * set up the button for starting a new game.
+         */
         function setUpNewGameButton() {
             let button = document.getElementById(("newGameButton"));
             button.addEventListener("click", appendNewGamePopUp);
         }
 
+        /**
+         * set up the button to show the next move.
+         */
         function setUpForwardButton() {
             let button = document.getElementById("forwardButton");
             button.addEventListener("click", () => {
@@ -1116,6 +1121,9 @@ export default class Chess extends Component {
 
         }
 
+        /**
+         * set up the button to for showing the previous move.
+         */
         function setUpBackButton() {
             let button = document.getElementById("backButton");
             button.addEventListener("click", () => {
@@ -1180,16 +1188,31 @@ export default class Chess extends Component {
             await resolveDrop(kingField.id, moveTargetKing.id, isEngineCastling);
         }
 
+        /**
+         * get all legal moves for the bishop.
+         * @param field the field the bishop is currently on.
+         * @returns {*[]} all legal moves for the bishop.
+         */
         function getBishopMoves(field) {
             const {diagonal} = directions;
             return getLegalMoves(field, 7, diagonal, true);
         }
 
+        /**
+         * get all legal moves for the rook.
+         * @param field the field the rook is currently on.
+         * @returns {*[]} all legal moves for the rook.
+         */
         function getRookMoves(field) {
             const {straight} = directions;
             return getLegalMoves(field, 7, straight, true);
         }
 
+        /**
+         * get all legal moves for the queen.
+         * @param field the field the queen is currently on.
+         * @returns {*[]} all legal moves for the queen.
+         */
         function getQueenMoves(field) {
             const {straight} = directions;
             const {diagonal} = directions;
@@ -1199,6 +1222,12 @@ export default class Chess extends Component {
             return legalMoves;
         }
 
+        /**
+         * get all legal moves for the king.
+         * @param currentField the field the king is currently on.
+         * @param isRealMove if its a simulated move or not.
+         * @returns {*[]} all legal moves.
+         */
         function getKingMoves(currentField, isRealMove) {
             const {straight} = directions;
             const {diagonal} = directions;

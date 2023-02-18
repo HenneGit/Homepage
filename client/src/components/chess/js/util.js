@@ -16,6 +16,7 @@ function createElement(type, id) {
 
 /**
  * get field by fieldId
+ * @param board the current board.
  * @param fieldId
  */
 function getField(fieldId, board) {
@@ -29,6 +30,7 @@ function getField(fieldId, board) {
 /**
  * find the field for a given color that currently contains the king.
  * @param color the color to find the king for.
+ * @param board the current board.
  * @returns {null|any} the field the king is currently on.
  */
 function getKingField(color, board) {
@@ -43,16 +45,17 @@ function getKingField(color, board) {
 
 /**
  * get piece from given field.
- * @param currentField
- * @returns {null|*|undefined}
+ * @param currentField the field to get the piece from.
+ * @param board the current board.
+ * @returns {null|*|undefined} the found peace.
  */
 function getPiece(currentField, board) {
-    console.log("1"+ " " + board)
     for (let field of board.fields) {
         if (field.id === currentField.id) {
             return field.piece;
         }
     }
+    return null;
 }
 
 
@@ -72,6 +75,7 @@ function getOppositeColor(color) {
  * get field by x,y coordinates.
  * @param x
  * @param y
+ * @param the current baord.
  */
 function getFieldByXY(x, y, board) {
     for (let field of board.fields) {
@@ -105,6 +109,7 @@ function containsPiece(field) {
 /**
  * get all fields containing pieces by given color.
  * @param color the color to get all pieces from.
+ * @param board the current board.
  * @returns {fields} all fields with pieces.
  */
 function getAllFieldsWithPiecesByColor(color, board) {
@@ -116,7 +121,11 @@ function getAllFieldsWithPiecesByColor(color, board) {
     }, []);
 }
 
-
+/**
+ * function to copy an object.
+ * @param obj the object to copy.
+  * @returns {any} the copied object.
+ */
 function jsonCopy(obj) {
     return JSON.parse(JSON.stringify(obj));
 }
