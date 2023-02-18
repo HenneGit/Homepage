@@ -47,7 +47,7 @@ export default class Cv extends Component {
 
                     </div>
 
-                    <div className="about-me-content-self text-block">
+                    <div className="about-me-content-self text-block box-shadow">
                         <h1>Hello again!</h1>
                         <p>Welcome to my page. In the box right next to this one you can read about who I am. Down below
                             you can learn of what I did in my life before and what skills I possess.
