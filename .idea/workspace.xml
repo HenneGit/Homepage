@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="about me section layout done.">
-      <change afterPath="$PROJECT_DIR$/client/public/about-me-text.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/public/chess.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/public/chess_blur.jpg" afterDir="false" />
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="about me layout improved and dynamic links for content display.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/AboutMe.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/AboutMe.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" afterDir="false" />
@@ -178,14 +175,7 @@
       <workItem from="1676551874081" duration="2737000" />
       <workItem from="1676558886654" duration="1128000" />
       <workItem from="1676560197526" duration="1072000" />
-      <workItem from="1676793279963" duration="5762000" />
-    </task>
-    <task id="LOCAL-00001" summary="init after migration from gitlab.">
-      <created>1667042121002</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1667042121002</updated>
+      <workItem from="1676793279963" duration="7014000" />
     </task>
     <task id="LOCAL-00002" summary="pixel animation reset.">
       <created>1667900859788</created>
@@ -523,7 +513,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676796192368</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="about me layout improved and dynamic links for content display.">
+      <created>1676799191714</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1676799191716</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -541,7 +538,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="tool tips for buttons." />
     <MESSAGE value="castling bug fixed. chess mate in turns panel." />
     <MESSAGE value="chess svg implemented" />
     <MESSAGE value="new game balloon fixed." />
@@ -566,7 +562,8 @@
     <MESSAGE value="some methods extracted for better overview." />
     <MESSAGE value="comments and better styling for game result dialog." />
     <MESSAGE value="about me section layout done." />
-    <option name="LAST_COMMIT_MESSAGE" value="about me section layout done." />
+    <MESSAGE value="about me layout improved and dynamic links for content display." />
+    <option name="LAST_COMMIT_MESSAGE" value="about me layout improved and dynamic links for content display." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

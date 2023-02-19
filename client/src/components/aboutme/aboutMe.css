@@ -14,6 +14,12 @@
 
 }
 
+.highlight {
+    color: var(--color-bright);
+    text-decoration-line: underline;
+
+}
+
 .about-me-content {
     display: grid;
     grid-template-rows: 10% 80% 10%;
@@ -21,6 +27,10 @@
     font-family: var(--font-family);
     font-size: 1vw;
     justify-content: space-evenly;
+}
+
+.text-block {
+    padding-right:5rem ;
 }
 
 

@@ -43,10 +43,15 @@ export default class Cv extends Component {
                 document.getElementById(id).addEventListener("click", () => {
                     document.getElementById("rt").innerText = headline;
                     document.getElementById("rd").innerText = text;
+                    let links = document.querySelectorAll(".menu-element").forEach(el => el.classList.remove("highlight"));
+                    console.log(links);
+                    document.getElementById(id).classList.add("highlight");
                 });
                 if (id === "about-me") {
                     document.getElementById("rt").innerText = headline;
                     document.getElementById("rd").innerText = text;
+                    document.getElementById(id).classList.add("highlight");
+
                 }
             }
         }
@@ -62,17 +67,15 @@ export default class Cv extends Component {
                     </div>
                     <div className="picture">
                         <div className="menu">
-                            <p id="about-me" className="link-effect">About Me</p>
-                            <p id="about-me2" className="link-effect">What do I do</p>
-                            <p id="about-me3" className="link-effect">This website</p>
+                            <p id="about-me" className="link-effect menu-element">About Me</p>
+                            <p id="about-me2" className="link-effect menu-element">What do I do</p>
+                            <p id="about-me3" className="link-effect menu-element">This website</p>
                         </div>
                         <div className="about-me-image" id="about-me-image">
                             <img id="thats-me" className="thats-me" src={thatsme}/>
                             <img id="my-picture" src={bewerbung}/>
                         </div>
-
                     </div>
-
                     <div className="about-me-content">
                         <div id="rt" className="content-headline"></div>
                         <div id="rd" className="text-block"></div>
@@ -89,7 +92,6 @@ export default class Cv extends Component {
                             </a>
                         </div>
                     </div>
-
                 </div>
             </div>
         );
