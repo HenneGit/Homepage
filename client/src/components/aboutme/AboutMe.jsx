@@ -41,21 +41,23 @@ export default class Cv extends Component {
                 let object = textObject[id];
                 let {headline} = object;
                 let {text} = object;
+                let {color} = object;
                 let headlineDiv = document.getElementById("headline");
                 let textDiv = document.getElementById("text");
                 document.getElementById(id).addEventListener("click", () => {
-                    headlineDiv.classList.remove("opacity-transition-in");
+                    headlineDiv.style.background = color;
+                    headlineDiv.classList.add("background-transition");
+                    let menu = document.querySelector(".menu");
+                    menu.classList.add("background-transition");
+                    menu.style.background = color;
                     textDiv.classList.remove("opacity-transition-in");
-                    headlineDiv.classList.add("opacity-transition-out");
                     textDiv.classList.add("opacity-transition-out");
+                    document.querySelectorAll(".menu-element").forEach(el => el.classList.remove("highlight"));
+                    document.getElementById(id).classList.add("highlight");
                     let timout = setTimeout(() => {
                         headlineDiv.innerText = headline;
                         textDiv.innerText = text;
-                        document.querySelectorAll(".menu-element").forEach(el => el.classList.remove("highlight"));
-                        document.getElementById(id).classList.add("highlight");
-                        headlineDiv.classList.remove("opacity-transition-out");
                         textDiv.classList.remove("opacity-transition-out");
-                        headlineDiv.classList.add("opacity-transition-in");
                         textDiv.classList.add("opacity-transition-in");
                         clearTimeout(timout);
                     }, 300);

@@ -19,6 +19,9 @@
     transition: opacity 0.25s ease-in;
 }
 
+.background-transition {
+    transition: background-color 0.25s ease-in ;
+}
 
 .opacity-transition-in {
     opacity: 1;
@@ -29,7 +32,6 @@
 .highlight {
     color: var(--color-bright);
     text-decoration-line: underline;
-
 }
 
 .about-me-content {
@@ -39,7 +41,14 @@
     font-family: var(--font-family);
     font-size: 1vw;
     justify-content: space-evenly;
+
+
 }
+
+.about-me-content div {
+    padding-left: 5rem;
+}
+
 
 .text-block {
     padding-right:5rem ;
@@ -47,15 +56,18 @@
 
 
 .content-headline {
+    background-color: #1e314f;
     grid-row: 1;
     font-size: 4vw;
     font-weight: bold;
-    color: var(--color-bright);
+    color: white;
+    height: 15vh;
+
 }
 
 .text-block {
     grid-row: 2;
-    margin-top: 4vh;
+    margin-top: 10vh;
 
 }
 
@@ -103,15 +115,16 @@
     display: flex;
     flex-direction: column;
     align-items: end;
-    margin-top: 2vh;
-    margin-right: 1vw;
     margin-bottom: 50px;
+    background-color: #F49867;
+    height: 15vh;
 }
 
 .menu p {
     color: white;
     font-family: var(--font-family);
     font-size: 2vw;
+    padding-right: 1vw;
 }
 
 
@@ -136,12 +149,10 @@
     justify-content: start;
 }
 .headline-wrapper p {
-    font-size:6vw;
+    font-size:5vw;
     text-orientation: upright;
     writing-mode: vertical-rl;
     text-transform: uppercase;
-
-
 }
 .headline {
     font-weight: bolder;
@@ -154,7 +165,6 @@
 }
 
 .about-me-content {
-    padding: 5rem 0 0 5rem;
     height: 100%;
 }
 

@@ -17,6 +17,7 @@
     color: #000;
     border-bottom: 0 solid var(--color-bg_light);
 }
+
 .link-effect:hover {
     cursor: pointer;
     color: white;
