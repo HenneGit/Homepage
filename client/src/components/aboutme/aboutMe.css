@@ -139,6 +139,8 @@
     font-size:6vw;
     text-orientation: upright;
     writing-mode: vertical-rl;
+    text-transform: uppercase;
+
 
 }
 .headline {

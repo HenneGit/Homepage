@@ -83,7 +83,7 @@ export default class Chess extends Component {
 
                 await updateFieldPromise(startFieldId, endFieldId).then(() => {
                     checkForCheckMateOrDraw(board.playerColor);
-                    piece.moveNumber += 1;
+                    getField(endFieldId, board).piece.moveNumber += 1;
                 });
 
             }
@@ -1069,8 +1069,10 @@ export default class Chess extends Component {
             let lastMove = moveTracker[moveTracker.length - 1];
             if (enemyField !== undefined && lastMove !== undefined) {
                 let piece = enemyField.piece;
+
                 if (piece !== null) {
-                    //let fieldRight = getFieldByXY(field.x + 1, field.y);
+                    console.log(piece.type + " on " + enemyField.id);
+                    console.log(piece.moveNumber);
                     if (piece.type === 'pawn' && piece.moveNumber === 1 && piece.color !== currentField.piece.color
                         && lastMove[1] === enemyField.id && (enemyField.y === 4 || enemyField.y === 5)) {
                         let domField = document.getElementById(captureMoveField.id);
@@ -1147,6 +1149,7 @@ export default class Chess extends Component {
          * @param enemyField the enemy field containing a pawn.
          * @param currentField the field the pawn is on
          * @param captureMoveField the en passant field just behind enemy pawn field.
+         * @param isEngineMoving if it is an engine move.
          */
         async function executeEnPassant(enemyField, currentField, captureMoveField, isEngineMoving) {
             let movedPiece = getField(currentField.id, board).piece;
@@ -1162,6 +1165,7 @@ export default class Chess extends Component {
         /**
          * castle on the right site of the board.
          * @param kingField the field the king is on.
+         * @param isEngineCastling if the engine is castling.
          */
         async function castleRight(kingField, isEngineCastling) {
             let rookField = getFieldByXY(kingField.x + 3, kingField.y, board);
@@ -1177,6 +1181,7 @@ export default class Chess extends Component {
         /**
          * castle on the left side of the board.
          * @param kingField the field the king is on.
+         * @param isEngineCastling if the engine is castling.
          */
         async function castleLeft(kingField, isEngineCastling) {
             let rookField = getFieldByXY(kingField.x - 4, kingField.y, board);
