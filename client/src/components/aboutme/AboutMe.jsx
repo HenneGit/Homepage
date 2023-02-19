@@ -36,7 +36,7 @@ export default class Cv extends Component {
 
         async function fetchText() {
             let textObject = await fetch("http://localhost:3000/about-me-text.json",).then(resp => resp.json());
-
+            let counter = 1;
             for (let id in textObject) {
                 let object = textObject[id];
                 let {headline} = object;
@@ -44,31 +44,49 @@ export default class Cv extends Component {
                 let {color} = object;
                 let headlineDiv = document.getElementById("headline");
                 let textDiv = document.getElementById("text");
-                document.getElementById(id).addEventListener("click", () => {
+                let menu = document.getElementById("menu-" + counter);
+                document.getElementById("menu-" + counter).addEventListener("click", () => {
+                    document.querySelectorAll(".menu-element").forEach(el => {
+                        el.classList.remove("highlight");
+                        el.classList.remove("background-transition");
+                        el.style.background = "#3c3c3e";
+                    });
                     headlineDiv.style.background = color;
                     headlineDiv.classList.add("background-transition");
-                    let menu = document.querySelector(".menu");
                     menu.classList.add("background-transition");
                     menu.style.background = color;
-                    textDiv.classList.remove("opacity-transition-in");
+
+                    menu.classList.add("opacity-transition-out");
+                    menu.classList.remove("opacity-transition-in");
+
+
+                    headlineDiv.classList.add("opacity-transition-out");
+                    headlineDiv.classList.remove("opacity-transition-in");
+
                     textDiv.classList.add("opacity-transition-out");
-                    document.querySelectorAll(".menu-element").forEach(el => el.classList.remove("highlight"));
-                    document.getElementById(id).classList.add("highlight");
+                    textDiv.classList.remove("opacity-transition-in");
+                    headlineDiv.innerText = headline;
                     let timout = setTimeout(() => {
-                        headlineDiv.innerText = headline;
                         textDiv.innerText = text;
+                        headlineDiv.classList.remove("opacity-transition-out");
                         textDiv.classList.remove("opacity-transition-out");
+                        menu.classList.remove("opacity-transition-out");
+
+                        menu.classList.add("opacity-transition-in");
+                        headlineDiv.classList.add("opacity-transition-in");
                         textDiv.classList.add("opacity-transition-in");
                         clearTimeout(timout);
                     }, 300);
                 });
                 if (id === "about-me") {
                     headlineDiv.innerText = headline;
+                    menu.style.background = color;
+                    headlineDiv.style.background = color;
                     document.getElementById("text").innerText = text;
-                    document.getElementById(id).classList.add("highlight");
-
                 }
+                counter++;
             }
+            counter = 1;
         }
     }
 
@@ -82,9 +100,9 @@ export default class Cv extends Component {
                     </div>
                     <div className="picture">
                         <div className="menu">
-                            <p id="about-me" className="link-effect menu-element">About Me</p>
-                            <p id="about-me2" className="link-effect menu-element">What do I do</p>
-                            <p id="about-me3" className="link-effect menu-element">This website</p>
+                            <p id="menu-1" className="link-effect menu-element">About Me</p>
+                            <p id="menu-2" className="link-effect menu-element">What do I do</p>
+                            <p id="menu-3" className="link-effect menu-element">This website</p>
                         </div>
                         <div className="about-me-image" id="about-me-image">
                             <img id="thats-me" className="thats-me" src={thatsme}/>

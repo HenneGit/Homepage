@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="button size fixed.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="menu color effect added. needs better colors.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/about-me-text.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/about-me-text.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/AboutMe.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/AboutMe.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/navigation/navigation.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/navigation/navigation.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,14 +177,7 @@
       <workItem from="1676560197526" duration="1072000" />
       <workItem from="1676793279963" duration="7546000" />
       <workItem from="1676813589947" duration="4154000" />
-      <workItem from="1676825037564" duration="2315000" />
-    </task>
-    <task id="LOCAL-00006" summary="grid for all elements.">
-      <created>1668087761034</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1668087761034</updated>
+      <workItem from="1676825037564" duration="4789000" />
     </task>
     <task id="LOCAL-00007" summary="stockfish implementation started.">
       <created>1668095683805</created>
@@ -524,7 +515,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676820979820</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="menu color effect added. needs better colors.">
+      <created>1676827429930</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1676827429931</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -542,7 +540,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="some errors in chess removed. display falling down animation fixed." />
     <MESSAGE value="better positioning of board. use fa icon instead of pieces." />
     <MESSAGE value="better design of chess." />
     <MESSAGE value="contact form started." />
@@ -567,7 +564,8 @@
     <MESSAGE value="fade text in and out." />
     <MESSAGE value="enpassant bug fixed." />
     <MESSAGE value="button size fixed." />
-    <option name="LAST_COMMIT_MESSAGE" value="button size fixed." />
+    <MESSAGE value="menu color effect added. needs better colors." />
+    <option name="LAST_COMMIT_MESSAGE" value="menu color effect added. needs better colors." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

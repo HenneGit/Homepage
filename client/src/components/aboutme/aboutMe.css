@@ -11,7 +11,6 @@
     flex-direction: row;
     align-items: center;
     margin-right: 1vw;
-
 }
 
 .opacity-transition-out {
@@ -29,11 +28,6 @@
 }
 
 
-.highlight {
-    color: var(--color-bright);
-    text-decoration-line: underline;
-}
-
 .about-me-content {
     display: grid;
     grid-template-rows: 10% 80% 10%;
@@ -41,8 +35,6 @@
     font-family: var(--font-family);
     font-size: 1vw;
     justify-content: space-evenly;
-
-
 }
 
 .about-me-content div {
@@ -56,7 +48,6 @@
 
 
 .content-headline {
-    background-color: #1e314f;
     grid-row: 1;
     font-size: 4vw;
     font-weight: bold;
@@ -116,7 +107,6 @@
     flex-direction: column;
     align-items: end;
     margin-bottom: 50px;
-    background-color: #F49867;
     height: 15vh;
 }
 
@@ -125,6 +115,7 @@
     font-family: var(--font-family);
     font-size: 2vw;
     padding-right: 1vw;
+    width: 50%;
 }
 
 
