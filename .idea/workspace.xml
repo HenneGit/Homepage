@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="fade text in and out.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="enpassant bug fixed.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/chess/chess.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/chess.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,14 +175,7 @@
       <workItem from="1676558886654" duration="1128000" />
       <workItem from="1676560197526" duration="1072000" />
       <workItem from="1676793279963" duration="7546000" />
-      <workItem from="1676813589947" duration="2699000" />
-    </task>
-    <task id="LOCAL-00004" summary="correct display of images. Scaling numbers and letters.">
-      <created>1668008161950</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1668008161950</updated>
+      <workItem from="1676813589947" duration="3951000" />
     </task>
     <task id="LOCAL-00005" summary="player panel with graveyard started.">
       <created>1668076580855</created>
@@ -521,7 +513,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676815109162</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="enpassant bug fixed.">
+      <created>1676816310688</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1676816310688</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -539,7 +538,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="new game balloon fixed." />
     <MESSAGE value="new pictures, better display of chess." />
     <MESSAGE value="some errors in chess removed. display falling down animation fixed." />
     <MESSAGE value="better positioning of board. use fa icon instead of pieces." />
@@ -564,7 +562,8 @@
     <MESSAGE value="about me layout improved and dynamic links for content display." />
     <MESSAGE value="highlighting currently selected menu entry." />
     <MESSAGE value="fade text in and out." />
-    <option name="LAST_COMMIT_MESSAGE" value="fade text in and out." />
+    <MESSAGE value="enpassant bug fixed." />
+    <option name="LAST_COMMIT_MESSAGE" value="enpassant bug fixed." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -450,6 +450,7 @@ input {
     font-size: 1em;
     height: 75%;
     cursor: pointer;
+    width: 100%;
 }
 
 .close-button {
