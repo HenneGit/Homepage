@@ -9,7 +9,6 @@ select {
     text-align: center;
     font-size: 2vh;
     border: 1px solid var(--color-grey);
-
 }
 
 #turns {
@@ -152,7 +151,6 @@ select {
 
 .piece-graveyard {
     display: flex;
-
 }
 
 
@@ -291,25 +289,6 @@ tr {
     justify-content: center;
 }
 
-.draw-line {
-    stroke: var(--color-grey);
-    stroke-width: 30;
-    stroke-miterlimit: 10;
-    stroke-dasharray: 120000;
-    stroke-dashoffset: 120000;
-    animation: draw 4s linear forwards;
-}
-
-.vanish {
-    stroke: var(--color-grey);
-    stroke-width: 30;
-    stroke-miterlimit: 10;
-    stroke-dasharray: 100000;
-    stroke-dashoffset: 100000;
-    animation: vanish 2s reverse backwards;
-
-}
-
 
 .chess-container {
     width: 50%;
@@ -377,8 +356,8 @@ tr {
 
 
 input {
-    background-color: var(--color-bg);
-    color: var(--color-text);
+    background: var(--color-grey);
+    color: white;
     box-shadow: none;
     padding: 5px;
     font-size: 1vh;
@@ -423,16 +402,18 @@ input {
 #new-game-balloon {
     grid-column: 3 / 5;
     position: absolute;
+    justify-content: center;
     display: flex;
     flex-direction: column;
     background-color: white;
-    z-index: 5000;
+    z-index: 500;
+    height: 70px;
     border-radius: 0.2rem;
-    font-size: 1.5vh;
+    font-size: 1em;
     align-self: end;
-    padding: 5px 5px 5px 5px;
+    padding: 5px;
     align-items: center;
-    transform: translateX(10vw) translateY(-4.5vh);
+    transform: translateX(14vw) translateY(-4.5vh);
 }
 
 
@@ -466,10 +447,9 @@ input {
 }
 
 #button-wrapper button {
-    font-size: 20px;
-    width: 120px;
-    height: 50px;
-
+    font-size: 1em;
+    height: 75%;
+    cursor: pointer;
 }
 
 .close-button {

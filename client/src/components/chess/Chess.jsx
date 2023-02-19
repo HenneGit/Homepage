@@ -236,7 +236,7 @@ export default class Chess extends Component {
             let buttonConfirm = createElement("button", "button-confirm");
             buttonConfirm.addEventListener("click", () => {
                 document.getElementById("buttons").removeChild(document.getElementById("new-game-balloon"));
-                addGameResult("Draw!");
+                awaitReturnToStartAnimation();
             });
             buttonConfirm.innerText = "Yes";
             let text = createElement("div", "new-game-text");

@@ -1,98 +1,47 @@
 .about-me-container {
     display: flex;
-    justify-content: center;
     color: var(--color-text);
     font-family: var(--font-family);
-    background-color: #b3cb05;
+    background-color: white;
     height: 100vh;
 }
 
 .about-me-content-wrapper {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    margin-left: 1vw;
     margin-right: 1vw;
-    justify-content: center;
-    width: 50%;
 
-}
-
-.about-me-image {
-    display: flex;
-    flex-direction: row;
-    z-index: 0;
-}
-
-.about-me-image img {
-    width: 30vw;
-}
-
-.text-block {
-    font-size: .7vw;
-    color: white;
-    background-color: black;
-    padding: 3rem;
-    z-index: 5;
-    width: 30vw;
-}
-
-
-#my-picture {
-    position: absolute;
-}
-
-.thats-me {
-    position: relative;
-    grid-row: 2;
-    background: #d5d5d5;
-    transform: translatex(0px);
-    transition: transform 0.25s ease-in;
-}
-
-
-.thats-me-transition {
-    transform: translatex(30vw);
-    transition: transform 0.25s ease-in;
-
-}
-
-.box-shadow {
-    box-shadow: black 0px 7px 14px;
-}
-
-
-.picture {
-    display: flex;
-    flex-direction: column;
-    margin-left: 1vw;
-    margin-top: 1vw;
-}
-
-.headline-wrapper {
-    display: flex;
-    flex-direction: row;
-}
-
-.headline {
-    font-size: 8vw;
-    font-weight: bolder;
-    color: white;
-}
-
-.me {
-    font-size: 8vw;
-    color: white;
-    font-weight: lighter;
 }
 
 .about-me-content {
-    padding: 5rem;
+    display: grid;
+    grid-template-rows: 10% 80% 10%;
+    margin-right: 5vw;
+    height: 100%;
+    font-family: var(--font-family);
+    font-size: 1vw;
+    justify-content: space-evenly;
 }
 
 
+.content-headline {
+    grid-row: 1;
+    font-size: 4vw;
+    font-weight: bold;
+    color: var(--color-bright);
+}
+
+.text-block {
+    grid-row: 2;
+    margin-top: 4vh;
+
+}
+
 .icons {
-    margin-left: 1vw;
+    grid-row: 3;
+    justify-self: end;
+    align-self: end;
 }
 
 .icon {
@@ -105,3 +54,85 @@
 .icon:hover {
     color: var(--color-bright);
 }
+
+
+.about-me-image {
+    display: flex;
+    flex-direction: row;
+    z-index: 0;
+}
+
+.about-me-image img {
+    width: 30vw;
+}
+
+#my-picture {
+    position: absolute;
+}
+
+.thats-me {
+    position: relative;
+    grid-row: 2;
+    background: #d5d5d5;
+    transform: translatey(0px);
+    transition: transform 0.25s ease-in;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    height: 100%;
+    margin-top: 2vh;
+    margin-right: 1vw;
+}
+
+.menu p {
+    color: white;
+    font-family: var(--font-family);
+    font-size: 2vw;
+}
+
+
+.thats-me-transition {
+    transform: translatey(-20vw);
+    transition: transform 0.25s ease-in;
+
+}
+
+.picture {
+    background-color: var(--color-grey);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: end;
+}
+
+.headline-wrapper {
+    display: grid;
+    height: 100%;
+    width: 20vw;
+    background-color: var(--color-grey);
+    justify-content: start;
+}
+.headline-wrapper p {
+    font-size:6vw;
+    text-orientation: upright;
+    writing-mode: vertical-rl;
+
+}
+.headline {
+    font-weight: bolder;
+    color: white;
+
+}
+
+.me {
+    color: var(--color-green);
+    font-weight: lighter;
+}
+
+.about-me-content {
+    padding: 5rem;
+}
+

@@ -6,18 +6,17 @@
 
 #display-wrapper {
     margin-top: 20vh;
+    margin-bottom: 20vh;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 #arrow-down {
-    margin-top: 30vh;
-    margin-bottom: 10vh;
+    margin-top: 20vh;
     font-size: 4rem;
-    color: var(--color-orange);
+    color: var(--color-grey);
     cursor: pointer;
-    margin-bottom: 30vh;
 
 }
 
