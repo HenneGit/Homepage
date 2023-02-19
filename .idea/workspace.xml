@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="about me layout improved and dynamic links for content display.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="highlighting currently selected menu entry.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/AboutMe.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/AboutMe.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" afterDir="false" />
@@ -175,14 +175,8 @@
       <workItem from="1676551874081" duration="2737000" />
       <workItem from="1676558886654" duration="1128000" />
       <workItem from="1676560197526" duration="1072000" />
-      <workItem from="1676793279963" duration="7014000" />
-    </task>
-    <task id="LOCAL-00002" summary="pixel animation reset.">
-      <created>1667900859788</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1667900859788</updated>
+      <workItem from="1676793279963" duration="7546000" />
+      <workItem from="1676813589947" duration="1436000" />
     </task>
     <task id="LOCAL-00003" summary="correct display of board according to player color.">
       <created>1668005723870</created>
@@ -520,7 +514,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676799191716</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="highlighting currently selected menu entry.">
+      <created>1676800488049</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1676800488049</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -538,7 +539,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="castling bug fixed. chess mate in turns panel." />
     <MESSAGE value="chess svg implemented" />
     <MESSAGE value="new game balloon fixed." />
     <MESSAGE value="new pictures, better display of chess." />
@@ -563,7 +563,8 @@
     <MESSAGE value="comments and better styling for game result dialog." />
     <MESSAGE value="about me section layout done." />
     <MESSAGE value="about me layout improved and dynamic links for content display." />
-    <option name="LAST_COMMIT_MESSAGE" value="about me layout improved and dynamic links for content display." />
+    <MESSAGE value="highlighting currently selected menu entry." />
+    <option name="LAST_COMMIT_MESSAGE" value="highlighting currently selected menu entry." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

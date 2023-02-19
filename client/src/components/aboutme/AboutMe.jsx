@@ -15,6 +15,8 @@ export default class Cv extends Component {
 
 
     componentDidMount() {
+
+
         let image = document.getElementById("my-picture");
         image.addEventListener("mouseover", (event) => {
             event.preventDefault();
@@ -33,23 +35,34 @@ export default class Cv extends Component {
 
 
         async function fetchText() {
-
-            let textObject = await fetch("http://localhost:3000/about-me-text.json",).then(resp => resp.json())
+            let textObject = await fetch("http://localhost:3000/about-me-text.json",).then(resp => resp.json());
 
             for (let id in textObject) {
                 let object = textObject[id];
                 let {headline} = object;
                 let {text} = object;
+                let headlineDiv = document.getElementById("headline");
+                let textDiv = document.getElementById("text");
                 document.getElementById(id).addEventListener("click", () => {
-                    document.getElementById("rt").innerText = headline;
-                    document.getElementById("rd").innerText = text;
-                    let links = document.querySelectorAll(".menu-element").forEach(el => el.classList.remove("highlight"));
-                    console.log(links);
-                    document.getElementById(id).classList.add("highlight");
+                    headlineDiv.classList.remove("opacity-transition-in");
+                    textDiv.classList.remove("opacity-transition-in");
+                    headlineDiv.classList.add("opacity-transition-out");
+                    textDiv.classList.add("opacity-transition-out");
+                    let timout = setTimeout(() => {
+                        headlineDiv.innerText = headline;
+                        textDiv.innerText = text;
+                        document.querySelectorAll(".menu-element").forEach(el => el.classList.remove("highlight"));
+                        document.getElementById(id).classList.add("highlight");
+                        headlineDiv.classList.remove("opacity-transition-out");
+                        textDiv.classList.remove("opacity-transition-out");
+                        headlineDiv.classList.add("opacity-transition-in");
+                        textDiv.classList.add("opacity-transition-in");
+                        clearTimeout(timout);
+                    }, 300);
                 });
                 if (id === "about-me") {
-                    document.getElementById("rt").innerText = headline;
-                    document.getElementById("rd").innerText = text;
+                    headlineDiv.innerText = headline;
+                    document.getElementById("text").innerText = text;
                     document.getElementById(id).classList.add("highlight");
 
                 }
@@ -77,8 +90,8 @@ export default class Cv extends Component {
                         </div>
                     </div>
                     <div className="about-me-content">
-                        <div id="rt" className="content-headline"></div>
-                        <div id="rd" className="text-block"></div>
+                        <div id="headline" className="content-headline"></div>
+                        <div id="text" className="text-block"></div>
                         <div className="icons">
                             <a href="https://github.com/HenneGit" target="-_blank" className="icon">
                                 <FontAwesomeIcon icon={faGit}/>

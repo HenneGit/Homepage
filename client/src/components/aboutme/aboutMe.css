@@ -14,6 +14,18 @@
 
 }
 
+.opacity-transition-out {
+    opacity: 0;
+    transition: opacity 0.25s ease-in;
+}
+
+
+.opacity-transition-in {
+    opacity: 1;
+    transition: opacity 0.25s ease-in;
+}
+
+
 .highlight {
     color: var(--color-bright);
     text-decoration-line: underline;
