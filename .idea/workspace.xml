@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="comments and better styling for game result dialog.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="about me section layout done.">
+      <change afterPath="$PROJECT_DIR$/client/public/about-me-text.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/chess.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/chess_blur.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/AboutMe.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/AboutMe.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/chess/chess.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/chess.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/display/display.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/display/display.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/navigation/navigation.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/navigation/navigation.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +178,7 @@
       <workItem from="1676551874081" duration="2737000" />
       <workItem from="1676558886654" duration="1128000" />
       <workItem from="1676560197526" duration="1072000" />
-      <workItem from="1676793279963" duration="2810000" />
+      <workItem from="1676793279963" duration="5762000" />
     </task>
     <task id="LOCAL-00001" summary="init after migration from gitlab.">
       <created>1667042121002</created>
@@ -519,7 +516,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676734697632</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="about me section layout done.">
+      <created>1676796192368</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1676796192368</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -537,7 +541,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="styling, new game dialog." />
     <MESSAGE value="tool tips for buttons." />
     <MESSAGE value="castling bug fixed. chess mate in turns panel." />
     <MESSAGE value="chess svg implemented" />
@@ -562,7 +565,8 @@
     <MESSAGE value="add &quot;draw&quot; as game result." />
     <MESSAGE value="some methods extracted for better overview." />
     <MESSAGE value="comments and better styling for game result dialog." />
-    <option name="LAST_COMMIT_MESSAGE" value="comments and better styling for game result dialog." />
+    <MESSAGE value="about me section layout done." />
+    <option name="LAST_COMMIT_MESSAGE" value="about me section layout done." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
