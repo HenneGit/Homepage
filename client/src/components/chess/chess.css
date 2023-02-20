@@ -279,6 +279,15 @@ tr {
     font-size: 1em;
 }
 
+#start-game-button{
+    margin-top: 1vh;
+    margin-right: 1vw;
+    margin-left: 1vw;
+    width: 12vw;
+    font-size: 1em;
+
+}
+
 .piece-graveyard img {
     margin-right: -.5vw;
 }
@@ -407,7 +416,8 @@ input {
     flex-direction: column;
     background-color: white;
     z-index: 500;
-    height: 70px;
+    height: 90px;
+    width: 200px;
     border-radius: 0.2rem;
     font-size: 1em;
     align-self: end;
@@ -416,6 +426,11 @@ input {
     transform: translateX(14vw) translateY(-4.5vh);
 }
 
+#new-game-balloon p {
+    font-family: var(--font-family);
+    font-size: 1.2em;
+    margin-bottom: .5em;
+}
 
 #buttons {
     display: grid;
@@ -446,11 +461,11 @@ input {
     gap: 10px;
 }
 
+
+
 #button-wrapper button {
-    font-size: 1em;
-    height: 75%;
-    cursor: pointer;
-    width: 100%;
+    padding: 8px 8px 8px 8px;
+
 }
 
 .close-button {

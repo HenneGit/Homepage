@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;1,100;1,200&display=swap');
 
 :root {
-    --font-family: 'Roboto', sans-serif;
+    --font-family: Work Sans, sans-serif;
     --color-bg: white;
     --color-bg2: white;
     --color-bg2-shade: #292231;

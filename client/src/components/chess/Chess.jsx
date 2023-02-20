@@ -239,7 +239,7 @@ export default class Chess extends Component {
                 awaitReturnToStartAnimation();
             });
             buttonConfirm.innerText = "Yes";
-            let text = createElement("div", "new-game-text");
+            let text = createElement("p", "new-game-text");
             text.innerText = "Start a new game?";
             buttonWrapper.append(buttonCancel, buttonConfirm);
             wrapper.append(text, buttonWrapper);
@@ -333,7 +333,7 @@ export default class Chess extends Component {
             let startGameButton = createElement("button", "start-game-button");
             startGameButton.innerText = "Start Game";
             startGameButton.addEventListener("click", newGame);
-            startGameButton.classList.add("new-game-item");
+            // startGameButton.classList.add("new-game-item");
             level.classList.add("new-game-item");
             input.classList.add("new-game-item");
             playerColor.classList.add("new-game-item");
@@ -900,6 +900,14 @@ export default class Chess extends Component {
             let enemyFields = getAllFieldsWithPiecesByColor(color, board);
             let allLegalMoves = getLegalMovesForAllPiecesByColor(enemyFields, true);
             for (let field of allLegalMoves) {
+                let possiblePawnFieldWhite = getFieldByXY(field.x, field.y - 1, board);
+                let possiblePawnFieldBlack = getFieldByXY(field.x, field.y + 1, board);
+                if (possiblePawnFieldWhite !== undefined && possiblePawnFieldWhite.piece !== null && possiblePawnFieldWhite.piece.type === "pawn") {
+                    continue;
+                }
+                if (possiblePawnFieldBlack !== undefined && possiblePawnFieldBlack.piece !== null && possiblePawnFieldBlack.piece.type === "pawn") {
+                    continue;
+                }
                 if (field.id === fieldToCheck.id) {
                     return true;
                 }
@@ -1234,6 +1242,7 @@ export default class Chess extends Component {
          * @returns {*[]} all legal moves.
          */
         function getKingMoves(currentField, isRealMove) {
+            console.log(currentField);
             const {straight} = directions;
             const {diagonal} = directions;
             let color = getOppositeColor(currentField.piece.color);

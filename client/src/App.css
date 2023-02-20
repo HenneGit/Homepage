@@ -15,8 +15,35 @@ a {
 }
 
 button {
-    color: white;
-    background-color: var(--color-bg2-shade);
+    display: inline-block;
+    border: none;
+    padding: 1rem 2rem;
+    margin: 0;
+    text-decoration: none;
+    background: var(--color-grey);
+    color: #ffffff;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out,
+    transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+button:hover,
+button:focus {
+    background: var(--color-bg2-shade);
+}
+
+button:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+button:active {
+    transform: scale(0.99);
 }
 
 button:hover {
@@ -31,9 +58,8 @@ h1 {
 }
 
 
-input, textarea {
-    color: var(--color-text);
-    background-color: var(--color-bg2);
+input, textarea, select {
+    font-family: var(--font-family);
 }
 
 .section__padding {
@@ -44,50 +70,3 @@ input, textarea {
     margin: 4rem 6rem;
 }
 
-.scale-up-center {
-    -webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-    animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-}
-
-
-@-webkit-keyframes scale-up-center {
-    0% {
-        -webkit-transform: scale(0.5);
-        transform: scale(0.5);
-    }
-    100% {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-    }
-}
-
-@keyframes scale-up-center {
-    0% {
-        -webkit-transform: scale(0.5);
-        transform: scale(0.5);
-    }
-    100% {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-    }
-}
-
-@media screen and (max-width: 700px) {
-    .section__padding {
-        padding: 4rem;
-    }
-
-    .section__margin {
-        margin: 4rem;
-    }
-}
-
-@media screen and (max-width: 550px) {
-    .section__padding {
-        padding: 4rem 2rem;
-    }
-
-    .section__margin {
-        margin: 4rem 2rem;
-    }
-}

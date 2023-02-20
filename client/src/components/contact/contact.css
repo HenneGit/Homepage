@@ -14,10 +14,20 @@ label {
 textarea {
     height: 30vh;
     width: 40vw;
+    resize: none;
+    font-size: 1em;
+    margin-bottom: 1vh;
+    font-family: var(--font-family);
+    padding: 5px 5px 5px 5px;
+
 }
 
-#contact input {
+#contact input{
     width: 40vw;
+    background-color: white;
+    border: 1px solid var(--color-grey);
+    color: var(--color-text);
+    font-size: 1em;
 }
 
 #contact-form {
@@ -27,9 +37,5 @@ textarea {
     margin-bottom: 10vh;
 }
 
-button {
-    margin-top: 1vh;
-    width: 10vw;
-    height: 4vh;
-}
+
 

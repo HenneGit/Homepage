@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="menu color effect added. needs better colors.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="Contact form style. global button style. bug fix in chess logic.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/AboutMe.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/AboutMe.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/chess/chess.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/chess.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/contact/Contact.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/contact/Contact.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/contact/contact.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/contact/contact.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,14 +181,8 @@
       <workItem from="1676560197526" duration="1072000" />
       <workItem from="1676793279963" duration="7546000" />
       <workItem from="1676813589947" duration="4154000" />
-      <workItem from="1676825037564" duration="4789000" />
-    </task>
-    <task id="LOCAL-00007" summary="stockfish implementation started.">
-      <created>1668095683805</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1668095683805</updated>
+      <workItem from="1676825037564" duration="4811000" />
+      <workItem from="1676881909912" duration="4705000" />
     </task>
     <task id="LOCAL-00008" summary="basic FEN board representation complete.">
       <created>1668153457795</created>
@@ -522,7 +520,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676827429931</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="menu color effect improved.">
+      <created>1676829845919</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1676829845919</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -540,8 +545,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="better positioning of board. use fa icon instead of pieces." />
-    <MESSAGE value="better design of chess." />
     <MESSAGE value="contact form started." />
     <MESSAGE value="contact form finished and working" />
     <MESSAGE value="aboutme updated." />
@@ -565,7 +568,9 @@
     <MESSAGE value="enpassant bug fixed." />
     <MESSAGE value="button size fixed." />
     <MESSAGE value="menu color effect added. needs better colors." />
-    <option name="LAST_COMMIT_MESSAGE" value="menu color effect added. needs better colors." />
+    <MESSAGE value="menu color effect improved." />
+    <MESSAGE value="Contact form style. global button style. bug fix in chess logic." />
+    <option name="LAST_COMMIT_MESSAGE" value="Contact form style. global button style. bug fix in chess logic." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -577,7 +582,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/components/chess/Chess.jsx</url>
-          <line>1367</line>
+          <line>1376</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
