@@ -34,8 +34,9 @@ button {
 
 button:hover,
 button:focus {
-    background: var(--color-bg2-shade);
+    background: var(--color-grey-shade);
 }
+
 
 button:focus {
     outline: 1px solid #fff;
@@ -47,13 +48,56 @@ button:active {
 }
 
 button:hover {
-    color: var(--color-bright);
+    color: var(--color-yellow);
     cursor: pointer;
 }
 
+.link-effect {
+    text-decoration: none;
+    transition: all 300ms ease-in-out;
+    transition-property: all;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+    color: #000;
+    border-bottom: 0 solid var(--color-mauve);
+}
+
+.link-effect:hover {
+    cursor: pointer;
+    color: white;
+    box-shadow: inset 0 -1.2em 0 var(--color-mauve);
+    transition-duration: 100ms;
+
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--color-dark-lila);
+    border: 1px solid var(--color-grey);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-mauve);
+}
+
+
 h1 {
     margin-top: 5vh;
-    color: var(--color-bright);
+    color: var(--color-yellow);
     font-size: 4em;
 }
 

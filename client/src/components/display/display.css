@@ -21,7 +21,7 @@
 }
 
 #arrow-down:hover {
-    color: var(--color-bright);
+    color: var(--color-yellow);
 }
 
 
@@ -44,7 +44,7 @@
 }
 
 .fade {
-    background-color: var(--color-bright);
+    background-color: var(--color-yellow);
     opacity: 1;
 }
 

@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="aligning menu items and headline box.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="chess bugs fixed.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/chess/chess.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/chess.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/chess/js/fen_string_generator.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/js/fen_string_generator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/cv/cv.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/cv/cv.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/display/display.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/display/display.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/footer/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/footer/footer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/navigation/navigation.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/navigation/navigation.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,14 +187,8 @@
       <workItem from="1676813589947" duration="4154000" />
       <workItem from="1676825037564" duration="4811000" />
       <workItem from="1676881909912" duration="5490000" />
-      <workItem from="1676888018376" duration="5653000" />
-    </task>
-    <task id="LOCAL-00011" summary="min width for fields, engine castling working.">
-      <created>1668349691129</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1668349691129</updated>
+      <workItem from="1676888018376" duration="6278000" />
+      <workItem from="1676907126093" duration="7865000" />
     </task>
     <task id="LOCAL-00012" summary="enpassant working in both directions, check mate alert, last move marker">
       <created>1668437619117</created>
@@ -525,7 +526,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676891381842</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="chess bugs fixed.">
+      <created>1676893700278</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1676893700278</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -543,7 +551,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="animated skill bars." />
     <MESSAGE value="cv making progress." />
     <MESSAGE value="background image for chess. Yet again chess grid improvements." />
     <MESSAGE value="server removed. better displaying of chess. down arrow after display." />
@@ -568,7 +575,8 @@
     <MESSAGE value="better font family and some clean up." />
     <MESSAGE value="better colors and some css clean up." />
     <MESSAGE value="aligning menu items and headline box." />
-    <option name="LAST_COMMIT_MESSAGE" value="aligning menu items and headline box." />
+    <MESSAGE value="chess bugs fixed." />
+    <option name="LAST_COMMIT_MESSAGE" value="chess bugs fixed." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -591,7 +599,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/components/aboutme/AboutMe.jsx</url>
           <line>50</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>

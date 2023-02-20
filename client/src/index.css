@@ -3,15 +3,21 @@
 :root {
     --font-family: Work Sans, sans-serif;
     --color-bg: white;
-    --color-bg2: white;
-    --color-bg2-shade: #5E4B5E;
-    --color-green: #9ed57b;
-    --color-grey: #2e2e30;
+    --color-mauve: #b8a89a;
     --color-text: #000000;
-    --color-orange: #A16477;
-    --color-bright: #FFB869;
-    --color-red: #9C4A59;
+    --color-grey: #2e2e30;
+    --color-grey-shade: #4A494F;
+    --color-dark-lila: #5E4B5E;
+    --color-light-lila: #A16477;
+    --color-yellow: #ffc155;
 
+    --color-chess-white: #f0d9b5;
+    --color-chess-black: #b58863;
+
+    --color-chess-take: #9C4A59;
+    --color-chess-legal: #CED570;
+    --color-chess-last-move:  #ffc155;
+    --color-chess-hovered:#F2FEDC;
 
 
 }

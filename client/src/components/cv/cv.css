@@ -22,7 +22,7 @@
 
 
 circle {
-    fill: var(--color-orange);
+    fill: var(--color-light-lila);
 }
 
 
@@ -34,7 +34,7 @@ circle {
 
 .header-background {
     display: flex;
-    border-bottom: 150px solid var(--color-orange);
+    border-bottom: 150px solid var(--color-light-lila);
     height: 0;
     width: 100%;
 }

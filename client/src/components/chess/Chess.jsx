@@ -452,11 +452,11 @@ export default class Chess extends Component {
             if (field.id.includes(letter)) {
                 let numberDiv = createElement("div", "numeric-div");
                 let number = field.y;
-                if (number % 2 === moduloResult) {
-                    numberDiv.classList.add("white");
-                } else {
-                    numberDiv.classList.add("black");
-                }
+                // if (number % 2 === moduloResult) {
+                //     numberDiv.classList.add("white");
+                // } else {
+                //     numberDiv.classList.add("black");
+                // }
                 numberDiv.innerText = number;
                 domField.appendChild(numberDiv);
             }
@@ -465,11 +465,11 @@ export default class Chess extends Component {
                 let letterDiv = createElement("div", "letter-div");
                 letterDiv.classList.add("letter-div");
                 let number = field.x;
-                if (number % 2 === moduloResult) {
-                    letterDiv.classList.add("white");
-                } else {
-                    letterDiv.classList.add("black");
-                }
+                // if (number % 2 === moduloResult) {
+                //     letterDiv.classList.add("white");
+                // } else {
+                //     letterDiv.classList.add("black");
+                // }
                 letterDiv.innerText = letters[field.x - 1];
                 domField.appendChild(letterDiv);
             }
