@@ -47,9 +47,10 @@ export default class Cv extends Component {
                 let menu = document.getElementById("menu-" + counter);
                 document.getElementById("menu-" + counter).addEventListener("click", () => {
                     document.querySelectorAll(".menu-element").forEach(el => {
-                        el.classList.remove("highlight");
                         el.classList.remove("background-transition");
-                        el.style.background = "#3c3c3e";
+                        el.classList.remove("opacity-transition-in");
+                        el.classList.add("link-effect");
+                        el.style.background = "#2e2e30";
                     });
                     headlineDiv.style.background = color;
                     headlineDiv.classList.add("background-transition");
@@ -71,7 +72,7 @@ export default class Cv extends Component {
                         headlineDiv.classList.remove("opacity-transition-out");
                         textDiv.classList.remove("opacity-transition-out");
                         menu.classList.remove("opacity-transition-out");
-
+                        menu.classList.remove("link-effect")
                         menu.classList.add("opacity-transition-in");
                         headlineDiv.classList.add("opacity-transition-in");
                         textDiv.classList.add("opacity-transition-in");
