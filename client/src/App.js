@@ -1,6 +1,6 @@
 import './App.css';
 import React,{Component} from 'react';
-import {Navigation, AboutMe, Display, Chess, Contact, Footer, Cv} from "./components";
+import {Navigation, AboutMe, Display, Chess, Contact, Footer, StickyMenu} from "./components";
 
 
 export default class App extends Component {
@@ -12,6 +12,7 @@ export default class App extends Component {
         return (
             <div className="App">
                 <div className="gradient__bg">
+                    <StickyMenu/>
                     <Navigation/>
                     <Display/>
                     <AboutMe/>

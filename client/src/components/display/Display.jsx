@@ -243,7 +243,7 @@ export default class Display extends Component {
 
     render() {
         return (
-            <div id="display-wrapper">
+            <div id="display">
                 <div id='display-div'></div>
                 <div id='arrow-down'>
                     <FontAwesomeIcon icon={faChevronDown}/>
