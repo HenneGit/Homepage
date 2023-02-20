@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="better colors and some css clean up.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="aligning menu items and headline box.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/AboutMe.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/AboutMe.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/chess/chess.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/chess.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/chess/js/fen_string_generator.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/js/fen_string_generator.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,14 +180,7 @@
       <workItem from="1676813589947" duration="4154000" />
       <workItem from="1676825037564" duration="4811000" />
       <workItem from="1676881909912" duration="5490000" />
-      <workItem from="1676888018376" duration="3178000" />
-    </task>
-    <task id="LOCAL-00010" summary="Stockfish working">
-      <created>1668336052040</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1668336052040</updated>
+      <workItem from="1676888018376" duration="5653000" />
     </task>
     <task id="LOCAL-00011" summary="min width for fields, engine castling working.">
       <created>1668349691129</created>
@@ -524,7 +518,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676889615022</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="aligning menu items and headline box.">
+      <created>1676891381842</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1676891381842</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -542,7 +543,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="aboutme updated." />
     <MESSAGE value="animated skill bars." />
     <MESSAGE value="cv making progress." />
     <MESSAGE value="background image for chess. Yet again chess grid improvements." />
@@ -567,7 +567,8 @@
     <MESSAGE value="Contact form style. global button style. bug fix in chess logic." />
     <MESSAGE value="better font family and some clean up." />
     <MESSAGE value="better colors and some css clean up." />
-    <option name="LAST_COMMIT_MESSAGE" value="better colors and some css clean up." />
+    <MESSAGE value="aligning menu items and headline box." />
+    <option name="LAST_COMMIT_MESSAGE" value="aligning menu items and headline box." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

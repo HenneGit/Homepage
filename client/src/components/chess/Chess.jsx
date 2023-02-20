@@ -74,7 +74,7 @@ export default class Chess extends Component {
                 let pieceMap = piecePicker(getOppositeColor(board.playerColor));
                 if (queeningMove !== "") {
                     for (let [pieceType, newPiece] of pieceMap) {
-                        if (newPiece.fenChar === queeningMove) {
+                        if (newPiece.fenChar.toLowerCase() === queeningMove) {
                             let queeningField = getField(startFieldId, board);
                             queeningField.piece = newPiece;
                         }
@@ -632,7 +632,7 @@ export default class Chess extends Component {
                 return !createsCheck;
             });
             if (legalFields.length === 0 && checkForCheck(color)) {
-                let kingFieldId = getKingField(currentPieceColor).id;
+                let kingFieldId = getKingField(currentPieceColor, board).id;
                 document.getElementById(kingFieldId).classList.remove("white");
                 document.getElementById(kingFieldId).classList.remove("black");
                 document.getElementById(kingFieldId).classList.add("take");

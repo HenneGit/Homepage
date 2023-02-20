@@ -13,8 +13,8 @@ function generateFENString(board, boardHistory, halfMoves) {
     fenString = addTurnToFEN(fenString, boardHistory);
     fenString = addCastleRights(fenString, board);
     fenString = addEnPassantMoves(fenString, board);
-    fenString = addMoveCounter(fenString, halfMoves);
-    fenString = addHalfMoves(fenString, board);
+    fenString = addMoveCounter(fenString, boardHistory);
+    fenString = addHalfMoves(fenString, halfMoves);
     return fenString;
 }
 
