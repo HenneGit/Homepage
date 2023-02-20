@@ -32,8 +32,6 @@
 
 
 .about-me-content {
-    display: grid;
-    grid-template-rows: 10% 80% 10%;
     height: 100%;
     font-family: var(--font-family);
     font-size: 1vw;
@@ -51,7 +49,6 @@
 
 
 .content-headline {
-    grid-row: 1;
     font-size: 4vw;
     font-weight: bold;
     color: white;
@@ -60,19 +57,21 @@
 }
 
 .text-block {
-    grid-row: 2;
     margin-top: 10vh;
-
 }
 
 .icons {
-    grid-row: 3;
+    margin-right: 20px;
+    margin-bottom: 10px;
     justify-self: end;
     align-self: end;
+    grid-row: 3;
 }
 
 .icon {
-    border: 1px var(--color-text);
+    border: 1px solid var(--color-bg2-shade);
+    padding: 3px 6px 0 6px ;
+    color: var(--color-bg2-shade);
     font-size: 4vh;
     margin-left: 6px;
     cursor: pointer;
@@ -80,6 +79,8 @@
 
 .icon:hover {
     color: var(--color-bright);
+    border: 1px solid var(--color-bright);
+
 }
 
 
@@ -99,10 +100,10 @@
 
 .thats-me {
     position: relative;
-    grid-row: 2;
-    background: #d5d5d5;
     transform: translatey(0px);
     transition: transform 0.25s ease-in;
+    height: 50%;
+
 }
 
 .menu {
@@ -111,6 +112,7 @@
     align-items: end;
     margin-bottom: 50px;
     height: 15vh;
+    justify-content: space-between;
 }
 
 .menu p {
@@ -125,12 +127,14 @@
 .thats-me-transition {
     transform: translatey(20vw);
     transition: transform 0.25s ease-in;
+    height: 50%;
 
 }
 
-.picture {
+.sidebar {
     background-color: var(--color-grey);
-    display: flex;
+    display: grid;
+    grid-template-rows: 20% 70% 10% ;
     flex-direction: column;
     height: 100%;
 }
@@ -142,6 +146,7 @@
     background-color: var(--color-grey);
     justify-content: start;
 }
+
 .headline-wrapper p {
     font-size:5vw;
     text-orientation: upright;

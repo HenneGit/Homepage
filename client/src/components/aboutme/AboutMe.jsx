@@ -99,7 +99,7 @@ export default class Cv extends Component {
                         <p className="headline">About</p>
                         <p className="me">Me</p>
                     </div>
-                    <div className="picture">
+                    <div className="sidebar">
                         <div className="menu">
                             <p id="menu-1" className="link-effect menu-element">About Me</p>
                             <p id="menu-2" className="link-effect menu-element">What do I do</p>
@@ -109,10 +109,6 @@ export default class Cv extends Component {
                             <img id="thats-me" className="thats-me" src={thatsme}/>
                             <img id="my-picture" src={bewerbung}/>
                         </div>
-                    </div>
-                    <div className="about-me-content">
-                        <div id="headline" className="content-headline"></div>
-                        <div id="text" className="text-block"></div>
                         <div className="icons">
                             <a href="https://github.com/HenneGit" target="-_blank" className="icon">
                                 <FontAwesomeIcon icon={faGit}/>
@@ -125,6 +121,11 @@ export default class Cv extends Component {
                                 <FontAwesomeIcon icon={faEnvelope}/>
                             </a>
                         </div>
+                    </div>
+                    <div className="about-me-content">
+                        <div id="headline" className="content-headline"></div>
+                        <div id="text" className="text-block"></div>
+
                     </div>
                 </div>
             </div>
