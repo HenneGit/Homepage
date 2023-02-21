@@ -2,35 +2,28 @@ import React, {Component} from "react";
 import './chess.css';
 import avatar from '../../assets/avatar.png'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {
-    faChessBishop,
-    faChessKing,
-    faChessKnight,
-    faChessPawn,
-    faChessQueen,
-    faChessRook,
-    faChevronLeft,
-    faChevronRight,
-    faPlus,
-    faRotateLeft
-} from '@fortawesome/free-solid-svg-icons'
+import {faChevronRight} from '@fortawesome/free-solid-svg-icons'
+import {faChevronLeft} from '@fortawesome/free-solid-svg-icons'
+import {faRotateLeft} from '@fortawesome/free-solid-svg-icons'
+import {faPlus} from '@fortawesome/free-solid-svg-icons'
+import {faChessBishop} from '@fortawesome/free-solid-svg-icons'
+import {faChessPawn} from '@fortawesome/free-solid-svg-icons'
+import {faChessRook} from '@fortawesome/free-solid-svg-icons'
+import {faChessKing} from '@fortawesome/free-solid-svg-icons'
+import {faChessQueen} from '@fortawesome/free-solid-svg-icons'
+import {faChessKnight} from '@fortawesome/free-solid-svg-icons'
 import {generateFENString} from "./js/fen_string_generator";
 import {
+    createElement,
     addLastMoveClasses,
     clearElement,
     containsPiece,
-    createElement,
-    getAllFieldsWithPiecesByColor,
-    getDiv,
+    getAllFieldsWithPiecesByColor, getDiv,
     getField,
-    getFieldByXY,
-    getItemFromLocalStorage,
-    getKingField,
-    getOppositeColor,
-    getOption,
+    getFieldByXY, getItemFromSessionStorage, getKingField,
+    getOppositeColor, getOption,
     getPiece,
-    jsonCopy,
-    setLocalStorage
+    jsonCopy, setSessionStorage
 } from "./js/util";
 
 
@@ -192,7 +185,7 @@ export default class Chess extends Component {
          * init a new board with pieces in starting position.
          */
         async function newGame() {
-            localStorage.clear();
+            sessionStorage.clear();
             board = null;
             let playerColorLB = document.getElementById("playerColor");
             let playerNameInput = document.getElementById("player-name-input").value;
@@ -266,7 +259,7 @@ export default class Chess extends Component {
                     let board = boardHistory[counter];
                     createBoard(board);
                     if (counter === 0) {
-                        localStorage.clear();
+                        sessionStorage.clear();
                         createNewBoard("white", true, playerName);
                         clearInterval(interval);
                     }
@@ -285,8 +278,8 @@ export default class Chess extends Component {
         function createNewBoard(playerColor, isInitBoard, playerName) {
             let fields = [];
             let graveyard = [];
-            let storedBoard = getItemFromLocalStorage("board");
-            let storedHistory = getItemFromLocalStorage("history");
+            let storedBoard = getItemFromSessionStorage("board");
+            let storedHistory = getItemFromSessionStorage("history");
 
             if (storedBoard !== null && storedHistory !== null) {
                 boardHistory = storedHistory;
@@ -359,11 +352,12 @@ export default class Chess extends Component {
             if (currentBoard === undefined || currentBoard === null) {
                 createBoard(board, false);
             }
-            document.getElementById("player-name").innerText = currentBoard.playerName === undefined ? "You" : currentBoard.playerName;
+            let playerName = currentBoard.playerName === undefined ? "You" : currentBoard.playerName;
+            document.getElementById("player-name").innerText = playerName;
             document.getElementById("turns").scrollTo(0, document.getElementById("turns").scrollHeight);
             if (boardHistory.length > 0) {
-                setLocalStorage("board", board);
-                setLocalStorage("history", boardHistory);
+                setSessionStorage("board", board);
+                setSessionStorage("history", boardHistory);
             }
             let contentDiv = document.getElementById('chess');
             let isBlack = currentBoard.playerColor === "black";

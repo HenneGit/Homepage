@@ -1,4 +1,4 @@
-export {createElement, containsPiece, getPiece, getField, getAllFieldsWithPiecesByColor, clearElement, getFieldByXY, getDiv, getKingField, getItemFromLocalStorage, getOppositeColor, setLocalStorage, addLastMoveClasses, getOption, jsonCopy}
+export {createElement, containsPiece, getPiece, getField, getAllFieldsWithPiecesByColor, clearElement, getFieldByXY, getDiv, getKingField, getItemFromSessionStorage, getOppositeColor, setSessionStorage, addLastMoveClasses, getOption, jsonCopy}
 
 
 /**
@@ -136,7 +136,7 @@ function jsonCopy(obj) {
  * @param key the key to find the item for.
  * @returns {any} the found item.
  */
-function getItemFromLocalStorage(key) {
+function getItemFromSessionStorage(key) {
     if (key === null || key === undefined) {
         return null;
     }
@@ -150,9 +150,9 @@ function getItemFromLocalStorage(key) {
 /**
  * set a json string to local storage.
  * @param key the key for the item.
- * @param item the item to store in localstorage.
+ * @param item the item to store in session storage.
  */
-function setLocalStorage(key, item) {
+function setSessionStorage(key, item) {
     sessionStorage.setItem(key, JSON.stringify(item));
 }
 

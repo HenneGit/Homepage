@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="navigation clean up.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="session storage instead of local storage. rare chess error fixed. some cleanup and formatting.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/AboutMe.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/AboutMe.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/chess/js/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/js/util.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/display/Display.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/display/Display.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/stickymenu/StickyMenu.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/stickymenu/StickyMenu.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,14 +182,7 @@
       <workItem from="1676888018376" duration="6278000" />
       <workItem from="1676907126093" duration="12550000" />
       <workItem from="1676919830724" duration="859000" />
-      <workItem from="1676963697305" duration="10820000" />
-    </task>
-    <task id="LOCAL-00017" summary="game setup started.">
-      <created>1668612942440</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1668612942450</updated>
+      <workItem from="1676963697305" duration="11440000" />
     </task>
     <task id="LOCAL-00018" summary="fontawesome added. Game buttons with font awesome.">
       <created>1668615909799</created>
@@ -530,7 +520,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676972791377</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="session storage instead of local storage. rare chess error fixed. some cleanup and formatting.">
+      <created>1676974945180</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1676974945180</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -548,7 +545,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="about me section better looking now and animation on picture added." />
     <MESSAGE value="about me section with more appealing design. Needs browser optimization." />
     <MESSAGE value="cleanup and new hover effect for links and buttons." />
     <MESSAGE value="contact error removed and making sure that no empty email is sent." />
@@ -573,19 +569,20 @@
     <MESSAGE value="sticky menu finished." />
     <MESSAGE value="sticky menu initial state invisible and collapsed." />
     <MESSAGE value="navigation clean up." />
-    <option name="LAST_COMMIT_MESSAGE" value="navigation clean up." />
+    <MESSAGE value="session storage instead of local storage. rare chess error fixed. some cleanup and formatting." />
+    <option name="LAST_COMMIT_MESSAGE" value="session storage instead of local storage. rare chess error fixed. some cleanup and formatting." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/components/chess/Chess.jsx</url>
-          <line>712</line>
+          <line>706</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/components/chess/Chess.jsx</url>
-          <line>1383</line>
+          <line>1377</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
