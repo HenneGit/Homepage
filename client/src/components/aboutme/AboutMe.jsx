@@ -6,7 +6,7 @@ import {faGit} from "@fortawesome/free-brands-svg-icons";
 import {faLinkedin} from "@fortawesome/free-brands-svg-icons";
 import {faEnvelope} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-
+import {textObject} from "./json/about_me_text.js";
 
 export default class Cv extends Component {
     constructor() {
@@ -15,7 +15,6 @@ export default class Cv extends Component {
 
 
     componentDidMount() {
-
 
         let image = document.getElementById("my-picture");
         image.addEventListener("mouseover", (event) => {
@@ -35,7 +34,6 @@ export default class Cv extends Component {
 
 
         async function fetchText() {
-            let textObject = await fetch("http://localhost:3000/about-me-text.json",).then(resp => resp.json());
             let counter = 1;
             for (let id in textObject) {
                 let object = textObject[id];

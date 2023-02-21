@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './display.css';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faChevronDown} from "@fortawesome/free-solid-svg-icons";
-
+import {letters} from './json/letters.js';
 
 export default class Display extends Component {
     constructor() {
@@ -187,7 +187,6 @@ export default class Display extends Component {
          * @returns {Promise<void>}
          */
         async function initLetters(word) {
-            let letters = await fetch("http://localhost:3000/letters.json",).then(resp => resp.json());
             let chars = Array.from(word);
             let l = 0;
             for (let char of chars) {

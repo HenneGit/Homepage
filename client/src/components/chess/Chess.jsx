@@ -34,9 +34,7 @@ export default class Chess extends Component {
 
 
     componentDidMount() {
-
-
-        const stockfish = new Worker("http://localhost:3000/stockfish.js");
+        const stockfish = new Worker("/stockfish.js");
         stockfish.onmessage = async function onmessage(message) {
             if (message.data.includes("bestmove")) {
                 if (message.data.includes("none")) {
