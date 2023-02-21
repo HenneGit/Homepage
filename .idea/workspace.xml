@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="sticky menu finished.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="sticky menu initial state invisible and collapsed.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/navigation/Navigation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/navigation/Navigation.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/navigation/navigation.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/navigation/navigation.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/stickymenu/StickyMenu.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/stickymenu/StickyMenu.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/stickymenu/stickymenu.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/stickymenu/stickymenu.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,14 +186,7 @@
       <workItem from="1676888018376" duration="6278000" />
       <workItem from="1676907126093" duration="12550000" />
       <workItem from="1676919830724" duration="859000" />
-      <workItem from="1676963697305" duration="7955000" />
-    </task>
-    <task id="LOCAL-00015" summary="correct saving of board history.">
-      <created>1668594585110</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1668594585110</updated>
+      <workItem from="1676963697305" duration="8988000" />
     </task>
     <task id="LOCAL-00016" summary="castling error removed.">
       <created>1668597493043</created>
@@ -529,7 +524,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676970719485</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="sticky menu initial state invisible and collapsed.">
+      <created>1676971677376</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1676971677376</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -547,7 +549,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="funny shapes for headlines." />
     <MESSAGE value="comments and some minor css fixes." />
     <MESSAGE value="about me section better looking now and animation on picture added." />
     <MESSAGE value="about me section with more appealing design. Needs browser optimization." />
@@ -572,7 +573,8 @@
     <MESSAGE value="colors organized, some css improvements." />
     <MESSAGE value="sticky menu added." />
     <MESSAGE value="sticky menu finished." />
-    <option name="LAST_COMMIT_MESSAGE" value="sticky menu finished." />
+    <MESSAGE value="sticky menu initial state invisible and collapsed." />
+    <option name="LAST_COMMIT_MESSAGE" value="sticky menu initial state invisible and collapsed." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

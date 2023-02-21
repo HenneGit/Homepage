@@ -15,12 +15,10 @@ export default class StickyMenu extends Component {
             let elemTop = rect.top;
             return elemTop >= 150;
         }
-
         addStickyMenuFunctions();
         let aboutMeSection = document.getElementById("aboutMe");
         document.getElementById("sticky-menu").classList.add("invisible");
         document.getElementById("link-container").classList.add("collapsed");
-
         document.addEventListener('scroll', async function () {
             console.log(isInViewport(aboutMeSection));
             if (isInViewport(aboutMeSection)) {
@@ -51,7 +49,7 @@ export default class StickyMenu extends Component {
                     <FontAwesomeIcon icon={faBars}/>
                 </div>
                 <div id="link-container" className="link-container">
-                    <p className="sticky-menu-item"><a className='link-effect' href="#display">Home</a></p>
+                    <p className="sticky-menu-item"><a className='link-effect' href="#start">Top</a></p>
                     <p className="sticky-menu-item"><a className='link-effect' href="#aboutMe">About Me</a></p>
                     <p className="sticky-menu-item"><a className='link-effect' href="#chess-container">Chess</a></p>
                     <p className="sticky-menu-item"><a className='link-effect' href="#contact">Contact</a>

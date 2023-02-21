@@ -5,7 +5,6 @@ import './navigation.css'
 
 const Menu = () => (
     <>
-        <p><a className='link-effect' href="#home">Home</a></p>
         <p><a className='link-effect' href="#aboutMe">About Me</a></p>
         <p><a className='link-effect' href="#chess-container">Chess</a></p>
         <p><a className='link-effect' href="#contact">Contact</a></p>
