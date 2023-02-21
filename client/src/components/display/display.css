@@ -40,7 +40,7 @@
 }
 
 .pixel:hover {
-    background-color: #F49867;
+    background-color: var(--color-mauve);
 }
 
 .fade {
@@ -54,7 +54,7 @@
 }
 
 .enter {
-    background-color: firebrick;
+    background-color: var(--color-dark-lila);
     cursor: pointer;
 }
 

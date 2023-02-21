@@ -1,7 +1,6 @@
 .sticky-menu {
     background-color: white;
     top: 30px;
-    right: 0;
     z-index: 99;
     width: 50px;
     height: 50px;
@@ -13,39 +12,79 @@
     margin: 0 30px;
     cursor: pointer;
     box-shadow: 3px 3px 5px 0px rgb(0 0 0 / 20%);
+
+}
+
+.burger-icon:hover {
+    color: var(--color-mauve);
+}
+
+
+.slide-out {
+    opacity: 0;
+    right: 0;
+    transform: translateX(30px);
+    transition: all 0.3s ease-in;
+}
+
+
+.slide-in {
+    opacity: 1;
+    right: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease-in;
 }
 
 .link-container {
     display: flex;
     flex-direction: column;
-    width: 10vw;
+    align-items: center;
+    width: 9vw;
     position: fixed;
-    right: 30px;
+    right: 0px;
+    margin-top: 20px;
     z-index: 99;
     opacity: 1;
     height: 220px;
     background-color: white;
     box-shadow: 3px 3px 5px 0px rgb(0 0 0 / 20%);
     font-family: var(--font-family);
-    transition: height 0.25s ease-in, opacity 0.5s ease-in ;
+    transition: height 0.25s ease-in, opacity 0.5s ease-in;
 
 }
 
-.height-transition {
+.collapsed {
     height: 0;
     opacity: 0;
-    transition: height 0.5s ease-in, opacity 0.5s;
+    transition: all 0.3s ease-in;
 
 }
 
-.link-container p {
+.sticky-menu-item {
     opacity: 1;
-    position: relative;
-    transition: opacity 0.5s ease-in;
+    position: absolute;
+    transition: all 0.3s ease-in;
 }
 
-.position-transition {
-    opacity: 0;
-    transition: opacity 0.5s ease-in;
+
+.link-container p:first-child {
+    top: 10px;
+}
+
+.link-container p:nth-child(2) {
+    top: 60px;
+}
+
+.link-container p:nth-child(3) {
+    top: 110px;
+}
+
+.link-container p:nth-child(4) {
+    top: 160px;
+}
+
+.link-container.collapsed p {
+    top: 0;
 
 }
+
