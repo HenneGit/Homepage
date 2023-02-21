@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="sticky menu added.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="sticky menu finished.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/display/display.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/display/display.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/navigation/Navigation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/navigation/Navigation.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/navigation/navigation.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/navigation/navigation.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/stickymenu/StickyMenu.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/stickymenu/StickyMenu.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/stickymenu/stickymenu.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/stickymenu/stickymenu.css" afterDir="false" />
     </list>
@@ -184,14 +184,7 @@
       <workItem from="1676888018376" duration="6278000" />
       <workItem from="1676907126093" duration="12550000" />
       <workItem from="1676919830724" duration="859000" />
-      <workItem from="1676963697305" duration="6924000" />
-    </task>
-    <task id="LOCAL-00014" summary="movetracker attached to board object.">
-      <created>1668593404100</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1668593404100</updated>
+      <workItem from="1676963697305" duration="7955000" />
     </task>
     <task id="LOCAL-00015" summary="correct saving of board history.">
       <created>1668594585110</created>
@@ -529,7 +522,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676920678541</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="sticky menu finished.">
+      <created>1676970719485</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1676970719485</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -547,7 +547,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="server removed. better displaying of chess. down arrow after display." />
     <MESSAGE value="funny shapes for headlines." />
     <MESSAGE value="comments and some minor css fixes." />
     <MESSAGE value="about me section better looking now and animation on picture added." />
@@ -572,7 +571,8 @@
     <MESSAGE value="chess bugs fixed." />
     <MESSAGE value="colors organized, some css improvements." />
     <MESSAGE value="sticky menu added." />
-    <option name="LAST_COMMIT_MESSAGE" value="sticky menu added." />
+    <MESSAGE value="sticky menu finished." />
+    <option name="LAST_COMMIT_MESSAGE" value="sticky menu finished." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

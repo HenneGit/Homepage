@@ -15,20 +15,23 @@ export default class StickyMenu extends Component {
             let elemTop = rect.top;
             return elemTop >= 150;
         }
+
         addStickyMenuFunctions();
         let aboutMeSection = document.getElementById("aboutMe");
+        document.getElementById("sticky-menu").classList.add("invisible");
+        document.getElementById("link-container").classList.add("collapsed");
+
         document.addEventListener('scroll', async function () {
             console.log(isInViewport(aboutMeSection));
             if (isInViewport(aboutMeSection)) {
+                document.getElementById("sticky-menu").classList.remove("invisible");
                 document.getElementById("sticky-menu").classList.remove("slide-in");
                 document.getElementById("sticky-menu").classList.add("slide-out");
             } else {
                 document.getElementById("sticky-menu").classList.remove("slide-out");
                 document.getElementById("sticky-menu").classList.add("slide-in");
-
+                document.getElementById("link-container").classList.add("collapsed");
             }
-        }, {
-            passive: true
         });
 
         function addStickyMenuFunctions() {
@@ -45,15 +48,13 @@ export default class StickyMenu extends Component {
         return (
             <div id="sticky-menu" className="sticky-menu">
                 <div className="burger-icon">
-                <FontAwesomeIcon icon={faBars}/>
+                    <FontAwesomeIcon icon={faBars}/>
                 </div>
                 <div id="link-container" className="link-container">
-                    <p id="item-0" className="sticky-menu-item"><a className='link-effect ' href="#display">Home</a></p>
-                    <p id="item-1" className="sticky-menu-item"><a className='link-effect' href="#aboutMe">About Me</a>
-                    </p>
-                    <p id="item-2" className="sticky-menu-item"><a className='link-effect'
-                                                                   href="#chess-container">Chess</a></p>
-                    <p id="item-3" className="sticky-menu-item"><a className='link-effect' href="#contact">Contact</a>
+                    <p className="sticky-menu-item"><a className='link-effect' href="#display">Home</a></p>
+                    <p className="sticky-menu-item"><a className='link-effect' href="#aboutMe">About Me</a></p>
+                    <p className="sticky-menu-item"><a className='link-effect' href="#chess-container">Chess</a></p>
+                    <p className="sticky-menu-item"><a className='link-effect' href="#contact">Contact</a>
                     </p>
                 </div>
             </div>
