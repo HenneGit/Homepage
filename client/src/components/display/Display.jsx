@@ -193,9 +193,6 @@ export default class Display extends Component {
             for (let char of chars) {
                 for (let id of letters[char.toUpperCase()]) {
                     let pixel = document.getElementById('l' + l + id);
-                    if (pixel === null) {
-                        console.log(id);
-                    }
                     pixel.classList.add('pixel-active');
                 }
                 l++;

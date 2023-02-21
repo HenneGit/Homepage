@@ -2,28 +2,35 @@ import React, {Component} from "react";
 import './chess.css';
 import avatar from '../../assets/avatar.png'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faChevronRight} from '@fortawesome/free-solid-svg-icons'
-import {faChevronLeft} from '@fortawesome/free-solid-svg-icons'
-import {faRotateLeft} from '@fortawesome/free-solid-svg-icons'
-import {faPlus} from '@fortawesome/free-solid-svg-icons'
-import {faChessBishop} from '@fortawesome/free-solid-svg-icons'
-import {faChessPawn} from '@fortawesome/free-solid-svg-icons'
-import {faChessRook} from '@fortawesome/free-solid-svg-icons'
-import {faChessKing} from '@fortawesome/free-solid-svg-icons'
-import {faChessQueen} from '@fortawesome/free-solid-svg-icons'
-import {faChessKnight} from '@fortawesome/free-solid-svg-icons'
+import {
+    faChessBishop,
+    faChessKing,
+    faChessKnight,
+    faChessPawn,
+    faChessQueen,
+    faChessRook,
+    faChevronLeft,
+    faChevronRight,
+    faPlus,
+    faRotateLeft
+} from '@fortawesome/free-solid-svg-icons'
 import {generateFENString} from "./js/fen_string_generator";
 import {
-    createElement,
     addLastMoveClasses,
     clearElement,
     containsPiece,
-    getAllFieldsWithPiecesByColor, getDiv,
+    createElement,
+    getAllFieldsWithPiecesByColor,
+    getDiv,
     getField,
-    getFieldByXY, getItemFromLocalStorage, getKingField,
-    getOppositeColor, getOption,
+    getFieldByXY,
+    getItemFromLocalStorage,
+    getKingField,
+    getOppositeColor,
+    getOption,
     getPiece,
-    jsonCopy, setLocalStorage
+    jsonCopy,
+    setLocalStorage
 } from "./js/util";
 
 
@@ -346,12 +353,14 @@ export default class Chess extends Component {
         /**
          * create the board and add pieces to it.
          * @param currentBoard the board to create the field from.
-         * @param isInitBoard
+         * @param isInitBoard locks the pieces to prevent moving them.
          */
         function createBoard(currentBoard, isInitBoard) {
-            let playerName = currentBoard.playerName === undefined ? "You" : currentBoard.playerName;
+            if (currentBoard === undefined || currentBoard === null) {
+                createBoard(board, false);
+            }
+            document.getElementById("player-name").innerText = currentBoard.playerName === undefined ? "You" : currentBoard.playerName;
             document.getElementById("turns").scrollTo(0, document.getElementById("turns").scrollHeight);
-            document.getElementById("player-name").innerText = playerName;
             if (boardHistory.length > 0) {
                 setLocalStorage("board", board);
                 setLocalStorage("history", boardHistory);
@@ -811,7 +820,6 @@ export default class Chess extends Component {
                 board.graveyard.push(enemyPiece);
                 newField.piece = null;
             }
-            console.log(board);
             let piece = getPiece(oldField, board);
             oldField.piece = null;
             newField.piece = piece;
@@ -1079,8 +1087,6 @@ export default class Chess extends Component {
                 let piece = enemyField.piece;
 
                 if (piece !== null) {
-                    console.log(piece.type + " on " + enemyField.id);
-                    console.log(piece.moveNumber);
                     if (piece.type === 'pawn' && piece.moveNumber === 1 && piece.color !== currentField.piece.color
                         && lastMove[1] === enemyField.id && (enemyField.y === 4 || enemyField.y === 5)) {
                         let domField = document.getElementById(captureMoveField.id);
@@ -1144,9 +1150,11 @@ export default class Chess extends Component {
                         } else {
                             turnNumber -= 1;
                         }
+                        console.log("Error1 here when t=" + turnNumber + " and boardHistory= " + boardHistory);
                         createBoard(boardHistory[turnNumber], true);
                     }
                 } else if (boardHistory.length > 0) {
+                    console.log("Error1 here when t=" + turnNumber + " and boardHistory= " + boardHistory);
                     createBoard(boardHistory[0], true)
                 }
             });
@@ -1242,7 +1250,6 @@ export default class Chess extends Component {
          * @returns {*[]} all legal moves.
          */
         function getKingMoves(currentField, isRealMove) {
-            console.log(currentField);
             const {straight} = directions;
             const {diagonal} = directions;
             let color = getOppositeColor(currentField.piece.color);

@@ -20,7 +20,6 @@ export default class StickyMenu extends Component {
         document.getElementById("sticky-menu").classList.add("invisible");
         document.getElementById("link-container").classList.add("collapsed");
         document.addEventListener('scroll', async function () {
-            console.log(isInViewport(aboutMeSection));
             if (isInViewport(aboutMeSection)) {
                 document.getElementById("sticky-menu").classList.remove("invisible");
                 document.getElementById("sticky-menu").classList.remove("slide-in");

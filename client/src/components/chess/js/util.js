@@ -140,7 +140,7 @@ function getItemFromLocalStorage(key) {
     if (key === null || key === undefined) {
         return null;
     }
-    let item = localStorage.getItem(key);
+    let item = sessionStorage.getItem(key);
     if (item !== null) {
         return JSON.parse(item);
     }
@@ -153,7 +153,7 @@ function getItemFromLocalStorage(key) {
  * @param item the item to store in localstorage.
  */
 function setLocalStorage(key, item) {
-    localStorage.setItem(key, JSON.stringify(item));
+    sessionStorage.setItem(key, JSON.stringify(item));
 }
 
 

@@ -125,7 +125,6 @@ export default class Cv extends Component {
                     <div className="about-me-content">
                         <div id="headline" className="content-headline"></div>
                         <div id="text" className="text-block"></div>
-
                     </div>
                 </div>
             </div>
