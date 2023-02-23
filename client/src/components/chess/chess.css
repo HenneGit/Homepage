@@ -455,8 +455,6 @@ input {
 }
 
 .arrow {
-    border: solid black;
-    border-width: 0 3px 3px 0;
     display: inline-block;
     padding: 3px;
     cursor: pointer;

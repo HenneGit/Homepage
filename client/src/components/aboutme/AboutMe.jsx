@@ -4,7 +4,9 @@ import thatsme from '../../assets/thatsme.png'
 import bewerbung from '../../assets/bewerbung_gross.jpg'
 import {faGit} from "@fortawesome/free-brands-svg-icons";
 import {faLinkedin} from "@fortawesome/free-brands-svg-icons";
-import {faEnvelope} from "@fortawesome/free-solid-svg-icons";
+import {faChevronDown, faEnvelope} from "@fortawesome/free-solid-svg-icons";
+import {faChevronLeft} from "@fortawesome/free-solid-svg-icons";
+import {faChevronRight} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {textObject} from "./json/about_me_text.js";
 
@@ -15,6 +17,8 @@ export default class Cv extends Component {
 
 
     componentDidMount() {
+
+        let sliderCounter = 0;
 
         let image = document.getElementById("my-picture");
         image.addEventListener("mouseover", (event) => {
@@ -30,10 +34,74 @@ export default class Cv extends Component {
             thatsMeImage.classList.remove("thats-me-transition");
         });
 
-        fetchText();
+        // setTexts();
+
+        setUpDots();
+
+        function setUpDots() {
+            document.getElementById("dot-0").classList.add("dot-active");
+            document.getElementById("slider-arrow-right").addEventListener('click', () => {
+                if (sliderCounter === 3) {
+                    sliderCounter = 0;
+                } else {
+                    sliderCounter++;
+                }
+                let lastSlide = sliderCounter === 0 ? 3 : sliderCounter - 1;
+                setDotActive(lastSlide);
+                slide(lastSlide, "slide-right")
+            });
+
+            document.getElementById("slider-arrow-left").addEventListener('click', () => {
+                if (sliderCounter === 0) {
+                    sliderCounter = 3;
+                } else {
+                    sliderCounter--;
+                }
+                let lastSlide = sliderCounter === 3 ? 0 : sliderCounter + 1;
+                setDotActive(lastSlide);
+                slide(lastSlide, "slide-left");
+            });
+        }
+
+        function slide(lastSlideNr, slideDirection) {
+            let activeSlide = document.getElementById("slide-" + sliderCounter);
+            let lastSlide = document.getElementById("slide-" + lastSlideNr);
+            document.querySelectorAll(".slide").forEach(el => {
+                el.classList.remove(...el.classList);
+                el.classList.add("slide");
+                if (el !== activeSlide && el !== lastSlide) {
+                    el.classList.add("not-there");
+                } else {
+                    el.classList.add("there");
+                }
+
+            });
+
+            //give time to render elements before adding animation.
+            setTimeout(() => {
+                if (slideDirection.includes("right")) {
+                    activeSlide.classList.add("start-right");
+                } else {
+                    activeSlide.classList.add("start-left");
+                }
+                activeSlide.classList.add(slideDirection);
+                lastSlide.classList.add(slideDirection);
+            }, 20);
 
 
-        async function fetchText() {
+
+
+        }
+
+        function setDotActive(lastPixel) {
+            let activeDot = document.getElementById("dot-" + sliderCounter);
+            let previousActiveDot = document.getElementById("dot-" + lastPixel);
+            previousActiveDot.classList.remove("dot-active");
+            activeDot.classList.add("dot-active");
+        }
+
+
+        function setTexts() {
             let counter = 1;
             for (let id in textObject) {
                 let object = textObject[id];
@@ -85,10 +153,36 @@ export default class Cv extends Component {
                 counter++;
             }
             counter = 1;
-        }
+        };
     }
 
     render() {
+        const ProjectSlider = () => (
+            <>
+                <div className="slideshow-container">
+                    <div className="slider-arrow" id="slider-arrow-left">
+                        <FontAwesomeIcon icon={faChevronLeft}/>
+                    </div>
+                    <div className="slide-container">
+                        <div className="slide-item slide" id='slide-0'>1</div>
+                        <div className="slide-item slide" id='slide-1'>2</div>
+                        <div className="slide-item slide" id='slide-2'>3</div>
+                        <div className="slide-item slide" id='slide-3'>4</div>
+                    </div>
+                    <div className="slider-arrow" id="slider-arrow-right">
+                        <FontAwesomeIcon icon={faChevronRight}/>
+                    </div>
+                    <div className="dots">
+                        <span className="dot " id="dot-0"></span>
+                        <span className="dot" id="dot-1"></span>
+                        <span className="dot" id="dot-2"></span>
+                        <span className="dot" id="dot-3"></span>
+                    </div>
+                </div>
+            </>
+        )
+
+
         return (
             <section className="about-me-container" id="aboutMe">
                 <div className="about-me-content-wrapper">
@@ -122,6 +216,7 @@ export default class Cv extends Component {
                     <div className="about-me-content">
                         <div id="headline" className="content-headline"></div>
                         <div id="text" className="text-block"></div>
+                        <ProjectSlider/>
                     </div>
                 </div>
             </section>

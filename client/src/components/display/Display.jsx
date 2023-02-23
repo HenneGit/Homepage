@@ -13,14 +13,14 @@ export default class Display extends Component {
         document.getElementById("arrow-down").addEventListener('click', function () {
             document.getElementById('aboutMe').scrollIntoView();
         });
-        init();
+        initLetterGrid();
 
 
         /**
          * inits the page, collects active pixels and sets animation for appearing.
          * @returns {Promise<void>}
          */
-        async function init() {
+        async function initLetterGrid() {
             let contentDiv = document.getElementById('display-div');
             await buildLetterGrid("hello", contentDiv);
             const pixels = contentDiv.querySelectorAll('.pixel-active');
@@ -124,9 +124,11 @@ export default class Display extends Component {
                 //reset pixels.
                 setTimeout(() => {
                     removeChildren(contentDiv);
-                    init();
+                    initLetterGrid();
                 }, 500)
-
+                setTimeout(() => {
+                    document.getElementById('aboutMe').scrollIntoView();
+                },100);
             });
 
             setTimeout(() => {
@@ -157,7 +159,6 @@ export default class Display extends Component {
         }
 
         async function buildLetterGrid(word, container) {
-
             let letterCount = 0;
             while (letterCount < word.length) {
                 let rows = 0b0;
