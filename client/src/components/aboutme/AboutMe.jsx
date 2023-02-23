@@ -4,7 +4,7 @@ import thatsme from '../../assets/thatsme.png'
 import bewerbung from '../../assets/bewerbung_gross.jpg'
 import {faGit} from "@fortawesome/free-brands-svg-icons";
 import {faLinkedin} from "@fortawesome/free-brands-svg-icons";
-import {faChevronDown, faEnvelope} from "@fortawesome/free-solid-svg-icons";
+import {faEnvelope} from "@fortawesome/free-solid-svg-icons";
 import {faChevronLeft} from "@fortawesome/free-solid-svg-icons";
 import {faChevronRight} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -18,7 +18,7 @@ export default class Cv extends Component {
 
     componentDidMount() {
 
-        let sliderCounter = 0;
+        let slideCounter = 0;
 
         let image = document.getElementById("my-picture");
         image.addEventListener("mouseover", (event) => {
@@ -35,36 +35,63 @@ export default class Cv extends Component {
         });
 
         // setTexts();
+        initSlide();
+
+        function initSlide() {
+            let currentSlide = document.getElementById("slide-" + slideCounter);
+            document.querySelectorAll(".slide").forEach(el => {
+                el.classList.add("slide");
+                if (el !== currentSlide) {
+                    el.classList.add("not-there");
+                } else {
+                    el.classList.add("there");
+                }
+            });
+        }
+
 
         setUpDots();
 
         function setUpDots() {
             document.getElementById("dot-0").classList.add("dot-active");
             document.getElementById("slider-arrow-right").addEventListener('click', () => {
-                if (sliderCounter === 3) {
-                    sliderCounter = 0;
+                if (slideCounter === 3) {
+                    slideCounter = 0;
                 } else {
-                    sliderCounter++;
+                    slideCounter++;
                 }
-                let lastSlide = sliderCounter === 0 ? 3 : sliderCounter - 1;
+                let lastSlide = slideCounter === 0 ? 3 : slideCounter - 1;
                 setDotActive(lastSlide);
                 slide(lastSlide, "slide-right")
             });
 
             document.getElementById("slider-arrow-left").addEventListener('click', () => {
-                if (sliderCounter === 0) {
-                    sliderCounter = 3;
+                if (slideCounter === 0) {
+                    slideCounter = 3;
                 } else {
-                    sliderCounter--;
+                    slideCounter--;
                 }
-                let lastSlide = sliderCounter === 3 ? 0 : sliderCounter + 1;
+                let lastSlide = slideCounter === 3 ? 0 : slideCounter + 1;
                 setDotActive(lastSlide);
                 slide(lastSlide, "slide-left");
             });
+            document.querySelectorAll(".dot").forEach(el => {
+                el.addEventListener("click", () => {
+                    let id = el.id;
+                    let currentSlide = slideCounter;
+                    slideCounter= id.substring(4, 5);
+                    if (currentSlide < slideCounter) {
+                        slide(currentSlide, "slide-right");
+                    } else {
+                        slide(currentSlide, "slide-left");
+                    }
+                    setDotActive(currentSlide);
+                });
+            })
         }
 
         function slide(lastSlideNr, slideDirection) {
-            let activeSlide = document.getElementById("slide-" + sliderCounter);
+            let activeSlide = document.getElementById("slide-" + slideCounter);
             let lastSlide = document.getElementById("slide-" + lastSlideNr);
             document.querySelectorAll(".slide").forEach(el => {
                 el.classList.remove(...el.classList);
@@ -74,7 +101,6 @@ export default class Cv extends Component {
                 } else {
                     el.classList.add("there");
                 }
-
             });
 
             //give time to render elements before adding animation.
@@ -89,13 +115,11 @@ export default class Cv extends Component {
             }, 20);
 
 
-
-
         }
 
-        function setDotActive(lastPixel) {
-            let activeDot = document.getElementById("dot-" + sliderCounter);
-            let previousActiveDot = document.getElementById("dot-" + lastPixel);
+        function setDotActive(lastDot) {
+            let activeDot = document.getElementById("dot-" + slideCounter);
+            let previousActiveDot = document.getElementById("dot-" + lastDot);
             previousActiveDot.classList.remove("dot-active");
             activeDot.classList.add("dot-active");
         }
@@ -164,10 +188,10 @@ export default class Cv extends Component {
                         <FontAwesomeIcon icon={faChevronLeft}/>
                     </div>
                     <div className="slide-container">
-                        <div className="slide-item slide" id='slide-0'>1</div>
-                        <div className="slide-item slide" id='slide-1'>2</div>
-                        <div className="slide-item slide" id='slide-2'>3</div>
-                        <div className="slide-item slide" id='slide-3'>4</div>
+                        <div className="slide-item slide" id='slide-0'>Hallo was geht hallo hallo</div>
+                        <div className="slide-item slide" id='slide-1'>Hallo was geht hallo hallo</div>
+                        <div className="slide-item slide" id='slide-2'>Hallo was geht hallo hallo</div>
+                        <div className="slide-item slide" id='slide-3'>Hallo was geht hallo hallo</div>
                     </div>
                     <div className="slider-arrow" id="slider-arrow-right">
                         <FontAwesomeIcon icon={faChevronRight}/>

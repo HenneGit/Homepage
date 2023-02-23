@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="some margin adjustments.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="basic slideshow element working.">
       <change afterPath="$PROJECT_DIR$/client/public/text_webseite.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/public/text.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/text.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/AboutMe.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/AboutMe.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/chess/chess.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/chess.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/display/Display.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/display/Display.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,14 +197,7 @@
       <workItem from="1677051320762" duration="2466000" />
       <workItem from="1677058561917" duration="2753000" />
       <workItem from="1677140529523" duration="13715000" />
-      <workItem from="1677154929664" duration="8824000" />
-    </task>
-    <task id="LOCAL-00021" summary="reset game animation and correct back and forward movement.">
-      <created>1668693852484</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1668693852484</updated>
+      <workItem from="1677154929664" duration="10666000" />
     </task>
     <task id="LOCAL-00022" summary="using local storage to save game.">
       <created>1668695301917</created>
@@ -544,7 +535,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677141352956</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="basic slideshow element working.">
+      <created>1677163801761</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1677163801761</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -562,7 +560,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add &quot;draw&quot; as game result." />
     <MESSAGE value="some methods extracted for better overview." />
     <MESSAGE value="comments and better styling for game result dialog." />
     <MESSAGE value="about me section layout done." />
@@ -587,7 +584,8 @@
     <MESSAGE value="localStorage calls replaced with session storage." />
     <MESSAGE value="cleanup and some changes for production." />
     <MESSAGE value="some margin adjustments." />
-    <option name="LAST_COMMIT_MESSAGE" value="some margin adjustments." />
+    <MESSAGE value="basic slideshow element working." />
+    <option name="LAST_COMMIT_MESSAGE" value="basic slideshow element working." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
