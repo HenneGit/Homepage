@@ -1,10 +1,12 @@
 #contact {
+    margin-top: 15vh;
     display: flex;
     justify-items: center;
     justify-content: center;
     color: var(--color-text);
     font-family: var(--font-family);
     background-color: white;
+    height: 100vh;
 }
 
 label {
@@ -38,5 +40,11 @@ textarea {
     margin-bottom: 10vh;
 }
 
-
+.thank-you-div {
+    font-family: var(--font-family);
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    font-size: 5vh;
+    align-self: center;
+}
 

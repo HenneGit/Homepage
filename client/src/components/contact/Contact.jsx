@@ -49,6 +49,7 @@ export default class Contact extends Component {
                 formContainer.removeChild(formContainer.firstChild);
             }
             let thankYou = document.createElement("h2");
+            thankYou.classList.add("thank-you-div");
             thankYou.innerText = stringMessage;
             formContainer.append(thankYou);
         }
@@ -56,7 +57,7 @@ export default class Contact extends Component {
 
     render() {
         return (
-            <div id="contact">
+            <section id="contact">
                 <div>
                     <h1>Contact</h1>
                     <form id="contact-form">
@@ -71,7 +72,7 @@ export default class Contact extends Component {
                         <button type="submit">Submit</button>
                     </form>
                 </div>
-            </div>
+            </section>
         )
     }
 }

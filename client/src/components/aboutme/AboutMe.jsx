@@ -45,8 +45,8 @@ export default class Cv extends Component {
                 let menu = document.getElementById("menu-" + counter);
                 document.getElementById("menu-" + counter).addEventListener("click", () => {
                     document.querySelectorAll(".menu-element").forEach(el => {
-                        el.classList.remove("background-transition");
-                        el.classList.remove("opacity-transition-in");
+                        el.classList.toggle("background-transition");
+                        el.classList.toggle("opacity-transition-in");
                         el.classList.add("link-effect");
                         el.style.background = "#2e2e30";
                     });
@@ -57,7 +57,6 @@ export default class Cv extends Component {
 
                     menu.classList.add("opacity-transition-out");
                     menu.classList.remove("opacity-transition-in");
-
 
                     headlineDiv.classList.add("opacity-transition-out");
                     headlineDiv.classList.remove("opacity-transition-in");
@@ -91,7 +90,7 @@ export default class Cv extends Component {
 
     render() {
         return (
-            <div className="about-me-container" id="aboutMe">
+            <section className="about-me-container" id="aboutMe">
                 <div className="about-me-content-wrapper">
                     <div className="headline-wrapper">
                         <p className="headline">About</p>
@@ -125,7 +124,7 @@ export default class Cv extends Component {
                         <div id="text" className="text-block"></div>
                     </div>
                 </div>
-            </div>
+            </section>
         );
     }
 }

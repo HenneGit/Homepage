@@ -239,12 +239,12 @@ export default class Display extends Component {
 
     render() {
         return (
-            <div id="display">
+            <section id="display">
                 <div id='display-div'></div>
                 <div id='arrow-down'>
                     <FontAwesomeIcon icon={faChevronDown}/>
                 </div>
-            </div>
+            </section>
         )
     }
 }

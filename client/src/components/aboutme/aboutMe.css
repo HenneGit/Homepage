@@ -115,7 +115,7 @@
 .menu p {
     color: white;
     font-family: var(--font-family);
-    font-size: 2vw;
+    font-size: 4vh;
     padding-right: 1vw;
     width: 50%;
 }

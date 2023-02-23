@@ -1,0 +1,56 @@
+Hello and welcome to my personal Homepage.
+
+
+
+
+With this website I want to publish my personal project and test out new things and teach myself new stuff
+
+
+Mit dieser Webseite möchte ich mich und meine privaten Projekte vorstellen.  Als erstes Arbeitsbeispiel habe ich ein Schachspiel
+programmiert. Während meiner Ausbildung wollte ich neben Java noch meine Frontendfähigkeiten verbessern und habe mir zusätlich noch Javscript beigebracht.
+Da ich Spiele liebe, lag es nahe eine Schachspiel zu programmieren. Ziel war es ein eigenständiges Schachspiel zu entwickeln, welches die erlaubten Züge
+für jede Figur selbst berechnet. Im letzten Schritt sollte dann eine Schachengine das Spiel gegen den Computer möglich machen. Das Ergebnis kann
+weiter unten angesehen werden. Der Code ist auf GitHub verfügbar. Die Webseite möchte ich mit weiteren Ideen und Designs erweiteren.
+
+
+
+Hallo und willkommen auf meiner persönlichen Webseite. Mein Name ist Henning Ahrens. Ich bin Software Devoloper. Nachdem ich Medienwissenschaften studiert habe bin ich als
+Produktmanager in der Gamesbranche gelandet. Dort habe ich drei Jahre den Free2Play Titel Brick-Force gemanaged. Im Zuge dieser Arbeit bin ich mit dem Programmieren in Kontakt
+gekommen und habe ein solche Freude daran entwickelt, dass mich noch für eine zweite Berufsausbildung zum Fachinformatiker entschieden habe. Ich habe viereinhalb Jahre an der
+Projektmanagement Software BlueAnt mitentwickelt, die in Java geschrieben ist. In dieser Zeit habe mich mir nebenher noch Javascript beigebracht und möchte mich zum Fullstäck
+Entwickler mausern. Sowohl die tiefen Logiken des Backends als auch das Frontend beigeistern mich. Daher
+
+
+
+
+
+als leidenschaftlicher Softwareentwickler mit vier Jahren Erfahrung im Bereich Backend-Entwicklung in Java bin ich auf der Suche nach neuen Herausforderungen und der Möglichkeit, meine Fähigkeiten im Bereich Frontend-Entwicklung zu vertiefen.
+
+In meiner bisherigen Karriere habe ich mich stets für die Lösung von Problemen begeistert, sei es durch die Entwicklung von effizienten Algorithmen oder die Implementierung von funktionsreichen Applikationen. Diese Leidenschaft möchte ich nun auf den Bereich Frontend-Entwicklung übertragen und mich auf die Entwicklung von ansprechenden und benutzerfreundlichen Benutzeroberflächen konzentrieren.
+
+Um dieses Ziel zu erreichen, habe ich bereits erste Schritte unternommen und mich intensiv mit JavaScript auseinandergesetzt. Ich bin davon überzeugt, dass meine Kenntnisse in diesem Bereich stetig wachsen und ich durch das Erlernen neuer Frameworks und Technologien meine Fähigkeiten weiter ausbauen kann.
+
+Ich bin ein Teamplayer und schätze die Zusammenarbeit mit anderen Entwicklern und Stakeholdern, um die bestmögliche Lösung zu finden. Ich bin motiviert und freue mich auf die Herausforderungen, die eine Position im Frontend-Entwicklungsbereich mit sich bringt.
+
+Gerne würde ich Ihnen in einem persönlichen Gespräch meine Fähigkeiten und meine Leidenschaft für die Lösung von Problemen näher bringen und mich als Kandidat für die Stelle bewerben.
+
+Mit freundlichen Grüßen,
+[Name]
+
+
+Willkommen auf meiner persönlichen Webseite! Mein Name ist [Name] und ich bin ein leidenschaftlicher Programmierer mit einem Hintergrund in der Gamesbranche.
+
+Nach drei Jahren als Produktmanager in der Gamesbranche habe ich meine Begeisterung für die Programmierung entdeckt und habe daraufhin eine Ausbildung zum Fachinformatiker absolviert. Seitdem arbeite ich an verschiedenen Projekten und habe mich dabei auf die Entwicklung von Webseiten und Spielen spezialisiert.
+
+Eines meiner jüngsten Projekte ist ein Schachspiel, das ich vollständig in JavaScript entwickelt habe. Ich habe mich selbst in diese Technologie eingearbeitet und bin stolz darauf, dass ich in der Lage war, dieses komplexe Spiel in einer Sprache zu programmieren, die ich erst vor kurzem gelernt habe.
+
+Ich lade Sie herzlich ein, eine Runde Schach gegen unseren Computergegner Stockfish zu spielen. Ich hoffe, Sie haben Spaß daran, Ihre Schachfähigkeiten zu verbessern und sich mit unserem anspruchsvollen Gegner zu messen.
+
+Der Code für meine Webseite und das Schachspiel ist auf GitHub verfügbar. Schauen Sie gerne vorbei und werfen Sie einen Blick auf meine Arbeit.
+
+Ich freue mich auch immer über Feedback oder Anfragen, also zögern Sie nicht, mir über das Kontaktformular auf meiner Webseite eine Nachricht zu schicken. Ich bin gespannt darauf, von Ihnen zu hören und zu erfahren, wie ich Ihnen bei Ihrem nächsten Projekt helfen kann.
+
+Vielen Dank für Ihren Besuch auf meiner Webseite!
+
+
+
