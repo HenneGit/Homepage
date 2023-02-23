@@ -42,7 +42,7 @@ export function renderProject(project) {
     let {technology} = project;
 
     let container = document.createElement("div");
-    container.classList.add("projectContainer");
+    container.classList.add("project-container");
     let h1 = document.createElement("h1");
     h1.innerText = headline;
     let desc = document.createElement("h2");

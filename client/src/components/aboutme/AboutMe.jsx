@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './aboutMe.css';
+import './slider.css';
 import thatsme from '../../assets/thatsme.png'
 import bewerbung from '../../assets/bewerbung_gross.jpg'
 import {faGit} from "@fortawesome/free-brands-svg-icons";
@@ -58,10 +59,12 @@ export default class Cv extends Component {
                 dot.id = "dot-" + projectCounter;
                 dot.classList.add("dot");
                 document.getElementById("dot-container").appendChild(dot);
-                let projectSlide = renderProject(projects[project]);
-                projectSlide.id = "slide-" + projectCounter;
-                projectSlide.classList.add("slide");
-                document.getElementById("slide-container").appendChild(projectSlide);
+                let slide = document.createElement("div");
+                let projectContainer = renderProject(projects[project]);
+                slide.id = "slide-" + projectCounter;
+                slide.classList.add("slide");
+                slide.appendChild(projectContainer);
+                document.getElementById("slide-container").appendChild(slide);
                 projectCounter++;
             }
             numberOfSlides = projectCounter -1;
@@ -96,7 +99,7 @@ export default class Cv extends Component {
                 el.addEventListener("click", () => {
                     let id = el.id;
                     let currentSlide = slideCounter;
-                    slideCounter= id.substring(4, 5);
+                    slideCounter = parseInt(id.substring(4, 5));
                     if (currentSlide < slideCounter) {
                         slide(currentSlide, "slide-right");
                     } else {
@@ -129,7 +132,7 @@ export default class Cv extends Component {
                 }
                 activeSlide.classList.add(slideDirection);
                 lastSlide.classList.add(slideDirection);
-            }, 20);
+            }, 1);
 
 
         }

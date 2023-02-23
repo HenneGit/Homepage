@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="dots now work the slider when clicked.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="content object for slider.">
       <change afterPath="$PROJECT_DIR$/client/public/text_webseite.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/aboutme/js/projects.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/aboutme/slider.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/public/text.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/text.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/AboutMe.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/AboutMe.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/json/about_me_text.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/js/about_me_text.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/display/Display.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/display/Display.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/js/projects.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/js/projects.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,11 +74,11 @@
       <recent name="$PROJECT_DIR$/server" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/src/components/aboutme" />
       <recent name="$PROJECT_DIR$/client/public" />
       <recent name="$PROJECT_DIR$/client/src/components/chess/js" />
       <recent name="$PROJECT_DIR$/client/src/components/display/json" />
       <recent name="$PROJECT_DIR$/client/src/components/aboutme/json" />
-      <recent name="$PROJECT_DIR$/client/src/assets" />
     </key>
   </component>
   <component name="RunManager">
@@ -199,14 +199,7 @@
       <workItem from="1677051320762" duration="2466000" />
       <workItem from="1677058561917" duration="2753000" />
       <workItem from="1677140529523" duration="13715000" />
-      <workItem from="1677154929664" duration="13150000" />
-    </task>
-    <task id="LOCAL-00023" summary="correct piece picker">
-      <created>1668701559557</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1668701559557</updated>
+      <workItem from="1677154929664" duration="14449000" />
     </task>
     <task id="LOCAL-00024" summary="styling, new game dialog.">
       <created>1668765514914</created>
@@ -544,7 +537,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677165642488</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="content object for slider.">
+      <created>1677168136685</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1677168136686</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -562,7 +562,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="comments and better styling for game result dialog." />
     <MESSAGE value="about me section layout done." />
     <MESSAGE value="about me layout improved and dynamic links for content display." />
     <MESSAGE value="highlighting currently selected menu entry." />
@@ -587,7 +586,8 @@
     <MESSAGE value="some margin adjustments." />
     <MESSAGE value="basic slideshow element working." />
     <MESSAGE value="dots now work the slider when clicked." />
-    <option name="LAST_COMMIT_MESSAGE" value="dots now work the slider when clicked." />
+    <MESSAGE value="content object for slider." />
+    <option name="LAST_COMMIT_MESSAGE" value="content object for slider." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
