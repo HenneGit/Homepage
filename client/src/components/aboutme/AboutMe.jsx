@@ -8,7 +8,8 @@ import {faEnvelope} from "@fortawesome/free-solid-svg-icons";
 import {faChevronLeft} from "@fortawesome/free-solid-svg-icons";
 import {faChevronRight} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {textObject} from "./json/about_me_text.js";
+import {textObject} from "./js/about_me_text.js";
+import {projects, renderProject} from "./js/projects"
 
 export default class Cv extends Component {
     constructor() {
@@ -19,6 +20,8 @@ export default class Cv extends Component {
     componentDidMount() {
 
         let slideCounter = 0;
+        let numberOfSlides = 0;
+        initProjects();
 
         let image = document.getElementById("my-picture");
         image.addEventListener("mouseover", (event) => {
@@ -35,7 +38,6 @@ export default class Cv extends Component {
         });
 
         // setTexts();
-        initSlide();
 
         function initSlide() {
             let currentSlide = document.getElementById("slide-" + slideCounter);
@@ -49,29 +51,44 @@ export default class Cv extends Component {
             });
         }
 
-
+        function initProjects() {
+            let projectCounter = 0;
+            for (let project in projects) {
+                let dot = document.createElement("div");
+                dot.id = "dot-" + projectCounter;
+                dot.classList.add("dot");
+                document.getElementById("dot-container").appendChild(dot);
+                let projectSlide = renderProject(projects[project]);
+                projectSlide.id = "slide-" + projectCounter;
+                projectSlide.classList.add("slide");
+                document.getElementById("slide-container").appendChild(projectSlide);
+                projectCounter++;
+            }
+            numberOfSlides = projectCounter -1;
+            initSlide();
+        }
         setUpDots();
 
         function setUpDots() {
             document.getElementById("dot-0").classList.add("dot-active");
             document.getElementById("slider-arrow-right").addEventListener('click', () => {
-                if (slideCounter === 3) {
+                if (slideCounter === numberOfSlides) {
                     slideCounter = 0;
                 } else {
                     slideCounter++;
                 }
-                let lastSlide = slideCounter === 0 ? 3 : slideCounter - 1;
+                let lastSlide = slideCounter === 0 ? numberOfSlides : slideCounter - 1;
                 setDotActive(lastSlide);
                 slide(lastSlide, "slide-right")
             });
 
             document.getElementById("slider-arrow-left").addEventListener('click', () => {
                 if (slideCounter === 0) {
-                    slideCounter = 3;
+                    slideCounter = numberOfSlides;
                 } else {
                     slideCounter--;
                 }
-                let lastSlide = slideCounter === 3 ? 0 : slideCounter + 1;
+                let lastSlide = slideCounter === numberOfSlides ? 0 : slideCounter + 1;
                 setDotActive(lastSlide);
                 slide(lastSlide, "slide-left");
             });
@@ -187,20 +204,12 @@ export default class Cv extends Component {
                     <div className="slider-arrow" id="slider-arrow-left">
                         <FontAwesomeIcon icon={faChevronLeft}/>
                     </div>
-                    <div className="slide-container">
-                        <div className="slide-item slide" id='slide-0'>Hallo was geht hallo hallo</div>
-                        <div className="slide-item slide" id='slide-1'>Hallo was geht hallo hallo</div>
-                        <div className="slide-item slide" id='slide-2'>Hallo was geht hallo hallo</div>
-                        <div className="slide-item slide" id='slide-3'>Hallo was geht hallo hallo</div>
-                    </div>
+                    <div className="slide-container" id="slide-container"></div>
                     <div className="slider-arrow" id="slider-arrow-right">
                         <FontAwesomeIcon icon={faChevronRight}/>
                     </div>
-                    <div className="dots">
-                        <span className="dot " id="dot-0"></span>
-                        <span className="dot" id="dot-1"></span>
-                        <span className="dot" id="dot-2"></span>
-                        <span className="dot" id="dot-3"></span>
+                    <div className="dots" id="dot-container">
+
                     </div>
                 </div>
             </>

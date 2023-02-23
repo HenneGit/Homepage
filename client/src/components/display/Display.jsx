@@ -33,6 +33,10 @@ export default class Display extends Component {
             shuffle(array);
             let timer = setInterval(function () {
                 const pix = document.getElementById(array[i]);
+                if (pix === undefined || pix === null) {
+                    clearInterval(timer);
+
+                }
                 pix.classList.add('fade');
                 i++;
                 if (i === pixels.length) {
