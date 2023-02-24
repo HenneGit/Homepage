@@ -76,6 +76,12 @@
     justify-self: center;
     cursor: pointer;
     z-index: 99;
+    font-size: 1.5vw;
+
+}
+
+.slider-arrow:hover {
+    color: var(--color-yellow);
 }
 
 

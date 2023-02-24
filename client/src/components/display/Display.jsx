@@ -130,9 +130,6 @@ export default class Display extends Component {
                     removeChildren(contentDiv);
                     initLetterGrid();
                 }, 500)
-                setTimeout(() => {
-                    document.getElementById('about-me').scrollIntoView();
-                },100);
             });
 
             setTimeout(() => {
