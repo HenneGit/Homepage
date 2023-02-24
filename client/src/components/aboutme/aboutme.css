@@ -73,9 +73,9 @@
 }
 
 .icon {
-    border: 1px solid var(--color-dark-lila);
+    border: 1px solid var(--color-grey-shade);
     padding: 3px 6px 0 6px;
-    color: var(--color-dark-lila);
+    color: var(--color-grey-shade);
     font-size: 4vh;
     margin-left: 6px;
     cursor: pointer;

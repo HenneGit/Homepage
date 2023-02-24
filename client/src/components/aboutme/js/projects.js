@@ -53,7 +53,6 @@ export function renderProject(project) {
         gitClone = document.getElementById("git-icon").cloneNode(true);
         gitClone.setAttribute("href", link);
     }
-
     let container = document.createElement("div");
     container.classList.add("project-container");
     let h2 = document.createElement("h2");

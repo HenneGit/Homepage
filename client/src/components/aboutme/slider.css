@@ -98,6 +98,7 @@
 .there {
     grid-row: 1;
     grid-column: 1;
+    z-index: 50;
 }
 
 .not-there {
@@ -106,6 +107,7 @@
     width: 0;
     height: 0;
     position: absolute;
+    z-index: 0;
 }
 
 .start-right {
