@@ -7,6 +7,7 @@
 }
 
 .about-me-content-wrapper {
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -32,26 +33,30 @@
 
 
 .about-me-content {
+    display: flex;
+    flex-direction: column;
     height: 100%;
+    width: 100%;
     font-family: var(--font-family);
     font-size: 1vw;
-    justify-content: space-evenly;
 }
 
-text-block {
-    padding-right: 5rem;
-}
 
+#content {
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+}
 
 .content-headline {
     font-size: 4vw;
     font-weight: bold;
     color: white;
     height: 15vh;
-}
-
-.text-block {
-    margin-top: 10vh;
 }
 
 .icons {
@@ -155,9 +160,5 @@ text-block {
 .me {
     color: var(--color-mauve);
     font-weight: lighter;
-}
-
-.about-me-content {
-    height: 100%;
 }
 

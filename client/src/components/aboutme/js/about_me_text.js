@@ -5,9 +5,9 @@ export const textObject = {
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse. Imperdiet proin fermentum leo vel. Nunc scelerisque viverra mauris in aliquam. Enim eu turpis egestas pretium aenean pharetra. Nulla aliquet enim tortor at auctor urna nunc id. Viverra maecenas accumsan lacus vel facilisis volutpat est velit egestas. Velit scelerisque in dictum non consectetur a erat nam. Ut aliquam purus sit amet luctus venenatis lectus magna fringilla. Mattis aliquam faucibus purus in massa tempor nec feugiat nisl. Sit amet consectetur adipiscing elit ut aliquam purus sit amet. Tincidunt id aliquet risus feugiat. Posuere morbi leo urna molestie at elementum eu. Tempus urna et pharetra pharetra massa massa ultricies mi quis. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus."
     },
     "about-me2": {
-        "headline": "What do I do",
+        "headline": "My Projects",
         "color": "#A16477",
-        "text": "Vitae sapien pellentesque habitant morbi tristique senectus et. Nunc vel risus commodo viverra maecenas accumsan lacus. A diam maecenas sed enim. Habitasse platea dictumst quisque sagittis purus sit amet volutpat consequat. Quis risus sed vulputate odio ut enim blandit. Massa sed elementum tempus egestas. Placerat orci nulla pellentesque dignissim enim sit amet venenatis urna. Volutpat ac tincidunt vitae semper quis lectus nulla at. Aliquam faucibus purus in massa tempor nec. Pretium aenean pharetra magna ac. Ante metus dictum at tempor. Diam vulputate ut pharetra sit. Non sodales neque sodales ut etiam sit amet nisl purus."
+        "text": ""
     },
     "about-me3": {
         "headline": "This website",

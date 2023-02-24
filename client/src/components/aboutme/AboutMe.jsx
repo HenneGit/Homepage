@@ -22,6 +22,7 @@ export default class Cv extends Component {
 
         let slideCounter = 0;
         let numberOfSlides = 0;
+        setTexts();
         initProjects();
 
         let image = document.getElementById("my-picture");
@@ -38,7 +39,7 @@ export default class Cv extends Component {
             thatsMeImage.classList.remove("thats-me-transition");
         });
 
-        // setTexts();
+
 
         function initSlide() {
             let currentSlide = document.getElementById("slide-" + slideCounter);
@@ -69,8 +70,9 @@ export default class Cv extends Component {
             }
             numberOfSlides = projectCounter -1;
             initSlide();
+            setUpDots();
         }
-        setUpDots();
+
 
         function setUpDots() {
             document.getElementById("dot-0").classList.add("dot-active");
@@ -123,13 +125,13 @@ export default class Cv extends Component {
                 }
             });
 
+            if (slideDirection.includes("right")) {
+                activeSlide.classList.add("start-right");
+            } else {
+                activeSlide.classList.add("start-left");
+            }
             //give time to render elements before adding animation.
             setTimeout(() => {
-                if (slideDirection.includes("right")) {
-                    activeSlide.classList.add("start-right");
-                } else {
-                    activeSlide.classList.add("start-left");
-                }
                 activeSlide.classList.add(slideDirection);
                 lastSlide.classList.add(slideDirection);
             }, 1);
@@ -153,7 +155,7 @@ export default class Cv extends Component {
                 let {text} = object;
                 let {color} = object;
                 let headlineDiv = document.getElementById("headline");
-                let textDiv = document.getElementById("text");
+                let textDiv = document.getElementById("text-content");
                 let menu = document.getElementById("menu-" + counter);
                 document.getElementById("menu-" + counter).addEventListener("click", () => {
                     document.querySelectorAll(".menu-element").forEach(el => {
@@ -162,6 +164,7 @@ export default class Cv extends Component {
                         el.classList.add("link-effect");
                         el.style.background = "#2e2e30";
                     });
+
                     headlineDiv.style.background = color;
                     headlineDiv.classList.add("background-transition");
                     menu.classList.add("background-transition");
@@ -176,6 +179,13 @@ export default class Cv extends Component {
                     textDiv.classList.add("opacity-transition-out");
                     textDiv.classList.remove("opacity-transition-in");
                     headlineDiv.innerText = headline;
+                    if (id === "about-me2") {
+                        console.log("dies")
+                        document.getElementById("slideshow-container").classList.remove("hidden");
+                    } else {
+                        console.log("das")
+                        document.getElementById("slideshow-container").classList.add("hidden");
+                    }
                     let timout = setTimeout(() => {
                         textDiv.innerText = text;
                         headlineDiv.classList.remove("opacity-transition-out");
@@ -186,14 +196,15 @@ export default class Cv extends Component {
                         headlineDiv.classList.add("opacity-transition-in");
                         textDiv.classList.add("opacity-transition-in");
                         clearTimeout(timout);
-                    }, 300);
+                    }, 20);
                 });
                 if (id === "about-me") {
                     headlineDiv.innerText = headline;
                     menu.style.background = color;
                     headlineDiv.style.background = color;
-                    document.getElementById("text").innerText = text;
+                    document.getElementById("text-content").innerText = text;
                 }
+
                 counter++;
             }
             counter = 1;
@@ -203,7 +214,7 @@ export default class Cv extends Component {
     render() {
         const ProjectSlider = () => (
             <>
-                <div className="slideshow-container">
+                <div id="slideshow-container" className="slideshow-container hidden">
                     <div className="slider-arrow" id="slider-arrow-left">
                         <FontAwesomeIcon icon={faChevronLeft}/>
                     </div>
@@ -212,7 +223,6 @@ export default class Cv extends Component {
                         <FontAwesomeIcon icon={faChevronRight}/>
                     </div>
                     <div className="dots" id="dot-container">
-
                     </div>
                 </div>
             </>
@@ -251,8 +261,11 @@ export default class Cv extends Component {
                     </div>
                     <div className="about-me-content">
                         <div id="headline" className="content-headline"></div>
-                        <div id="text" className="text-block"></div>
-                        <ProjectSlider/>
+                        <div id="content" >
+                            <div id="text-content" className="text-block"></div>
+                            <ProjectSlider/>
+                        </div>
+
                     </div>
                 </div>
             </section>

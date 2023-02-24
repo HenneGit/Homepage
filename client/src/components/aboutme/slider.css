@@ -18,13 +18,24 @@
     background-color: var(--color-dark-lila);
 }
 
+
+
+
 .slideshow-container {
+    height: 70vh;
+    width: 60vw;
     display: grid;
     grid-template-rows: 10% 80% 10%;
     grid-template-columns: 10% 80% 10%;
-    height: 70vh;
-    width: 59vw;
 }
+
+.hidden {
+    height: 0;
+    width: 0;
+    opacity: 0;
+}
+
+
 
 .project-container {
     display: flex;
@@ -76,10 +87,6 @@
     left: 100%;
 }
 
-.active-slide {
-    width: 500px;
-
-}
 
 .slide {
     height: 90%;
