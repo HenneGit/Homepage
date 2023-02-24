@@ -16,7 +16,7 @@ export default class StickyMenu extends Component {
             return elemTop >= 150;
         }
         addStickyMenuFunctions();
-        let aboutMeSection = document.getElementById("aboutMe");
+        let aboutMeSection = document.getElementById("about-me");
         document.getElementById("sticky-menu").classList.add("invisible");
         document.getElementById("link-container").classList.add("collapsed");
         document.addEventListener('scroll', async function () {
@@ -49,7 +49,7 @@ export default class StickyMenu extends Component {
                 </div>
                 <div id="link-container" className="link-container">
                     <p className="sticky-menu-item"><a className='link-effect' href="#start">Top</a></p>
-                    <p className="sticky-menu-item"><a className='link-effect' href="#aboutMe">About Me</a></p>
+                    <p className="sticky-menu-item"><a className='link-effect' href="#about-me">About Me</a></p>
                     <p className="sticky-menu-item"><a className='link-effect' href="#chess-container">Chess</a></p>
                     <p className="sticky-menu-item"><a className='link-effect' href="#contact">Contact</a>
                     </p>

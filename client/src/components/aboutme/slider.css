@@ -69,6 +69,7 @@
     align-self: center;
     justify-self: center;
     cursor: pointer;
+    z-index: 99;
 }
 
 

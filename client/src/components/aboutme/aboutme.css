@@ -23,7 +23,7 @@
 
 .opacity-transition-out {
     opacity: 0;
-    transition: opacity 0.25s ease-in;
+    transition: opacity 0.4s ease-in;
 }
 
 .background-transition {
@@ -32,8 +32,9 @@
 
 .opacity-transition-in {
     opacity: 1;
-    transition: opacity 0.25s ease-in;
+    transition: opacity 0.4s ease-in;
 }
+
 
 
 .about-me-content {
@@ -46,7 +47,7 @@
 }
 
 
-#content {
+#content-box {
     height: 85vh;
     display: flex;
     flex-direction: column;
@@ -165,4 +166,22 @@
     color: var(--color-mauve);
     font-weight: lighter;
 }
+
+.menu-background-grey {
+    background-color: var(--color-grey);
+}
+
+.menu-background-green {
+    background-color: var(--color-chess-legal);
+}
+
+.menu-background-yellow {
+    background-color: var(--color-yellow);
+}
+
+.menu-background-lila {
+    background-color: var(--color-dark-lila);
+}
+
+
 

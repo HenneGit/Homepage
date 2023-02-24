@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './aboutMe.css';
+import './aboutme.css';
 import './slider.css';
 import thatsme from '../../assets/thatsme.png'
 import bewerbung from '../../assets/bewerbung_gross.jpg'
@@ -40,7 +40,6 @@ export default class Cv extends Component {
         });
 
 
-
         function initSlide() {
             let currentSlide = document.getElementById("slide-" + slideCounter);
             document.querySelectorAll(".slide").forEach(el => {
@@ -68,7 +67,7 @@ export default class Cv extends Component {
                 document.getElementById("slide-container").appendChild(slide);
                 projectCounter++;
             }
-            numberOfSlides = projectCounter -1;
+            numberOfSlides = projectCounter - 1;
             initSlide();
             setUpDots();
         }
@@ -150,69 +149,84 @@ export default class Cv extends Component {
 
         function setTexts() {
             let counter = 1;
+            let slideShowContainer = document.getElementById("slideshow-container");
+            let contentBox = document.getElementById("content-box");
+            let textContent = document.getElementById("text-content");
+            let headlineDiv = document.getElementById("headline");
             for (let id in textObject) {
+                let menu = document.getElementById("menu-" + counter);
                 let object = textObject[id];
                 let {headline} = object;
                 let {text} = object;
-                let {color} = object;
-                let headlineDiv = document.getElementById("headline");
-                let textDiv = document.getElementById("text-content");
-                let menu = document.getElementById("menu-" + counter);
+                let {css} = object;
                 document.getElementById("menu-" + counter).addEventListener("click", () => {
-                    document.querySelectorAll(".menu-element").forEach(el => {
-                        el.classList.toggle("background-transition");
-                        el.classList.toggle("opacity-transition-in");
-                        el.classList.add("link-effect");
-                        el.style.background = "#2e2e30";
-                    });
-
-                    headlineDiv.style.background = color;
-                    headlineDiv.classList.add("background-transition");
-                    menu.classList.add("background-transition");
-                    menu.style.background = color;
-
-                    menu.classList.add("opacity-transition-out");
-                    menu.classList.remove("opacity-transition-in");
-
-                    headlineDiv.classList.add("opacity-transition-out");
-                    headlineDiv.classList.remove("opacity-transition-in");
-
-                    textDiv.classList.add("opacity-transition-out");
-                    textDiv.classList.remove("opacity-transition-in");
-                    headlineDiv.innerText = headline;
-                    if (id === "about-me2") {
-                        console.log("dies")
-                        document.getElementById("slideshow-container").classList.remove("hidden");
-                        document.getElementById("text-content").classList.remove("text-block");
-                    } else {
-                        console.log("das")
-                        document.getElementById("slideshow-container").classList.add("hidden");
-                        document.getElementById("text-content").classList.add("text-block");
-
-                    }
-                    let timout = setTimeout(() => {
-                        textDiv.innerText = text;
+                    setClassesToMenuItems(css, menu);
+                    setClassesToHeadline(css, headline, headlineDiv);
+                    setClassesToContentBox(slideShowContainer, textContent, contentBox, id)
+                    setTimeout(() => {
+                        if (id === "about-me2") {
+                            slideShowContainer.classList.remove("hidden");
+                            textContent.classList.remove("text-block");
+                        }
+                        headlineDiv.classList.add(css);
                         headlineDiv.classList.remove("opacity-transition-out");
-                        textDiv.classList.remove("opacity-transition-out");
-                        menu.classList.remove("opacity-transition-out");
-                        menu.classList.remove("link-effect")
-                        menu.classList.add("opacity-transition-in");
                         headlineDiv.classList.add("opacity-transition-in");
-                        textDiv.classList.add("opacity-transition-in");
-                        clearTimeout(timout);
-                    }, 20);
+                        contentBox.classList.add("opacity-transition-in");
+                        textContent.innerText = text;
+                        menu.classList.remove("link-effect")
+                    }, 400);
                 });
                 if (id === "about-me") {
+                    let headlineDiv = document.getElementById("headline");
                     headlineDiv.innerText = headline;
-                    menu.style.background = color;
-                    headlineDiv.style.background = color;
-                    document.getElementById("text-content").innerText = text;
-                }
 
+                    headlineDiv.classList.add(css);
+                    menu.classList.add(css)
+                    menu.classList.remove("link-effect");
+                    textContent.innerText = text;
+                    textContent.classList.add("text-block");
+                }
                 counter++;
             }
-            counter = 1;
-        };
+        }
+
+        function setClassesToMenuItems(cssClass, menu) {
+            document.querySelectorAll(".menu-element").forEach(el => {
+                el.classList.remove(...el.classList);
+                el.classList.add("menu-element");
+                el.classList.add("link-effect");
+                el.classList.add("menu-background-grey")
+            });
+            menu.classList.add(cssClass);
+
+        }
+
+        function setClassesToHeadline(cssClass, headline, headlineDiv) {
+            headlineDiv.classList.remove("opacity-transition-in")
+            headlineDiv.classList.add("opacity-transition-out");
+            setTimeout(() => {
+                headlineDiv.classList.remove(...headlineDiv.classList);
+                headlineDiv.classList.add("content-headline");
+                headlineDiv.innerText = headline;
+                headlineDiv.classList.add(cssClass);
+                headlineDiv.classList.add("opacity-transition-in")
+            }, 400);
+
+        }
+
+        function setClassesToContentBox(slideShowContainer, textContent, contentBox, id) {
+            //hide and show slideshow.
+            contentBox.classList.remove(...contentBox.classList);
+            contentBox.classList.add("opacity-transition-out");
+            setTimeout(()=> {
+                if (id === "about-me2") {
+                    textContent.innerText = null;
+                } else {
+                    slideShowContainer.classList.add("hidden");
+                    textContent.classList.add("text-block");
+                }
+            },400)
+        }
     }
 
     render() {
@@ -234,7 +248,7 @@ export default class Cv extends Component {
 
 
         return (
-            <section className="about-me-container" id="aboutMe">
+            <section className="about-me-container" id="about-me">
                 <div className="about-me-content-wrapper">
                     <div className="headline-wrapper">
                         <p className="headline">About</p>
@@ -265,7 +279,7 @@ export default class Cv extends Component {
                     </div>
                     <div className="about-me-content">
                         <div id="headline" className="content-headline"></div>
-                        <div id="content" >
+                        <div id="content-box">
                             <div id="text-content"></div>
                             <ProjectSlider/>
                         </div>

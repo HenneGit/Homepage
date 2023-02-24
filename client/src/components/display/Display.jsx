@@ -11,7 +11,7 @@ export default class Display extends Component {
 
     componentDidMount() {
         document.getElementById("arrow-down").addEventListener('click', function () {
-            document.getElementById('aboutMe').scrollIntoView();
+            document.getElementById('about-me').scrollIntoView();
         });
         initLetterGrid();
 
@@ -131,7 +131,7 @@ export default class Display extends Component {
                     initLetterGrid();
                 }, 500)
                 setTimeout(() => {
-                    document.getElementById('aboutMe').scrollIntoView();
+                    document.getElementById('about-me').scrollIntoView();
                 },100);
             });
 
