@@ -24,7 +24,7 @@ export default class Cv extends Component {
         let numberOfSlides = 0;
         setTexts();
         initProjects();
-
+        //set mouseover events on picture.
         let image = document.getElementById("my-picture");
         image.addEventListener("mouseover", (event) => {
             event.preventDefault();
@@ -39,8 +39,10 @@ export default class Cv extends Component {
             thatsMeImage.classList.remove("thats-me-transition");
         });
 
-
-        function initSlide() {
+        /**
+         * set visibility to slides.
+         */
+        function initSlides() {
             let currentSlide = document.getElementById("slide-" + slideCounter);
             document.querySelectorAll(".slide").forEach(el => {
                 el.classList.add("slide");
@@ -52,6 +54,9 @@ export default class Cv extends Component {
             });
         }
 
+        /**
+         * setup a slide and a dot for each project in the projects object.
+         */
         function initProjects() {
             let projectCounter = 0;
             for (let project in projects) {
@@ -68,12 +73,14 @@ export default class Cv extends Component {
                 projectCounter++;
             }
             numberOfSlides = projectCounter - 1;
-            initSlide();
-            setUpDots();
+            initSlides();
+            setUpDotAndArrowEvent();
         }
 
-
-        function setUpDots() {
+        /**
+         * set classes and events to dots and arrows.
+         */
+        function setUpDotAndArrowEvent() {
             document.getElementById("dot-0").classList.add("dot-active");
             document.getElementById("slider-arrow-right").addEventListener('click', () => {
                 if (slideCounter === numberOfSlides) {
@@ -111,6 +118,11 @@ export default class Cv extends Component {
             })
         }
 
+        /**
+         * slide to the next project.
+         * @param lastSlideNr the slide that is slided away.
+         * @param slideDirection left or right.
+         */
         function slide(lastSlideNr, slideDirection) {
             let activeSlide = document.getElementById("slide-" + slideCounter);
             let lastSlide = document.getElementById("slide-" + lastSlideNr);
@@ -139,6 +151,10 @@ export default class Cv extends Component {
             }, 700);
         }
 
+        /**
+         * set the dot active which belongs to the current project slide.
+         * @param lastDot the last dot that was active.
+         */
         function setDotActive(lastDot) {
             let activeDot = document.getElementById("dot-" + slideCounter);
             let previousActiveDot = document.getElementById("dot-" + lastDot);
@@ -146,7 +162,9 @@ export default class Cv extends Component {
             activeDot.classList.add("dot-active");
         }
 
-
+        /**
+         * set up texts from the text documents and setup all the classes for menu and the content-box.
+         */
         function setTexts() {
             let counter = 1;
             let slideShowContainer = document.getElementById("slideshow-container");
@@ -190,6 +208,11 @@ export default class Cv extends Component {
             }
         }
 
+        /**
+         * set classes to the menu items.
+         * @param cssClass the css class to set.
+         * @param menu the menu item to set classes on.
+         */
         function setClassesToMenuItems(cssClass, menu) {
             document.querySelectorAll(".menu-element").forEach(el => {
                 el.classList.remove(...el.classList);
@@ -201,6 +224,12 @@ export default class Cv extends Component {
 
         }
 
+        /**
+         * set classes to the headline.
+         * @param cssClass the css background-color class from text object.
+         * @param headline the headline class from text object.
+         * @param headlineDiv the headline div.
+         */
         function setClassesToHeadline(cssClass, headline, headlineDiv) {
             headlineDiv.classList.remove("opacity-transition-in")
             headlineDiv.classList.add("opacity-transition-out");
@@ -214,6 +243,13 @@ export default class Cv extends Component {
 
         }
 
+        /**
+         * set the transition classes to the content box and hide the slider if necessary.
+         * @param slideShowContainer the slideShow container.
+         * @param textContent the text-content div.
+         * @param contentBox the content-box holding text or slider.
+         * @param id the id of the current element.
+         */
         function setClassesToContentBox(slideShowContainer, textContent, contentBox, id) {
             //hide and show slideshow.
             contentBox.classList.remove(...contentBox.classList);
@@ -257,15 +293,15 @@ export default class Cv extends Component {
                     <div className="sidebar">
                         <div className="menu">
                             <p id="menu-1" className="link-effect menu-element">About Me</p>
-                            <p id="menu-2" className="link-effect menu-element">My Projects</p>
-                            <p id="menu-3" className="link-effect menu-element">This website</p>
+                            <p id="menu-2" className="link-effect menu-element">This website</p>
+                            <p id="menu-3" className="link-effect menu-element">My Projects</p>
                         </div>
                         <div className="about-me-image" id="about-me-image">
                             <img id="thats-me" className="thats-me" src={thatsme}/>
                             <img id="my-picture" src={bewerbung}/>
                         </div>
                         <div className="icons">
-                            <a href="https://github.com/HenneGit" target="-_blank" className="icon">
+                            <a href="https://github.com/HenneGit" id="git-icon" target="-_blank" className="icon">
                                 <FontAwesomeIcon icon={faGit}/>
                             </a>
                             <a href="https://www.linkedin.com/in/henning-ahrens-52a183b1" target="-_blank"

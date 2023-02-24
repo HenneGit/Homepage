@@ -4,19 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="better sliding effect and positioning of slides.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="my projects items styled and git added.">
       <change afterPath="$PROJECT_DIR$/client/public/text_webseite.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/public/text.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/text.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/AboutMe.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/Aboutme.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/aboutMe.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/aboutme.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/Aboutme.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/Aboutme.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/aboutme.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/aboutme.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/js/about_me_text.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/js/about_me_text.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/js/projects.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/js/projects.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/slider.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/slider.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/display/Display.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/display/Display.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/navigation/Navigation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/navigation/Navigation.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/stickymenu/StickyMenu.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/stickymenu/StickyMenu.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,14 +202,7 @@
       <workItem from="1677058561917" duration="2753000" />
       <workItem from="1677140529523" duration="13715000" />
       <workItem from="1677154929664" duration="18357000" />
-      <workItem from="1677228131270" duration="16487000" />
-    </task>
-    <task id="LOCAL-00027" summary="chess svg implemented">
-      <created>1668953506718</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1668953506718</updated>
+      <workItem from="1677228131270" duration="20654000" />
     </task>
     <task id="LOCAL-00028" summary="new game balloon fixed.">
       <created>1668957620777</created>
@@ -550,7 +540,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677241122482</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="some renaming and content change animation finished.">
+      <created>1677252508448</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1677252508448</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -568,8 +565,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fade text in and out." />
-    <MESSAGE value="enpassant bug fixed." />
     <MESSAGE value="button size fixed." />
     <MESSAGE value="menu color effect added. needs better colors." />
     <MESSAGE value="menu color effect improved." />
@@ -593,7 +588,9 @@
     <MESSAGE value="own css file for slider. parse string to int." />
     <MESSAGE value="unhide slide on menu click. better positioning of content elements." />
     <MESSAGE value="better sliding effect and positioning of slides." />
-    <option name="LAST_COMMIT_MESSAGE" value="better sliding effect and positioning of slides." />
+    <MESSAGE value="some renaming and content change animation finished." />
+    <MESSAGE value="my projects items styled and git added." />
+    <option name="LAST_COMMIT_MESSAGE" value="my projects items styled and git added." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

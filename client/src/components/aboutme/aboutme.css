@@ -58,10 +58,10 @@
 }
 
 .content-headline {
-    font-size: 4vw;
-    font-weight: bold;
+    font-size: 5vw;
     color: white;
     height: 15vh;
+    padding-left: 5rem;
 }
 
 .icons {

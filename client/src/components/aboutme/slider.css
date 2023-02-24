@@ -19,8 +19,6 @@
 }
 
 
-
-
 .slideshow-container {
     height: 70vh;
     width: 60vw;
@@ -39,7 +37,14 @@
 
 .project-container {
     display: flex;
+    gap: 1rem;
     flex-direction: column;
+    align-items: start;
+}
+
+.project-container p {
+    font-style: italic;
+    font-size: 1.2vw;
 }
 
 
@@ -61,6 +66,7 @@
     z-index: 10;
     position: relative;
     box-shadow: 3px 3px 7px 3px rgb(0 0 0 / 20%);
+    padding: 2rem 2rem 2rem 2rem;
 }
 
 
