@@ -6,7 +6,7 @@
     color: var(--color-text);
     font-family: var(--font-family);
     background-color: white;
-    height: 100vh;
+    height: 80vh;
 }
 
 label {
