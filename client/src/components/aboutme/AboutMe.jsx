@@ -134,9 +134,10 @@ export default class Cv extends Component {
             setTimeout(() => {
                 activeSlide.classList.add(slideDirection);
                 lastSlide.classList.add(slideDirection);
-            }, 1);
-
-
+            }, 150);
+            setTimeout(() => {
+                lastSlide.classList.add("opacity-transition");
+            }, 700);
         }
 
         function setDotActive(lastDot) {
@@ -182,9 +183,12 @@ export default class Cv extends Component {
                     if (id === "about-me2") {
                         console.log("dies")
                         document.getElementById("slideshow-container").classList.remove("hidden");
+                        document.getElementById("text-content").classList.remove("text-block");
                     } else {
                         console.log("das")
                         document.getElementById("slideshow-container").classList.add("hidden");
+                        document.getElementById("text-content").classList.add("text-block");
+
                     }
                     let timout = setTimeout(() => {
                         textDiv.innerText = text;
@@ -239,7 +243,7 @@ export default class Cv extends Component {
                     <div className="sidebar">
                         <div className="menu">
                             <p id="menu-1" className="link-effect menu-element">About Me</p>
-                            <p id="menu-2" className="link-effect menu-element">What do I do</p>
+                            <p id="menu-2" className="link-effect menu-element">My Projects</p>
                             <p id="menu-3" className="link-effect menu-element">This website</p>
                         </div>
                         <div className="about-me-image" id="about-me-image">
@@ -262,7 +266,7 @@ export default class Cv extends Component {
                     <div className="about-me-content">
                         <div id="headline" className="content-headline"></div>
                         <div id="content" >
-                            <div id="text-content" className="text-block"></div>
+                            <div id="text-content"></div>
                             <ProjectSlider/>
                         </div>
 
