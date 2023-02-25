@@ -14,7 +14,7 @@ const demoTool = {
     headline: "DemoTool",
     description :"A webapp for creating test data over webservices in the project management software blueAnt. It is used to create demo access for possible customers. Featured a Java Backend and JavaScript Frontend to manage " +
         "data.",
-    technology: "SOAP, REST, Quarkus",
+    technology: "SOAP, REST, Quarkus, Java, JavaScript, CSS",
     link: null,
     git: false
 }
@@ -40,6 +40,11 @@ const chess = {
 
 export const projects = {website, demoTool, immoScraper, chess}
 
+/**
+ * renders a slide in the project slider according to given project.
+ * @param project the project content to render.
+ * @returns {HTMLDivElement} the created dom element.
+ */
 export function renderProject(project) {
 
     let {headline} = project;

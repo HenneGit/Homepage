@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="hover effect on slider arrows.">
-      <change afterPath="$PROJECT_DIR$/client/public/text_webseite.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/aboutme/viewport.css" afterDir="false" />
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="some viewport adjustments and better slide-in effect.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/text.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/text.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/Aboutme.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/Aboutme.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/aboutme.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/aboutme.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/slider.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/slider.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/js/projects.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/js/projects.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/viewport.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/viewport.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,14 +198,7 @@
       <workItem from="1677140529523" duration="13715000" />
       <workItem from="1677154929664" duration="18357000" />
       <workItem from="1677228131270" duration="22890000" />
-      <workItem from="1677311030150" duration="2398000" />
-    </task>
-    <task id="LOCAL-00032" summary="better design of chess.">
-      <created>1669127265080</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1669127265080</updated>
+      <workItem from="1677311030150" duration="4389000" />
     </task>
     <task id="LOCAL-00033" summary="contact form started.">
       <created>1669130448897</created>
@@ -546,7 +536,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677258036117</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="some viewport adjustments and better slide-in effect.">
+      <created>1677313513294</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1677313513295</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -564,7 +561,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="better font family and some clean up." />
     <MESSAGE value="better colors and some css clean up." />
     <MESSAGE value="aligning menu items and headline box." />
     <MESSAGE value="chess bugs fixed." />
@@ -589,7 +585,8 @@
     <MESSAGE value="z-index for current slide raised so the git icon is clickable." />
     <MESSAGE value="contact height reduced." />
     <MESSAGE value="hover effect on slider arrows." />
-    <option name="LAST_COMMIT_MESSAGE" value="hover effect on slider arrows." />
+    <MESSAGE value="some viewport adjustments and better slide-in effect." />
+    <option name="LAST_COMMIT_MESSAGE" value="some viewport adjustments and better slide-in effect." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
