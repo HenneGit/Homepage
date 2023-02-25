@@ -105,7 +105,6 @@
     transform: translatey(0px);
     transition: transform 0.25s ease-in;
     height: 50%;
-
 }
 
 
@@ -121,7 +120,7 @@
 .menu p {
     color: white;
     font-family: var(--font-family);
-    font-size: 4vh;
+    font-size: 2.2vw;
     padding-right: 1vw;
     width: 50%;
 }
@@ -151,7 +150,7 @@
 }
 
 .headline-wrapper p {
-    font-size: 5vw;
+    font-size: 10vh;
     text-orientation: upright;
     writing-mode: vertical-rl;
     text-transform: uppercase;

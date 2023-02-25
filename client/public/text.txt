@@ -54,3 +54,34 @@ Vielen Dank für Ihren Besuch auf meiner Webseite!
 
 
 
+Willkommen auf meiner persönlichen Webseite! Hier präsentiere ich meine neuesten Projekte und Ideen, die ich in meiner Freizeit entwickle. Eines meiner Lieblingsprojekte auf dieser Seite ist das Schachspiel, das ich programmiert habe, um mir selbst Javascript beizubringen. Es ist eine großartige Möglichkeit, meine Fähigkeiten zu testen und meine Fortschritte zu verfolgen.
+
+Ich lade dich herzlich ein, mein Schachspiel auszuprobieren und zu sehen, wie es dir gefällt. Es ist auch eine großartige Gelegenheit, um deine eigenen Fähigkeiten im Schach zu verbessern. Natürlich freue ich mich auch über Feedback und Vorschläge für zukünftige Verbesserungen.
+
+Ich plane auch, in Zukunft weitere aufregende Projekte auf dieser Seite zu veröffentlichen, also sei gespannt und schau regelmäßig vorbei. Wenn du Fragen oder Kommentare hast oder einfach nur Hallo sagen möchtest, zögere nicht, das Kontaktformular auf meiner Seite zu nutzen oder mir eine E-Mail zu schicken. Ich würde mich sehr freuen, von dir zu hören!
+
+Und falls du daran interessiert bist, den Code für meine Projekte zu sehen, ist dieser auf Github verfügbar. Schau doch gerne mal vorbei und teile deine Gedanken und Vorschläge.
+
+Ich danke dir für deinen Besuch auf meiner Seite und freue mich darauf, von dir zu hören!
+
+
+
+Sehr geehrte Damen und Herren,
+
+als begeisterter Programmierer mit einem Hintergrund in Medienwissenschaft und Erfahrung im Produktmanagement der Games Industrie, bewerbe ich mich hiermit um die ausgeschriebene Entwicklerstelle in Ihrem Unternehmen.
+
+
+
+Hallo, mein Name ist [Dein Name] und ich bin ein leidenschaftlicher Entwickler mit einem breiten Spektrum an Interessen und Erfahrungen.
+
+Nach meinem Studium der Medienwissenschaften war ich dreieinhalb Jahre als Produktmanager in der Games-Industrie tätig. Dort habe ich meine Liebe zum Programmieren entdeckt und beschlossen, eine Ausbildung zum Fachinformatiker zu absolvieren. Während meiner Ausbildung konnte ich meine Fähigkeiten in Java vertiefen und an der Entwicklung der Projektmanagement-Software BlueAnt mitarbeiten. Nach erfolgreichem Abschluss meiner Ausbildung wurde ich von meinem Arbeitgeber übernommen und konnte dort anderthalb weitere Jahre Erfahrungen sammeln.
+
+In meinem beruflichen Werdegang habe ich mich immer wieder neuen Herausforderungen gestellt und mich für unterschiedliche Projekte engagiert. Meine Neugier und mein Wunsch, mich ständig weiterzuentwickeln, haben mich dazu bewogen, meine eigenen Fähigkeiten in der Frontendentwicklung zu verbessern. Aus diesem Grund habe ich meine eigene Webseite entwickelt, auf der ich meine Kenntnisse und Fähigkeiten demonstriere.
+
+Neben meinem beruflichen Engagement bin ich auch ein begeisterter Koch und leidenschaftlicher Spieler von Schach und Backgammon. Es bereitet mir Freude, komplexe Probleme zu lösen und mich neuen Herausforderungen zu stellen. Ich bin davon überzeugt, dass ich mit meinem breiten Wissen und meiner Liebe zur Programmierung ein wertvoller Beitrag für jedes Projekt sein kann.
+
+Ich bin stets motiviert, neue Dinge zu lernen und meine Fähigkeiten weiter zu verbessern. Wenn Sie auf der Suche nach einem Entwickler sind, der engagiert, motiviert und lernbereit ist, dann freue ich mich darauf, mehr von Ihnen zu erfahren und Ihnen meine Fähigkeiten zu präsentieren. Kontaktieren Sie mich gerne über das Kontaktformular meiner Webseite und lassen Sie uns über eine Zusammenarbeit sprechen.
+
+Herzliche Grüße,
+
+[Dein Name]

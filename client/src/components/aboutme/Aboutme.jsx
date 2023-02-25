@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './aboutme.css';
 import './slider.css';
+import './viewport.css';
 import thatsme from '../../assets/thatsme.png'
 import bewerbung from '../../assets/bewerbung_gross.jpg'
 import {faGit} from "@fortawesome/free-brands-svg-icons";
@@ -142,6 +143,8 @@ export default class Cv extends Component {
                 activeSlide.classList.add("start-left");
             }
             //give time to render elements before adding animation.
+            activeSlide.classList.add("opacity-transition-in");
+
             setTimeout(() => {
                 activeSlide.classList.add(slideDirection);
                 lastSlide.classList.add(slideDirection);

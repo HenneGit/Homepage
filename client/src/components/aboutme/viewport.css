@@ -1,0 +1,42 @@
+@media only screen and (max-width: 1024px) {
+
+    .headline-wrapper p {
+        font-size: 6em;
+
+    }
+
+}
+
+
+@media only screen and (max-width: 1024px) {
+
+    .headline-wrapper p {
+        font-size: 6em;
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+
+    .headline-wrapper p {
+        font-size: 5vh;
+
+    }
+
+}
+
+
+@media only screen and (max-height: 950px) {
+
+    .headline-wrapper p {
+        font-size: 5em;
+
+    }
+
+}
+
+@media only screen and (max-height: 640px) {
+    .headline-wrapper p {
+        font-size: 4em;
+    }
+}
