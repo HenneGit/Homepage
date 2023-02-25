@@ -213,9 +213,9 @@ export default class Cv extends Component {
      * set up texts from the text documents and setup all the classes for menu and the content-box.
      */
     setTransitionIn(menuId, backgroundClass) {
+        let menuItem = document.getElementById(menuId)
+        menuItem.classList.add(backgroundClass);
         setTimeout(() => {
-            let menuItem = document.getElementById(menuId)
-            menuItem.classList.add(backgroundClass);
             menuItem.classList.remove("link-effect");
             let contentBox = document.getElementById("about-me-content");
             contentBox.classList.remove("opacity-transition-out")

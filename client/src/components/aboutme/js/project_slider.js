@@ -25,13 +25,9 @@ function initSlides() {
 export function initProjects() {
     let slideShowContainer = document.getElementById("slideshow-container");
     let slideContainer = document.getElementById("slide-container");
-    console.log(slideShowContainer);
-    console.log(projects)
     if (slideShowContainer === undefined || slideShowContainer === null || slideContainer.children.length >= Object.keys(projects).length) {
         return;
-
     }
-
     let projectCounter = 0;
     for (let project in projects) {
         let dot = document.createElement("div");
