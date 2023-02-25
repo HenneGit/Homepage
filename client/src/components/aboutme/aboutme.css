@@ -98,7 +98,7 @@
     position: relative;
     transform: translatey(0px);
     transition: transform 0.25s ease-in;
-    height: calc(20vw + 5vh);
+    height: 50%;
 
 }
 
@@ -130,7 +130,7 @@
 
 .thats-me-transition {
     transform: translatey(20vw);
-    transition: transform 0.25s ease-in;
+    transition: all 0.25s ease-in;
     height: 50%;
 
 }
