@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="menu font-size adjusted.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="thats me height corrected.">
+      <change afterPath="$PROJECT_DIR$/client/src/components/aboutme/experience.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/aboutme/js/project_slider.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/Aboutme.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/Aboutme.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/aboutme.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/aboutme.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/js/about_me_text.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,14 +200,8 @@
       <workItem from="1677140529523" duration="13715000" />
       <workItem from="1677154929664" duration="18357000" />
       <workItem from="1677228131270" duration="22890000" />
-      <workItem from="1677311030150" duration="4855000" />
-    </task>
-    <task id="LOCAL-00035" summary="aboutme updated.">
-      <created>1669218189577</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1669218189577</updated>
+      <workItem from="1677311030150" duration="9991000" />
+      <workItem from="1677334701508" duration="10343000" />
     </task>
     <task id="LOCAL-00036" summary="animated skill bars.">
       <created>1669285928185</created>
@@ -541,7 +539,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677315735113</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="thats me height corrected.">
+      <created>1677316019507</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1677316019507</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -559,7 +564,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chess bugs fixed." />
     <MESSAGE value="colors organized, some css improvements." />
     <MESSAGE value="sticky menu added." />
     <MESSAGE value="sticky menu finished." />
@@ -584,7 +588,8 @@
     <MESSAGE value="some viewport adjustments and better slide-in effect." />
     <MESSAGE value="menu viewpoint adjustments." />
     <MESSAGE value="menu font-size adjusted." />
-    <option name="LAST_COMMIT_MESSAGE" value="menu font-size adjusted." />
+    <MESSAGE value="thats me height corrected." />
+    <option name="LAST_COMMIT_MESSAGE" value="thats me height corrected." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
