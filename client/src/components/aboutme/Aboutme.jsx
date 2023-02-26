@@ -3,8 +3,7 @@ import './aboutme.css';
 import './slider.css';
 import './viewport.css';
 import './experience.css';
-import thatsme from '../../assets/thatsme.png'
-import bewerbung from '../../assets/bewerbung_gross.jpg'
+import bewerbung from '../../assets/bewerbung_hoch.jpg'
 import {faGit} from "@fortawesome/free-brands-svg-icons";
 import {faLinkedin} from "@fortawesome/free-brands-svg-icons";
 import {faEnvelope} from "@fortawesome/free-solid-svg-icons";
@@ -33,20 +32,6 @@ export default class Cv extends Component {
 
     componentDidMount() {
 
-        //set mouseover events on picture.
-        let image = document.getElementById("my-picture");
-        image.addEventListener("mouseover", (event) => {
-            event.preventDefault();
-            let thatsMeImage = document.getElementById("thats-me");
-            thatsMeImage.classList.remove("thats-me");
-            thatsMeImage.classList.add("thats-me-transition");
-        });
-        image.addEventListener("mouseleave", (event) => {
-            event.preventDefault();
-            let thatsMeImage = document.getElementById("thats-me");
-            thatsMeImage.classList.add("thats-me");
-            thatsMeImage.classList.remove("thats-me-transition");
-        });
 
     }
 
@@ -255,7 +240,6 @@ export default class Cv extends Component {
                     </div>
                     <div className="sidebar">
                         <div className="about-me-image" id="about-me-image">
-                            <img id="thats-me" className="thats-me" src={thatsme}/>
                             <img id="my-picture" src={bewerbung}/>
                         </div>
                         <div className="icons">

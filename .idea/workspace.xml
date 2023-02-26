@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="initial loading of aboutme text solved.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="tabs for menu replacing old menu.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/Aboutme.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/Aboutme.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/aboutme.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/aboutme.css" afterDir="false" />
@@ -199,14 +199,7 @@
       <workItem from="1677228131270" duration="22890000" />
       <workItem from="1677311030150" duration="9991000" />
       <workItem from="1677334701508" duration="10485000" />
-      <workItem from="1677393251732" duration="4002000" />
-    </task>
-    <task id="LOCAL-00038" summary="background image for chess. Yet again chess grid improvements.">
-      <created>1669394380993</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1669394380993</updated>
+      <workItem from="1677393251732" duration="7612000" />
     </task>
     <task id="LOCAL-00039" summary="server removed. better displaying of chess. down arrow after display.">
       <created>1671203109868</created>
@@ -544,7 +537,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677395049333</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="tabs for menu replacing old menu.">
+      <created>1677397322140</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1677397322140</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -562,7 +562,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="sticky menu finished." />
     <MESSAGE value="sticky menu initial state invisible and collapsed." />
     <MESSAGE value="navigation clean up." />
     <MESSAGE value="session storage instead of local storage. rare chess error fixed. some cleanup and formatting." />
@@ -587,7 +586,8 @@
     <MESSAGE value="thats me height corrected." />
     <MESSAGE value="refactoring about me component." />
     <MESSAGE value="initial loading of aboutme text solved." />
-    <option name="LAST_COMMIT_MESSAGE" value="initial loading of aboutme text solved." />
+    <MESSAGE value="tabs for menu replacing old menu." />
+    <option name="LAST_COMMIT_MESSAGE" value="tabs for menu replacing old menu." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

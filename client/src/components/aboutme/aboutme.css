@@ -20,15 +20,8 @@
 
 .opacity-transition-out {
     opacity: 0;
-    transition: opacity 0.4s ease-in;
+    transition: opacity 0.3s ease-in;
 }
-
-.background-transition {
-    transition: background-color 0.25s ease-in;
-}
-
-
-
 
 .about-me-content {
     display: flex;
@@ -52,8 +45,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    align-content: center;
-    justify-content: center;
     justify-items: center;
 }
 
@@ -80,33 +71,25 @@
     border: 1px solid var(--color-mauve);
 }
 
-.about-me-image {
-    display: flex;
-    flex-direction: row;
-    z-index: 0;
+
+.sidebar {
+    background-color: var(--color-grey);
+    display: grid;
+    height: 100%;
 }
+
 
 .about-me-image img {
-    width: 30vw;
+    height: 30vw;
 }
 
-#my-picture {
-    position: absolute;
-}
-
-.thats-me {
-    position: relative;
-    transform: translatey(0px);
-    transition: transform 0.25s ease-in;
-    width: 30vw;
-
-}
 
 .content-headline {
     font-size: 5vw;
     color: white;
     height: 15vh;
     padding-left: 5rem;
+    border-top:  1px solid white;
 }
 
 
@@ -142,14 +125,6 @@
     transition: all 0.25s ease-in;
 }
 
-.sidebar {
-    background-color: var(--color-grey);
-    display: grid;
-    grid-template-rows: 20% 70% 10%;
-    flex-direction: column;
-    height: 100%;
-}
-
 .headline-wrapper {
     display: grid;
     height: 100%;
@@ -163,11 +138,13 @@
     text-orientation: upright;
     writing-mode: vertical-rl;
     text-transform: uppercase;
+
 }
 
 .headline {
     font-weight: lighter;
     color: white;
+
 }
 
 .me {
@@ -180,21 +157,30 @@
 }
 
 .menu-background-green {
-    background-color: var(--color-chess-legal);
+    background-color: #FFB869;
+
 }
 
 .menu-background-yellow {
-    background-color: var(--color-yellow);
-
+    background-color: #4A2224;
 }
 
 .menu-background-lila {
-    background-color: var(--color-dark-lila);
-}
-.opacity-transition-in {
-    opacity: 1;
-    transition: opacity 0.4s ease-in;
+    background-color: #5E4B5E   ;
 }
 
+.opacity-transition-in {
+    opacity: 1;
+    transition: opacity 0.3s ease-in;
+}
+
+.about-me-text {
+    height: 100%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
 
 
