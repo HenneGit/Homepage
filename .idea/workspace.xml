@@ -7,7 +7,6 @@
     <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="refactoring about me component.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/Aboutme.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/Aboutme.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/js/project_slider.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/js/project_slider.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,6 +198,7 @@
       <workItem from="1677228131270" duration="22890000" />
       <workItem from="1677311030150" duration="9991000" />
       <workItem from="1677334701508" duration="10485000" />
+      <workItem from="1677393251732" duration="1759000" />
     </task>
     <task id="LOCAL-00037" summary="cv making progress.">
       <created>1669290152595</created>

@@ -31,8 +31,8 @@ export default class Cv extends Component {
             });
         }
     componentDidMount() {
-        //set mouseover events on picture.
 
+        //set mouseover events on picture.
         let image = document.getElementById("my-picture");
         image.addEventListener("mouseover", (event) => {
             event.preventDefault();
@@ -132,7 +132,6 @@ export default class Cv extends Component {
         }
 
     }
-
     renderAboutMe = () => {
         if (!this.state.showAboutMe) {
             return null;
@@ -210,7 +209,7 @@ export default class Cv extends Component {
     }
 
     /**
-     * set up texts from the text documents and setup all the classes for menu and the content-box.
+     * set transition in classes.
      */
     setTransitionIn(menuId, backgroundClass) {
         let menuItem = document.getElementById(menuId)
@@ -226,7 +225,7 @@ export default class Cv extends Component {
 
 
     /**
-     * set up texts from the text documents and setup all the classes for menu and the content-box.
+     * set transition opacity out classes.
      */
     setTransitionOut(menuId, backgroundClass) {
         document.querySelectorAll(".menu-element").forEach(el => {
@@ -243,6 +242,8 @@ export default class Cv extends Component {
 
 
     render() {
+
+
         return (
             <section className="about-me-container" id="about-me">
                 <div className="about-me-content-wrapper">
@@ -278,10 +279,10 @@ export default class Cv extends Component {
                             </a>
                         </div>
                     </div>
-                    <div className="about-me-content" id="about-me-content">
+                    <div onLoad={this.renderAboutMe} className="about-me-content opacity-transition-in" id="about-me-content">
+                        {this.renderAboutMe()}
                         {this.renderProjectSlider()}
                         {this.renderExperience()}
-                        {this.renderAboutMe()}
                     </div>
                 </div>
             </section>
