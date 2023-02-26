@@ -24,12 +24,13 @@ export default class Cv extends Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-            window.requestAnimationFrame(() => {
-                if (this.state.showProjectSlider) {
-                    initProjects();
-                }
-            });
-        }
+        window.requestAnimationFrame(() => {
+            if (this.state.showProjectSlider) {
+                initProjects();
+            }
+        });
+    }
+
     componentDidMount() {
 
         //set mouseover events on picture.
@@ -214,9 +215,10 @@ export default class Cv extends Component {
     setTransitionIn(menuId, backgroundClass) {
         let menuItem = document.getElementById(menuId)
         menuItem.classList.add(backgroundClass);
+        menuItem.classList.add("menu-active");
         setTimeout(() => {
             menuItem.classList.remove("link-effect");
-            let contentBox = document.getElementById("about-me-content");
+            let contentBox = document.getElementById("content-and-headline");
             contentBox.classList.remove("opacity-transition-out")
             contentBox.classList.add("opacity-transition-in");
         }, 500);
@@ -233,7 +235,7 @@ export default class Cv extends Component {
             el.classList.add("link-effect");
             el.classList.add("menu-element");
         })
-        let contentBox = document.getElementById("about-me-content");
+        let contentBox = document.getElementById("content-and-headline");
         let menuItem = document.getElementById(menuId)
         menuItem.classList.remove(backgroundClass);
         contentBox.classList.remove("opacity-transition-in")
@@ -252,16 +254,6 @@ export default class Cv extends Component {
                         <p className="me">Me</p>
                     </div>
                     <div className="sidebar">
-                        <div className="menu">
-                            <p id="menu-1" className="link-effect menu-element menu-background-grey"
-                               onClick={this.onAboutMeClick}>About
-                                Me</p>
-                            <p id="menu-2" className="link-effect menu-element menu-background-grey"
-                               onClick={this.onExperienceClick}>Experience</p>
-                            <p id="menu-3" className="link-effect menu-element menu-background-grey"
-                               onClick={this.onProjectsClick}>My
-                                Projects</p>
-                        </div>
                         <div className="about-me-image" id="about-me-image">
                             <img id="thats-me" className="thats-me" src={thatsme}/>
                             <img id="my-picture" src={bewerbung}/>
@@ -279,10 +271,23 @@ export default class Cv extends Component {
                             </a>
                         </div>
                     </div>
-                    <div onLoad={this.renderAboutMe} className="about-me-content opacity-transition-in" id="about-me-content">
-                        {this.renderAboutMe()}
-                        {this.renderProjectSlider()}
-                        {this.renderExperience()}
+                    <div onLoad={this.renderAboutMe} className="about-me-content"
+                         id="about-me-content">
+                        <div className="menu">
+                            <p id="menu-1" className="link-effect menu-element menu-background-lila menu-active"
+                               onClick={this.onAboutMeClick}>About
+                                Me</p>
+                            <p id="menu-2" className="link-effect menu-element menu-background-grey"
+                               onClick={this.onExperienceClick}>Experience</p>
+                            <p id="menu-3" className="link-effect menu-element menu-background-grey"
+                               onClick={this.onProjectsClick}>My
+                                Projects</p>
+                        </div>
+                        <div className="content-and-headline opacity-transition-in" id="content-and-headline">
+                            {this.renderAboutMe()}
+                            {this.renderProjectSlider()}
+                            {this.renderExperience()}
+                        </div>
                     </div>
                 </div>
             </section>
