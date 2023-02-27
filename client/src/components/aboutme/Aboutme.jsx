@@ -130,24 +130,22 @@ export default class Cv extends Component {
 
                     <div id="content-box">
                         <div className="about-me-text">
-                            <h1>Welcome to my personal homepage</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut
-                                labore et dolore magna aliqua. Suspendisse potenti nullam ac tortor vitae purus faucibus
-                                ornare suspendisse. Imperdiet proin fermentum leo vel. Nunc scelerisque viverra mauris
-                                in
-                                aliquam. Enim eu turpis egestas pretium aenean pharetra. Nulla aliquet enim tortor at
-                                auctor
-                                urna nunc id. Viverra maecenas accumsan lacus vel facilisis volutpat est velit egestas.
-                                Velit scelerisque in dictum non consectetur a erat nam. Ut aliquam purus sit amet luctus
-                                venenatis lectus magna fringilla. Mattis aliquam faucibus purus in massa tempor nec
-                                feugiat
-                                nisl. Sit amet consectetur adipiscing elit ut aliquam purus sit amet. Tincidunt id
-                                aliquet
-                                risus feugiat. Posuere morbi leo urna molestie at elementum eu. Tempus urna et pharetra
-                                pharetra massa massa ultricies mi quis. Adipiscing vitae proin sagittis nisl rhoncus
-                                mattis
-                                rhoncus.</p>
+                            <h2>Welcome to my personal homepage</h2>
+                            <p>Willkommen auf meiner persönlichen Webseite! Hier präsentiere ich meine neuesten Projekte und Ideen, die ich in meiner Freizeit entwickle. Ein Übersiche findest du
+                                unter <a className="link link-effect" onClick={this.onProjectsClick}>My Projects</a>
+                                <p>
+                                Das jüngste Projekt ist ein Schachspiel, das ich programmiert habe um mich in Javascript einzuarbeiten.
+                                Ziel war es alle Zuglogiken selbst zu implementieren und im letzen Schritt das Spiel  gegen die  Open Source Schach Engine Stockfish als Computergegner möglich zu machen.
+                                Falls dich der Code des Spiels interessiert, ist dieser auf <a target="_blank" className="link link-effect" href="https://github.com/HenneGit/Homepage/tree/main/client/src/components/chess">GitHub</a> einsehbar.
+                                Ich freue mich über immer über Feedback und Vorschläge für Verbesserungen.
+                                </p>
+                                <p>Ich werde auch in Zukunft diese Seite nutzen um Ideen umzusetzen oder um neue Technologien zu erlernen.
+                                Wenn du Fragen oder Kommentare hast oder einfach nur Hallo sagen möchtest, schreib mir doch eine Nachricht über das <a className="link link-effect" href="#contact">Kontaktformular</a>. Ich würde mich sehr freuen, von dir zu hören!
+                                </p>
+                                <p>
+                                Schön, dass du vorbeigeschaut hast!
+                                </p>
+                                .</p>
                         </div>
                     </div>
                 </>
@@ -160,7 +158,6 @@ export default class Cv extends Component {
         if (this.state.showAboutMe) {
             return;
         }
-
         this.setTransitionOut("menu-1", "menu-background-1");
         this.setTransitionIn("menu-1", "menu-background-1");
         setTimeout(() => {
@@ -174,7 +171,6 @@ export default class Cv extends Component {
         if (this.state.showExperience) {
             return;
         }
-
         this.setTransitionOut("menu-2", "menu-background-2");
         this.setTransitionIn("menu-2", "menu-background-2");
         setTimeout(() => {
@@ -208,7 +204,6 @@ export default class Cv extends Component {
         menuItem.classList.add(backgroundClass);
         menuItem.classList.add("menu-active");
         setTimeout(() => {
-
             let contentBox = document.getElementById("content-and-headline");
             contentBox.classList.remove("opacity-transition-out")
             contentBox.classList.add("opacity-transition-in");
@@ -282,7 +277,6 @@ export default class Cv extends Component {
                         </div>
                         <div id="headline-background" className="headline-background headline menu-background-1"></div>
                         <div className="content-and-headline opacity-transition-in" id="content-and-headline">
-
                             {this.renderAboutMe()}
                             {this.renderProjectSlider()}
                             {this.renderExperience()}

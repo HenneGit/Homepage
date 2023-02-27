@@ -46,8 +46,7 @@
     height: 85vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-items: center;
+
 }
 
 
@@ -90,16 +89,17 @@
     font-size: 5vw;
     color: white;
     height: 15vh;
+    padding-top: 1rem;
     padding-left: 5rem;
     border-top:  1px solid white;
     z-index: 20;
+    font-weight:bold;
 }
 
 
 .menu {
     display: flex;
     grid-row: 1;
-
     flex-direction: row;
     align-items: end;
 }
@@ -153,6 +153,7 @@
     grid-column: 1;
     height: 15vh;
     z-index: 0;
+    border-top: 1px solid white;
 }
 
 
@@ -181,11 +182,15 @@
 
 .about-me-text {
     height: 100%;
-    width: 70%;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    padding: 5rem 5rem 5rem 5rem;
+
 
 }
 
-
+.about-me-text p {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+}
