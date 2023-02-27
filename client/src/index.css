@@ -16,8 +16,12 @@
 
     --color-chess-take: #9C4A59;
     --color-chess-legal: #CED570;
-    --color-chess-last-move:  #ffc155;
-    --color-chess-hovered:#F2FEDC;
+    --color-chess-last-move: #ffc155;
+    --color-chess-hovered: #F2FEDC;
+
+    --color-menu-1: #9C4A59;
+    --color-menu-2: #CED570;
+    --color-menu-3: #ffc155;
 
 
 }

@@ -64,7 +64,7 @@ export function renderProject(project) {
     h2.innerText = headline;
     let desc = document.createElement("h3");
     desc.innerText = "Technology:";
-    let tech = document.createElement("div");
+    let tech = document.createElement("p");
     tech.innerText = technology;
     let paragraph = document.createElement("p");
     paragraph.innerText = description;

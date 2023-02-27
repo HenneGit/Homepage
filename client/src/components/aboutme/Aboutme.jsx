@@ -41,7 +41,8 @@ export default class Cv extends Component {
         } else {
             return (
                 <>
-                    <div id="headline" className="content-headline menu-background-yellow">Experience</div>
+                    <div id="headline" className="content-headline menu-background-2">Experience</div>
+
                     <div id="content-box">
                         <div id="experience-container" className="experience-container">
                             <div id="work-div" className="experience-container-column">
@@ -98,7 +99,8 @@ export default class Cv extends Component {
             return (
                 (
                     <>
-                        <div id="headline" className="content-headline menu-background-green">My Projects</div>
+                        <div id="headline" className="content-headline menu-background-3">My Projects</div>
+
                         <div id="content-box">
                             <div id="slideshow-container" className="slideshow-container">
                                 <div className="slider-arrow" id="slider-arrow-left">
@@ -124,7 +126,8 @@ export default class Cv extends Component {
         } else {
             return (
                 <>
-                    <div id="headline" className="content-headline menu-background-lila">About me</div>
+                    <div id="headline" className="content-headline menu-background-1">About me</div>
+
                     <div id="content-box">
                         <div className="about-me-text">
                             <h1>Welcome to my personal homepage</h1>
@@ -157,8 +160,9 @@ export default class Cv extends Component {
         if (this.state.showAboutMe) {
             return;
         }
-        this.setTransitionOut("menu-1", "menu-background-lila");
-        this.setTransitionIn("menu-1", "menu-background-lila");
+
+        this.setTransitionOut("menu-1", "menu-background-1");
+        this.setTransitionIn("menu-1", "menu-background-1");
         setTimeout(() => {
             this.setState({showExperience: false});
             this.setState({showAboutMe: true});
@@ -170,8 +174,9 @@ export default class Cv extends Component {
         if (this.state.showExperience) {
             return;
         }
-        this.setTransitionOut("menu-2", "menu-background-yellow");
-        this.setTransitionIn("menu-2", "menu-background-yellow");
+
+        this.setTransitionOut("menu-2", "menu-background-2");
+        this.setTransitionIn("menu-2", "menu-background-2");
         setTimeout(() => {
             this.setState({showExperience: true});
             this.setState({showAboutMe: false});
@@ -184,8 +189,8 @@ export default class Cv extends Component {
         if (this.state.showProjectSlider) {
             return;
         }
-        this.setTransitionOut("menu-3", "menu-background-green");
-        this.setTransitionIn("menu-3", "menu-background-green");
+        this.setTransitionOut("menu-3", "menu-background-3");
+        this.setTransitionIn("menu-3", "menu-background-3");
         setTimeout(() => {
             this.setState({showExperience: false});
             this.setState({showAboutMe: false});
@@ -199,15 +204,17 @@ export default class Cv extends Component {
      */
     setTransitionIn(menuId, backgroundClass) {
         let menuItem = document.getElementById(menuId)
+        console.log(menuItem);
         menuItem.classList.add(backgroundClass);
         menuItem.classList.add("menu-active");
         setTimeout(() => {
-            menuItem.classList.remove("link-effect");
+
             let contentBox = document.getElementById("content-and-headline");
             contentBox.classList.remove("opacity-transition-out")
             contentBox.classList.add("opacity-transition-in");
+            menuItem.classList.add(backgroundClass);
         }, 500);
-
+        menuItem.classList.remove("link-effect");
     }
 
 
@@ -219,18 +226,24 @@ export default class Cv extends Component {
             el.classList.remove(...el.classList);
             el.classList.add("link-effect");
             el.classList.add("menu-element");
-        })
-        let contentBox = document.getElementById("content-and-headline");
-        let menuItem = document.getElementById(menuId)
-        menuItem.classList.remove(backgroundClass);
-        contentBox.classList.remove("opacity-transition-in")
-        contentBox.classList.add("opacity-transition-out");
+        });
+        let headlineBackground = document.getElementById("headline-background");
+        headlineBackground.classList.remove(...headlineBackground.classList);
+        headlineBackground.classList.add(backgroundClass);
+        headlineBackground.classList.add("headline-background");
+
+        setTimeout(() => {
+            let contentBox = document.getElementById("content-and-headline");
+            let menuItem = document.getElementById(menuId)
+            // menuItem.classList.remove(backgroundClass);
+            contentBox.classList.remove("opacity-transition-in")
+            contentBox.classList.add("opacity-transition-out");
+        }, 20);
+
     }
 
 
     render() {
-
-
         return (
             <section className="about-me-container" id="about-me">
                 <div className="about-me-content-wrapper">
@@ -258,7 +271,7 @@ export default class Cv extends Component {
                     <div onLoad={this.renderAboutMe} className="about-me-content"
                          id="about-me-content">
                         <div className="menu">
-                            <p id="menu-1" className="link-effect menu-element menu-background-lila menu-active"
+                            <p id="menu-1" className="link-effect menu-element menu-background-1 menu-active"
                                onClick={this.onAboutMeClick}>About
                                 Me</p>
                             <p id="menu-2" className="link-effect menu-element menu-background-grey"
@@ -267,7 +280,9 @@ export default class Cv extends Component {
                                onClick={this.onProjectsClick}>My
                                 Projects</p>
                         </div>
+                        <div id="headline-background" className="headline-background headline menu-background-1"></div>
                         <div className="content-and-headline opacity-transition-in" id="content-and-headline">
+
                             {this.renderAboutMe()}
                             {this.renderProjectSlider()}
                             {this.renderExperience()}

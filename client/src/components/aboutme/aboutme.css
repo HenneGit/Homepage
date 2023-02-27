@@ -24,8 +24,8 @@
 }
 
 .about-me-content {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: auto auto auto;
     height: 100%;
     width: 100%;
     font-family: var(--font-family);
@@ -34,6 +34,8 @@
 .content-and-headline {
     display: flex;
     flex-direction: column;
+    grid-column: 1;
+    grid-row: 2 / 3;
     height: 100%;
     width: 100%;
     font-family: var(--font-family);
@@ -90,11 +92,14 @@
     height: 15vh;
     padding-left: 5rem;
     border-top:  1px solid white;
+    z-index: 20;
 }
 
 
 .menu {
     display: flex;
+    grid-row: 1;
+
     flex-direction: row;
     align-items: end;
 }
@@ -120,11 +125,6 @@
 
 }
 
-.thats-me-transition {
-    transform: translatey(20vw);
-    transition: all 0.25s ease-in;
-}
-
 .headline-wrapper {
     display: grid;
     height: 100%;
@@ -144,30 +144,35 @@
 .headline {
     font-weight: lighter;
     color: white;
-
+    height: 100%;
+    z-index: 0;
 }
+
+.headline-background {
+    grid-row: 2;
+    grid-column: 1;
+    height: 15vh;
+    z-index: 0;
+}
+
 
 .me {
     color: var(--color-mauve);
     font-weight: lighter;
 }
 
-.menu-background-grey {
-    background-color: var(--color-grey);
+.menu-background-1 {
+    background-color: var(--color-menu-1);
 }
 
-.menu-background-green {
-    background-color: #FFB869;
+.menu-background-2 {
+    background-color: var(--color-menu-2);
 
 }
-
-.menu-background-yellow {
-    background-color: #4A2224;
+.menu-background-3 {
+    background-color: var(--color-menu-3);
 }
 
-.menu-background-lila {
-    background-color: #5E4B5E   ;
-}
 
 .opacity-transition-in {
     opacity: 1;
