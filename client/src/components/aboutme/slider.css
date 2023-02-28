@@ -67,6 +67,8 @@
     position: relative;
     box-shadow: 3px 3px 7px 3px rgb(0 0 0 / 20%);
     padding: 2rem 2rem 2rem 2rem;
+    background-color: white;
+    color: black;
 }
 
 

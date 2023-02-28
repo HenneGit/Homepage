@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="better effect for tab color transition.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="about me text styled. need a different font.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/Aboutme.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/Aboutme.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/aboutme.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/aboutme.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/slider.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/slider.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/viewport.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/viewport.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,8 +74,8 @@
       <recent name="$PROJECT_DIR$/server" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/client/src/components/aboutme" />
       <recent name="$PROJECT_DIR$/client/public" />
+      <recent name="$PROJECT_DIR$/client/src/components/aboutme" />
       <recent name="$PROJECT_DIR$/client/src/components/chess/js" />
       <recent name="$PROJECT_DIR$/client/src/components/display/json" />
       <recent name="$PROJECT_DIR$/client/src/components/aboutme/json" />
@@ -202,14 +205,8 @@
       <workItem from="1677334701508" duration="10485000" />
       <workItem from="1677393251732" duration="10133000" />
       <workItem from="1677417725035" duration="2293000" />
-      <workItem from="1677491674983" duration="12664000" />
-    </task>
-    <task id="LOCAL-00041" summary="comments and some minor css fixes.">
-      <created>1673347085670</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1673347085670</updated>
+      <workItem from="1677491674983" duration="15032000" />
+      <workItem from="1677568725285" duration="5091000" />
     </task>
     <task id="LOCAL-00042" summary="about me section better looking now and animation on picture added.">
       <created>1673367605185</created>
@@ -547,7 +544,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677502217923</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="about me text styled. need a different font.">
+      <created>1677511245348</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1677511245348</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -565,7 +569,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="session storage instead of local storage. rare chess error fixed. some cleanup and formatting." />
     <MESSAGE value="localStorage calls replaced with session storage." />
     <MESSAGE value="cleanup and some changes for production." />
     <MESSAGE value="some margin adjustments." />
@@ -590,7 +593,8 @@
     <MESSAGE value="tabs for menu replacing old menu." />
     <MESSAGE value="different picture." />
     <MESSAGE value="better effect for tab color transition." />
-    <option name="LAST_COMMIT_MESSAGE" value="better effect for tab color transition." />
+    <MESSAGE value="about me text styled. need a different font." />
+    <option name="LAST_COMMIT_MESSAGE" value="about me text styled. need a different font." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -616,8 +620,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/components/aboutme/Aboutme.jsx</url>
-          <line>237</line>
-          <properties lambdaOrdinal="-1" />
+          <line>234</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>

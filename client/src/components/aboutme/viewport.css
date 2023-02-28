@@ -1,7 +1,7 @@
 @media only screen and (max-width: 1024px) {
 
     .headline-wrapper p {
-        font-size: 6em;
+        font-size: 6rem;
 
     }
 
@@ -11,7 +11,7 @@
 @media only screen and (max-width: 1024px) {
 
     .headline-wrapper p {
-        font-size: 6em;
+        font-size: 6rem;
     }
 
 }
@@ -28,7 +28,7 @@
 @media only screen and (max-height: 950px) {
 
     .headline-wrapper p {
-        font-size: 5em;
+        font-size: 5rem;
 
     }
 
@@ -39,3 +39,25 @@
         font-size: 4em;
     }
 }
+
+
+@media only screen and (max-height: 1030px) {
+    .about-me-text p {
+        font-size: 1.2em;
+    }
+    .about-me-text h2 {
+        font-size: 2.5em;
+    }
+}
+
+@media only screen and (max-height: 740px) {
+    .about-me-text p {
+        font-size: .9em;
+    }
+    .about-me-text h2 {
+        font-size: 1.7em;
+    }
+}
+
+
+

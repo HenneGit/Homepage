@@ -41,7 +41,7 @@ export default class Cv extends Component {
         } else {
             return (
                 <>
-                    <div id="headline" className="content-headline menu-background-2">Experience</div>
+                    <div id="headline" className="content-headline">Experience</div>
 
                     <div id="content-box">
                         <div id="experience-container" className="experience-container">
@@ -99,8 +99,7 @@ export default class Cv extends Component {
             return (
                 (
                     <>
-                        <div id="headline" className="content-headline menu-background-3">My Projects</div>
-
+                        <div id="headline" className="content-headline">My Projects</div>
                         <div id="content-box">
                             <div id="slideshow-container" className="slideshow-container">
                                 <div className="slider-arrow" id="slider-arrow-left">
@@ -126,13 +125,12 @@ export default class Cv extends Component {
         } else {
             return (
                 <>
-                    <div id="headline" className="content-headline menu-background-1">About me</div>
-
+                    <div id="headline" className="content-headline">About me</div>
                     <div id="content-box">
                         <div className="about-me-text">
                             <h2>Welcome to my personal homepage</h2>
                             <p>Willkommen auf meiner persönlichen Webseite! Hier präsentiere ich meine neuesten Projekte und Ideen, die ich in meiner Freizeit entwickle. Ein Übersiche findest du
-                                unter <a className="link link-effect" onClick={this.onProjectsClick}>My Projects</a>
+                                unter <a className="link link-effect" onClick={this.onProjectsClick}>My Projects</a> </p>
                                 <p>
                                 Das jüngste Projekt ist ein Schachspiel, das ich programmiert habe um mich in Javascript einzuarbeiten.
                                 Ziel war es alle Zuglogiken selbst zu implementieren und im letzen Schritt das Spiel  gegen die  Open Source Schach Engine Stockfish als Computergegner möglich zu machen.
@@ -145,7 +143,6 @@ export default class Cv extends Component {
                                 <p>
                                 Schön, dass du vorbeigeschaut hast!
                                 </p>
-                                .</p>
                         </div>
                     </div>
                 </>
@@ -230,7 +227,7 @@ export default class Cv extends Component {
         setTimeout(() => {
             let contentBox = document.getElementById("content-and-headline");
             let menuItem = document.getElementById(menuId)
-            // menuItem.classList.remove(backgroundClass);
+            menuItem.classList.remove(backgroundClass);
             contentBox.classList.remove("opacity-transition-in")
             contentBox.classList.add("opacity-transition-out");
         }, 20);
@@ -275,7 +272,7 @@ export default class Cv extends Component {
                                onClick={this.onProjectsClick}>My
                                 Projects</p>
                         </div>
-                        <div id="headline-background" className="headline-background headline menu-background-1"></div>
+                        <div id="headline-background" className="headline-background headline"></div>
                         <div className="content-and-headline opacity-transition-in" id="content-and-headline">
                             {this.renderAboutMe()}
                             {this.renderProjectSlider()}
