@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="background image for about me section and using opacity on most elements.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="slider improved.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/aboutme.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/aboutme.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/experience.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/experience.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/js/project_slider.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/js/project_slider.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/slider.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/slider.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,14 +206,7 @@
       <workItem from="1677417725035" duration="2293000" />
       <workItem from="1677491674983" duration="15032000" />
       <workItem from="1677568725285" duration="9007000" />
-      <workItem from="1677599063364" duration="750000" />
-    </task>
-    <task id="LOCAL-00043" summary="about me section with more appealing design. Needs browser optimization.">
-      <created>1673450422682</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1673450422682</updated>
+      <workItem from="1677599063364" duration="2968000" />
     </task>
     <task id="LOCAL-00044" summary="cleanup and new hover effect for links and buttons.">
       <created>1673952426641</created>
@@ -551,7 +544,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677574036929</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="slider improved.">
+      <created>1677599902769</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1677599902769</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -569,7 +569,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="cleanup and some changes for production." />
     <MESSAGE value="some margin adjustments." />
     <MESSAGE value="basic slideshow element working." />
     <MESSAGE value="dots now work the slider when clicked." />
@@ -594,7 +593,8 @@
     <MESSAGE value="better effect for tab color transition." />
     <MESSAGE value="about me text styled. need a different font." />
     <MESSAGE value="background image for about me section and using opacity on most elements." />
-    <option name="LAST_COMMIT_MESSAGE" value="background image for about me section and using opacity on most elements." />
+    <MESSAGE value="slider improved." />
+    <option name="LAST_COMMIT_MESSAGE" value="slider improved." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

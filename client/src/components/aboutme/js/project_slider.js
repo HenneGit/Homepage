@@ -60,7 +60,7 @@ function setUpDotAndArrowEvent() {
             slideCounter++;
         }
         let lastSlide = slideCounter === 0 ? numberOfSlides : slideCounter - 1;
-        setDotActive(lastSlide);
+        setDotActive();
         slide(lastSlide, "slide-right")
     });
 
@@ -127,8 +127,9 @@ function slide(lastSlideNr, slideDirection) {
  * @param lastDot the last dot that was active.
  */
 function setDotActive(lastDot) {
+    document.querySelectorAll(".dot").forEach(el => {
+        el.classList.remove("dot-active");
+    })
     let activeDot = document.getElementById("dot-" + slideCounter);
-    let previousActiveDot = document.getElementById("dot-" + lastDot);
-    previousActiveDot.classList.remove("dot-active");
     activeDot.classList.add("dot-active");
 }

@@ -104,11 +104,6 @@ h2 {
     margin-bottom: 1rem;
 }
 
-h3 {
-    margin-top: 1rem;
-    color: var(--color-text);
-    text-decoration-line: underline;
-}
 
 input, textarea, select {
     font-family: var(--font-family);

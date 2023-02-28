@@ -15,6 +15,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
 }
 
 
@@ -60,28 +62,30 @@
 .icons {
     margin-right: 20px;
     margin-bottom: 10px;
-    justify-self: end;
-    align-self: end;
-    grid-row: 3;
+    grid-row: 2;
+    margin-top: 1rem;
+    align-self: start;
 }
 
 .icon {
     border: 1px solid var(--color-grey-shade);
     padding: 3px 6px 0 6px;
-    color: var(--color-grey-shade);
+    color: var(--color-mauve);
     font-size: 4vh;
-    margin-left: 6px;
+    margin-right: 6px;
     cursor: pointer;
 }
 
 .icon:hover {
-    color: var(--color-mauve);
-    border: 1px solid var(--color-mauve);
+    color: var(--color-yellow);
+    border: 1px solid var(--color-yellow);
 }
 
 
 .sidebar {
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
     height: 100%;
 }
 
@@ -159,7 +163,10 @@
     height: 15vh;
     z-index: 0;
     opacity: .5;
-    background: black;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 
@@ -183,11 +190,10 @@
     font-family: var(--font-family-text);
     font-weight: lighter;
     line-height: 35px;
-    opacity: .9;
-    color: white;
-    background: rgb(70, 66, 66);
+    color: white ;
+    background: rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: brightness(30%) blur(50px);
+    backdrop-filter:brightness(90%) blur(10px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
 
@@ -197,6 +203,7 @@
 
 .menu-background-1 {
     background-color: var(--color-menu-1);
+
 }
 
 .menu-background-2 {
