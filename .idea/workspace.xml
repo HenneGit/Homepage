@@ -4,13 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="slider improved.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="slider bug fixed, better styling for experience tab.">
+      <change afterPath="$PROJECT_DIR$/client/src/components/display/js/letter_grid.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/emptysection/Emptysection.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/emptysection/emptysection.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/Aboutme.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/Aboutme.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/aboutme.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/aboutme.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/experience.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/experience.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/js/project_slider.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/js/project_slider.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/chess/chess.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/chess.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/display/Display.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/display/Display.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/display/json/letters.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/display/js/letters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,14 +211,7 @@
       <workItem from="1677417725035" duration="2293000" />
       <workItem from="1677491674983" duration="15032000" />
       <workItem from="1677568725285" duration="9007000" />
-      <workItem from="1677599063364" duration="2968000" />
-    </task>
-    <task id="LOCAL-00044" summary="cleanup and new hover effect for links and buttons.">
-      <created>1673952426641</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1673952426641</updated>
+      <workItem from="1677599063364" duration="6421000" />
     </task>
     <task id="LOCAL-00045" summary="contact error removed and making sure that no empty email is sent.">
       <created>1674033913165</created>
@@ -551,7 +549,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677599902769</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="slider bug fixed, better styling for experience tab.">
+      <created>1677602288457</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1677602288457</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -569,7 +574,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="some margin adjustments." />
     <MESSAGE value="basic slideshow element working." />
     <MESSAGE value="dots now work the slider when clicked." />
     <MESSAGE value="content object for slider." />
@@ -594,7 +598,8 @@
     <MESSAGE value="about me text styled. need a different font." />
     <MESSAGE value="background image for about me section and using opacity on most elements." />
     <MESSAGE value="slider improved." />
-    <option name="LAST_COMMIT_MESSAGE" value="slider improved." />
+    <MESSAGE value="slider bug fixed, better styling for experience tab." />
+    <option name="LAST_COMMIT_MESSAGE" value="slider bug fixed, better styling for experience tab." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

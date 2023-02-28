@@ -237,7 +237,7 @@ export default class Cv extends Component {
 
     render() {
         return (
-            <section className="about-me-container" id="about-me">
+            <section className="about-me-section" id="about-me">
                 <div className="about-me-content-wrapper">
                     <div className="headline-wrapper">
                         <p className="headline">About</p>
