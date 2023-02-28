@@ -112,16 +112,14 @@ function slide(lastSlideNr, slideDirection) {
     } else {
         activeSlide.classList.add("start-left");
     }
-    //give time to render elements before adding animation.
-    activeSlide.classList.add("opacity-transition-in");
 
     setTimeout(() => {
         activeSlide.classList.add(slideDirection);
         lastSlide.classList.add(slideDirection);
-    }, 150);
+    }, 100);
     setTimeout(() => {
         lastSlide.classList.add("opacity-transition");
-    }, 700);
+    }, 600);
 }
 
 /**

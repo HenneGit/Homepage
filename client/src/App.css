@@ -80,7 +80,7 @@ button:hover {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: var(--color-dark-lila);
+    background: var(--color-mauve);
     border-radius: 10px;
 }
 

@@ -1,8 +1,6 @@
 .about-me-container {
     display: flex;
-    color: var(--color-text);
     font-family: var(--font-family);
-    background-color: white;
     height: 100vh;
     background-image: url("http://localhost:3000/computer_background_cut.jpg");
     background-size: cover;
@@ -124,7 +122,6 @@
     padding-left: .5vw;
     padding-bottom: 5px;
     height: 90%;
-    opacity: .8;
 }
 
 .menu-active {
@@ -152,7 +149,7 @@
 
 .headline {
     font-weight: lighter;
-    color: var(--color-mauve);
+    color: white;
     height: 100%;
 }
 
@@ -186,26 +183,28 @@
     font-family: var(--font-family-text);
     font-weight: lighter;
     line-height: 35px;
-    background-color: black;
-    opacity: .85;
+    opacity: .9;
     color: white;
-
+    background: rgb(70, 66, 66);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: brightness(30%) blur(50px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 
 }
 
+
+
 .menu-background-1 {
     background-color: var(--color-menu-1);
-    opacity: .7;
 }
 
 .menu-background-2 {
     background-color: var(--color-menu-2);
-    opacity: .7;
 }
 
 .menu-background-3 {
     background-color: var(--color-menu-3);
-    opacity: .7;
 }
 
 .about-me-text p {
