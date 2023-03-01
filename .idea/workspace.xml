@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="letter grid in empty section. Styling for projects.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="bug in lettergrid fixed.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/display/js/letter_grid.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/display/js/letter_grid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/Aboutme.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/Aboutme.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/css/aboutme.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/css/aboutme.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/css/experience.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/css/experience.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/css/viewport.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/css/viewport.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,14 +206,7 @@
       <workItem from="1677491674983" duration="15032000" />
       <workItem from="1677568725285" duration="9007000" />
       <workItem from="1677599063364" duration="6597000" />
-      <workItem from="1677653829650" duration="8657000" />
-    </task>
-    <task id="LOCAL-00049" summary="about me section layout done.">
-      <created>1676796192368</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1676796192368</updated>
+      <workItem from="1677653829650" duration="10238000" />
     </task>
     <task id="LOCAL-00050" summary="about me layout improved and dynamic links for content display.">
       <created>1676799191714</created>
@@ -548,7 +544,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677663040365</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="bug in lettergrid fixed.">
+      <created>1677663132570</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1677663132570</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -566,7 +569,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="unhide slide on menu click. better positioning of content elements." />
     <MESSAGE value="better sliding effect and positioning of slides." />
     <MESSAGE value="some renaming and content change animation finished." />
     <MESSAGE value="my projects items styled and git added." />
@@ -591,7 +593,8 @@
     <MESSAGE value="smoother blur effect." />
     <MESSAGE value="chess skill level bug fixed" />
     <MESSAGE value="letter grid in empty section. Styling for projects." />
-    <option name="LAST_COMMIT_MESSAGE" value="letter grid in empty section. Styling for projects." />
+    <MESSAGE value="bug in lettergrid fixed." />
+    <option name="LAST_COMMIT_MESSAGE" value="bug in lettergrid fixed." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -614,11 +617,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/components/display/Display.jsx</url>
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/client/src/components/aboutme/Aboutme.jsx</url>
-          <line>234</line>
-          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

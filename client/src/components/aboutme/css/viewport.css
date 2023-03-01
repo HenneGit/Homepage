@@ -31,8 +31,20 @@
         font-size: 5rem;
 
     }
-
+    .experience-item  {
+        margin-bottom: 1rem;
+    }
+    .experience-container h2 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-size: 2em;
+    }
+    .experience-container p {
+        margin-bottom: 1rem;
+        font-size: .8em;
+    }
 }
+
 
 @media only screen and (max-height: 640px) {
     .headline-wrapper p {
@@ -50,7 +62,7 @@
     }
 }
 
-@media only screen and (max-height: 740px) {
+@media only screen and (max-height: 800px) {
     .about-me-text p {
         font-size: .9em;
     }

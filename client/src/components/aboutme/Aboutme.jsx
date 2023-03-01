@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import './css/aboutme.css';
 import './css/slider.css';
-import './css/viewport.css';
 import './css/experience.css';
+import './css/viewport.css';
 import bewerbung from '../../assets/bewerbung_hoch.jpg'
 import {faGit} from "@fortawesome/free-brands-svg-icons";
 import {faLinkedin} from "@fortawesome/free-brands-svg-icons";
@@ -49,39 +49,43 @@ export default class Cv extends Component {
                                 <h2>Work</h2>
                                 <div>
                                     <div className="experience-item">
+                                        <h3>2021 - 2022</h3>
+                                        <h4>Software Developer- proventis GmbH</h4>
+                                        <p>Backend Development of BlueAnt, Bugfixing. Java, JavaScript, CSS</p>
+                                        <p></p>
+                                    </div>
+                                    <div className="experience-item">
+                                        <h3>2018 - 2021</h3>
+                                        <h4>Vocational training Software Developer- proventis GmbH</h4>
+                                        <p>Bugfixing, Development of webapp DemoTool. Java, JavaScript, CSS</p>
+
+                                    </div>
+                                    <div className="experience-item">
                                         <h3>2013 - 2016</h3>
                                         <h4>Product Manager - Infernum Productions</h4>
-                                        <p>Responsible for managing the games Brick-Force and Hazard Ops. Task with
+                                        <p>Responsible for managing the games Brick-Force and Hazard Ops. Tasked with
                                             Concept
                                             Writing, Developer Communcation, maintaining ingame economy, ingame
                                             sales.</p>
                                     </div>
-                                    <div className="experience-item">
-                                        <h3>2018 - 2021</h3>
-                                        <h4>Apprenticeship Software Developer- Proventis GmbH</h4>
-                                        <p>Bugfixing, Development of webapp DemoTool</p>
 
-                                    </div>
-                                    <div className="experience-item">
-                                        <h3>2021 - 2022</h3>
-                                        <h4>Software Developer- Proventis GmbH</h4>
-                                        <p></p>
-                                    </div>
+
                                 </div>
                             </div>
                             <div id="education-div" className="experience-container-column">
                                 <h2>Education</h2>
                                 <div>
                                     <div className="experience-item">
-                                        <h3>2008</h3>
-                                        <h4>Bachelor Media Science - Marburg University</h4>
-                                        <p>Mediaamateurs and genius Delitants - The way to internet fame</p>
-                                    </div>
-                                    <div className="experience-item">
                                         <h3>2021</h3>
                                         <h4>Fachinformatik - OSZimt Berlin</h4>
                                         <p>Commentfunction for polymorph entities</p>
                                     </div>
+                                    <div className="experience-item">
+                                        <h3>2008</h3>
+                                        <h4>Bachelor Media Science - Marburg University</h4>
+                                        <p>Mediaamateurs and genius Delitants - The way to internet fame</p>
+                                    </div>
+
                                 </div>
                             </div>
                             <div></div>
@@ -129,20 +133,29 @@ export default class Cv extends Component {
                     <div id="content-box">
                         <div className="about-me-text">
                             <h2>Welcome to my personal homepage</h2>
-                            <p>Willkommen auf meiner persönlichen Webseite! Hier präsentiere ich meine neuesten Projekte und Ideen, die ich in meiner Freizeit entwickle. Ein Übersiche findest du
-                                unter <a className="link link-effect" onClick={this.onProjectsClick}>My Projects</a> </p>
-                                <p>
-                                Das jüngste Projekt ist ein Schachspiel, das ich programmiert habe um mich in Javascript einzuarbeiten.
-                                Ziel war es alle Zuglogiken selbst zu implementieren und im letzen Schritt das Spiel  gegen die  Open Source Schach Engine Stockfish als Computergegner möglich zu machen.
-                                Falls dich der Code des Spiels interessiert, ist dieser auf <a target="_blank" className="link link-effect" href="https://github.com/HenneGit/Homepage/tree/main/client/src/components/chess">GitHub</a> einsehbar.
+                            <p>Willkommen auf meiner persönlichen Webseite! Hier präsentiere ich meine neuesten Projekte
+                                und Ideen, die ich in meiner Freizeit entwickle. Ein Übersiche findest du
+                                unter <a className="link link-effect" onClick={this.onProjectsClick}>My Projects</a></p>
+                            <p>
+                                Das jüngste Projekt ist ein Schachspiel, das ich programmiert habe um mich in Javascript
+                                einzuarbeiten.
+                                Ziel war es alle Zuglogiken selbst zu implementieren und im letzen Schritt das Spiel
+                                gegen die Open Source Schach Engine Stockfish als Computergegner möglich zu machen.
+                                Falls dich der Code des Spiels interessiert, ist dieser auf <a target="_blank"
+                                                                                               className="link link-effect"
+                                                                                               href="https://github.com/HenneGit/Homepage/tree/main/client/src/components/chess">GitHub</a> einsehbar.
                                 Ich freue mich über immer über Feedback und Vorschläge für Verbesserungen.
-                                </p>
-                                <p>Ich werde auch in Zukunft diese Seite nutzen um Ideen umzusetzen oder um neue Technologien zu erlernen.
-                                Wenn du Fragen oder Kommentare hast oder einfach nur Hallo sagen möchtest, schreib mir doch eine Nachricht über das <a className="link link-effect" href="#contact">Kontaktformular</a>. Ich würde mich sehr freuen, von dir zu hören!
-                                </p>
-                                <p>
+                            </p>
+                            <p>Ich werde auch in Zukunft diese Seite nutzen um Ideen umzusetzen oder um neue
+                                Technologien zu erlernen.
+                                Wenn du Fragen oder Kommentare hast oder einfach nur Hallo sagen möchtest, schreib mir
+                                doch eine Nachricht über das <a className="link link-effect"
+                                                                href="#contact">Kontaktformular</a>. Ich würde mich sehr
+                                freuen, von dir zu hören!
+                            </p>
+                            <p>
                                 Schön, dass du vorbeigeschaut hast!
-                                </p>
+                            </p>
                         </div>
                     </div>
                 </>
