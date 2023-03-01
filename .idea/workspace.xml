@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="empty section to cover up between background images. display js moved to its own file.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="smoother blur effect.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/Aboutme.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/Aboutme.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/aboutme.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/css/aboutme.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/experience.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/css/experience.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/slider.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/css/slider.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/viewport.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/css/viewport.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -208,14 +203,7 @@
       <workItem from="1677491674983" duration="15032000" />
       <workItem from="1677568725285" duration="9007000" />
       <workItem from="1677599063364" duration="6597000" />
-      <workItem from="1677653829650" duration="1289000" />
-    </task>
-    <task id="LOCAL-00046" summary="add &quot;draw&quot; as game result.">
-      <created>1676722290556</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1676722290556</updated>
+      <workItem from="1677653829650" duration="1517000" />
     </task>
     <task id="LOCAL-00047" summary="some methods extracted for better overview.">
       <created>1676724172681</created>
@@ -553,7 +541,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677606658808</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="smoother blur effect.">
+      <created>1677655148981</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1677655148982</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -571,7 +566,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="dots now work the slider when clicked." />
     <MESSAGE value="content object for slider." />
     <MESSAGE value="own css file for slider. parse string to int." />
     <MESSAGE value="unhide slide on menu click. better positioning of content elements." />
@@ -596,19 +590,20 @@
     <MESSAGE value="slider improved." />
     <MESSAGE value="slider bug fixed, better styling for experience tab." />
     <MESSAGE value="empty section to cover up between background images. display js moved to its own file." />
-    <option name="LAST_COMMIT_MESSAGE" value="empty section to cover up between background images. display js moved to its own file." />
+    <MESSAGE value="smoother blur effect." />
+    <option name="LAST_COMMIT_MESSAGE" value="smoother blur effect." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/components/chess/Chess.jsx</url>
-          <line>704</line>
+          <line>705</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/components/chess/Chess.jsx</url>
-          <line>1381</line>
+          <line>1385</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">

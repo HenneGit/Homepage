@@ -195,6 +195,7 @@ export default class Chess extends Component {
                 playerColor = "white"
             }
             let skillLevel = document.getElementById("difficulty").value;
+            console.log(skillLevel);
             setUpEngine(skillLevel);
             turnNumber = 0;
             board = null;
@@ -725,6 +726,9 @@ export default class Chess extends Component {
         }
 
         function setUpEngine(skill) {
+            console.log(difficulty[5]);
+            console.log(skill);
+
             let skillLevel = 0;
             switch (skill) {
                 case difficulty[0]:
@@ -747,7 +751,7 @@ export default class Chess extends Component {
                     stockfish.postMessage("setoption name Skill Level Maximum Error value 10\n");
                     stockfish.postMessage("setoption name Skill Level Probability value 1\n");
                     break;
-                case difficulty[5]:
+                case difficulty[4]:
                     skillLevel = 20;
                     stockfish.postMessage("setoption name Skill Level Maximum Error value 0\n");
                     stockfish.postMessage("setoption name Skill Level Probability value 0\n");
@@ -757,7 +761,7 @@ export default class Chess extends Component {
                     stockfish.postMessage("setoption name Skill Level Maximum Error value 100\n");
                     stockfish.postMessage("setoption name Skill Level Probability value 1\n");
             }
-
+            console.log(skillLevel);
             stockfish.postMessage("uci\n");
             stockfish.postMessage("setoption name Skill Level value " + skillLevel + "\n");
             stockfish.postMessage("isready\n");
