@@ -8,18 +8,29 @@ export default class Emptysection extends Component {
     }
 
     componentDidMount() {
+        function isInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight));
+        }
 
-        // initLetterGrid("letter-container")
+        document.addEventListener('scroll', async function () {
+            let letterContainer = document.getElementById("letter-container");
+            if (isInViewport(letterContainer)) {
+                initLetterGrid("letter-container", "chess", false, "chess-pixel");
+            }
 
+        });
 
     }
 
 
     render() {
         return (
-          <section className="empty-section">
-              <div className="letter-container"></div>
-          </section>
+            <section className="empty-section">
+                <div id="letter-container" className="letter-container"></div>
+            </section>
         );
     }
 }

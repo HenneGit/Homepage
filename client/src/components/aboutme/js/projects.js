@@ -62,14 +62,16 @@ export function renderProject(project) {
     container.classList.add("project-container");
     let h2 = document.createElement("h2");
     h2.innerText = headline;
-    let desc = document.createElement("h3");
-    desc.innerText = "Technology:";
-    let tech = document.createElement("p");
-    tech.innerText = technology;
+    let technologyDiv = document.createElement("div");
+    let tech = document.createElement("h3");
+    tech.innerText = "Technology:";
+    let techP = document.createElement("p");
+    techP.innerText = technology;
+    technologyDiv.append(tech, techP)
     let paragraph = document.createElement("p");
     paragraph.innerText = description;
 
-    container.append(h2, paragraph, desc, tech);
+    container.append(h2, paragraph, technologyDiv);
     if (gitClone !== null) {
         container.appendChild(gitClone);
     }

@@ -4,10 +4,13 @@ import {letters} from './letters.js';
  * inits the page, collects active pixels and sets animation for appearing.
  * @returns {Promise<void>}
  */
-export function initLetterGrid(displayContainerId) {
+export function initLetterGrid(displayContainerId, word, addAnimation, pixelStyle) {
     console.log(displayContainerId)
     let contentDiv = document.getElementById(displayContainerId);
-     buildLetterGrid("hello", contentDiv);
+    if (contentDiv.children.length > 0) {
+        return;
+    }
+    buildLetterGrid(word, contentDiv);
     const pixels = contentDiv.querySelectorAll('.pixel-active');
 
     let array = [];
@@ -17,16 +20,16 @@ export function initLetterGrid(displayContainerId) {
     }
     shuffle(array);
     let timer = setInterval(function () {
-        const pix = document.getElementById(array[i]);
+        const pix = contentDiv.querySelector("#" + array[i]);
         if (pix === undefined || pix === null) {
             clearInterval(timer);
 
         }
-        pix.classList.add('fade');
+        pix.classList.add(pixelStyle);
         i++;
         if (i === pixels.length) {
             clearInterval(timer);
-            complete(displayContainerId);
+            complete(displayContainerId,word, addAnimation);
         }
     }, 10);
 
@@ -51,6 +54,9 @@ async function movePixels() {
  */
 async function startAnimationAndResolve(row) {
     let blinkSquare = document.getElementsByClassName("blink");
+    if (blinkSquare === undefined || blinkSquare === null) {
+        return;
+    }
     Array.from(blinkSquare).forEach(el => el.classList.remove("blink"));
 
     return new Promise(resolve => {
@@ -98,8 +104,9 @@ function shuffle(array) {
 /**
  * Pics random pixel. Sets timeout for pixel to add blinking class.
  */
-async function complete(displayContainerId) {
-    let pixels = document.querySelectorAll('.pixel-active');
+async function complete(displayContainerId,word, addAnimation) {
+    let contentDiv = document.getElementById(displayContainerId);
+    let pixels = contentDiv.querySelectorAll('.pixel-active');
 
     //pick random pixel and append tooltip.
     let x = Math.floor(Math.random() * Math.floor(pixels.length));
@@ -109,19 +116,20 @@ async function complete(displayContainerId) {
     //add event to tooltip
     pix.addEventListener('click', async function () {
         await movePixels();
-        let contentDiv = document.getElementById(displayContainerId);
         //reset pixels.
         setTimeout(() => {
             removeChildren(contentDiv);
-            initLetterGrid(displayContainerId);
+            initLetterGrid(displayContainerId, word, addAnimation);
         }, 500)
     });
+    if (addAnimation) {
 
-    setTimeout(() => {
-        pix.classList.add('blink');
-    }, 1);
+        setTimeout(() => {
+            pix.classList.add('blink');
+        }, 1);
 
-    pix.classList.add('enter');
+        pix.classList.add('enter');
+    }
 }
 
 
@@ -144,6 +152,11 @@ function getShuffledRows() {
     return rowIds;
 }
 
+/**
+ * sets up the letters and appends them to chosen container.
+ * @param word the word to build the letters for.
+ * @param container the container to append the letters to.
+ */
 function buildLetterGrid(word, container) {
     let letterCount = 0;
     while (letterCount < word.length) {
@@ -165,7 +178,7 @@ function buildLetterGrid(word, container) {
         container.appendChild(letterDiv);
         letterCount++;
     }
-    initLetters(word);
+    initLetters(word, container);
 }
 
 /**
@@ -173,24 +186,24 @@ function buildLetterGrid(word, container) {
  * @param word the word to display.
  * @returns {Promise<void>}
  */
-function initLetters(word) {
+function initLetters(word, containerDiv) {
     let chars = Array.from(word);
     let l = 0;
     for (let char of chars) {
         for (let id of letters[char.toUpperCase()]) {
-            let pixel = document.getElementById('l' + l + id);
+            let pixel = containerDiv.querySelector('#l' + l + id);
             pixel.classList.add('pixel-active');
         }
         l++;
     }
-    cleanLetters();
+    cleanLetters(containerDiv);
 }
 
 /**
  * remove pixel columns without active pixels.
  */
-function cleanLetters() {
-    let letters = document.querySelectorAll('.letter-box');
+function cleanLetters(containerDiv) {
+    let letters = containerDiv.querySelectorAll('.letter-box');
     let columnNumber = ['c0', 'c1', 'c2', 'c3', 'c4'];
 
     for (let letter of letters) {

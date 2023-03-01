@@ -1,4 +1,19 @@
 .empty-section {
-    height: 30vh;
+    height: 40vh;
+    background-color: var(--color-grey);
+}
+
+.letter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+letter-container.letter-box div {
     background-color: white;
+}
+
+.chess-pixel {
+    border: 1px solid var(--color-mauve);
+    opacity: 1;
 }

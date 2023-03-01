@@ -725,6 +725,10 @@ export default class Chess extends Component {
             }
         }
 
+        /**
+         * set up skill level for engine according to players choice.
+         * @param skill the skill level.
+         */
         function setUpEngine(skill) {
             console.log(difficulty[5]);
             console.log(skill);
@@ -769,6 +773,9 @@ export default class Chess extends Component {
             stockfish.postMessage("isready\n");
         }
 
+        /**
+         * sends the current board to stockfish and starts the engine move process.
+         */
         function makeEngineMove() {
             let fenString = generateFENString(board, boardHistory, halfMoves);
             stockfish.postMessage("position fen " + fenString + "\n");

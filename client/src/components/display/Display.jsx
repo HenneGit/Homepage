@@ -14,7 +14,7 @@ export default class Display extends Component {
         document.getElementById("arrow-down").addEventListener('click', function () {
             document.getElementById('about-me').scrollIntoView();
         });
-        initLetterGrid('display-div');
+        initLetterGrid('display-div', "hello", true, 'fade');
 
 
 

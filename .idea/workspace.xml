@@ -4,9 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="smoother blur effect.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="chess skill level bug fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/css/aboutme.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/css/aboutme.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/css/experience.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/css/experience.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/css/slider.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/css/slider.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/js/projects.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/js/projects.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/display/Display.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/display/Display.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/display/js/letter_grid.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/display/js/letter_grid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/display/js/letters.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/display/js/letters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/emptysection/Emptysection.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/emptysection/Emptysection.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/emptysection/emptysection.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/emptysection/emptysection.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,14 +212,7 @@
       <workItem from="1677491674983" duration="15032000" />
       <workItem from="1677568725285" duration="9007000" />
       <workItem from="1677599063364" duration="6597000" />
-      <workItem from="1677653829650" duration="1517000" />
-    </task>
-    <task id="LOCAL-00047" summary="some methods extracted for better overview.">
-      <created>1676724172681</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1676724172681</updated>
+      <workItem from="1677653829650" duration="8274000" />
     </task>
     <task id="LOCAL-00048" summary="comments and better styling for game result dialog.">
       <created>1676734697632</created>
@@ -548,7 +550,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677655148982</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="chess skill level bug fixed">
+      <created>1677655657798</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1677655657798</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -566,7 +575,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="content object for slider." />
     <MESSAGE value="own css file for slider. parse string to int." />
     <MESSAGE value="unhide slide on menu click. better positioning of content elements." />
     <MESSAGE value="better sliding effect and positioning of slides." />
@@ -591,7 +599,8 @@
     <MESSAGE value="slider bug fixed, better styling for experience tab." />
     <MESSAGE value="empty section to cover up between background images. display js moved to its own file." />
     <MESSAGE value="smoother blur effect." />
-    <option name="LAST_COMMIT_MESSAGE" value="smoother blur effect." />
+    <MESSAGE value="chess skill level bug fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="chess skill level bug fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -603,7 +612,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/components/chess/Chess.jsx</url>
-          <line>1385</line>
+          <line>1392</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">

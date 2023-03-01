@@ -35,12 +35,14 @@
 }
 
 
-
 .project-container {
-    display: flex;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 20% 40% 20% 20%;
     flex-direction: column;
     gap: 1rem;
     align-items: start;
+    justify-items: start;
 }
 
 .project-container p {
@@ -48,6 +50,15 @@
     font-size: 1.2vw;
 }
 
+.project-container div {
+    margin-top: 2em;
+}
+
+.project-container h3 {
+    font-size: 1.5vw;
+    margin-bottom: .5em;
+
+}
 
 .slide-container {
     display: grid;
@@ -55,7 +66,7 @@
     grid-row: 2;
     grid-column: 2;
     align-items: center;
-   box-shadow: 3px 3px 5px 0px rgb(51, 46, 46);;
+    box-shadow: 3px 3px 5px 0px rgb(51, 46, 46);;
 }
 
 
@@ -69,9 +80,13 @@
     padding: 2rem 2rem 2rem 2rem;
     background-color: white;
     color: black;
+
 }
 
-
+.slide h2 {
+    color: black;
+    border-bottom: 1px solid black;
+}
 
 .slider-arrow {
     align-self: center;
