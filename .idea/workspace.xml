@@ -4,18 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="slider bug fixed, better styling for experience tab.">
-      <change afterPath="$PROJECT_DIR$/client/src/components/display/js/letter_grid.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/emptysection/Emptysection.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/emptysection/emptysection.css" afterDir="false" />
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="empty section to cover up between background images. display js moved to its own file.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/Aboutme.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/Aboutme.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/aboutme.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/aboutme.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/chess/chess.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/chess.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/display/Display.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/display/Display.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/display/json/letters.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/display/js/letters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/aboutme.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/css/aboutme.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/experience.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/css/experience.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/slider.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/css/slider.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/viewport.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/css/viewport.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,11 +74,11 @@
       <recent name="$PROJECT_DIR$/server" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/src/components/aboutme/css" />
       <recent name="$PROJECT_DIR$/client/public" />
       <recent name="$PROJECT_DIR$/client/src/components/aboutme" />
       <recent name="$PROJECT_DIR$/client/src/components/chess/js" />
       <recent name="$PROJECT_DIR$/client/src/components/display/json" />
-      <recent name="$PROJECT_DIR$/client/src/components/aboutme/json" />
     </key>
   </component>
   <component name="RunManager">
@@ -211,14 +207,8 @@
       <workItem from="1677417725035" duration="2293000" />
       <workItem from="1677491674983" duration="15032000" />
       <workItem from="1677568725285" duration="9007000" />
-      <workItem from="1677599063364" duration="6421000" />
-    </task>
-    <task id="LOCAL-00045" summary="contact error removed and making sure that no empty email is sent.">
-      <created>1674033913165</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1674033913165</updated>
+      <workItem from="1677599063364" duration="6597000" />
+      <workItem from="1677653829650" duration="1289000" />
     </task>
     <task id="LOCAL-00046" summary="add &quot;draw&quot; as game result.">
       <created>1676722290556</created>
@@ -556,7 +546,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677602288457</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="empty section to cover up between background images. display js moved to its own file.">
+      <created>1677606658807</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1677606658808</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -574,7 +571,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="basic slideshow element working." />
     <MESSAGE value="dots now work the slider when clicked." />
     <MESSAGE value="content object for slider." />
     <MESSAGE value="own css file for slider. parse string to int." />
@@ -599,7 +595,8 @@
     <MESSAGE value="background image for about me section and using opacity on most elements." />
     <MESSAGE value="slider improved." />
     <MESSAGE value="slider bug fixed, better styling for experience tab." />
-    <option name="LAST_COMMIT_MESSAGE" value="slider bug fixed, better styling for experience tab." />
+    <MESSAGE value="empty section to cover up between background images. display js moved to its own file." />
+    <option name="LAST_COMMIT_MESSAGE" value="empty section to cover up between background images. display js moved to its own file." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -611,7 +608,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/components/chess/Chess.jsx</url>
-          <line>1375</line>
+          <line>1381</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import './aboutme.css';
-import './slider.css';
-import './viewport.css';
-import './experience.css';
+import './css/aboutme.css';
+import './css/slider.css';
+import './css/viewport.css';
+import './css/experience.css';
 import bewerbung from '../../assets/bewerbung_hoch.jpg'
 import {faGit} from "@fortawesome/free-brands-svg-icons";
 import {faLinkedin} from "@fortawesome/free-brands-svg-icons";
@@ -272,7 +272,7 @@ export default class Cv extends Component {
                                onClick={this.onProjectsClick}>My
                                 Projects</p>
                         </div>
-                        <div id="headline-background" className="headline-background headline"></div>
+                        <div id="headline-background" className="headline-background headline menu-background-1"></div>
                         <div className="content-and-headline opacity-transition-in" id="content-and-headline">
                             {this.renderAboutMe()}
                             {this.renderProjectSlider()}

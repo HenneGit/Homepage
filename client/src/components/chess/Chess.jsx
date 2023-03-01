@@ -744,12 +744,18 @@ export default class Chess extends Component {
                     break;
                 case difficulty[3]:
                     skillLevel = 15;
+                    stockfish.postMessage("setoption name Skill Level Maximum Error value 10\n");
+                    stockfish.postMessage("setoption name Skill Level Probability value 1\n");
                     break;
                 case difficulty[5]:
                     skillLevel = 20;
+                    stockfish.postMessage("setoption name Skill Level Maximum Error value 0\n");
+                    stockfish.postMessage("setoption name Skill Level Probability value 0\n");
                     break;
                 default:
                     skillLevel = 10;
+                    stockfish.postMessage("setoption name Skill Level Maximum Error value 100\n");
+                    stockfish.postMessage("setoption name Skill Level Probability value 1\n");
             }
 
             stockfish.postMessage("uci\n");
