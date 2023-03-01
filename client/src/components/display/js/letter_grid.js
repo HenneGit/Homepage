@@ -29,7 +29,7 @@ export function initLetterGrid(displayContainerId, word, addAnimation, pixelStyl
         i++;
         if (i === pixels.length) {
             clearInterval(timer);
-            complete(displayContainerId,word, addAnimation);
+            complete(displayContainerId,word, addAnimation, pixelStyle);
         }
     }, 10);
 
@@ -104,7 +104,7 @@ function shuffle(array) {
 /**
  * Pics random pixel. Sets timeout for pixel to add blinking class.
  */
-async function complete(displayContainerId,word, addAnimation) {
+async function complete(displayContainerId,word, addAnimation, pixelStyle) {
     let contentDiv = document.getElementById(displayContainerId);
     let pixels = contentDiv.querySelectorAll('.pixel-active');
 
@@ -119,7 +119,7 @@ async function complete(displayContainerId,word, addAnimation) {
         //reset pixels.
         setTimeout(() => {
             removeChildren(contentDiv);
-            initLetterGrid(displayContainerId, word, addAnimation);
+            initLetterGrid(displayContainerId, word, addAnimation, pixelStyle);
         }, 500)
     });
     if (addAnimation) {
