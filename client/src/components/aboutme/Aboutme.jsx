@@ -79,7 +79,7 @@ export default class Cv extends Component {
                                     <div className="experience-item">
                                         <h3>2021</h3>
                                         <h4>Software Developer - OSZimt Berlin</h4>
-                                        <p>Final thesis: Commentfunction for polymorph entities</p>
+                                        <p>Final thesis: Comment function for polymorph entities</p>
                                     </div>
                                     <div className="experience-item">
                                         <h3>2008</h3>
@@ -215,7 +215,6 @@ export default class Cv extends Component {
      */
     setTransitionIn(menuId, backgroundClass) {
         let menuItem = document.getElementById(menuId)
-        menuItem.classList.add(backgroundClass);
         menuItem.classList.add("menu-active");
         setTimeout(() => {
             let contentBox = document.getElementById("content-and-headline");
