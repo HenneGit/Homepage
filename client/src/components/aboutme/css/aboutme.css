@@ -2,7 +2,8 @@
     display: flex;
     font-family: var(--font-family);
     height: 120vh;
-    background-image: url("http://localhost:3000/computer_background.jpg");
+    /*background-image: url("http://localhost:3000/computer_background.jpg");*/
+    background-image: url("/static/media/computer_background.jpg");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;

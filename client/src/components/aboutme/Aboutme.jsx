@@ -49,24 +49,25 @@ export default class Cv extends Component {
                                 <h2>Work</h2>
                                 <div>
                                     <div className="experience-item">
-                                        <h3>2021 - 2022</h3>
-                                        <h4>Software Developer- proventis GmbH</h4>
-                                        <p>Backend Development of BlueAnt, Bugfixing. Java, JavaScript, CSS</p>
+                                        <h3>06/2021 - 12/2022</h3>
+                                        <h4>Software Developer - proventis GmbH</h4>
+                                        <p>Backend Development of BlueAnt (PM Software), Bugfixing, unit testing.</p>
+                                        <p>Java 17, JavaScript, CSS, SQL, Maven.</p>
                                         <p></p>
                                     </div>
                                     <div className="experience-item">
-                                        <h3>2018 - 2021</h3>
-                                        <h4>Vocational training Software Developer- proventis GmbH</h4>
-                                        <p>Bugfixing, Development of webapp DemoTool. Java, JavaScript, CSS</p>
+                                        <h3>09/2018 - 06/2021</h3>
+                                        <h4>Vocational training Software Developer - proventis GmbH</h4>
+                                        <p>Bugfixing, development of webapp DemoTool, Backend Development of BlueAnt (PM Software), unit testing.</p>
+                                        <p>Java 11, JavaScript, CSS, SQL, Quarkus, Maven.</p>
 
                                     </div>
                                     <div className="experience-item">
-                                        <h3>2013 - 2016</h3>
+                                        <h3>01/2013 - 06/2016</h3>
                                         <h4>Product Manager - Infernum Productions</h4>
                                         <p>Responsible for managing the games Brick-Force and Hazard Ops. Tasked with
-                                            Concept
-                                            Writing, Developer Communcation, maintaining ingame economy, ingame
-                                            sales.</p>
+                                            concept writing, developer communcation, maintaining ingame economy, ingame
+                                            sales, kpi controlling, game design.</p>
                                     </div>
 
 
@@ -77,15 +78,14 @@ export default class Cv extends Component {
                                 <div>
                                     <div className="experience-item">
                                         <h3>2021</h3>
-                                        <h4>Fachinformatik - OSZimt Berlin</h4>
-                                        <p>Commentfunction for polymorph entities</p>
+                                        <h4>Software Developer - OSZimt Berlin</h4>
+                                        <p>Final thesis: Commentfunction for polymorph entities</p>
                                     </div>
                                     <div className="experience-item">
                                         <h3>2008</h3>
                                         <h4>Bachelor Media Science - Marburg University</h4>
-                                        <p>Mediaamateurs and genius Delitants - The way to internet fame</p>
+                                        <p>Final thesis: Media amateurs and genius dilettantes - The way to internet fame</p>
                                     </div>
-
                                 </div>
                             </div>
                             <div></div>
@@ -132,29 +132,34 @@ export default class Cv extends Component {
                     <div id="headline" className="content-headline">About me</div>
                     <div id="content-box">
                         <div className="about-me-text">
-                            <h2>Welcome to my personal homepage</h2>
-                            <p>Willkommen auf meiner persönlichen Webseite! Hier präsentiere ich meine neuesten Projekte
-                                und Ideen, die ich in meiner Freizeit entwickle. Ein Übersiche findest du
-                                unter <a className="link link-effect" onClick={this.onProjectsClick}>My Projects</a></p>
+                            <h2>Hello again :),</h2>
                             <p>
-                                Das jüngste Projekt ist ein Schachspiel, das ich programmiert habe um mich in Javascript
-                                einzuarbeiten.
-                                Ziel war es alle Zuglogiken selbst zu implementieren und im letzen Schritt das Spiel
-                                gegen die Open Source Schach Engine Stockfish als Computergegner möglich zu machen.
-                                Falls dich der Code des Spiels interessiert, ist dieser auf <a target="_blank"
-                                                                                               className="link link-effect"
-                                                                                               href="https://github.com/HenneGit/Homepage/tree/main/client/src/components/chess">GitHub</a> einsehbar.
-                                Ich freue mich über immer über Feedback und Vorschläge für Verbesserungen.
-                            </p>
-                            <p>Ich werde auch in Zukunft diese Seite nutzen um Ideen umzusetzen oder um neue
-                                Technologien zu erlernen.
-                                Wenn du Fragen oder Kommentare hast oder einfach nur Hallo sagen möchtest, schreib mir
-                                doch eine Nachricht über das <a className="link link-effect"
-                                                                href="#contact">Kontaktformular</a>. Ich würde mich sehr
-                                freuen, von dir zu hören!
-                            </p>
+                                and welcome to my personal homepage! I made this page to explore new frontend techniques and
+                                showcasing my skills as a developer.
+                                Whether you're a fellow developer, a potential employer, or just someone curious about
+                                my work, I'm excited to have you here.</p>
                             <p>
-                                Schön, dass du vorbeigeschaut hast!
+                                One of my recent projects is a chess game that I built from scratch. I coded all of the
+                                move logic for the pieces myself, and then incorporated the chess engine <a target="_blank" className="link link-effect"
+                                   href="https://github.com/official-stockfish/Stockfish">Stockfish</a> to
+                                enable games against the computer. Why don't you play a round in one of the five skill levels?
+                                If you are interested in the code feel free to have a look at it on <a target="_blank"
+                                                                                                      className="link link-effect"
+                                                                                                      href="https://github.com/HenneGit/Homepage/tree/main/client/src/components/chess">GitHub</a>.
+                                But that's just one example of what I can do. I'm constantly learning and growing as a
+                                developer, and I'm always excited to take on new challenges.
+                                You can have a look at my finished projects <a className="link link-effect"
+                                                                               onClick={this.onProjectsClick}>here</a>.
+                                More to come!
+                            </p>
+                            <p>If you're interested in working with me or just want to chat about my work, don't
+                                hesitate to get in touch.
+                                You can reach me through the <a className="link link-effect"
+                                                                href="#contact">contact form</a> on this page, and I'll
+                                get back to you as soon as I can.
+                            </p>
+                            <p> Thanks for visiting my site, and I hope you enjoy exploring my work as much as I enjoy
+                                creating it!
                             </p>
                         </div>
                     </div>
@@ -210,7 +215,6 @@ export default class Cv extends Component {
      */
     setTransitionIn(menuId, backgroundClass) {
         let menuItem = document.getElementById(menuId)
-        console.log(menuItem);
         menuItem.classList.add(backgroundClass);
         menuItem.classList.add("menu-active");
         setTimeout(() => {

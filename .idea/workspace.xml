@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="bug in lettergrid fixed.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="better texts.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/Aboutme.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/Aboutme.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/css/aboutme.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/css/aboutme.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/css/experience.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/css/experience.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/css/viewport.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/css/viewport.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/js/projects.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/js/projects.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/chess/chess.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/chess.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,14 +207,8 @@
       <workItem from="1677491674983" duration="15032000" />
       <workItem from="1677568725285" duration="9007000" />
       <workItem from="1677599063364" duration="6597000" />
-      <workItem from="1677653829650" duration="10238000" />
-    </task>
-    <task id="LOCAL-00050" summary="about me layout improved and dynamic links for content display.">
-      <created>1676799191714</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1676799191716</updated>
+      <workItem from="1677653829650" duration="11088000" />
+      <workItem from="1677755021534" duration="3512000" />
     </task>
     <task id="LOCAL-00051" summary="highlighting currently selected menu entry.">
       <created>1676800488049</created>
@@ -551,7 +546,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677663132570</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="more viewport adjustments for experience.">
+      <created>1677689686747</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1677689686747</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -569,8 +571,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="better sliding effect and positioning of slides." />
-    <MESSAGE value="some renaming and content change animation finished." />
     <MESSAGE value="my projects items styled and git added." />
     <MESSAGE value="comments and some minor changes." />
     <MESSAGE value="z-index for current slide raised so the git icon is clickable." />
@@ -594,7 +594,9 @@
     <MESSAGE value="chess skill level bug fixed" />
     <MESSAGE value="letter grid in empty section. Styling for projects." />
     <MESSAGE value="bug in lettergrid fixed." />
-    <option name="LAST_COMMIT_MESSAGE" value="bug in lettergrid fixed." />
+    <MESSAGE value="more viewport adjustments for experience." />
+    <MESSAGE value="better texts." />
+    <option name="LAST_COMMIT_MESSAGE" value="better texts." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

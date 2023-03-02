@@ -298,7 +298,8 @@ tr {
 #chess-section {
     display: flex;
     justify-items: center;
-    background-image: url("http://localhost:3000/chess_blur.jpg");
+    /*background-image: url("http://localhost:3000/chess_blur.jpg");*/
+    background-image: url("/static/media/chess_blur.jpg");
     z-index: -2;
     background-size: cover;
     background-position: center center;

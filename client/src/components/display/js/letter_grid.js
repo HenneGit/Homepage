@@ -5,7 +5,6 @@ import {letters} from './letters.js';
  * @returns {Promise<void>}
  */
 export function initLetterGrid(displayContainerId, word, addAnimation, pixelStyle) {
-    console.log(displayContainerId)
     let contentDiv = document.getElementById(displayContainerId);
     if (contentDiv.children.length > 0) {
         return;

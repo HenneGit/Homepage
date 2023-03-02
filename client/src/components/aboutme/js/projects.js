@@ -2,7 +2,8 @@
 
 const website = {
     headline: "This Website",
-    description :"My personal website. You are looking at it. Used to teach myself new skills and put ideas to the test. Will be developed further in the future.",
+    description :"My personal website. After my backend job ended I wanted to explore frontend development more and created this website to teach myself react and showcase my skills." +
+        "As my skills will grow over time, so will this website. ",
     technology: "JavaScript, React, CSS",
     link: "https://github.com/HenneGit/Homepage",
     git: true
@@ -12,17 +13,19 @@ const website = {
 
 const demoTool = {
     headline: "DemoTool",
-    description :"A webapp for creating test data over webservices in the project management software blueAnt. It is used to create demo access for possible customers. Featured a Java Backend and JavaScript Frontend to manage " +
-        "data.",
-    technology: "SOAP, REST, Quarkus, Java, JavaScript, CSS",
+    description :"A stateless webapp build with quarkus for creating data over SOAP and REST webservices in the project management software BlueAnt. The tool creates some projects, resources, todos " +
+        "to showcase the software for a possible customer. Features a Java Backend for communicating with BlueAnt and JavaScript Frontend to manage the data, which is stored in property files. " +
+        "Runs in a docker environment.",
+    technology: "SOAP, REST, Quarkus, Java, JavaScript, CSS, Docker",
     link: null,
     git: false
 }
 
 const immoScraper = {
     headline: "ImmoScraper",
-    description :"A desktop app which crawls ImmoScout for new flats and sends an email, when a new item is found. Very helpful for flat hunting.",
-    technology: "Java 11, JavaFX",
+    description :"A desktop app which crawls ImmoScout every 20 seconds in a headless browser for new flats and sends an email, when a new flat is found. Uses a JavaFX frontend to create a search query for flat. The " +
+        "queries are saved in a CSV file. Super helpful for flat hunting.",
+    technology: "Java 11, JavaFX, HtmlUnit",
     link: "https://github.com/HenneGit/ImmoScraper",
     git: true
 
