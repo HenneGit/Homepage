@@ -142,7 +142,8 @@ export default class Cv extends Component {
                                 One of my recent projects is a chess game that I built from scratch. I coded all of the
                                 move logic for the pieces myself, and then incorporated the chess engine <a target="_blank" className="link link-effect"
                                    href="https://github.com/official-stockfish/Stockfish">Stockfish</a> to
-                                enable games against the computer. Why don't you play a round in one of the five skill levels?
+                                enable games against the computer. Why don't you <a className="link link-effect"
+                                                                                    href="#chess-container">play</a>  a round in one of the five skill levels?
                                 If you are interested in the code feel free to have a look at it on <a target="_blank"
                                                                                                       className="link link-effect"
                                                                                                       href="https://github.com/HenneGit/Homepage/tree/main/client/src/components/chess">GitHub</a>.

@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="console.log removed.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="text files removed, incorrect adding of menu css class removed.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/text.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/text_webseite.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/Aboutme.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/Aboutme.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/css/aboutme.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/css/aboutme.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,14 +204,7 @@
       <workItem from="1677568725285" duration="9007000" />
       <workItem from="1677599063364" duration="6597000" />
       <workItem from="1677653829650" duration="11088000" />
-      <workItem from="1677755021534" duration="3997000" />
-    </task>
-    <task id="LOCAL-00052" summary="fade text in and out.">
-      <created>1676815109161</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1676815109162</updated>
+      <workItem from="1677755021534" duration="4221000" />
     </task>
     <task id="LOCAL-00053" summary="enpassant bug fixed.">
       <created>1676816310688</created>
@@ -552,7 +542,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677758869136</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="text files removed, incorrect adding of menu css class removed.">
+      <created>1677759143790</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1677759143790</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -570,7 +567,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="comments and some minor changes." />
     <MESSAGE value="z-index for current slide raised so the git icon is clickable." />
     <MESSAGE value="contact height reduced." />
     <MESSAGE value="hover effect on slider arrows." />
@@ -595,7 +591,8 @@
     <MESSAGE value="more viewport adjustments for experience." />
     <MESSAGE value="better texts." />
     <MESSAGE value="console.log removed." />
-    <option name="LAST_COMMIT_MESSAGE" value="console.log removed." />
+    <MESSAGE value="text files removed, incorrect adding of menu css class removed." />
+    <option name="LAST_COMMIT_MESSAGE" value="text files removed, incorrect adding of menu css class removed." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
