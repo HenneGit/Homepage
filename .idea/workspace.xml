@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="link to chess added.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="better switch/case in chess. rename empty section to chess display.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/css/aboutme.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/css/aboutme.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/js/projects.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/js/projects.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/emptysection/Emptysection.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chessdisplay/Chessdisplay.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/emptysection/emptysection.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chessdisplay/chessdisplay.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,14 +204,7 @@
       <workItem from="1677568725285" duration="9007000" />
       <workItem from="1677599063364" duration="6597000" />
       <workItem from="1677653829650" duration="11088000" />
-      <workItem from="1677755021534" duration="5143000" />
-    </task>
-    <task id="LOCAL-00054" summary="button size fixed.">
-      <created>1676820979819</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1676820979820</updated>
+      <workItem from="1677755021534" duration="5454000" />
     </task>
     <task id="LOCAL-00055" summary="menu color effect added. needs better colors.">
       <created>1676827429930</created>
@@ -555,7 +542,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677759331345</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="better switch/case in chess. rename empty section to chess display.">
+      <created>1677760307949</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1677760307949</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -573,7 +567,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="contact height reduced." />
     <MESSAGE value="hover effect on slider arrows." />
     <MESSAGE value="some viewport adjustments and better slide-in effect." />
     <MESSAGE value="menu viewpoint adjustments." />
@@ -598,7 +591,8 @@
     <MESSAGE value="console.log removed." />
     <MESSAGE value="text files removed, incorrect adding of menu css class removed." />
     <MESSAGE value="link to chess added." />
-    <option name="LAST_COMMIT_MESSAGE" value="link to chess added." />
+    <MESSAGE value="better switch/case in chess. rename empty section to chess display." />
+    <option name="LAST_COMMIT_MESSAGE" value="better switch/case in chess. rename empty section to chess display." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

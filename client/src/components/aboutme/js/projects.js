@@ -23,8 +23,8 @@ const demoTool = {
 
 const immoScraper = {
     headline: "ImmoScraper",
-    description :"A desktop app which crawls ImmoScout every 20 seconds in a headless browser for new flats and sends an email, when a new flat is found. Uses a JavaFX frontend to create a search query for flat. The " +
-        "queries are saved in a CSV file. Super helpful for flat hunting.",
+    description :"A desktop app which crawls ImmoScout every 20 seconds in a headless browser for new flats and sends an email, when a new flat is found. Uses a JavaFX frontend to create a search query for the desired flat. " +
+        "The queries are stored in a CSV file. Super helpful for flat hunting.",
     technology: "Java 11, JavaFX, HtmlUnit",
     link: "https://github.com/HenneGit/ImmoScraper",
     git: true
