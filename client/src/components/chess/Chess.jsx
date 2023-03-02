@@ -730,37 +730,39 @@ export default class Chess extends Component {
          */
         function setUpEngine(skill) {
             let skillLevel = 0;
+            let errorValue = 0;
+            let probabilityValue = 0;
             switch (skill) {
                 case difficulty[0]:
                     skillLevel = 0;
-                    stockfish.postMessage("setoption name Skill Level Maximum Error value 900\n");
-                    stockfish.postMessage("setoption name Skill Level Probability value 10\n");
+                    errorValue = 900;
+                    probabilityValue = 10;
                     break;
                 case difficulty[1]:
                     skillLevel = 5;
-                    stockfish.postMessage("setoption name Skill Level Maximum Error value 500\n");
-                    stockfish.postMessage("setoption name Skill Level Probability value 3\n");
+                    errorValue = 500;
+                    probabilityValue = 3;
                     break;
                 case difficulty[2]:
                     skillLevel = 10;
-                    stockfish.postMessage("setoption name Skill Level Maximum Error value 100\n");
-                    stockfish.postMessage("setoption name Skill Level Probability value 1\n");
+                    errorValue = 100;
+                    probabilityValue = 1;
                     break;
                 case difficulty[3]:
                     skillLevel = 15;
-                    stockfish.postMessage("setoption name Skill Level Maximum Error value 10\n");
-                    stockfish.postMessage("setoption name Skill Level Probability value 1\n");
+                    errorValue = 10;
+                    probabilityValue = 1;
                     break;
                 case difficulty[4]:
                     skillLevel = 20;
-                    stockfish.postMessage("setoption name Skill Level Maximum Error value 0\n");
-                    stockfish.postMessage("setoption name Skill Level Probability value 0\n");
                     break;
                 default:
                     skillLevel = 10;
-                    stockfish.postMessage("setoption name Skill Level Maximum Error value 100\n");
-                    stockfish.postMessage("setoption name Skill Level Probability value 1\n");
+                    errorValue = 100;
+                    probabilityValue = 1;
             }
+            stockfish.postMessage("setoption name Skill Level Maximum Error value " + errorValue +"\n");
+            stockfish.postMessage("setoption name Skill Level Probability value " + probabilityValue +"\n");
             stockfish.postMessage("uci\n");
             stockfish.postMessage("setoption name Skill Level value " + skillLevel + "\n");
             stockfish.postMessage("isready\n");

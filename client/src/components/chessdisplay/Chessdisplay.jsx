@@ -1,8 +1,8 @@
 import React, {Component} from "react";
-import './emptysection.css';
+import './chessdisplay.css';
 import {initLetterGrid} from '../display/js/letter_grid'
 
-export default class Emptysection extends Component {
+export default class Chessdisplay extends Component {
     constructor() {
         super();
     }
@@ -28,7 +28,7 @@ export default class Emptysection extends Component {
 
     render() {
         return (
-            <section className="empty-section">
+            <section className="chess-display">
                 <div id="letter-container" className="letter-container"></div>
             </section>
         );

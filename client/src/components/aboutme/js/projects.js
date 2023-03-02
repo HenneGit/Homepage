@@ -3,7 +3,7 @@
 const website = {
     headline: "This Website",
     description :"My personal website. After my backend job ended I wanted to explore frontend development more and created this website to teach myself react and showcase my skills." +
-        "As my skills will grow over time, so will this website. ",
+        " As my skills will grow over time, so will this website. ",
     technology: "JavaScript, React, CSS",
     link: "https://github.com/HenneGit/Homepage",
     git: true

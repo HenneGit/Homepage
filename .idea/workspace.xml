@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="text files removed, incorrect adding of menu css class removed.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="link to chess added.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/Aboutme.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/Aboutme.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/css/aboutme.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/css/aboutme.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/js/projects.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/js/projects.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/Chess.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/emptysection/Emptysection.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chessdisplay/Chessdisplay.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/emptysection/emptysection.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chessdisplay/chessdisplay.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,14 +210,7 @@
       <workItem from="1677568725285" duration="9007000" />
       <workItem from="1677599063364" duration="6597000" />
       <workItem from="1677653829650" duration="11088000" />
-      <workItem from="1677755021534" duration="4221000" />
-    </task>
-    <task id="LOCAL-00053" summary="enpassant bug fixed.">
-      <created>1676816310688</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1676816310688</updated>
+      <workItem from="1677755021534" duration="5143000" />
     </task>
     <task id="LOCAL-00054" summary="button size fixed.">
       <created>1676820979819</created>
@@ -549,7 +548,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677759143790</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="link to chess added.">
+      <created>1677759331345</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1677759331345</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -567,7 +573,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="z-index for current slide raised so the git icon is clickable." />
     <MESSAGE value="contact height reduced." />
     <MESSAGE value="hover effect on slider arrows." />
     <MESSAGE value="some viewport adjustments and better slide-in effect." />
@@ -592,7 +597,8 @@
     <MESSAGE value="better texts." />
     <MESSAGE value="console.log removed." />
     <MESSAGE value="text files removed, incorrect adding of menu css class removed." />
-    <option name="LAST_COMMIT_MESSAGE" value="text files removed, incorrect adding of menu css class removed." />
+    <MESSAGE value="link to chess added." />
+    <option name="LAST_COMMIT_MESSAGE" value="link to chess added." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -604,7 +610,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/components/chess/Chess.jsx</url>
-          <line>1385</line>
+          <line>1387</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
