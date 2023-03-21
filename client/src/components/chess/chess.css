@@ -155,7 +155,7 @@ select {
     background: ghostwhite;
     border-radius: 5px;
     padding: 5px;
-    font-size: 1vh;
+    font-size: .6em;
     z-index: 9000;
 
 }

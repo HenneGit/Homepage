@@ -4,9 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="better switch/case in chess. rename empty section to chess display.">
+    <list default="true" id="f4dd4dc5-7268-49ac-9513-277589cd57e7" name="Changes" comment="some text fixes.">
+      <change afterPath="$PROJECT_DIR$/client/src/components/aboutme-mobile/AboutMeMobile.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/aboutme-mobile/about-me-mobile.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/js/projects.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/js/projects.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/Aboutme.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/Aboutme.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/css/aboutme.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/css/aboutme.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/css/experience.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/css/experience.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/aboutme/css/viewport.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/aboutme/css/viewport.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/chess/chess.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/chess/chess.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/contact/Contact.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/contact/Contact.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/contact/contact.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/contact/contact.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +61,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/src/assets/chess" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../java/survey" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -204,14 +214,10 @@
       <workItem from="1677568725285" duration="9007000" />
       <workItem from="1677599063364" duration="6597000" />
       <workItem from="1677653829650" duration="11088000" />
-      <workItem from="1677755021534" duration="5454000" />
-    </task>
-    <task id="LOCAL-00055" summary="menu color effect added. needs better colors.">
-      <created>1676827429930</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1676827429931</updated>
+      <workItem from="1677755021534" duration="6384000" />
+      <workItem from="1677831264136" duration="3512000" />
+      <workItem from="1678181074373" duration="152000" />
+      <workItem from="1679392993936" duration="3897000" />
     </task>
     <task id="LOCAL-00056" summary="menu color effect improved.">
       <created>1676829845919</created>
@@ -549,7 +555,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677760307949</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="some text fixes.">
+      <created>1677760566309</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1677760566309</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -567,7 +580,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="hover effect on slider arrows." />
     <MESSAGE value="some viewport adjustments and better slide-in effect." />
     <MESSAGE value="menu viewpoint adjustments." />
     <MESSAGE value="menu font-size adjusted." />
@@ -592,7 +604,8 @@
     <MESSAGE value="text files removed, incorrect adding of menu css class removed." />
     <MESSAGE value="link to chess added." />
     <MESSAGE value="better switch/case in chess. rename empty section to chess display." />
-    <option name="LAST_COMMIT_MESSAGE" value="better switch/case in chess. rename empty section to chess display." />
+    <MESSAGE value="some text fixes." />
+    <option name="LAST_COMMIT_MESSAGE" value="some text fixes." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,0 +1,45 @@
+.about-me-mobile-section {
+    /*background-image: url("http://localhost:3000/computer_background.jpg");*/
+    background-image: url("/static/media/computer_background.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    height: 100svh;
+}
+
+.about-me-mobile-container {
+    height: 90vh;
+    height: 90svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em 2em 2em 2em;
+    overflow: scroll;
+}
+
+.about-me-image img{
+    height: 30vh;
+}
+
+
+.about-me-text-mobile {
+    display: flex;
+    padding: .5em .5em .5em .5em;
+    flex-direction: column;
+    font-family: var(--font-family-text);
+    font-weight: lighter;
+    font-size: 1em;
+    color: white ;
+
+}
+
+.content-box-mobile {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    animation: blur-in 500ms 200ms forwards;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter:brightness(90%) blur(7px);
+    -webkit-backdrop-filter: blur(5px);
+}

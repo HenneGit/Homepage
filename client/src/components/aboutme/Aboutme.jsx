@@ -140,11 +140,11 @@ export default class Cv extends Component {
                                 my work, I'm excited to have you here.</p>
                             <p>
                                 One of my recent projects is a chess game that I built from scratch. I coded all of the
-                                move logic for the pieces myself, and then incorporated the chess engine <a target="_blank" className="link link-effect"
+                                move logic for the pieces myself, and then incorporated the chess engine <a target="_blank" rel="noopener noreferrer" className="link link-effect"
                                    href="https://github.com/official-stockfish/Stockfish">Stockfish</a> to
                                 enable games against the computer. Why don't you <a className="link link-effect"
                                                                                     href="#chess-container">play</a>  a round in one of the five skill levels?
-                                If you are interested in the code feel free to have a look at it on <a target="_blank"
+                                If you are interested in the code feel free to have a look at it on <a target="_blank" rel="noopener noreferrer"
                                                                                                       className="link link-effect"
                                                                                                       href="https://github.com/HenneGit/Homepage/tree/main/client/src/components/chess">GitHub</a>.
                                 But that's just one example of what I can do. I'm constantly learning and growing as a
@@ -265,10 +265,10 @@ export default class Cv extends Component {
                             <img id="my-picture" src={bewerbung}/>
                         </div>
                         <div className="icons">
-                            <a href="https://github.com/HenneGit" id="git-icon" target="-_blank" className="icon">
+                            <a href="https://github.com/HenneGit" id="git-icon" target="_blank" rel="noopener noreferrer" className="icon">
                                 <FontAwesomeIcon icon={faGit}/>
                             </a>
-                            <a href="https://www.linkedin.com/in/henning-ahrens-52a183b1" target="-_blank"
+                            <a href="https://www.linkedin.com/in/henning-ahrens-52a183b1" target="_blank" rel="noopener noreferrer"
                                className="icon">
                                 <FontAwesomeIcon icon={faLinkedin}/>
                             </a>

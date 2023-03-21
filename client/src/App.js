@@ -1,6 +1,16 @@
 import './App.css';
 import React, {Component} from 'react';
-import {Navigation, Aboutme, Display, Chess, Contact, Footer, StickyMenu, Chessdisplay} from "./components";
+import {
+    Navigation,
+    Aboutme,
+    Display,
+    Chess,
+    Contact,
+    Footer,
+    StickyMenu,
+    Chessdisplay,
+    AboutMeMobile
+} from "./components";
 import {BrowserView, MobileView} from 'react-device-detect';
 
 
@@ -27,7 +37,7 @@ export default class App extends Component {
                     </div>
                 </BrowserView>
                 <MobileView>
-                    <p>Hello, this site is not yet implemented for mobile devices :(.</p>
+                    <AboutMeMobile/>
                 </MobileView>
             </>
         );

@@ -37,7 +37,7 @@ export default class Contact extends Component {
 
             emailjs.sendForm('service_nutnlxd', 'template_wb0h6td', this)
                 .then(function () {
-                    saySomething("Thank you for your message :).");
+                    saySomething("Thank you for your message :)");
                 }, function (error) {
                     saySomething("Something went wrong :(.  Please try again later. ");
                 });
@@ -48,7 +48,7 @@ export default class Contact extends Component {
             while (formContainer.firstChild) {
                 formContainer.removeChild(formContainer.firstChild);
             }
-            let thankYou = document.createElement("h2");
+            let thankYou = document.createElement("span");
             thankYou.classList.add("thank-you-div");
             thankYou.innerText = stringMessage;
             formContainer.append(thankYou);
